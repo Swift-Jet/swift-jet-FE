@@ -1,60 +1,57 @@
 import React from 'react';
-import logoprimary from '../image/logoprimary.png'
+import logoprimary from '../image/logoprimary.png';
+import ArrowCircleLeftOutlinedIcon from '@mui/icons-material/ArrowCircleLeftOutlined';
+import PersonAddAltOutlinedIcon from '@mui/icons-material/PersonAddAltOutlined';
+
+
+
+
 
 
 function NavBar() {
+
+  let Links = [
+      {name:"Flight", link:"/"},
+      {name:"Aircrafts", link:"/"},
+      {name:"Destinations", link:"/"},
+      {name:"Get a Quote", link:"/"},
+      {name:"Blog", link:"/"},
+  ]
+
   return (
-    <div className="absolute top-[0px] left-[0px] bg-white1 w-[1440px] h-[98px] flex flex-row py-0 px-14 box-border items-center justify-between text-base font-body-normal-regular1">
-    <img
-      className="w-[200px] h-[57px] shrink-0 object-cover"
-      alt=""
-      src={logoprimary}
-    />
-    <div className="flex flex-row items-center justify-start gap-[48px]">
-      <div className="flex flex-row items-start justify-center gap-[24px]">
-        <div className="flex flex-col items-start justify-center gap-[4px] text-primary-color1">
-          <div className="relative font-medium">Flights</div>
-          <div className="self-stretch relative bg-primary-color1 h-1 shrink-0" />
-        </div>
-        <div className="flex flex-col items-start justify-center">
-          <div className="relative">Aircrafts</div>
-        </div>
-        <div className="flex flex-col items-start justify-center">
-          <div className="relative">Destinations</div>
-        </div>
-        <div className="flex flex-col items-start justify-center">
-          <div className="relative">Get a Quote</div>
-        </div>
+  <div className="shadow-md  w-full fixed  top-[0px] left-[0px] font-[Poppins] ">
+    <div className="md:flex item-center justify-between bg-white py-4 md:px-10 px-7 sm:px-5 px-3">
+      <div className="font-bold text-sm cursor-pointer flex items-center font-[Poppins] text-rose-900">
+      <img alt=""src={logoprimary}  className=" ml-10 pt-2"/>
       </div>
-      <div className="flex flex-row items-center justify-start gap-[8px] text-black">
-        <div className="relative box-border w-0.5 h-[63px] shrink-0 border-r-[2px] border-solid border-black-200" />
-        <div className="flex flex-row items-center justify-start gap-[24px]">
-          <div className="flex flex-col items-start justify-start gap-[4px]">
-            <div className="relative">Talk To Our Team</div>
-            <div className="relative text-lg font-medium">
+      <ul className='md:flex lg:items-center gap-6 md:pb-0 pb-12 absolute sm:static' >
+          {
+            Links.map((link)=>(
+              <li key={link.name} className='md:relative group hover:text-rose-900 md:my-0 my-7'>
+                <a href='{link.link}'>{link.name}</a>
+                <span className="absolute -bottom-1 right-0 w-0 h-1 bg-rose-900 group-hover:w-full group-hover:transition-all "></span>
+              </li>
+              
+            ))
+          }
+          <li className=" md:block relative box-border w-0.5 h-[50px] border-r-[2px] border-solid border-rose-900 " ></li>
+          <li><div className="relative">Talk To Our Team</div>
+            <div className="relative text-sm font-medium">
               +234 707 8965 234
             </div>
-          </div>
-          <div className="rounded-small bg-primary-color1 h-9 flex flex-row py-0 px-6 box-border items-center justify-center gap-[8px] text-main-background1">
-            <img
-              className="relative w-6 h-6 shrink-0 overflow-hidden"
-              alt=""
-              src="../icn-login4.svg"
-            />
-            <div className="relative font-medium">Sign In</div>
-          </div>
-          <div className="rounded-small box-border h-[38px] flex flex-row py-0 px-6 items-center justify-center gap-[8px] text-primary-color1 border-[2px] border-solid border-primary-color1">
-            <img
-              className="relative w-6 h-6 shrink-0 overflow-hidden"
-              alt=""
-              src="../icn--add-account.svg"
-            />
-            <div className="relative">Register</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+          </li>
+       
+          <button class="text-rose-900 border-2 item-center border-rose-900 hover:bg-rose-900 hover:text-white active:bg-rose-900 font-bold  px-6 py-1 rounded-full outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150 sm: px-3 py-1 md:block"  type="button">
+          <ArrowCircleLeftOutlinedIcon /> Sign In
+          </button>
+          <button class="  text-rose-900 border-2 border-rose-900 hover:bg-rose-900 hover:text-white active:bg-rose-900 font-bold  px-6 py-1 rounded-full outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150- sm: px-3 py-1 md:block" type="button" >
+          <PersonAddAltOutlinedIcon  /> Register
+          </button>
+          
+    </ul>
+    
+   </div> 
+   </div>
   )
 }
 
