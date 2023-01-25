@@ -13,7 +13,7 @@ import "./styles.css";
 
 // import required modules
 import { Autoplay, Pagination, Navigation } from "swiper";
-import FieldBooking from "./FieldBooking.tsx";
+import FieldBooking from "./FieldBooking.js";
 
 export default function App() {
   return (
