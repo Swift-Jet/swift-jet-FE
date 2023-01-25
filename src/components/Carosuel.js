@@ -18,7 +18,7 @@ import { Autoplay, Pagination, Navigation } from "swiper";
 
 export default function App() {
   return (
-    <div className="mt-0">
+    <div className="mt-2">
       <Swiper
         spaceBetween={30}
         centeredSlides={true}
