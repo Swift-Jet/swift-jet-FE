@@ -2,10 +2,8 @@ import React, { useRef, useState } from "react";
 
 import image1 from "../image/image1.png"
 import WELCOMEPAGE from "..//image/WELCOMEPAGE.png"
-
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
-
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
@@ -15,6 +13,7 @@ import "./styles.css";
 
 // import required modules
 import { Autoplay, Pagination, Navigation } from "swiper";
+import FieldBooking from "./FieldBooking.tsx";
 
 export default function App() {
   return (
@@ -34,12 +33,13 @@ export default function App() {
         className="mySwiper"
       >
         <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
-        <SwiperSlide> <img alt="" src={image1} /></SwiperSlide>
-        <SwiperSlide> <img alt="" src={WELCOMEPAGE} /></SwiperSlide>
-       
-  
+          <SwiperSlide> <img alt="" src={image1} /></SwiperSlide>
+          <SwiperSlide> <img alt="" src={WELCOMEPAGE} /></SwiperSlide>
+
+
+        </Swiper>
       </Swiper>
-      </Swiper>
+      <FieldBooking />
     </div>
   );
 }
