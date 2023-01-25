@@ -1,12 +1,19 @@
-import NavBar from './components/NavBar';
-import  './App.css';
+import React from "react";
+import { NavBar,Carosuel } from "./components";
 
-function App() {
-  return (
-    <div className="App">
-      <NavBar />
-    </div>
-  );
-}
 
+const App = () => {
+  
+    return (
+       <div className=" md:container md:mx-auto ">
+         <NavBar />
+         <Carosuel />
+        </div>
+
+       
+  
+    );
+
+  }
+  
 export default App;
