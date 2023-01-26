@@ -94,7 +94,7 @@ export default function NavBar() {
                 <ArrowCircleLeftOutlinedIcon /> Sign In
               </button>
               <button
-                class="text-roe-900 button-1 border-2 border-rose-900 hover:bg-rose-900 hover:text-white active:bg-rose-900 font-bold rounded-full outline-none focus:outline-none ease-linear transition-all duration-150- px-3 py-1 "
+                class="text-rose-900 button-1 border-2 border-rose-900 hover:bg-rose-900 hover:text-white active:bg-rose-900 font-bold rounded-full outline-none focus:outline-none ease-linear transition-all duration-150- px-3 py-1 "
                 type="button"
               >
                 <PersonAddAltOutlinedIcon /> Register
