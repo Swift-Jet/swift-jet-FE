@@ -2,10 +2,8 @@ import React, { useRef, useState } from "react";
 
 import image1 from "../image/image1.png";
 import WELCOMEPAGE from "..//image/WELCOMEPAGE.png";
-
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
-
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
@@ -15,6 +13,7 @@ import "./styles.css";
 
 // import required modules
 import { Autoplay, Pagination, Navigation } from "swiper";
+import FieldBooking from "./FieldBooking.js";
 
 export default function App() {
   return (
@@ -44,6 +43,7 @@ export default function App() {
           </SwiperSlide>
         </Swiper>
       </Swiper>
+      <FieldBooking />
     </div>
   );
 }

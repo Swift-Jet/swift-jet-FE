@@ -16,16 +16,16 @@ export default function NavBar() {
   ];
 
   return (
-    <nav className="w-full bg-white shadow-md font-[poppins]">
-      <div className="justify-between px-4 mx-auto lg:max-w-8xl md:items-center md:flex flex-wrap md:px-8">
-        <div>
-          <div className="flex items-center justify-between py-3 md:py-5 md:block">
+    <nav className="w-full mt-3 bg-white shadow-md font-[poppins] lg:max-w-8xl">
+      <div className="flex flex-wrap justify-between px-4 mx-auto md:items-center md:px-8">
+        <div className="w-full md:w-1/3">
+          <div className="flex items-center justify-between py-3 md:py-5">
             <a href="javascript:void(0)">
-              <img alt="" src={logoprimary} className="Logo pt-2 " />
+              <img alt="" src={logoprimary} className="pt-2 Logo " />
             </a>
             <div className="md:hidden">
               <button
-                className="p-2 text-gray-700 rounded-md outline-none focus:border-gray-400 focus:border"
+                className="p-2 text-gray-700 rounded-md outline-none focus:border-gray-400 focus:border md:hidden"                
                 onClick={() => setNavbar(!navbar)}
               >
                 {navbar ? (
@@ -63,24 +63,24 @@ export default function NavBar() {
         </div>
         <div>
           <div
-            className={`flex-1 justify-self-center pb-3 mt-8 md:block md:pb-0 md:mt-0 ${
+            className={`block text-center md:flex md:justify-end md:items-center ${
               navbar ? "block" : "hidden"
             }`}
           >
-            <ul className="items-center  justify-center space-y-8 md:flex flex-wrap md:space-x-6 md:space-y-0">
+            <ul className="flex-wrap items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">
               {Links.map((link) => (
                 <li
                   key={link.name}
                   className="md:relative group hover:text-rose-900 md:my-0 my-7"
                 >
                   <a href="{link.link}">{link.name}</a>
-                  <span className="absolute -bottom-1 right-0 w-0 h-1 bg-rose-900 group-hover:w-full group-hover:transition-all "></span>
+                  <span className="absolute right-0 w-0 h-1 -bottom-1 bg-rose-900 group-hover:w-full group-hover:transition-all "></span>
                 </li>
               ))}
               <li className="hidden md:block relative box-border w-0.5 h-[50px] border-r-[2px] border-solid border-rose-900 contact-us "></li>
               <li>
                 <div className="relative contact-us">Talk To Our Team</div>
-                <div className="relative contact-us text-sm mb-3 font-medium">
+                <div className="relative mb-3 text-sm font-medium contact-us">
                   +234 707 8965 234
                 </div>
               </li>
@@ -94,7 +94,7 @@ export default function NavBar() {
                 <ArrowCircleLeftOutlinedIcon /> Sign In
               </button>
               <button
-                class="text-roe-900 button-1 border-2 border-rose-900 hover:bg-rose-900 hover:text-white active:bg-rose-900 font-bold rounded-full outline-none focus:outline-none ease-linear transition-all duration-150- px-3 py-1 "
+                class="text-rose-900 button-1 border-2 border-rose-900 hover:bg-rose-900 hover:text-white active:bg-rose-900 font-bold rounded-full outline-none focus:outline-none ease-linear transition-all duration-150- px-3 py-1 "
                 type="button"
               >
                 <PersonAddAltOutlinedIcon /> Register
