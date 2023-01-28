@@ -3,7 +3,7 @@ import NavBar from "../../NavBar";
 
 const Layout = ({ children }) => {
   return (
-    <div className=" md:container md:mx-auto ">
+    <div className="">
       <NavBar />
       <main className="main">{children}</main>
     </div>

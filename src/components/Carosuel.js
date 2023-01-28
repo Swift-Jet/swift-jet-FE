@@ -10,6 +10,7 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 
 import "./styles.css";
+import "../App.css";
 
 // import required modules
 import { Autoplay, Pagination, Navigation } from "swiper";
@@ -17,7 +18,7 @@ import FieldBooking from "./FieldBooking.js";
 
 export default function App() {
   return (
-    <div className="mt-2">
+    <div className="mt-2 slider-div">
       <Swiper
         spaceBetween={30}
         centeredSlides={true}
