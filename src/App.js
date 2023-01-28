@@ -1,19 +1,16 @@
 import React from "react";
-import { NavBar,Carosuel } from "./components";
-
+import { Switch, Route } from "react-router-dom";
+import { NavBar, Carosuel } from "./components";
+import AircraftCategory from "./pages/aircraft-category/AircraftCategory";
+import HomePage from "./pages/home-page/HomePage";
 
 const App = () => {
-  
-    return (
-       <div className=" md:container md:mx-auto ">
-         <NavBar />
-         <Carosuel />
-        </div>
+  return (
+    <Switch>
+      <Route exact path="/" component={HomePage}></Route>
+      <Route path="/aircraft" component={AircraftCategory}></Route>
+    </Switch>
+  );
+};
 
-       
-  
-    );
-
-  }
-  
 export default App;
