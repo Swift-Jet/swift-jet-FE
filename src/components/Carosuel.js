@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 
-import image1 from "../image/image1.png"
-import WELCOMEPAGE from "..//image/WELCOMEPAGE.png"
+import image1 from "../image/image1.png";
+import WELCOMEPAGE from "..//image/WELCOMEPAGE.png";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
@@ -33,10 +33,14 @@ export default function App() {
         className="mySwiper"
       >
         <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
-          <SwiperSlide> <img alt="" src={image1} /></SwiperSlide>
-          <SwiperSlide> <img alt="" src={WELCOMEPAGE} /></SwiperSlide>
-
-
+          <SwiperSlide>
+            {" "}
+            <img alt="" src={image1} />
+          </SwiperSlide>
+          <SwiperSlide>
+            {" "}
+            <img alt="" src={WELCOMEPAGE} />
+          </SwiperSlide>
         </Swiper>
       </Swiper>
       <FieldBooking />
