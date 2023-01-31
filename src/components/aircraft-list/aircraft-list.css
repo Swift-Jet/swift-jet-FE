@@ -1,0 +1,37 @@
+.aircraft-list-head {
+    background-color: #5C0632;
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+.alh-icons,
+.alh-links {
+    /* width: 80%; */
+    margin: auto;
+
+}
+
+.ac-button:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.alh-desc {
+    width: 90%;
+    margin: auto;
+}
+
+.alh-desc-stn {
+ 
+    font-size: 'Aeonik';
+}
+
+.alh-title {
+    font-family: 'Minion Pro';
+    font-weight: 600;
+}
+.ac-card-div{
+    width: 90%;
+    margin: auto;
+    margin-top: 50px;
+}

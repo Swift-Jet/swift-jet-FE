@@ -8,15 +8,15 @@ export default function NavBar() {
   const [navbar, setNavbar] = useState(false);
 
   let Links = [
-    { name: "Flight", link: "/" },
-    { name: "Aircrafts", link: "/" },
-    { name: "Destinations", link: "/" },
+    { name: "Flight", link: "/aircraft" },
+    { name: "Aircrafts", link: "/aircraft-category" },
+    { name: "Destinations", link: "/destination" },
     { name: "Get a Quote", link: "/" },
     // {name:"Blog", link:"/"},
   ];
 
   return (
-    <nav className="w-full mt-3 bg-white shadow-md font-[poppins] lg:max-w-8xl">
+    <nav className="w-full mt-0 bg-white shadow-md font-[poppins] lg:max-w-8xl">
       <div className="flex flex-wrap justify-between px-4 mx-auto md:items-center md:px-8">
         <div className="w-full md:w-1/3">
           <div className="flex items-center justify-between py-3 md:py-5">
@@ -73,7 +73,7 @@ export default function NavBar() {
                   key={link.name}
                   className="md:relative group hover:text-rose-900 md:my-0 my-7"
                 >
-                  <a href="{link.link}">{link.name}</a>
+                  <a href={link.link}>{link.name}</a>
                   <span className="absolute right-0 w-0 h-1 -bottom-1 bg-rose-900 group-hover:w-full group-hover:transition-all "></span>
                 </li>
               ))}

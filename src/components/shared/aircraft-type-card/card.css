@@ -1,6 +1,12 @@
-.ac-group-list{
-    width: 60%;
+.ac-group-list {
+    /* width: 60%; */
     margin: auto;
     margin-bottom: 50px;
     text-align: center;
+}
+
+@media (max-width: 1017px) {
+    .ac-group-list {
+        width: 80%;
+    }
 }
