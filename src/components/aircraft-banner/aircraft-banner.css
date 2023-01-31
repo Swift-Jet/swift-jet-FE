@@ -1,31 +1,39 @@
 @import url("https://fonts.googleapis.com/css2?family=Tiro+Kannada&display=swap");
 
 .aircraft-banner-body {
-    background-image: url('../../image/aircraft-banner.svg');
+    /* background-image: url('../../image/aircraft-banner.svg'); */
     background-size: cover;
     background-position: center;
-    height: 368px;
+    height: 400px;
 }
-.aircraft-banner-body-div{
+
+.aircraft-banner-body-div {
     width: 70%;
     margin: auto;
     padding-top: 5rem;
 }
-.ac-title{
+
+.ac-title {
     color: #fff;
     font-size: 2.25rem;
     font-weight: 700;
     font-family: 'Minion Pro';
 }
-.ac-search-btn{
+
+.ac-search-btn {
     background-color: #5C0632;
     color: #ffffff !important;
 }
-.ac-stn-quote{
+
+.ac-stn-quote {
     font-family: 'Aeonik';
-font-style: normal;
-font-weight: 400;
-font-size: 24px;
-line-height: 30px;
-color: #989494;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 30px;
+    color: #989494;
+}
+.ac-card-div{
+    width: 90%;
+    margin: auto;
 }

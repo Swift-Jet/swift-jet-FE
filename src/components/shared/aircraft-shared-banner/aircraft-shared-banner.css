@@ -1,0 +1,6 @@
+#aircraft-banner-body {
+    /* background-image: url('../../image/aircraft-banner.svg'); */
+    background-size: cover;
+    background-position: center;
+    height: 350px;
+}

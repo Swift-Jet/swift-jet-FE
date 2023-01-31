@@ -4,10 +4,10 @@ import "./card.css";
 const Card = () => {
   return (
     <div>
-      <div class="max-w-sm bg-white  border-gray-200 rounded-lg mt-8 mb-8 ac-group-list">
+      <div class="max-w-sm bg-white  border-gray-200 rounded-lg mt-8 mb-8 2xl:w-3/5 xl:w-3/5 lg:w-3/5 md:w-3/5 sm:w-4/5 ac-group-list">
         <a href="#">
           <img
-            class="rounded-full"
+            class="rounded-full py-4 px-4 border border-[#EDCADC] border-4"
             src="https://thumbs.dreamstime.com/b/air-travel-concept-jet-above-clouds-square-composition-39585443.jpg"
             alt=""
           />
@@ -15,15 +15,14 @@ const Card = () => {
         
         <div class="p-5">
           <a href="#">
-            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-black">
-              Noteworthy technology acquisitions 2021
+            <h5 class="mb-2 text-2xl font-bold tracking-tight text-[#4D4D4D]">
+            Turboprop
             </h5>
           </a>
           <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
-            Here are the biggest enterprise technology acquisitions of 2021 so
-            far, in reverse chronological order.
+          Propeller Aircraft are the most economical choice for short to mid-range trips. While operating in and out of regional airports with short runways, propeller aircraft can cruise at speeds of 300 knots and non-stop ranges of about 1,500 miles, with an average flight duration of approximately 3 hours.
           </p>
-          <button class="bg-white-500 hover:bg-white-700 border text-[#5C0632] font-bold py-4 px-12 rounded-full">
+          <button class="bg-white-500 hover:bg-[#5C0632] hover:text-white border text-[#5C0632] font-bold py-4 px-12 rounded-full">
             View All Turboprop
           </button>
         </div>
