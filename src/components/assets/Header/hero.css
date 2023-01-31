@@ -1,8 +1,6 @@
-.hero {
-    background-image: url("../../../image/WELCOMEPAGE.png");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    height: 70vh;
-    width: 100%;
-  }
+.grid {
+  color: #fff;
+  text-align: center;
+  font-size: 1.4em;
+  padding: 1em 2em;
+}
