@@ -11,6 +11,17 @@
 
 }
 
+.acb-icons,
+.acb-links {
+    /* width: 80%; */
+    margin: auto;
+    background-color: #fff;
+    padding-left: 0.5rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0rem;
+    border-radius: 10px 10px 0px 0px;
+
+}
 .ac-button:focus {
     outline: none;
     box-shadow: none;
