@@ -3,7 +3,13 @@ import logoprimary from "../image/logoprimary.png";
 import ArrowCircleLeftOutlinedIcon from "@mui/icons-material/ArrowCircleLeftOutlined";
 import PersonAddAltOutlinedIcon from "@mui/icons-material/PersonAddAltOutlined";
 import "../components/styles.css";
+<<<<<<< Updated upstream
  
+=======
+import { Button } from '@mui/material';
+import { Link } from 'react-router-dom';
+
+>>>>>>> Stashed changes
 
 export default function NavBar() {
     return (
@@ -17,6 +23,7 @@ export default function NavBar() {
                                 <img src={logoprimary} class="w-36 " alt="tailus logo" width="144" height="68" />
                             </a>
 
+<<<<<<< Updated upstream
                             <div class="flex items-center md:hidden max-h-10">
                                 <label role="button" for="toggle_nav" aria-label="humburger" id="hamburger" class="relative z-40 px-2 py-3 sm:-mr-6">
                                     <div id="line"
@@ -27,9 +34,21 @@ export default function NavBar() {
                                 </label>
                             </div>
                         </div>
+=======
+
+  let Links = [
+    { name: "Flight", link: "/aircraft" },
+    { name: "Aircrafts", link: "/aircraft-category" },
+    { name: "Destinations", link: "/destination" },
+    { name: "Get a Quote", link: "/" },
+    
+    // {name:"Blog", link:"/"},
+  ];
+>>>>>>> Stashed changes
 
                         <label role="button" for="toggle_nav" class="fixed w-full z-30 h-full top-0 left-0 bg-gray-700 bg-opacity-40 hidden peer-checked:block md:peer-checked:hidden"></label>
 
+<<<<<<< Updated upstream
                         <div class="flex z-50 flex-col md:flex-row justify-between 
                 items-center gap-y-4 p-6 bg-white dark:bg-white md:w-8/12 
                 md:gap-y-4 md:p-0 
@@ -101,6 +120,40 @@ export default function NavBar() {
                     </div>
                 </div>
             </nav>
+=======
+            <div className="mt-3 space-y-2 lg:hidden md:inline-block">
+              
+              <button
+                class=" button-1 text-rose-900  border-2 item-center border-rose-900 hover:bg-rose-900 hover:text-white active:bg-rose-900 font-bold rounded-full outline-none focus:outline-none  ease-linear transition-all duration-150  px-3 py-1"
+                type="button" 
+              >
+                <ArrowCircleLeftOutlinedIcon /> Sign In
+              </button>
+              
+             <button
+                class="text-rose-900 button-1 border-2 border-rose-900 hover:bg-rose-900 hover:text-white active:bg-rose-900 font-bold rounded-full outline-none focus:outline-none ease-linear transition-all duration-150- px-3 py-1 "
+                type="button"
+              >
+                <PersonAddAltOutlinedIcon /> Register
+              </button>
+              </div>
+          </div>
+        </div>
+        <div className="hidden space-x-2 md:inline-block">
+        
+          <Button href="./signInlayout"
+            class="text-rose-900 button-2  border-2 item-center border-rose-900 hover:bg-rose-900 hover:text-white active:bg-rose-900 font-bold rounded-full outline-none focus:outline-none  ease-linear transition-all duration-150  px-3 py-1"
+            type="button" id="myBtn"
+          >
+            <ArrowCircleLeftOutlinedIcon /> Sign In
+          </Button>
+          <Button href="./registration"
+            class="text-rose-900 button-2  border-2 border-rose-900 hover:bg-rose-900 hover:text-white active:bg-rose-900 font-bold rounded-full outline-none focus:outline-none ease-linear transition-all duration-150- px-3 py-1 "
+            type="button" id="myBtn"
+          >
+            <PersonAddAltOutlinedIcon /> Register
+          </Button>
+>>>>>>> Stashed changes
         </div>
     );
 }
