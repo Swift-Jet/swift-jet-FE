@@ -1,53 +1,55 @@
-import LocationAndMapLocationPin1 from "./assets/LocationAndMapLocationPin1";
 import React, { useState, useContext } from "react";
-import BusinessCalendar from "./assets/BusinessCalendar";
-import BusinessCalendar1 from "./assets/BusinessCalendar1";
-import UsersAccount from "./assets/UsersAccount";
-import LocationAndMapLocationPin from "./assets/LocationAndMapLocationPin";
+import { withRouter } from "react-router";
 import AircraftInput from "./shared/aircraft-input/AircraftInput";
-import ListComponent from "./list-component/ListComponent";
 import "./styles.css";
+import { AirportsContext } from "../context/airport-context";
 import { AircraftsContext } from "../context/aircraft-context";
 import AircraftBtn from "./shared/aircraft-shared-button/AircraftBtn";
+import { useHistory } from "react-router-dom";
 const FieldBooking = () => {
   const [showAircraft, setShowAircraft] = useState(true);
   const [showAircraftDest, setShowAircraftDest] = useState(true);
   const [searchInput, setSearchInput] = useState("");
   const [filteredResults, setFilteredResults] = useState([]);
+  const [oneWayTrip, setOneWayTrip] = useState(true);
+  const [sourceAirport, setSourceAirport] = useState("");
+  const [destinationAirport, setDestinationAirport] = useState("");
+  const [tripType, setTripType] = useState("One way Trip");
+  const [passengers, setPassengers] = useState("");
+  const [depatureDate, setDepatureDate] = useState("");
+  const [returningDate, setReturningDate] = useState("");
+  const [depatureTime, setDepatureTime] = useState("");
+  const [returningTime, setReturningTime] = useState("");
 
-  const { aircrafts } = useContext(AircraftsContext);
+  const { airports } = useContext(AirportsContext);
+  console.log(airports);
+  const history = useHistory();
 
-  const bookingType = [
-    {
-      id: 1,
-      name: "One Way Trip",
-      description:
-        "Propeller Aircraft are the most economical choice for short to mid-range trips. While operating in and out of regional airports with short runways, propeller aircraft can cruise at speeds of 300 knots and non-stop ranges of about 1,500 miles, with an average flight duration of approximately 3 hours.",
-    },
-    {
-      id: 2,
-      name: "Two Way Trip",
-      description:
-        "Turboprop are the most economical choice for short to mid-range trips. While operating in and out of regional airports with short runways, propeller aircraft can cruise at speeds of 300 knots and non-stop ranges of about 1,500 miles, with an average flight duration of approximately 3 hours.",
-    },
-    {
-      id: 3,
-      name: "Round Trip",
-      description:
-        "Light Jet Aircraft are the most economical choice for short to mid-range trips. While operating in and out of regional airports with short runways, propeller aircraft can cruise at speeds of 300 knots and non-stop ranges of about 1,500 miles, with an average flight duration of approximately 3 hours.",
-    },
-  ];
+  const bookingDetails = {
+    tripType,
+    sourceAirport,
+    destinationAirport,
+    passengers,
+    depatureDate,
+    returningDate,
+    depatureTime,
+    returningTime,
+  };
+
+  const saveBookingDetailsTemp = () => {
+    localStorage.setItem("bookingDetails", JSON.stringify(bookingDetails));
+  };
+
   const searchItems = (searchValue) => {
     setSearchInput(searchValue);
     if (searchInput !== "") {
-      const filteredData = aircrafts.filter((item) => {
+      const filteredData = airports.filter((item) => {
         return Object.values(item)
           .join("")
           .toLowerCase()
           .includes(searchInput.toLowerCase());
       });
       setFilteredResults(filteredData);
-      console.log("filteredResults", filteredResults);
     } else {
       setFilteredResults([]);
     }
@@ -57,14 +59,27 @@ const FieldBooking = () => {
     <>
       <div className="w-full text-left font-Aeonik text-rgba(77,77,77,1) field-booking ">
         <div className="justify-between flex acb-icons overflow-x-auto w-2/5">
-          {bookingType.map((item, i) => (
-            <div>
-              <div key={i}>
-                {" "}
-                <AircraftBtn btnText={item.name} />
-              </div>
-            </div>
-          ))}
+          <AircraftBtn
+            btnText="One way trip"
+            toggleText={() => {
+              setOneWayTrip(true);
+              setTripType("One way Trip");
+            }}
+          />
+          <AircraftBtn
+            btnText="Round Trip"
+            toggleText={() => {
+              setOneWayTrip(false);
+              setTripType("Round Trip");
+            }}
+          />
+          <AircraftBtn
+            btnText="Multi-city Trip"
+            toggleText={() => {
+              setOneWayTrip(false);
+              setTripType("Multi-city Trip");
+            }}
+          />
         </div>
         <div className="bg-white 2xl:w-fit xl:w-fit lg:w-fit md:w-3/5 sm:w-4/5 mr-auto ml-auto border rounded rounded-lg">
           <div class="2xl:flex xl:flex  lg:flex md:grid sm:grid p-3">
@@ -95,6 +110,7 @@ const FieldBooking = () => {
                             onClick={() => {
                               document.getElementById("id-1").value = item.name;
                               setShowAircraft(true);
+                              setSourceAirport(item.name);
                             }}
                           >
                             {item.name}
@@ -131,6 +147,7 @@ const FieldBooking = () => {
                             onClick={() => {
                               document.getElementById("id-2").value = item.name;
                               setShowAircraftDest(true);
+                              setDestinationAirport(item.name);
                             }}
                           >
                             {item.name}
@@ -148,7 +165,21 @@ const FieldBooking = () => {
                 labelText="Leaving On"
                 id="id-3"
                 onClick={() => {}}
-                onChange={() => {}}
+                onChange={(e) => {
+                  setDepatureDate(e.target.value);
+                }}
+              />
+            </div>
+            <div>
+              <AircraftInput
+                type="time"
+                placeholder="Time"
+                labelText="Leaving Time"
+                id="id-4"
+                onClick={() => {}}
+                onChange={(e) => {
+                  setDepatureTime(e.target.value);
+                }}
               />
             </div>
             <div>
@@ -158,27 +189,35 @@ const FieldBooking = () => {
                 labelText="Returning On"
                 id="id-4"
                 onClick={() => {}}
-                onChange={() => {}}
+                onChange={(e) => {
+                  setReturningDate(e.target.value);
+                }}
+                hidden={oneWayTrip}
+              />
+            </div>
+            <div>
+              <AircraftInput
+                type="time"
+                placeholder="Time"
+                labelText="Returning Time"
+                id="id-4"
+                onClick={() => {}}
+                onChange={(e) => {
+                  setReturningTime(e.target.value);
+                }}
+                hidden={oneWayTrip}
               />
             </div>
             <div>
               <AircraftInput
                 type="text"
-                placeholder="1 passenger"
+                placeholder="1"
                 labelText="Passengers"
                 id="id-4"
-                onClick={() => {}}
-                onChange={() => {}}
-              />
-            </div>
-            <div>
-              <AircraftInput
-                type="text"
-                placeholder="1 passenger"
-                labelText="Passengers"
-                id="id-4"
-                onClick={() => {}}
-                onChange={() => {}}
+                onClick={(e) => {}}
+                onChange={(e) => {
+                  setPassengers(e.target.value);
+                }}
               />
             </div>
           </div>
@@ -186,6 +225,14 @@ const FieldBooking = () => {
             <button
               type="button"
               class="py-4 px-10 mr-2 mb-2 text-sm font-medium text-white focus:outline-none bg-[#5C0632] rounded-full border border-[#5C0632] hover:border-[#ffffff] hover:bg-gray-100 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:border-gray-600 dark:hover:text-white dark:hover:bg-[#5C0632] w-48 ac-button"
+              onClick={() => {
+                localStorage.setItem(
+                  "bookingDetails",
+                  JSON.stringify(bookingDetails)
+                );
+                
+                history.push("/aircraft-estimate");
+              }}
             >
               Let's go
             </button>
@@ -196,4 +243,4 @@ const FieldBooking = () => {
   );
 };
 
-export default FieldBooking;
+export default withRouter(FieldBooking);

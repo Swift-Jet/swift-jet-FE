@@ -1,0 +1,8 @@
+.estimate-cost-body-div{
+    width: 80%;
+    margin: auto;
+    margin-top: 50px;
+}
+.aircraft-img{
+    max-width: -webkit-fill-available !important;
+}

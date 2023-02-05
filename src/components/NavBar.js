@@ -12,7 +12,7 @@ export default function NavBar() {
     { name: "Aircrafts", link: "/aircraft-category" },
     { name: "Destinations", link: "/destination" },
     { name: "Get a Quote", link: "/" },
-    // {name:"Blog", link:"/"},
+
   ];
 
   return (

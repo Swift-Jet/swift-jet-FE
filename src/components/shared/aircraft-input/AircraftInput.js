@@ -12,7 +12,7 @@ const AircraftInput = ({
 }) => {
   return (
     <div class="bg-white border border-[#881237] rounded-lg m-2" hidden={hidden}>
-      <label class="block text-white-700 text-sm mb-2 pl-3">
+      <label class="block text-white-700 py-2 px-3 text-sm mb-2 pl-3">
         {labelText}
       </label>
       <input

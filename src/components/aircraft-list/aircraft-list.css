@@ -26,7 +26,10 @@
     outline: none;
     box-shadow: none;
 }
-
+.ac-button:hover {
+  color: #fff;
+  background-color: #5C0632 !important;
+}
 .alh-desc {
     width: 90%;
     margin: auto;

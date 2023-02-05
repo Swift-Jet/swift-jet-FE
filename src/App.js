@@ -6,6 +6,7 @@ import Aircraft from "./pages/aircrafts/Aircrafts";
 import Destination from "./pages/destination/Destination";
 import HomePage from "./pages/home-page/HomePage";
 import AircraftDetails from "./pages/aircraft-details/AircraftDetails";
+import AircraftEstimate from "./pages/aircraft-estimate/AircraftEstimate";
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
       <Route path="/aircraft" component={Aircraft}></Route>
       <Route path="/destination" component={Destination}></Route>
       <Route path="/aircraft-details/1" component={AircraftDetails}></Route>
+      <Route path="/aircraft-estimate" component={AircraftEstimate}></Route>
     </Switch>
   );
 };

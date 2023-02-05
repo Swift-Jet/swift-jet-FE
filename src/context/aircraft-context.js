@@ -8,7 +8,7 @@ const AircraftsContextProvider = ({ children }) => {
   useEffect(() => {
     async function fetchData() {
       const { data } = await axios.get(
-        `http://localhost:8000/api/v1/airport/all`
+        `http://localhost:8000/api/v1/aircraft/all`
       );
       setAircrafts(data?.data);
     }
