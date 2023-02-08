@@ -10,6 +10,11 @@ const HomePage = () => {
   return (
     <Layout>
       <Carosuel />
+<<<<<<< Updated upstream
+=======
+      <BookingEngine />
+      
+>>>>>>> Stashed changes
     </Layout>
   );
 };

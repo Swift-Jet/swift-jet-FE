@@ -6,10 +6,15 @@ import HomePage from "./pages/home-page/HomePage";
 <<<<<<< Updated upstream
 =======
 import AircraftDetails from "./pages/aircraft-details/AircraftDetails";
+<<<<<<< Updated upstream
 import SignForm from "./components/signInlayout/SignForm";
 import RegisterForm from "./pages/registration/Register";
 
 
+>>>>>>> Stashed changes
+=======
+import Register from "./pages/registration/Register";
+import SignIn from "./pages/signInlayout/SignIn";
 >>>>>>> Stashed changes
 
 const App = () => {
@@ -23,12 +28,17 @@ const App = () => {
       <Route path="/aircraft" component={Aircraft}></Route>
       <Route path="/destination" component={Destination}></Route>
       <Route path="/aircraft-details/1" component={AircraftDetails}></Route>
+<<<<<<< Updated upstream
       <Route path="/signInlayout" component={SignForm}></Route>
       <Route path="/registration" component={RegisterForm}></Route>
       
   
      
       
+>>>>>>> Stashed changes
+=======
+      <Route path="/registration" component={Register}></Route>
+      <Route path="/signInlayout" component={SignIn}></Route>
 >>>>>>> Stashed changes
     </Switch>
   );

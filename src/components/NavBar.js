@@ -3,13 +3,6 @@ import logoprimary from "../image/logoprimary.png";
 import ArrowCircleLeftOutlinedIcon from "@mui/icons-material/ArrowCircleLeftOutlined";
 import PersonAddAltOutlinedIcon from "@mui/icons-material/PersonAddAltOutlined";
 import "../components/styles.css";
-<<<<<<< Updated upstream
- 
-=======
-import { Button } from '@mui/material';
-import { Link } from 'react-router-dom';
-
->>>>>>> Stashed changes
 
 export default function NavBar() {
     return (
@@ -104,56 +97,35 @@ export default function NavBar() {
                                 </ul>
                             </div>
 
-                            <div class="w-full gap-y-4 md:w-max md:gap-y-0 md:gap-x-4 flex md:flex-row flex-col">
-                                <button type="button" title="Start buying" class="group w-full py-1 px-4 text-rose-900  border-2 item-center border-rose-900 hover:bg-rose-900 hover:text-white active:bg-rose-900 font-bold rounded-full outline-none focus:outline-none  ease-linear transition-all duration-150 sm:w-max">
-                                    <span>
-                                    <ArrowCircleLeftOutlinedIcon/> Sign In
-                                    </span>
-                                </button>
-                                <button type="button" title="Start buying" class="w-full py-1 px-4 text-rose-900  border-2 item-center border-rose-900 hover:bg-rose-900 hover:text-white active:bg-rose-900 font-bold rounded-full outline-none focus:outline-none  ease-linear transition-all duration-150 sm:w-max">
-                                    <span >
-                                    <PersonAddAltOutlinedIcon />  Register
-                                    </span>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </nav>
-=======
             <div className="mt-3 space-y-2 lg:hidden md:inline-block">
-              
               <button
                 class=" button-1 text-rose-900  border-2 item-center border-rose-900 hover:bg-rose-900 hover:text-white active:bg-rose-900 font-bold rounded-full outline-none focus:outline-none  ease-linear transition-all duration-150  px-3 py-1"
                 type="button" 
               >
                 <ArrowCircleLeftOutlinedIcon /> Sign In
               </button>
-              
-             <button
+              <button
                 class="text-rose-900 button-1 border-2 border-rose-900 hover:bg-rose-900 hover:text-white active:bg-rose-900 font-bold rounded-full outline-none focus:outline-none ease-linear transition-all duration-150- px-3 py-1 "
                 type="button"
               >
                 <PersonAddAltOutlinedIcon /> Register
               </button>
-              </div>
+            </div>
           </div>
         </div>
         <div className="hidden space-x-2 md:inline-block">
-        
-          <Button href="./signInlayout"
+          <button
             class="text-rose-900 button-2  border-2 item-center border-rose-900 hover:bg-rose-900 hover:text-white active:bg-rose-900 font-bold rounded-full outline-none focus:outline-none  ease-linear transition-all duration-150  px-3 py-1"
             type="button" id="myBtn"
           >
             <ArrowCircleLeftOutlinedIcon /> Sign In
-          </Button>
-          <Button href="./registration"
+          </button>
+          <button
             class="text-rose-900 button-2  border-2 border-rose-900 hover:bg-rose-900 hover:text-white active:bg-rose-900 font-bold rounded-full outline-none focus:outline-none ease-linear transition-all duration-150- px-3 py-1 "
             type="button" id="myBtn"
           >
             <PersonAddAltOutlinedIcon /> Register
-          </Button>
->>>>>>> Stashed changes
+          </button>
         </div>
     );
 }
