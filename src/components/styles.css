@@ -108,3 +108,9 @@
   display:block
 }
 
+.grid {
+  color: #fff;
+  text-align: center;
+  font-size: 1.4em;
+  padding: 1em 2em;
+}
