@@ -34,7 +34,7 @@
 .field-booking{
   position: absolute;
   z-index: 1;
-  margin-top: 200px;
+  margin-top: 250px;
 }
 
 .field-booking-inner{
@@ -57,11 +57,5 @@
 @media (max-width: 1024px) {
   .button-2 {
     display: none;
-  }
-}
-@media (max-width: 768px) {
-  .field-booking{
-  
-    margin-top: 20px;
   }
 }

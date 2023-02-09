@@ -1,5 +1,6 @@
 import { useState } from "react";
 import logoprimary from "../image/logoprimary.png";
+import { useHistory } from "react-router-dom";
 import ArrowCircleLeftOutlinedIcon from "@mui/icons-material/ArrowCircleLeftOutlined";
 import PersonAddAltOutlinedIcon from "@mui/icons-material/PersonAddAltOutlined";
 import "../components/styles.css";
@@ -8,12 +9,14 @@ export default function NavBar() {
   const [navbar, setNavbar] = useState(false);
 
   let Links = [
-    { name: "Flight", link: "/aircraft" },
-    { name: "Aircrafts", link: "/aircraft-category" },
+    { name: "Flight", link: "/aircraft-category" },
+    { name: "Aircrafts", link: "/aircraft" },
     { name: "Destinations", link: "/destination" },
     { name: "Get a Quote", link: "/" },
-
+    // {name:"Blog", link:"/"},
   ];
+
+  const history = useHistory();
 
   return (
     <nav className="w-full mt-0 bg-white shadow-md font-[poppins] lg:max-w-8xl">
@@ -89,13 +92,18 @@ export default function NavBar() {
             <div className="mt-3 space-y-2 lg:hidden md:inline-block">
               <button
                 class=" button-1 text-rose-900  border-2 item-center border-rose-900 hover:bg-rose-900 hover:text-white active:bg-rose-900 font-bold rounded-full outline-none focus:outline-none  ease-linear transition-all duration-150  px-3 py-1"
-                type="button" 
+                type="button" onClick={() => {
+                  history.push("/signInlayout");
+                }}
               >
                 <ArrowCircleLeftOutlinedIcon /> Sign In
               </button>
               <button
                 class="text-rose-900 button-1 border-2 border-rose-900 hover:bg-rose-900 hover:text-white active:bg-rose-900 font-bold rounded-full outline-none focus:outline-none ease-linear transition-all duration-150- px-3 py-1 "
                 type="button"
+                onClick={() => {
+                  history.push("/registration");
+                }}
               >
                 <PersonAddAltOutlinedIcon /> Register
               </button>
@@ -106,12 +114,18 @@ export default function NavBar() {
           <button
             class="text-rose-900 button-2  border-2 item-center border-rose-900 hover:bg-rose-900 hover:text-white active:bg-rose-900 font-bold rounded-full outline-none focus:outline-none  ease-linear transition-all duration-150  px-3 py-1"
             type="button" id="myBtn"
+            onClick={() => {
+              history.push("/signInlayout");
+            }}
           >
             <ArrowCircleLeftOutlinedIcon /> Sign In
           </button>
           <button
             class="text-rose-900 button-2  border-2 border-rose-900 hover:bg-rose-900 hover:text-white active:bg-rose-900 font-bold rounded-full outline-none focus:outline-none ease-linear transition-all duration-150- px-3 py-1 "
             type="button" id="myBtn"
+            onClick={() => {
+              history.push("/registration");
+            }}
           >
             <PersonAddAltOutlinedIcon /> Register
           </button>

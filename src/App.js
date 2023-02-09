@@ -7,6 +7,9 @@ import Destination from "./pages/destination/Destination";
 import HomePage from "./pages/home-page/HomePage";
 import AircraftDetails from "./pages/aircraft-details/AircraftDetails";
 import AircraftEstimate from "./pages/aircraft-estimate/AircraftEstimate";
+import SignForm from "./components/signInlayout/SignForm";
+import RegisterForm from "./pages/registration/Register";
+
 
 const App = () => {
   return (
@@ -17,6 +20,8 @@ const App = () => {
       <Route path="/destination" component={Destination}></Route>
       <Route path="/aircraft-details/1" component={AircraftDetails}></Route>
       <Route path="/aircraft-estimate" component={AircraftEstimate}></Route>
+      <Route path="/signInlayout" component={SignForm}></Route>
+      <Route path="/registration" component={RegisterForm}></Route>
     </Switch>
   );
 };

@@ -13,16 +13,16 @@ const Card = () => {
           />
         </a>
         
-        <div class="p-5">
+        <div class="pt-5">
           <a href="#">
             <h5 class="mb-2 text-2xl font-bold tracking-tight text-[#4D4D4D]">
             Turboprop
             </h5>
           </a>
           <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
-          Propeller Aircraft are the most economical choice for short to mid-range trips. While operating in and out of regional airports with short runways, propeller aircraft can cruise at speeds of 300 knots and non-stop ranges of about 1,500 miles, with an average flight duration of approximately 3 hours.
+          Propeller Aircraft are the most economical choice for short to mid-range trips. 
           </p>
-          <button class="bg-white-500 hover:bg-[#5C0632] hover:text-white border text-[#5C0632] font-bold py-4 px-12 rounded-full">
+          <button class="bg-white-500 hover:bg-[#5C0632] hover:text-white border text-[#5C0632] font-bold py-3 px-6 rounded-full">
             View All Turboprop
           </button>
         </div>

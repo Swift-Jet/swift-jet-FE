@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React from "react";
 
 import image1 from "../image/image1.png";
 import WELCOMEPAGE from "..//image/WELCOMEPAGE.png";
@@ -8,6 +8,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+
 
 import "./styles.css";
 import "../App.css";
@@ -44,6 +45,14 @@ export default function App() {
           </SwiperSlide>
         </Swiper>
       </Swiper>
+      
+            {/* <div class=" z-40 absolute m-20 max-w-xl text-center text-white sm:text-left">
+                <h1 class="text-3xl font-extrabold sm:text-5xl">We Are The Best Host For The Journey</h1>
+                  <p class=" max-w-lg sm:text-xl mt-3 sm:leading-relaxed">
+                  We provide the best flying experience for you. We help you who want to travel privately to have easy access to private jet.
+                </p>
+            </div> */}
+       
       <FieldBooking />
     </div>
   );

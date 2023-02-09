@@ -3,9 +3,11 @@ import { withRouter } from "react-router";
 import AircraftInput from "./shared/aircraft-input/AircraftInput";
 import "./styles.css";
 import { AirportsContext } from "../context/airport-context";
+import AircraftCard from "./shared/aircraft-type-card/aircraft-card";
 import { AircraftsContext } from "../context/aircraft-context";
 import AircraftBtn from "./shared/aircraft-shared-button/AircraftBtn";
 import { useHistory } from "react-router-dom";
+import Card from "./shared/aircraft-type-card/card";
 const FieldBooking = () => {
   const [showAircraft, setShowAircraft] = useState(true);
   const [showAircraftDest, setShowAircraftDest] = useState(true);
@@ -22,7 +24,6 @@ const FieldBooking = () => {
   const [returningTime, setReturningTime] = useState("");
 
   const { airports } = useContext(AirportsContext);
-  console.log(airports);
   const history = useHistory();
 
   const bookingDetails = {
@@ -35,10 +36,9 @@ const FieldBooking = () => {
     depatureTime,
     returningTime,
   };
+  let form_no = 1;
 
-  const saveBookingDetailsTemp = () => {
-    localStorage.setItem("bookingDetails", JSON.stringify(bookingDetails));
-  };
+  
 
   const searchItems = (searchValue) => {
     setSearchInput(searchValue);
@@ -81,7 +81,7 @@ const FieldBooking = () => {
             }}
           />
         </div>
-        <div className="bg-white 2xl:w-fit xl:w-fit lg:w-fit md:w-3/5 sm:w-4/5 mr-auto ml-auto border rounded rounded-lg">
+        <div className="bg-white 2xl:w-fit xl:w-fit lg:w-fit md:w-3/5 sm:w-4/5 mr-auto ml-auto border rounded rounded-lg mb-12">
           <div class="2xl:flex xl:flex  lg:flex md:grid sm:grid p-3">
             <div>
               <AircraftInput
@@ -106,14 +106,15 @@ const FieldBooking = () => {
                     ? filteredResults.map((item, i) => (
                         <div key={i}>
                           <li
-                            class="px-4 py-2 bg-white hover:bg-sky-100 hover:text-sky-900 border-b last:border-none border-gray-200 transition-all duration-300 ease-in-out"
+                            class="text-xs cursor-pointer px-4 py-2 bg-white hover:bg-sky-100 hover:text-sky-600 border-b last:border-none border-gray-200 transition-all duration-300 ease-in-out"
                             onClick={() => {
                               document.getElementById("id-1").value = item.name;
                               setShowAircraft(true);
                               setSourceAirport(item.name);
                             }}
                           >
-                            {item.name}
+                            {item.name} ({item.country_code}) / {item.icao_code}{" "}
+                            / {item.iata_code}
                           </li>
                         </div>
                       ))
@@ -230,7 +231,7 @@ const FieldBooking = () => {
                   "bookingDetails",
                   JSON.stringify(bookingDetails)
                 );
-                
+
                 history.push("/aircraft-estimate");
               }}
             >
@@ -238,6 +239,49 @@ const FieldBooking = () => {
             </button>
           </div>
         </div>
+        <div className="bg-[#eeece1] pb-12">
+          <div className="w-1/2 mr-auto ml-auto text-center">
+            <h3 className=" text-[2em] pt-12">Safety Accredited Aircrafts</h3>
+            <p className="text-[1em] pt-6">
+              We give you access to a safety & service accredited aircraft fleet
+              for Jet Card and on-demand flights. As an Argus Certified Broker,
+              we work to the highest industry standards of safety and best
+              practice.
+            </p>
+          </div>
+          <div className="2xl:grid-cols-3 2xl:grid xl:grid-cols-3 xl:grid lg:grid-cols-3 lg:grid md:grid-cols-3 md:grid pt-24 justify-center md:flex w-10/12 mr-auto ml-auto">
+            <AircraftCard />
+            <AircraftCard />
+            <AircraftCard />
+          </div>
+          <div className="flex justify-center">
+            <button class="bg-[#5C0632] hover:bg-[#5C0632] hover:text-white border text-[#ffffff] font-bold py-3 px-6 rounded-full">
+              Explore And Find Aircrafts
+            </button>
+          </div>
+        </div>
+        <div className="">
+          <div className="w-1/2 mr-auto ml-auto text-center">
+            <h3 className=" text-[2em] pt-12">Safety Accredited Aircrafts</h3>
+            <p className="text-[1em] pt-6">
+              We give you access to a safety & service accredited aircraft fleet
+              for Jet Card and on-demand flights. As an Argus Certified Broker,
+              we work to the highest industry standards of safety and best
+              practice.
+            </p>
+          </div>
+          <div className="2xl:grid-cols-3 2xl:grid xl:grid-cols-3 xl:grid lg:grid-cols-3 lg:grid md:grid-cols-3 md:grid pt-24 justify-center md:flex w-10/12 mr-auto ml-auto">
+            <Card />
+            <Card />
+            <Card />
+          </div>
+          <div className="flex justify-center">
+            <button class="bg-[#5C0632] hover:bg-[#5C0632] hover:text-white border text-[#ffffff] font-bold py-3 px-6 rounded-full">
+            Explore All Destinations
+            </button>
+          </div>
+        </div>
+     
       </div>
     </>
   );

@@ -1,10 +1,14 @@
 import React, { useContext } from "react";
+import { useHistory } from "react-router-dom";
 import "./card.css";
 
 const AircraftCard = () => {
+  const history = useHistory();
   return (
     <div>
-      <div class="max-w-sm bg-white border-gray-200 2xl:rounded-[180px] xl:rounded-[180px] sm:rounded-full lg:rounded-[180px] md:rounded-[180px]  mt-8 mb-8 2xl:w-4/5 xl:w-4/5 lg:w-4/5 md:w-3/5 sm:w-4/5 ac-group-list">
+      <div class="max-w-sm bg-white border-gray-200 2xl:rounded-[180px] xl:rounded-[180px] sm:rounded-full lg:rounded-[180px] md:rounded-[180px]  mt-8 mb-8 2xl:w-4/5 xl:w-4/5 lg:w-4/5 md:w-3/5 sm:w-4/5 ac-group-list" onClick={() =>{
+        history.push("/aircraft-details/1")
+      }}>
         <a href="#">
           <img
             class="rounded-full py-4 px-4"

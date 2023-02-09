@@ -8,7 +8,8 @@ const AircraftInput = ({
   id,
   onChange,
   onClick,
-  hidden
+  hidden,
+  name
 }) => {
   return (
     <div class="bg-white border border-[#881237] rounded-lg m-2" hidden={hidden}>
@@ -23,6 +24,7 @@ const AircraftInput = ({
         disabled={disabled}
         onClick={onClick}
         onChange={onChange}
+        name={name}
       />
     </div>
   );
