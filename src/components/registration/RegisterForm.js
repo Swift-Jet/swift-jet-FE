@@ -12,14 +12,14 @@ import { Button } from "@mui/material";
 const SignForm = () => {
   return (
     
-    <main class=" h-screen flex justify-center items-center font-[Poppins]">
+ <main class=" h-screen flex  justify-center items-center font-[Poppins]">
   <div class="flex flex-col md:flex-row w-1/2 md:w-4/5 mx-auto rounded-3xl shadow-2xl">
-    <section class="bg-white p-6 md:p-10 md:min-w-[50%] flex flex-col gap-4 rounded-3xl">
+    <section class="bg-white p-6  md:p-10 md:min-w-[50%] flex flex-col gap-4 rounded-3xl">
       <div class="text-start mb-3">
         <h1 class="text-rose-900 font-bold text-3xl">Welcome To SwiftJets</h1>
         <p class="text-gray-900  text-md mt-3">Please enter your details to get started</p>
       </div>
-      <form action="" class="flex flex-col gap-6 w-3/4">
+      <form action="" class="flex flex-col gap-6 sm:w-full lg:w-3/4  ">
               <div class="space-y-2">
                 <label for="username" class=" font-medium text-rose-900 dark:text-rose-900">First Name </label>
                 <div class="relative flex items-center">
@@ -95,9 +95,9 @@ const SignForm = () => {
            
             </form>
        </section>
-    <section class="hidden md:inline-block text-white  rounded-3xl w-3/5">
+    <section class="hidden lg:inline-block text-white  rounded-3xl w-3/5">
       <div class="mt-10">
-      <img alt="" src={Group1} className="p-10 " />
+      <img alt="" src={Group1} />
       </div>
 
     </section>

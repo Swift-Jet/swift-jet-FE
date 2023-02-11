@@ -17,7 +17,7 @@ const SignForm = () => {
       <div class="text-start mb-8">
         <p class="text-rose-900 font-bold text-2xl">Welcome Back</p>
       </div>
-      <form action="" class="flex flex-col gap-10 w-3/4">
+      <form action="" class="flex flex-col gap-6 sm:w-full lg:w-3/4">
               <div class="space-y-8">
                 <label for="username" class=" font-medium text-rose-900 dark:text-rose-900">Username </label>
                 <div class="relative flex items-center">
@@ -63,9 +63,9 @@ const SignForm = () => {
            
             </form>
        </section>
-    <section class="hidden md:inline-block text-white  rounded-3xl w-3/4">
-      <div class="mt-10">
-      <img alt="" src={Frame584} className="w-full p-10 " />
+    <section class="hidden lg:inline-block text-white  rounded-3xl w-3/5">
+      <div class="mt-16">
+      <img alt="" src={Frame584} className="w-4/5  " />
       </div>
 
     </section>
