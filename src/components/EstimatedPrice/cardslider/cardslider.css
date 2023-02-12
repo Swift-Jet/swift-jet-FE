@@ -1,0 +1,25 @@
+.image-gallery-wrapper {
+    margin-top: 5rem;
+    max-width: 800px;
+    width: 100%;
+    padding-left: 30px;
+   
+  }
+.image-gallery-svg{
+   display: none !important;
+}
+.image-gallery-image {
+    border-radius: 20px;
+    
+}
+.image-gallery-thumbnail-image{
+    border-radius: 10px;
+    margin-top: 15px;
+}
+.image-gallery-thumbnail.active{
+    border-style: none !important;
+}
+  
+  @media only screen and (min-device-width: 375px) {
+    
+  }
