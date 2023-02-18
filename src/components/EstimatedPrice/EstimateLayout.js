@@ -29,18 +29,18 @@ const EstimateLayout = () => {
             </section>
             <section className="bg-rose-900">
                 <div className="flex flex-col sm:flex-row justify-between">
-                    <div className="px-10 text-2xl text-white m-3">
+                    <div className="px-0 text-xs md:text-xl lg:text-xl lg: px-10 text-white m-3">
                         We Recommend
                     </div>
-                    <div className="px-8  text-white flex">
-                    <button class="appearance-none block w-ful md: py-4 px-4 text-start justify-between flex"
+                    <div className="px-0 text-xs md:text-xl lg:text-xl lg: px-10 text-white m-3">
+                    <button class="appearance-none block text-xs  lg:text-xl w-full py-0 px-0 text-start justify-between flex "
                     id="grid-first-name" >
                     
-                    Filter By: <span className="ml-2">Recommended</span>
+                    Filter By: <span className="ml-2 ">Recommended</span>
                     <svg
                       width="8"
                       height="14"
-                      className="mt-1 ml-4"
+                      className="mt-0 ml-4 lg:mt-2"
                       viewBox="0 0 8 14"
                       fill="none"
                       xmlns="http://www.w3.org/2000/svg"
