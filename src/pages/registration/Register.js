@@ -1,11 +1,12 @@
 import React, { useContext } from "react";
-import RegisterForm from "../../components/registration/RegisterForm";
+
+import RegisterUser from "../../components/registration/RegisterUser";
 
 
 const Register = () => {
   return (
     
-      <RegisterForm />
+      <RegisterUser />
    
   );
 };

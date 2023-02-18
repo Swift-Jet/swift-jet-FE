@@ -22,7 +22,8 @@ const FieldBooking = () => {
   const [returningDate, setReturningDate] = useState("");
   const [depatureTime, setDepatureTime] = useState("");
   const [returningTime, setReturningTime] = useState("");
-
+  const [inputFields, setInputFields] = useState([{name:''}])
+  const [bookingArr, setBookingArr] = useState([]);
   const { airports } = useContext(AirportsContext);
   const history = useHistory();
 
@@ -55,6 +56,13 @@ const FieldBooking = () => {
     }
   };
 
+  const addFields = () => {
+    let newfield = { name: '', age: '' }
+
+    setInputFields([...inputFields, newfield])
+    console.log("setInputFields", inputFields);
+}
+
   return (
     <>
       <div className="w-full text-left font-Aeonik text-rgba(77,77,77,1) field-booking ">
@@ -82,7 +90,10 @@ const FieldBooking = () => {
           />
         </div>
         <div className="bg-white 2xl:w-fit xl:w-fit lg:w-fit md:w-3/5 sm:w-4/5 mr-auto ml-auto border rounded rounded-lg mb-12">
-          <div class="2xl:flex xl:flex  lg:flex md:grid sm:grid p-3">
+        <form>
+        {inputFields.map((input, index) => {
+          return (
+            <div class="2xl:flex xl:flex  lg:flex md:grid sm:grid p-3" key={index}>
             <div>
               <AircraftInput
                 type="text"
@@ -151,7 +162,8 @@ const FieldBooking = () => {
                               setDestinationAirport(item.name);
                             }}
                           >
-                            {item.name}
+                               {item.name} ({item.country_code}) / {item.icao_code}{" "}
+                            / {item.iata_code}
                           </li>
                         </div>
                       ))
@@ -222,17 +234,23 @@ const FieldBooking = () => {
               />
             </div>
           </div>
+ 
+          )
+        })}
+      </form>
+        
           <div className="bg-white flex justify-end rounded rounded-lg">
             <button
               type="button"
               class="py-4 px-10 mr-2 mb-2 text-sm font-medium text-white focus:outline-none bg-[#5C0632] rounded-full border border-[#5C0632] hover:border-[#ffffff] hover:bg-gray-100 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:border-gray-600 dark:hover:text-white dark:hover:bg-[#5C0632] w-48 ac-button"
               onClick={() => {
+                addFields();
                 localStorage.setItem(
                   "bookingDetails",
                   JSON.stringify(bookingDetails)
                 );
 
-                history.push("/aircraft-estimate");
+               history.push("/aircraft-estimate");
               }}
             >
               Let's go
