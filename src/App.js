@@ -10,6 +10,7 @@ import AircraftEstimate from "./pages/aircraft-estimate/AircraftEstimate";
 import SignForm from "./components/signInlayout/SignForm";
 import RegisterForm from "./pages/registration/Register";
 import EstimateLayout from "./pages/EstimatedPrice/EstimstedPage";
+import ResetPassword from "./pages/reset-password/ForgetPassword"
 
 
 
@@ -26,6 +27,7 @@ const App = () => {
       <Route path="/signInlayout" component={SignForm}></Route>
       <Route path="/registration" component={RegisterForm}></Route>
       <Route path="/EstimstedPage" component={EstimateLayout}></Route>
+      <Route path="/reset-password" component={ResetPassword}></Route>
       
 
     </Switch>

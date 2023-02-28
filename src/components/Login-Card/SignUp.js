@@ -27,7 +27,7 @@ const SignUp = () => {
               <div>
                 <div class="flex items-center justify-between">
                   <label for="pwd" class="text-gray-600 dark:text-gray-300">Password</label>
-                  <button class="-mr-2 p-2" type="reset">
+                  <button class="-mr-2 p-2" type="reset" >
                     <span class="text-sm text-primary">Forgot your password ?</span>
                   </button>
                 </div>
@@ -46,7 +46,7 @@ const SignUp = () => {
   
               <p class="border-t border-gray-100 dark:border-gray-700 pt-6 text-sm text-gray-500 dark:text-gray-400">
                 Don't have an account ?
-                <a href="#" class="text-primary">Sign up</a>
+                <a href="/registration" class="text-primary">Sign up</a>
               </p>
             </form>
           </div>
