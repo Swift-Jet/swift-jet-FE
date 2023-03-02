@@ -10,6 +10,7 @@ import AircraftEstimate from "./pages/aircraft-estimate/AircraftEstimate";
 import SignForm from "./components/signInlayout/SignForm";
 import RegisterForm from "./pages/registration/Register";
 import EstimateLayout from "./pages/EstimatedPrice/EstimstedPage";
+import GoogleLoginForm from "./components/Login-Card/GoogleLoginForm";
 
 
 
@@ -25,7 +26,8 @@ const App = () => {
       <Route path="/aircraft-estimate" component={AircraftEstimate}></Route>
       <Route path="/signInlayout" component={SignForm}></Route>
       <Route path="/registration" component={RegisterForm}></Route>
-      <Route path="/EstimstedPage" component={EstimateLayout}></Route>
+      <Route path="/EstimatedPage" component={EstimateLayout}></Route>
+      <Route path="/google" component={GoogleLoginForm}></Route>
       
 
     </Switch>

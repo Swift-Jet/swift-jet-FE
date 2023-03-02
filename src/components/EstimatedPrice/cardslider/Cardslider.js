@@ -1,18 +1,18 @@
 import React from "react";
 import "../cardslider/cardslider.css"
 
-function Gallery() {
+function Gallery({aircraft_details}) {
   return (
 <section class="gallery m-8">
   <div class="gallery__item">
     <input type="radio" id="img-1" checked name="gallery" class="gallery__selector"/>
-    <img class="gallery__img" src="https://img.freepik.com/free-photo/airplane-sunset_1150-8338.jpg?w=996&t=st=1676534763~exp=1676535363~hmac=983773bda9a337c3f97f81154a49c009394c41d8919fd28f156ed82da64dc332" alt=""/>
-    <label for="img-1" class="gallery__thumb rounded-"><img className="rounded" src="https://img.freepik.com/free-photo/airplane-sunset_1150-8338.jpg?w=996&t=st=1676534763~exp=1676535363~hmac=983773bda9a337c3f97f81154a49c009394c41d8919fd28f156ed82da64dc332" alt=""/></label>
+    <img class="gallery__img" src={aircraft_details?.image_url} alt=""/>
+    <label for="img-1" class="gallery__thumb rounded-"><img className="rounded" src={aircraft_details?.image_url} alt=""/></label>
   </div>
   <div class="gallery__item">
     <input type="radio" id="img-2" name="gallery" class="gallery__selector"/>
-    <img class="gallery__img" src="https://img.freepik.com/free-photo/private-luxury-jet-airport-terminal_657883-449.jpg?w=900&t=st=1676534818~exp=1676535418~hmac=9869f2491ca35c50e1907a1b8ee8c329e211ae595343a12ed11226ed134db150" alt=""/>
-    <label for="img-2" class="gallery__thumb"><img className="rounded" src="https://img.freepik.com/free-photo/private-luxury-jet-airport-terminal_657883-449.jpg?w=900&t=st=1676534818~exp=1676535418~hmac=9869f2491ca35c50e1907a1b8ee8c329e211ae595343a12ed11226ed134db150" alt=""/></label>
+    <img class="gallery__img" src={aircraft_details?.image_url} alt=""/>
+    <label for="img-2" class="gallery__thumb"><img className="rounded" src={aircraft_details?.image_url} alt=""/></label>
   </div>
   <div class="gallery__item">
     <input type="radio" id="img-3" name="gallery" class="gallery__selector"/>

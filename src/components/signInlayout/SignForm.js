@@ -6,13 +6,21 @@ import "../signInlayout/signInlayout.css";
 import { Button } from "@mui/material";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import GoogleLoginForm from "../Login-Card/GoogleLoginForm";
 
 const SignForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [passwordType, setPasswordType] = useState("password");
 
   const data = { email, password };
-
+  const togglePasswordFunc = () => {
+    if (passwordType === "password") {
+      setPasswordType("text");
+      return;
+    }
+    setPasswordType("password");
+  };
   const toastMsg = (message) => toast(message);
 
   const handleSubmit = (e) => {
@@ -20,7 +28,8 @@ const SignForm = () => {
     axios
       .post("http://localhost:8000/api/v1/user/login", data)
       .then((data) => {
-        console.log(data);              
+        localStorage.setItem("user", JSON.stringify(data?.data?.data));
+        localStorage.setItem("authenticated", JSON.stringify(true));
         toastMsg(data?.data.message);
         e.target.reset();
       })
@@ -84,22 +93,54 @@ const SignForm = () => {
               >
                 Password{" "}
               </label>
-              <div class="relative flex items-center ">
+              <div class="relative flex items-center  focus:ring-2 focus:ring-rose-900">
                 <KeyOutlinedIcon
                   class="w-6 h-6 absolute left-4 inset-y-0 my-auto"
                   id="KeyOutLinded"
                 />
                 <input
-                  type="password"
+                  type={passwordType}
                   name="password"
                   id="username"
                   autocomplete="username"
                   placeholder="Enter Your Password"
-                  class="focus:outline-none block w-full rounded-full placeholder-gray-500 bg-gray-100 dark:bg-gray-100 dark:border-rose-900 pl-12 pr-4 h-12 text-gray-600 transition duration-300 invalid:ring-2 invalid:ring-red-400 focus:ring-2 focus:ring-rose-900"
+                  class="focus:outline-none block w-full rounded-l-full placeholder-gray-500 bg-gray-100 dark:bg-gray-100 dark:border-rose-900 pl-12 pr-4 h-12 text-gray-600 transition duration-300 invalid:ring-2 invalid:ring-red-400"
                   onChange={(e) => {
                     setPassword(e.target.value);
                   }}
                 />
+                <button
+                  className="focus:outline-none block rounded-r-full placeholder-gray-500 bg-gray-100 dark:bg-gray-100 dark:border-rose-900 pl-12 pr-4 h-12 text-gray-600 transition duration-300 invalid:ring-2 invalid:ring-red-400"
+                  onClick={togglePasswordFunc}
+                  type="button"
+                >
+                  {passwordType === "password" ? (
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      fill="currentColor"
+                      class="bi bi-eye-slash"
+                      viewBox="0 0 16 16"
+                    >
+                      <path d="M13.359 11.238C15.06 9.72 16 8 16 8s-3-5.5-8-5.5a7.028 7.028 0 0 0-2.79.588l.77.771A5.944 5.944 0 0 1 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.134 13.134 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755-.165.165-.337.328-.517.486l.708.709z" />
+                      <path d="M11.297 9.176a3.5 3.5 0 0 0-4.474-4.474l.823.823a2.5 2.5 0 0 1 2.829 2.829l.822.822zm-2.943 1.299.822.822a3.5 3.5 0 0 1-4.474-4.474l.823.823a2.5 2.5 0 0 0 2.829 2.829z" />
+                      <path d="M3.35 5.47c-.18.16-.353.322-.518.487A13.134 13.134 0 0 0 1.172 8l.195.288c.335.48.83 1.12 1.465 1.755C4.121 11.332 5.881 12.5 8 12.5c.716 0 1.39-.133 2.02-.36l.77.772A7.029 7.029 0 0 1 8 13.5C3 13.5 0 8 0 8s.939-1.721 2.641-3.238l.708.709zm10.296 8.884-12-12 .708-.708 12 12-.708.708z" />
+                    </svg>
+                  ) : (
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      fill="currentColor"
+                      class="bi bi-eye-fill"
+                      viewBox="0 0 16 16"
+                    >
+                      <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z" />
+                      <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z" />
+                    </svg>
+                  )}
+                </button>
               </div>
             </div>
             <div class="flex flex-row justify-between ">
@@ -122,6 +163,7 @@ const SignForm = () => {
                 Sign In{" "}
               </span>
             </button>
+            <GoogleLoginForm />
 
             <p class="text-gray-500 text-sm">
               By proceeding, you consent to get calls, WhatsApp or SMS messages,

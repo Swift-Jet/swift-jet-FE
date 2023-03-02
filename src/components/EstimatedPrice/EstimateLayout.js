@@ -1,10 +1,18 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import "./estimatelayout.css";
 import Steps from "../stepper/Steps";
 import Estimatecards from "./estimatecard/Estimatecards";
+import  {BookingContext}  from '../../context/booking-context';
+import { AircraftsContext } from "../../context/aircraft-context";
 
 
 const EstimateLayout = () => {
+    const booking = JSON.parse(localStorage.getItem("bookingDetails"));
+    const [bookDetails, setBookDetails] = useState(booking);
+    const [filteredResults, setFilteredResults] = useState([]);
+  
+    const { aircrafts } = useContext(AircraftsContext);
+  
     return (
 
         <div className="mx-auto font-[Poppins]">
@@ -14,7 +22,7 @@ const EstimateLayout = () => {
                         <ol class="list-reset flex">
                             <li><a href="#" class="text-blue-600 hover:text-blue-700">Flight</a></li>
                             <li><span class="text-gray-500 mx-2">/</span></li>
-                            <li class="text-gray-500">Round trips</li>
+                            <li class="text-gray-500">{bookDetails?.tripType}</li>
                         </ol>
                         <div className="mt-10">
                             <div className="">
@@ -55,7 +63,7 @@ const EstimateLayout = () => {
                 </div>
             </section>
             <section>
-                <Estimatecards />
+                <Estimatecards booking_details={bookDetails} aircraft_details={aircrafts} />
             </section>
         </div>
 
