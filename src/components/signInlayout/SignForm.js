@@ -3,8 +3,8 @@ import axios from "axios";
 import Frame584 from "../signInlayout/Frame584.png";
 import KeyOutlinedIcon from "@mui/icons-material/KeyOutlined";
 import "../signInlayout/signInlayout.css";
-import { Button } from "@mui/material";
 import { ToastContainer, toast } from "react-toastify";
+import { useHistory } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 import GoogleLoginForm from "../Login-Card/GoogleLoginForm";
 
@@ -12,6 +12,7 @@ const SignForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passwordType, setPasswordType] = useState("password");
+  const history = useHistory();
 
   const data = { email, password };
   const togglePasswordFunc = () => {
@@ -26,11 +27,13 @@ const SignForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:8000/api/v1/user/login", data)
+      .post(`https://swift-jet-backend.onrender.com/v1/user/login`, data)
       .then((data) => {
         localStorage.setItem("user", JSON.stringify(data?.data?.data));
         localStorage.setItem("authenticated", JSON.stringify(true));
-        toastMsg(data?.data.message);
+        history.push(JSON.parse(localStorage.getItem("prevpath")))
+        localStorage.removeItem("prevpath");
+       // toastMsg(data?.data.message);
         e.target.reset();
       })
       .catch((error) => {

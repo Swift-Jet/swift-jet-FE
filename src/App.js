@@ -11,25 +11,23 @@ import SignForm from "./components/signInlayout/SignForm";
 import RegisterForm from "./pages/registration/Register";
 import EstimateLayout from "./pages/EstimatedPrice/EstimstedPage";
 import GoogleLoginForm from "./components/Login-Card/GoogleLoginForm";
-
-
+import Booking from "./pages/booking/booking";
 
 
 const App = () => {
   return (
     <Switch>
       <Route exact path="/" component={HomePage}></Route>
-      <Route path="/aircraft-category" component={AircraftCategory}></Route>{" "}
+      <Route path="/aircraft-category" component={AircraftCategory}></Route>
       <Route path="/aircraft" component={Aircraft}></Route>
       <Route path="/destination" component={Destination}></Route>
-      <Route path="/aircraft-details/1" component={AircraftDetails}></Route>
+      <Route path="/aircraft-details/:id" component={AircraftDetails}></Route>
       <Route path="/aircraft-estimate" component={AircraftEstimate}></Route>
       <Route path="/signInlayout" component={SignForm}></Route>
       <Route path="/registration" component={RegisterForm}></Route>
       <Route path="/EstimatedPage" component={EstimateLayout}></Route>
       <Route path="/google" component={GoogleLoginForm}></Route>
-      
-
+      <Route path="/bookings" component={Booking}></Route>
     </Switch>
   );
 };

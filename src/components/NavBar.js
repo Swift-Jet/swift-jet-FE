@@ -11,6 +11,7 @@ export default function NavBar() {
 
   const logout = () => {
     localStorage.setItem("authenticated", JSON.stringify(false));
+    localStorage.removeItem("user");
     history.push("/");
   };
   let Links = [

@@ -1,22 +1,54 @@
 import React, { useContext, useState, useEffect } from "react";
 import Cardslider from "../cardslider/Cardslider";
 import Frame636 from "../estimatecard/Frame636.png";
-import { useHistory } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 import axios from "axios";
-import { NoLuggageOutlined } from "@mui/icons-material";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { AircraftsContext } from "../../../context/aircraft-context";
+import AircraftBtn from "../../shared/aircraft-shared-button/AircraftBtn";
 
 export default function BasicGrid({ booking_details, aircraft_details }) {
+  let xbannerSuggestion = aircraft_details[0];
+
   const history = useHistory();
-  const bannerSuggestion = aircraft_details[0];
+  const location = useLocation();
+  console.log("location", location);
+  const aircraft_detail = useContext(AircraftsContext);
   const [addQuote, setAddQuote] = useState([]);
   const [bookingPayload, setBookingPayload] = useState({});
   const [showModal, setShowModal] = useState(false);
   const [showSuccessModal, setShowSuccessModal] = useState(false);
-  const [phoneNumber, setPhoneNumber] = useState("");
-  localStorage.setItem("default_quote", JSON.stringify(aircraft_details[0]));
+  const [phone_number, setPhoneNumber] = useState("");
+  const [bannerSuggestion, setBannerSuggestion] = useState({
+    _id: "63f124c3cbef5dd91b0a851b",
+    sjac_code: "SJAC-21021",
+    manufacturer: "Turboprop ",
+    model: "Beech BE200 Super King Air",
+    classification: "Mid-size Jets",
+    no_of_seats: "7",
+    speed: "579 ",
+    range: "579 ",
+    luggage_capacity: "59",
+    interior_height: "2.05",
+    interior_width: "1.47",
+    overview_summary:
+      "Midsize jets (also known as mid-sized jets) are the most popular category of private jets and provide a cost-effective option for flights of up to 4 hours, for up to 8 passengers",
+    image_url:
+      "https://res.cloudinary.com/dzv98o7ds/image/upload/v1676747970/switf_jet_dev_staging/ccnmb0nty3zzbfg29jlu.avif",
+    image_url_2:
+      "https://res.cloudinary.com/dzv98o7ds/image/upload/v1676747970/switf_jet_dev_staging/dczj09iicx52cp7pyb0n.avif",
+    image_url_3:
+      "https://res.cloudinary.com/dzv98o7ds/image/upload/v1676747970/switf_jet_dev_staging/ghfdfteimwldft7hv7bv.avif",
+    image_url_4:
+      "https://res.cloudinary.com/dzv98o7ds/image/upload/v1676747970/switf_jet_dev_staging/y3jigyyppvklklzv57zn.avif",
+    image_url_5:
+      "https://res.cloudinary.com/dzv98o7ds/image/upload/v1676747970/switf_jet_dev_staging/g58das5afu3gcli8b2sp.avif",
+    __v: 0,
+  });
 
+  let booking_payload = {};
+  console.log("bannerSuggestion", xbannerSuggestion);
   const toastMsg = (message) => toast(message);
   const setQuote = (quote) => {
     let quoteArr1 = JSON.parse(localStorage.getItem("quotes")) || [];
@@ -45,31 +77,30 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
   };
   const handleBookingPayload = () => {
     let user = JSON.parse(localStorage.getItem("user"));
-    delete user["token"];
+
     if (user) {
       let additional_quote = JSON.parse(localStorage.getItem("quotes"));
-      let booking_payload = {
+      delete user["token"];
+      booking_payload = {
         user,
-        phone_number: localStorage.getItem(JSON.parse("phone_number")),
+        status: "New",
         booking_details,
         additional_quote,
       };
-      setBookingPayload(booking_payload);
     } else {
+      localStorage.setItem("prevpath", JSON.stringify(location.pathname));
       history.push("/signInlayout");
     }
   };
   const handleSubmit = () => {
     axios
-      .post("http://localhost:8000/api/v1/booking/add", bookingPayload)
+      .post("https://swift-jet-backend.onrender.com/api/v1/booking/add", booking_payload)
       .then((data) => {
         localStorage.removeItem("quotes");
         localStorage.removeItem("bookingDetails");
         localStorage.removeItem("default_quote");
-        localStorage.removeItem("phone_number");
-        setBookingPayload({});
+        setBookingPayload(data?.data?.data?.booking_number);
         setShowSuccessModal(true);
-        setPhoneNumber("")
       })
       .catch((error) => {
         toastMsg(error?.response?.data?.error);
@@ -273,7 +304,8 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
                     class="text-white hover:text-white border border-rose-900 bg-rose-900 focus:ring-4 focus:outline-none focus:ring-rose-900 font-medium rounded-2xl text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-rose-900 dark:text-rose-900 dark:hover:text-white dark:hover:bg-rose-900 dark:focus:ring-rose-900"
                     onClick={() => {
                       handleBookingPayload();
-                      setShowModal(true);
+                      handleSubmit();
+                      // setShowModal(true);
                     }}
                   >
                     Book Now
@@ -632,6 +664,7 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
                     class="quote-btn text-rose-900 hover:text-white border border-rose-900 hover:bg-rose-900 focus:ring-4 focus:outline-none focus:ring-rose-900 font-medium rounded-2xl text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-rose-900 dark:text-rose-900 dark:hover:text-white dark:hover:bg-rose-900 dark:focus:ring-rose-900"
                     onClick={() => {
                       handleToggleQuote(i, item);
+                      setBannerSuggestion(item);
                     }}
                   >
                     Add Quote
@@ -723,8 +756,7 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
                         type="tel"
                         placeholder="Phone number"
                         onChange={(e) => {
-                          localStorage.setItem("phone_number", JSON.stringify(e.target.value))
-                        //  setPhoneNumber(e.target.value);
+                          setPhoneNumber(e.target.value);
                         }}
                       />
                     </div>
@@ -762,28 +794,59 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
           ) : null}
           {showSuccessModal ? (
             <div>
-              <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
+              <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none text-center">
                 <div class="w-full max-w-xs">
                   <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
                     <div class="mb-4">
                       <h3
-                        class="block text-gray-700 text-sm font-bold mb-2"
+                        class="block text-gray-700 text-md font-bold mb-2 text-[#5C0632]"
                         for="username"
                       >
-                        Your booking was successful
+                        Booking Successful - Booking Number : {bookingPayload}
                       </h3>
+                      <br></br>
+                    </div>
+                    <div class="mb-4">
+                      <h5
+                        class="block text-gray-500 text-sm  mb-2 text-[#5C0632]"
+                        for="username"
+                      >
+                        Your flight booking has been confirmed and your flight
+                        information sent to your email address.
+                      </h5>
+                    </div>
+                    <div class="mb-4">
+                      <p
+                        class="block text-gray-400 text-xs mb-2"
+                        for="username"
+                      >
+                        Your itinerary is now set and you're on your way to your
+                        destination. Please make sure to arrive at the airport
+                        in time for check-in and go through security before your
+                        flight. Safe travels! If you need anything, don't
+                        hesitate to ask.
+                      </p>
                     </div>
 
-                    <div class="flex items-center justify-between">
+                    <div class="w-full flex justify-between ml-auto">
                       <button
-                        class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                        type="button"
+                        class="py-2 px-4 mr-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-[#5C0632] hover:border-[#ffffff] hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 0 dark:text-[#5C0632] dark:border-gray-600 dark:hover:text-white dark:hover:bg-[#5C0632] w-32 ac-button ml-auto"
+                        onClick={() => {
+                          setShowSuccessModal(false);
+                        }}
+                      >
+                        close
+                      </button>
+                      {/* <button
+                        class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline ml-auto"
                         type="button"
                         onClick={() => {
                           setShowSuccessModal(false);
                         }}
                       >
                         Close
-                      </button>
+                      </button> */}
                     </div>
                   </form>
                   <p class="text-center text-gray-500 text-xs">

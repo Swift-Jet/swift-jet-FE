@@ -1,10 +1,11 @@
 import React, { useContext, useState } from "react";
+import { withRouter } from "react-router";
 import "./single-aircraft.css";
 import Card from "../shared/aircraft-type-card/card";
 import AircraftSharedBanner from "../shared/aircraft-shared-banner/AircraftSharedBanner";
 import AircraftBtn from "../shared/aircraft-shared-button/AircraftBtn";
 import AircraftProperties from "../shared/aircraft-properties/AircraftProperties";
-
+import { AircraftsContext } from "../../context/aircraft-context";
 const aircraftTypes0bj = [
   {
     id: 1,
@@ -32,7 +33,14 @@ const aircraftTypes0bj = [
       "Propeller Aircraft are the most economical choice for short to mid-range trips. While operating in and out of regional airports with short runways, propeller aircraft can cruise at speeds of 300 knots and non-stop ranges of about 1,500 miles, with an average flight duration of approximately 3 hours.",
   },
 ];
-const SingleAircraft = () => {
+const SingleAircraft = ({match}) => {
+  const { id } = match.params;
+  const {aircrafts} = useContext(AircraftsContext);
+  const aircraft = aircrafts.filter((item) => {
+    return item._id === id
+  })
+  
+
   const [link, setLink] = useState("All");
   const [name, setName] = useState("Beech BE200 Super King Air");
   const [summary, setSummary] = useState(
@@ -206,4 +214,4 @@ const SingleAircraft = () => {
   );
 };
 
-export default SingleAircraft;
+export default withRouter(SingleAircraft);

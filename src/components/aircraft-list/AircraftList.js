@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import "./aircraft-list.css";
 import AircraftCard from "../shared/aircraft-type-card/aircraft-card";
 import AircraftBtn from "../shared/aircraft-shared-button/AircraftBtn";
-
+import { AircraftsContext } from "../../context/aircraft-context";
 
 const aircraftTypes0bj = [
   {
@@ -41,10 +41,13 @@ const aircraftTypes0bj = [
     name: "Airliner",
     description:
       "Propeller Aircraft are the most economical choice for short to mid-range trips. While operating in and out of regional airports with short runways, propeller aircraft can cruise at speeds of 300 knots and non-stop ranges of about 1,500 miles, with an average flight duration of approximately 3 hours.",
-  }
+  },
 ];
 
 const AircraftList = () => {
+  const {aircrafts} = useContext(AircraftsContext);
+  console.log("air craft", aircrafts);
+
   const [link, setLink] = useState("All");
   const [description, setDescription] = useState(
     aircraftTypes0bj[0].description
@@ -52,7 +55,7 @@ const AircraftList = () => {
 
   const toggleLinkText = (text, description) => {
     setLink(text);
-    setDescription(description)
+    setDescription(description);
   };
   return (
     <div>
@@ -82,22 +85,21 @@ const AircraftList = () => {
           ))}
         </div>
       </div>
-   <div className="bg-[#eeece1]">
-   <div className="pt-3 alh-desc">
-        <h2 className="pb-3 text-[#5C0632] text-[2rem] text-bold alh-title">{link}</h2>
-        <p className="alh-desc-stn 2xl:w-1/2 xl:w-1/2 lg:w-1/2 md:w-1/2 sm:w-full">{description}</p>
+      <div className="bg-[#eeece1]">
+        <div className="pt-3 alh-desc">
+          <h2 className="pb-3 text-[#5C0632] text-[2rem] text-bold alh-title">
+            {link}
+          </h2>
+          <p className="alh-desc-stn 2xl:w-1/2 xl:w-1/2 lg:w-1/2 md:w-1/2 sm:w-full">
+            {description}
+          </p>
+        </div>
+        <div className="2xl:grid-cols-4 2xl:grid xl:grid-cols-4 xl:grid lg:grid-cols-3 lg:grid md:grid-cols-3 md:grid  mt-12 justify-center md:flex ac-card-div">
+          {aircrafts.map((data, i) => (
+            <AircraftCard item={data} />
+          ))}
+        </div>
       </div>
-      <div className="2xl:grid-cols-4 2xl:grid xl:grid-cols-4 xl:grid lg:grid-cols-3 lg:grid md:grid-cols-3 md:grid  mt-12 justify-center md:flex ac-card-div">
-        <AircraftCard />
-        <AircraftCard />
-        <AircraftCard />
-        <AircraftCard />
-        <AircraftCard />
-        <AircraftCard />
-        <AircraftCard />
-        <AircraftCard />
-      </div>
-   </div>
     </div>
   );
 };

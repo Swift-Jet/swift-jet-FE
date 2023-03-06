@@ -15,7 +15,7 @@ const SignUp = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:8000/api/v1/user/login", data)
+      .post(`https://swift-jet-backend.onrender.com/api/v1/user/login`, data)
       .then((data) => {
         toastMsg(data?.data.message);
         e.target.reset();

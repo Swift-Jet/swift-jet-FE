@@ -1,21 +1,26 @@
-import React, { createContext, useReducer } from "react";
+import React, { createContext, useState, useEffect } from "react";
+import axios from "axios";
 
-export const BookingContext = createContext();
 
-const booking = localStorage.getItem("bookingDetails")
-  ? JSON.parse(localStorage.getItem("bookingDetails"))
-  : [];
+export const BookingsContext = createContext();
 
-const bookingDetails = {
-  booking,
-};
+const BookingsContextProvider = ({ children }) => {
+  const [bookings, setBookings] = useState([]);
+  useEffect(() => {
+    async function fetchData() {
+      const { data } = await axios.get(
+        `https://swift-jet-backend.onrender.com/api/v1/booking/all`
+      );
+      setBookings(data?.data);
+    }
+    fetchData();
+  }, [])
 
-const BookingContextProvider = ({ children }) => {
   return (
-    <BookingContext.Provider value={bookingDetails}>
+    <BookingsContext.Provider value={{ bookings }}>
       {children}
-    </BookingContext.Provider>
+    </BookingsContext.Provider>
   );
 };
 
-export default BookingContextProvider;
+export default BookingsContextProvider;

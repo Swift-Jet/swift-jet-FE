@@ -2,12 +2,12 @@ import React, { useContext } from "react";
 import { useHistory } from "react-router-dom";
 import "./card.css";
 
-const AircraftCard = () => {
+const AircraftCard = ({item}) => {
   const history = useHistory();
   return (
     <div>
       <div class="max-w-sm bg-white border-gray-200 2xl:rounded-[180px] xl:rounded-[180px] sm:rounded-full lg:rounded-[180px] md:rounded-[180px]  mt-8 mb-8 2xl:w-4/5 xl:w-4/5 lg:w-4/5 md:w-3/5 sm:w-4/5 ac-group-list" onClick={() =>{
-        history.push("/aircraft-details/1")
+        history.push(`/aircraft-details/${item?._id}`)
       }}>
         <a href="#">
           <img
@@ -20,7 +20,7 @@ const AircraftCard = () => {
         <div class="p-5">
           <a href="#">
             <h5 class="mb-2 text-2xl font-bold tracking-tight text-[#4D4D4D]">
-              Turboprop
+              {item?.manufacturer}
             </h5>
           </a>
           <p class="mb-3 font-normal text-gray-700 dark:text-gray-400 inline-grid">
@@ -55,7 +55,7 @@ const AircraftCard = () => {
                   stroke="#4D4D4D"
                 />
               </svg>
-              Passenger: 19
+              Passenger: {item?.no_of_seats}
             </p>
             <p className="flex pt-3">
               {" "}
@@ -88,7 +88,7 @@ const AircraftCard = () => {
                   stroke="#4D4D4D"
                 />
               </svg>
-              Speed: 719 km/hr
+              Speed: {item?.speed} km/hr
             </p>
             <p className="flex pt-3">
               {" "}
@@ -121,7 +121,7 @@ const AircraftCard = () => {
                   stroke="#4D4D4D"
                 />
               </svg>
-              Range: 19 ktx
+              Range:   {item?.range}ktx
             </p>
           </p>
         </div>
