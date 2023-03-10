@@ -3,7 +3,7 @@ import "../cardslider/cardslider.css"
 
 function Gallery() {
   return (
-<section class="gallery m-8">
+<section class="gallery m-8 align-items-center">
   <div class="gallery__item">
     <input type="radio" id="img-1" checked name="gallery" class="gallery__selector"/>
     <img class="gallery__img" src="https://img.freepik.com/free-photo/airplane-sunset_1150-8338.jpg?w=996&t=st=1676534763~exp=1676535363~hmac=983773bda9a337c3f97f81154a49c009394c41d8919fd28f156ed82da64dc332" alt=""/>

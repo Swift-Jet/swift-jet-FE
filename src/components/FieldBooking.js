@@ -58,7 +58,7 @@ const FieldBooking = () => {
   return (
     <>
       <div className="w-full text-left font-Aeonik text-rgba(77,77,77,1) field-booking ">
-        <div className="justify-between flex acb-icons overflow-x-auto w-2/5">
+        <div className="flex justify-between w-2/5 overflow-x-auto acb-icons">
           <AircraftBtn
             btnText="One way trip"
             toggleText={() => {
@@ -240,16 +240,16 @@ const FieldBooking = () => {
           </div>
         </div>
         <div className="bg-[#eeece1] pb-12">
-          <div className="w-1/2 mr-auto ml-auto text-center">
-            <h3 className=" text-[2em] pt-12">Safety Accredited Aircrafts</h3>
-            <p className="text-[1em] pt-6">
+          <div className="w-1/2 ml-auto mr-auto text-center">
+            <h3 className=" text-[2em] pt-12 ">Safety Accredited Aircrafts</h3>
+            <p className="text-[1em] pt-6 text-justify lg:text-center">
               We give you access to a safety & service accredited aircraft fleet
               for Jet Card and on-demand flights. As an Argus Certified Broker,
               we work to the highest industry standards of safety and best
               practice.
             </p>
           </div>
-          <div className="2xl:grid-cols-3 2xl:grid xl:grid-cols-3 xl:grid lg:grid-cols-3 lg:grid md:grid-cols-3 md:grid pt-24 justify-center md:flex w-10/12 mr-auto ml-auto">
+          <div className="justify-center w-10/12 pt-24 ml-auto mr-auto 2xl:grid-cols-3 2xl:grid xl:grid-cols-3 xl:grid lg:grid-cols-3 lg:grid md:grid-cols-3 md:grid md:flex">
             <AircraftCard />
             <AircraftCard />
             <AircraftCard />
@@ -261,7 +261,7 @@ const FieldBooking = () => {
           </div>
         </div>
         <div className="">
-          <div className="w-1/2 mr-auto ml-auto text-center">
+          <div className="w-1/2 ml-auto mr-auto text-center">
             <h3 className=" text-[2em] pt-12">Safety Accredited Aircrafts</h3>
             <p className="text-[1em] pt-6">
               We give you access to a safety & service accredited aircraft fleet
@@ -270,7 +270,7 @@ const FieldBooking = () => {
               practice.
             </p>
           </div>
-          <div className="2xl:grid-cols-3 2xl:grid xl:grid-cols-3 xl:grid lg:grid-cols-3 lg:grid md:grid-cols-3 md:grid pt-24 justify-center md:flex w-10/12 mr-auto ml-auto">
+          <div className="justify-center w-10/12 pt-24 ml-auto mr-auto 2xl:grid-cols-3 2xl:grid xl:grid-cols-3 xl:grid lg:grid-cols-3 lg:grid md:grid-cols-3 md:grid md:flex">
             <Card />
             <Card />
             <Card />

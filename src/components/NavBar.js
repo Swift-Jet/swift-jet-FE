@@ -9,7 +9,7 @@ export default function NavBar() {
   const [navbar, setNavbar] = useState(false);
 
   let Links = [
-    { name: "Flight", link: "/aircraft-category" },
+    { name: "Flight", link: "/" },
     { name: "Aircrafts", link: "/aircraft" },
     { name: "Destinations", link: "/destination" },
     { name: "Get a Quote", link: "/" },
@@ -19,12 +19,12 @@ export default function NavBar() {
   const history = useHistory();
 
   return (
-    <nav className="w-full mt-0 bg-white shadow-md font-[poppins] lg:max-w-8xl">
+    <nav className="w-full mt-2 bg-white shadow-md font-[poppins] lg:max-w-8xl">
       <div className="flex flex-wrap justify-between px-4 mx-auto md:items-center md:px-8">
         <div className="w-full md:w-1/3">
-          <div className="flex items-center justify-between py-3 md:py-5">
+          <div className="flex items-center justify-between md:py-0">
             <a href="javascript:void(0)">
-              <img alt="" src={logoprimary} className="pt-2 Logo " />
+              <img alt="" src={logoprimary} class="w-24 md:w-16 lg:w-32" />
             </a>
             <div className="md:hidden">
               <button
@@ -34,7 +34,7 @@ export default function NavBar() {
                 {navbar ? (
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="w-6 h-6 text-rose-900image.png"
+                    className="w-6 h-6 text-rose-900image.png  breadcrumbs-container"
                     viewBox="0 0 20 20"
                     fill="currentColor"
                   >
@@ -47,7 +47,7 @@ export default function NavBar() {
                 ) : (
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="w-6 h-6 text-rose-900"
+                    className="w-6 h-6 text-rose-900 breadcrumbs-container"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -66,7 +66,7 @@ export default function NavBar() {
         </div>
         <div>
           <div
-            className={`block text-center md:flex md:justify-end md:items-center ${
+            className={`block text-center md:flex md:justify-end md:items-center  ${
               navbar ? "block" : "hidden"
             }`}
           >
@@ -74,7 +74,7 @@ export default function NavBar() {
               {Links.map((link) => (
                 <li
                   key={link.name}
-                  className="md:relative group hover:text-rose-900 md:my-0 my-7"
+                  className="text-lg md:relative group hover:text-rose-900 md:my-0 my-7 md:text-sm"
                 >
                   <a href={link.link}>{link.name}</a>
                   <span className="absolute right-0 w-0 h-1 -bottom-1 bg-rose-900 group-hover:w-full group-hover:transition-all "></span>
@@ -132,5 +132,9 @@ export default function NavBar() {
         </div>
       </div>
     </nav>
+
+ 
+
+                                    
   );
 }
