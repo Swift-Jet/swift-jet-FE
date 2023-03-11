@@ -1,208 +1,55 @@
-import React, { useState } from "react";
-import axios from "axios";
-import logoprimary from "../signInlayout/logoprimary.png";
-import Frame584 from "../signInlayout/Frame584.png";
-import Group1 from "../registration/Group1.png";
-import KeyOutlinedIcon from "@mui/icons-material/KeyOutlined";
-import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
-import "../signInlayout/signInlayout.css";
-import { Button } from "@mui/material";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-
-const RegisterUser = () => {
-  const [first_name, setFirst_name] = useState("");
-  const [last_name, setLast_name] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-
-  const data = { first_name, last_name, email, password };
-
-  const toastMsg = (message) => toast(message);
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    axios
-      .post(`https://swift-jet-backend.onrender.com/api/v1/user/add`, data)
-      .then((data) => {
-        toastMsg(data?.data.message);
-        e.target.reset();
-      })
-      .catch((error) => {
-        toastMsg(error?.response?.data?.error);
-      });
-  };
-  return (
-    <main class=" h-screen flex  justify-center items-center font-[Poppins]">
-      <ToastContainer />
-      <div class="flex flex-col md:flex-row w-1/2 md:w-4/5 mx-auto rounded-3xl shadow-2xl">
-        <section class="bg-white p-6  md:p-10 md:min-w-[50%] flex flex-col gap-4 rounded-3xl">
-          <div class="text-start mb-3">
-            <h1 class="text-rose-900 font-bold text-3xl">
-              Welcome To SwiftJets
-            </h1>
-            <p class="text-gray-900  text-md mt-3">
-              Please enter your details to get started
-            </p>
-          </div>
-          <form
-            class="flex flex-col gap-6 sm:w-full lg:w-3/4"
-            onSubmit={handleSubmit}
-          >
-            <div class="space-y-2">
-              <label
-                for="username"
-                class=" font-medium text-rose-900 dark:text-rose-900"
-              >
-                First Name{" "}
-              </label>
-              <div class="relative flex items-center">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke-width="1.5"
-                  stroke="currentColor"
-                  class="w-6 h-6 absolute left-4 inset-y-0 my-auto"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"
-                  />
-                </svg>
+<div class="relative py-16">
+    <div class="container relative m-auto px-6 text-gray-500 md:px-12 xl:px-40">
+      <div class="m-auto space-y-8 md:w-8/12 lg:w-6/12 xl:w-6/12">
+        <img src={logoprimary} loading="lazy" class="ml-4 w-36" alt="tailus logo" />
+        <div class="rounded-3xl border border-gray-100 bg-white dark:bg-gray-800 dark:border-gray-700 shadow-2xl shadow-gray-600/10 backdrop-blur-2xl">
+          <div class="p-8 py-12 sm:p-16">
+            <h2 class="mb-8 text-2xl font-bold text-gray-800 dark:text-white">Sign in to your account</h2>
+            <form action="" class="space-y-8">
+              <div class="space-y-2">
+                <label for="email" class="text-gray-600 dark:text-gray-300">Email</label>
                 <input
-                  type="text"
-                  name="first_name"
-                  id="firstName"
-                  autocomplete="username"
-                  placeholder="First Name"
-                  class="focus:outline-none block w-full rounded-full placeholder-gray-500 bg-gray-100 dark:bg-gray-100 dark:border-rose-900 pl-12 pr-4 h-12 text-gray-600 transition duration-300 invalid:ring-2 invalid:ring-red-400 focus:ring-2 focus:ring-rose-900"
-                  onChange={(e) => {
-                    setFirst_name(e.target.value);
-                  }}
-                />
-              </div>
-            </div>
-            <div class="space-y-2">
-              <label
-                for="username"
-                class=" font-medium text-rose-900 dark:text-rose-900"
-              >
-                Last Name{" "}
-              </label>
-              <div class="relative flex items-center">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke-width="1.5"
-                  stroke="currentColor"
-                  class="w-6 h-6 absolute left-4 inset-y-0 my-auto"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"
-                  />
-                </svg>
-                <input
-                  type="text"
-                  name="last_name"
-                  id="lastName"
-                  autocomplete="username"
-                  placeholder="Last Name"
-                  class="focus:outline-none block w-full rounded-full placeholder-gray-500 bg-gray-100 dark:bg-gray-100 dark:border-rose-900 pl-12 pr-4 h-12 text-gray-600 transition duration-300 invalid:ring-2 invalid:ring-red-400 focus:ring-2 focus:ring-rose-900"
-                  onChange={(e) => {
-                    setLast_name(e.target.value);
-                  }}
-                />
-              </div>
-            </div>
-            <div class="space-y-2">
-              <label
-                for="username"
-                class=" font-medium text-rose-900 dark:text-rose-900"
-              >
-                Email{" "}
-              </label>
-              <div class="relative flex items-center">
-                <EmailOutlinedIcon
-                  class="w-6 h-6 absolute left-4 inset-y-0 my-auto"
-                  id="KeyOutLinded"
-                />
-                <input
-                  type="text"
+                  type="email"
                   name="email"
                   id="email"
                   autocomplete="username"
-                  placeholder="Email"
-                  class="focus:outline-none block w-full rounded-full placeholder-gray-500 bg-gray-100 dark:bg-gray-100 dark:border-rose-900 pl-12 pr-4 h-12 text-gray-600 transition duration-300 invalid:ring-2 invalid:ring-red-400 focus:ring-2 focus:ring-rose-900"
-                  onChange={(e) => {
-                    console.log(e.target.value);
-                    setEmail(e.target.value);
-                  }}
+                  class="focus:outline-none block w-full rounded-md border border-gray-200 dark:border-gray-600 bg-transparent px-4 py-3 text-gray-600 transition duration-300 invalid:ring-2 invalid:ring-red-400 focus:ring-2 focus:ring-cyan-300"
                 />
               </div>
-            </div>
-            <div class="space-y-2">
-              <label
-                for="username"
-                class="font-medium text-rose-900 dark:text-rose-900"
-              >
-                Password{" "}
-              </label>
-              <div class="relative flex items-center ">
-                <KeyOutlinedIcon
-                  class="w-6 h-6 absolute left-4 inset-y-0 my-auto"
-                  id="KeyOutLinded"
-                />
+  
+              <div>
+                <div class="flex items-center justify-between">
+                  <label for="pwd" class="text-gray-600 dark:text-gray-300">Password</label>
+                  <button class="-mr-2 p-2" type="reset" >
+                    <span class="text-sm text-primary">Forgot your password ?</span>
+                  </button>
+                </div>
                 <input
                   type="password"
-                  name="password"
-                  id="password"
-                  autocomplete="username"
-                  placeholder="Enter Your Password"
-                  class="focus:outline-none block w-full rounded-full placeholder-gray-500 bg-gray-100 dark:bg-gray-100 dark:border-rose-900 pl-12 pr-4 h-12 text-gray-600 transition duration-300 invalid:ring-2 invalid:ring-red-400 focus:ring-2 focus:ring-rose-900"
-                  onChange={(e) => {
-                    setPassword(e.target.value);
-                  }}
+                  name="pwd"
+                  id="pwd"
+                  autocomplete="current-password"
+                  class="focus:outline-none block w-full rounded-md border border-gray-200 dark:border-gray-600 bg-transparent px-4 py-3 text-gray-600 transition duration-300 invalid:ring-2 invalid:ring-red-400 focus:ring-2 focus:ring-cyan-300"
                 />
               </div>
-            </div>
-            <div class="flex ">
-              <p>Already have an account with us ?</p>
-              <a href="#" class="text-rose-900 ml-2">
-                {" "}
-                Sign In
-              </a>
-            </div>
-            <button
-              variant="outlined"
-              size="medium"
-              type="submit"
-              class="relative flex h-11 w-full items-center justify-center px-6 bg-rose-900 hover:bg-blue text-blue-dark font-semibold hover:text-white py-2 px-4 border border-blue hover:border-transparent rounded-full"
-            >
-              <span class="relative text-base font-semibold text-white dark:text-dark">
-                Get Started{" "}
-              </span>
-            </button>
-
-            <p class="text-gray-500 text-sm">
-              By proceeding, you consent to get calls, WhatsApp or SMS messages,
-              including by automated means, from Tailus and its affiliates to
-              the number provided.
-            </p>
-          </form>
-        </section>
-        <section class="hidden lg:inline-block text-white  rounded-3xl w-3/5">
-          <div class="mt-10">
-            <img alt="" src={Group1} />
+  
+              <button type="submit" class="relative flex h-11 w-full items-center justify-center px-6 before:absolute before:inset-0 before:rounded-full before:bg-primary before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95">
+                <span class="relative text-base font-semibold text-white dark:text-dark">Connect</span>
+              </button>
+  
+              <p class="border-t border-gray-100 dark:border-gray-700 pt-6 text-sm text-gray-500 dark:text-gray-400">
+                Don't have an account ?
+                <a href="/registration" class="text-primary">Sign up</a>
+              </p>
+            </form>
           </div>
-        </section>
+        </div>
+        <div class="space-x-4 text-center text-gray-500">
+          <span>&copy; tailus</span>
+          <a href="#" class="text-sm hover:text-primary">Contact</a>
+          <a href="#" class="text-sm hover:text-primary">Privacy & Terms</a>
+        </div>
       </div>
-    </main>
-  );
-};
-
-export default RegisterUser;
+    </div>
+  </div>
+                                      

@@ -3,7 +3,7 @@ import "../cardslider/cardslider.css"
 
 function Gallery({aircraft_details}) {
   return (
-<section class="gallery m-8">
+<section class="gallery m-8 align-items-center">
   <div class="gallery__item">
     <input type="radio" id="img-1" checked name="gallery" class="gallery__selector"/>
     <img class="gallery__img" src={aircraft_details?.image_url} alt=""/>

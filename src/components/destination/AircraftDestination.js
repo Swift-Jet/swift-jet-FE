@@ -10,8 +10,8 @@ const AircraftDestination = () => {
         title="Destinations"
         banner_img_url="bg-[url('https://res.cloudinary.com/dzv98o7ds/image/upload/v1675067157/Frame_75_gcoxuj.png')]"
       />
-      <div className="text-center m-auto flex justify-center mt-20">
-        <p className="w-1/2 text-xl leading-6 ac-stn-quote">
+      <div className="flex justify-center m-auto mt-20 text-center">
+        <p className="w-5/6 mt-20 text-xl font-[poppins] leading-6 text-justify ac-stn-quote lg:w-1/2 lg:text-center ">
           Swift Jets has access to 1000+ private aircraft. Every aircraft and
           private jet operator is accredited for safety and VIP service levels.
           Our expert team can find the best available price for your private jet
@@ -19,7 +19,7 @@ const AircraftDestination = () => {
           advice call +234 707 8965 234
         </p>
       </div>
-      <div className="2xl:grid-cols-3 2xl:grid xl:grid-cols-3 xl:grid lg:grid-cols-3 lg:grid md:grid-cols-3 md:grid  mt-12 justify-center md:flex">
+      <div className="justify-center mt-12 2xl:grid-cols-3 2xl:grid xl:grid-cols-3 xl:grid lg:grid-cols-3 lg:grid md:grid-cols-3 md:grid md:flex">
         <Card />
         <Card />
         <Card />

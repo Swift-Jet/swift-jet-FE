@@ -12,6 +12,7 @@ import RegisterForm from "./pages/registration/Register";
 import EstimateLayout from "./pages/EstimatedPrice/EstimstedPage";
 import GoogleLoginForm from "./components/Login-Card/GoogleLoginForm";
 import Booking from "./pages/booking/booking";
+import ResetPassword from "./pages/reset-password/ForgetPassword"
 
 
 const App = () => {
@@ -28,6 +29,9 @@ const App = () => {
       <Route path="/EstimatedPage" component={EstimateLayout}></Route>
       <Route path="/google" component={GoogleLoginForm}></Route>
       <Route path="/bookings" component={Booking}></Route>
+      <Route path="/reset-password" component={ResetPassword}></Route>
+      
+
     </Switch>
   );
 };
