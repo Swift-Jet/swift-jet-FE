@@ -11,6 +11,7 @@ const AirportsContextProvider = ({ children }) => {
         `https://swift-jet-backend.onrender.com/api/v1/airport/all`
       );
       setAirports(data?.data);
+      console.log("data", data);
     
     }
     fetchData();

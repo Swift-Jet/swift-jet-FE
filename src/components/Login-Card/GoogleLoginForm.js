@@ -19,7 +19,7 @@ function GoogleLoginForm() {
     onSuccess: (codeResponse) => setUser(codeResponse),
     onError: (error) => console.log("Login Failed:", error),
   });
-  console.log("user", user);
+ 
   useEffect(() => {
     getToken();
     if (user) {

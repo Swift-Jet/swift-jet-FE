@@ -9,17 +9,18 @@ import { AircraftsContext } from "../../../context/aircraft-context";
 import AircraftBtn from "../../shared/aircraft-shared-button/AircraftBtn";
 
 export default function BasicGrid({ booking_details, aircraft_details }) {
-  let xbannerSuggestion = aircraft_details[0];
+  
 
   const history = useHistory();
   const location = useLocation();
-  console.log("location", location);
+
   const aircraft_detail = useContext(AircraftsContext);
   const [addQuote, setAddQuote] = useState([]);
   const [bookingPayload, setBookingPayload] = useState({});
   const [showModal, setShowModal] = useState(false);
   const [showSuccessModal, setShowSuccessModal] = useState(false);
   const [phone_number, setPhoneNumber] = useState("");
+  const [loading, setLoading] = useState(false);
   const [bannerSuggestion, setBannerSuggestion] = useState({
     _id: "63f124c3cbef5dd91b0a851b",
     sjac_code: "SJAC-21021",
@@ -48,7 +49,6 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
   });
 
   let booking_payload = {};
-  console.log("bannerSuggestion", xbannerSuggestion);
   const toastMsg = (message) => toast(message);
   const setQuote = (quote) => {
     let quoteArr1 = JSON.parse(localStorage.getItem("quotes")) || [];
@@ -93,13 +93,18 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
     }
   };
   const handleSubmit = () => {
+    setLoading(true);
     axios
-      .post("https://swift-jet-backend.onrender.com/api/v1/booking/add", booking_payload)
+      .post(
+        "https://swift-jet-backend.onrender.com/api/v1/booking/add",
+        booking_payload
+      )
       .then((data) => {
         localStorage.removeItem("quotes");
         localStorage.removeItem("bookingDetails");
         localStorage.removeItem("default_quote");
         setBookingPayload(data?.data?.data?.booking_number);
+        setLoading(false);
         setShowSuccessModal(true);
       })
       .catch((error) => {
@@ -298,18 +303,35 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
                       </div>
                     </div>
                   </div>
-
-                  <button
-                    type="button"
-                    class="text-white hover:text-white border border-rose-900 bg-rose-900 focus:ring-4 focus:outline-none focus:ring-rose-900 font-medium rounded-2xl text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-rose-900 dark:text-rose-900 dark:hover:text-white dark:hover:bg-rose-900 dark:focus:ring-rose-900"
-                    onClick={() => {
-                      handleBookingPayload();
-                      handleSubmit();
-                      // setShowModal(true);
-                    }}
-                  >
-                    Book Now
-                  </button>
+                  {loading === false ? (
+                    <button
+                      type="button"
+                      class="text-white hover:text-white border border-rose-900 bg-rose-900 focus:ring-4 focus:outline-none focus:ring-rose-900 font-medium rounded-2xl text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-rose-900 dark:text-rose-900 dark:hover:text-white dark:hover:bg-rose-900 dark:focus:ring-rose-900"
+                      onClick={() => {
+                        handleBookingPayload();
+                        handleSubmit();
+                        // setShowModal(true);
+                      }}
+                    >
+                      Book Now
+                    </button>
+                  ) : (
+                    <button
+                      type="button"
+                      class="text-white hover:text-white border border-rose-900 bg-rose-900 focus:ring-4 focus:outline-none focus:ring-rose-900 font-medium rounded-2xl text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-rose-900 dark:text-rose-900 dark:hover:text-white dark:hover:bg-rose-900 dark:focus:ring-rose-900"
+                    >
+                      <div class="flex items-center justify-center">
+                        <div
+                          class="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
+                          role="status"
+                        >
+                          <span class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">
+                            Loading...
+                          </span>
+                        </div>
+                      </div>
+                    </button>
+                  )}
                 </div>
               </div>
             </div>

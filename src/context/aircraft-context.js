@@ -11,7 +11,9 @@ const AircraftsContextProvider = ({ children }) => {
         `https://swift-jet-backend.onrender.com/api/v1/aircraft/all`
       );
       setAircrafts(data?.data);
+    
     }
+  
     fetchData();
   }, []);
   return (

@@ -11,6 +11,7 @@ import GoogleLoginForm from "../Login-Card/GoogleLoginForm";
 const SignForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
   const [passwordType, setPasswordType] = useState("password");
   const history = useHistory();
 
@@ -25,26 +26,28 @@ const SignForm = () => {
   const toastMsg = (message) => toast(message);
 
   const handleSubmit = (e) => {
+    setLoading(true);
     e.preventDefault();
     axios
-      .post(`https://swift-jet-backend.onrender.com/v1/user/login`, data)
+      .post(`https://swift-jet-backend.onrender.com/api/v1/user/login`, data)
       .then((data) => {
         localStorage.setItem("user", JSON.stringify(data?.data?.data));
         localStorage.setItem("authenticated", JSON.stringify(true));
-        history.push(JSON.parse(localStorage.getItem("prevpath")))
+        history.push(JSON.parse(localStorage.getItem("prevpath")));
         localStorage.removeItem("prevpath");
-       // toastMsg(data?.data.message);
+        setLoading(false);
         e.target.reset();
       })
       .catch((error) => {
-        console.log(error);
+        setLoading(false);
         toastMsg(error?.response?.data?.error);
       });
   };
   return (
     <main class=" h-screen flex justify-center items-center font-[Poppins]">
       <ToastContainer />
-      <div class="flex flex-col md:flex-row w-1/2 md:w-4/5 mx-auto rounded-3xl shadow-2xl">
+
+      <div class="flex flex-col md:flex-row w-1/2 md:w-4/5 sm:w-4/5 mx-auto rounded-3xl shadow-2xl">
         <section class="bg-white p-6 md:p-10 md:min-w-[50%] flex flex-col gap-4 rounded-3xl">
           <div class="text-start mb-8">
             <p class="text-rose-900 font-bold text-2xl">Welcome Back</p>
@@ -155,19 +158,38 @@ const SignForm = () => {
                 {" "}
                 Register
               </a>
-            </div>
-            <button
-              variant="outlined"
-              size="medium"
-              type="submit"
-              class="relative flex h-11 w-full items-center justify-center px-6 bg-rose-900 hover:bg-blue text-blue-dark font-semibold hover:text-white py-2 px-4 border border-blue hover:border-transparent rounded-full"
-            >
-              <span class="relative text-base font-semibold text-white dark:text-dark">
-                Sign In{" "}
-              </span>
-            </button>
+            </div>{" "}
+            {loading === false ? (
+              <button
+                variant="outlined"
+                size="medium"
+                type="submit"
+                class="relative flex h-11 w-full items-center justify-center px-6 bg-rose-900 hover:bg-blue text-blue-dark font-semibold hover:text-white py-2 px-4 border border-blue hover:border-transparent rounded-full"
+              >
+                <span class="relative text-base font-semibold text-white dark:text-dark">
+                  Sign In{" "}
+                </span>
+              </button>
+            ) : (
+              <button
+                variant="outlined"
+                size="medium"
+                type="submit"
+                class="relative flex h-11 w-full items-center justify-center px-6 bg-rose-900 hover:bg-blue text-blue-dark font-semibold hover:text-white py-2 px-4 border border-blue hover:border-transparent rounded-full"
+              >
+                <div class="flex items-center justify-center">
+                  <div
+                    class="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
+                    role="status"
+                  >
+                    <span class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">
+                      Loading...
+                    </span>
+                  </div>
+                </div>
+              </button>
+            )}
             <GoogleLoginForm />
-
             <p class="text-gray-500 text-sm">
               By proceeding, you consent to get calls, WhatsApp or SMS messages,
               including by automated means, from Tailus and its affiliates to

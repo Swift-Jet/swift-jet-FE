@@ -35,8 +35,13 @@
   position: absolute;
   z-index: 1;
   margin-top: 250px;
-}
 
+}
+.field-booking-loading{
+  position: absolute;
+  z-index: 1;
+  margin-top: 250px;
+}
 .field-booking-inner{
   width: 50%;
   margin-left: auto;
@@ -52,8 +57,17 @@
   .contact-us {
     display: none;
   }
-}
 
+}
+@media (max-width: 768px) {
+
+  .field-booking{
+    position: absolute;
+    z-index: 1;
+    margin-top: 250px;
+    background-color: #eeece1;
+  }
+}
 @media (max-width: 1024px) {
   .button-2 {
     display: none;
