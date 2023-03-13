@@ -5,13 +5,13 @@ import AircraftSharedBanner from "../shared/aircraft-shared-banner/AircraftShare
 
 const AircraftDestination = () => {
   return (
-    <div>
+    <div className="font-[poppins]">
       <AircraftSharedBanner
         title="Destinations"
         banner_img_url="bg-[url('https://res.cloudinary.com/dzv98o7ds/image/upload/v1675067157/Frame_75_gcoxuj.png')]"
       />
-      <div className="flex justify-center m-auto mt-20 text-center">
-        <p className="w-5/6 mt-20 text-xl font-[poppins] leading-6 text-justify ac-stn-quote lg:w-1/2 lg:text-center ">
+      <div className="text-center m-auto flex justify-center mt-20 font-[poppins]">
+        <p className="w-3/5 text-xl leading-6 ac-stn-quote mt-5 text-justify lg:text-center font-[poppins]">
           Swift Jets has access to 1000+ private aircraft. Every aircraft and
           private jet operator is accredited for safety and VIP service levels.
           Our expert team can find the best available price for your private jet

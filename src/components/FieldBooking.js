@@ -57,45 +57,152 @@ const FieldBooking = () => {
 
   return (
     <>
-      <div className="w-full text-left font-Aeonik text-rgba(77,77,77,1) field-booking ">
-        <div className="flex justify-between w-2/5 overflow-x-auto acb-icons">
-          <AircraftBtn
-            btnText="One way trip"
-            toggleText={() => {
-              setOneWayTrip(true);
-              setTripType("One way Trip");
-            }}
-          />
-          <AircraftBtn
-            btnText="Round Trip"
-            toggleText={() => {
-              setOneWayTrip(false);
-              setTripType("Round Trip");
-            }}
-          />
-          <AircraftBtn
-            btnText="Multi-city Trip"
-            toggleText={() => {
-              setOneWayTrip(false);
-              setTripType("Multi-city Trip");
-            }}
-          />
+      <ToastContainer />
+      {loading === true ? (
+        <div className="w-full text-left font-Aeonik text-rgba(77,77,77,1) field-booking-loading ">
+          <div>
+            <div className="bg-white 2xl:w-fit xl:w-fit lg:w-fit md:w-3/5 sm:w-full mr-auto ml-auto border rounded rounded-lg mb-12 justify-center "></div>
+            <h1 className="justify-center flex  text-center"><svg width="95" height="110" viewBox="0 0 135 140" xmlns="http://www.w3.org/2000/svg" fill="#fff">
+    <rect y="10" width="15" height="120" rx="6">
+        <animate attributeName="height"
+             begin="0.5s" dur="1s"
+             values="120;110;100;90;80;70;60;50;40;140;120" calcMode="linear"
+             repeatCount="indefinite" />
+        <animate attributeName="y"
+             begin="0.5s" dur="1s"
+             values="10;15;20;25;30;35;40;45;50;0;10" calcMode="linear"
+             repeatCount="indefinite" />
+    </rect>
+    <rect x="30" y="10" width="15" height="120" rx="6">
+        <animate attributeName="height"
+             begin="0.25s" dur="1s"
+             values="120;110;100;90;80;70;60;50;40;140;120" calcMode="linear"
+             repeatCount="indefinite" />
+        <animate attributeName="y"
+             begin="0.25s" dur="1s"
+             values="10;15;20;25;30;35;40;45;50;0;10" calcMode="linear"
+             repeatCount="indefinite" />
+    </rect>
+    <rect x="60" width="15" height="140" rx="6">
+        <animate attributeName="height"
+             begin="0s" dur="1s"
+             values="120;110;100;90;80;70;60;50;40;140;120" calcMode="linear"
+             repeatCount="indefinite" />
+        <animate attributeName="y"
+             begin="0s" dur="1s"
+             values="10;15;20;25;30;35;40;45;50;0;10" calcMode="linear"
+             repeatCount="indefinite" />
+    </rect>
+    <rect x="90" y="10" width="15" height="120" rx="6">
+        <animate attributeName="height"
+             begin="0.25s" dur="1s"
+             values="120;110;100;90;80;70;60;50;40;140;120" calcMode="linear"
+             repeatCount="indefinite" />
+        <animate attributeName="y"
+             begin="0.25s" dur="1s"
+             values="10;15;20;25;30;35;40;45;50;0;10" calcMode="linear"
+             repeatCount="indefinite" />
+    </rect>
+    <rect x="120" y="10" width="15" height="120" rx="6">
+        <animate attributeName="height"
+             begin="0.5s" dur="1s"
+             values="120;110;100;90;80;70;60;50;40;140;120" calcMode="linear"
+             repeatCount="indefinite" />
+        <animate attributeName="y"
+             begin="0.5s" dur="1s"
+             values="10;15;20;25;30;35;40;45;50;0;10" calcMode="linear"
+             repeatCount="indefinite" />
+    </rect>
+</svg></h1>
+          </div>
         </div>
-        <div className="bg-white 2xl:w-fit xl:w-fit lg:w-fit md:w-3/5 sm:w-4/5 mr-auto ml-auto border rounded rounded-lg mb-12">
-          <div class="2xl:flex xl:flex  lg:flex md:grid sm:grid p-3">
-            <div>
-              <AircraftInput
-                type="text"
-                placeholder="City or Airport"
-                labelText="From Where"
-                id="id-1"
-                onClick={() => {}}
-                onChange={(e) => {
-                  setShowAircraft(false);
-                  setShowAircraftDest(true);
-                  searchItems(e.target.value);
-                }}
-              />
+      ) : (
+        <div className="w-full text-left font-Aeonik text-rgba(77,77,77,1) field-booking ">
+          <div className="justify-between flex acb-icons overflow-x-auto w-2/5">
+            <AircraftBtn
+              btnText="One way trip"
+              toggleText={() => {
+                setOneWayTrip(true);
+                setTripType("One way Trip");
+                hideAddMoreBtn();
+                localStorage.removeItem("bookingDetails");
+              }}
+            />
+            <AircraftBtn
+              btnText="Round Trip"
+              toggleText={() => {
+                setOneWayTrip(false);
+                setTripType("Round Trip");
+                hideAddMoreBtn();
+                localStorage.removeItem("bookingDetails");
+              }}
+            />
+            <AircraftBtn
+              btnText="Multi-city Trip"
+              toggleText={() => {
+                setOneWayTrip(true);
+                setTripType("Multi-city Trip");
+                viewAddMoreBtn();
+                localStorage.removeItem("bookingDetails");
+              }}
+            />
+          </div>
+
+          <div className="bg-white 2xl:w-fit xl:w-fit lg:w-fit md:w-3/5 sm:w-4/5 mr-auto ml-auto border rounded rounded-lg mb-12">
+            {bookingArr.map((data, i) => {
+              return (
+                <div class="row">
+                  <div className="pt-4 col">{data?.sourceAirport}</div>
+                  <div className="pt-4 col">{data?.destinationAirport}</div>
+                  <div className="pt-4 col"> {data?.depatureDate}</div>
+                  <div className="pt-4 col">{data?.depatureTime}</div>
+                  <div className="pt-4 col">{data?.passengers}</div>
+                  <div className="pt-4 col">
+                    {" "}
+                    <button
+                      className="remove-skill"
+                      onClick={() => {
+                        setBookingArr(
+                          JSON.parse(localStorage.getItem("bookingDetails"))
+                        );
+                        let index = bookingArr.indexOf(data);
+                        bookingArr.splice(index, 1);
+                        localStorage.setItem(
+                          "bookingDetails",
+                          JSON.stringify(bookingArr)
+                        );
+                        setBookingArr(
+                          JSON.parse(localStorage.getItem("bookingDetails"))
+                        );
+                      }}
+                    >
+                      x
+                    </button>
+                  </div>
+                </div>
+              );
+            })}
+            <form id="flight-booking-form" autoComplete="off">
+              {inputFields.map((input, index) => {
+                return (
+                  <div>
+                    <div
+                      class="2xl:flex xl:flex  lg:flex md:grid sm:grid p-3"
+                      key={index}
+                    >
+                      <div>
+                        <AircraftInput
+                          type="text"
+                          placeholder="City or Airport"
+                          labelText="From Where"
+                          id="id-1"
+                          onClick={() => {}}
+                          onChange={(e) => {
+                            setShowAircraft(false);
+                            setShowAircraftDest(true);
+                            searchItems(e.target.value);
+                          }}
+                        />
 
               <div className="absolute">
                 <ul
