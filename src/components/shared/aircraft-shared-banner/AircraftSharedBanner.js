@@ -5,13 +5,13 @@ import "./aircraft-shared-banner.css";
 const AircraftSharedBanner = ({title, banner_img_url, hidden}) => {
   return (
     <div>
-      <div id="aircraft-banner-body" className={banner_img_url}>
-        <div className="aircraft-banner-body-div">
+      <div id="aircraft-banner-body font-[poppins]" className={banner_img_url}>
+        <div className="aircraft-banner-body-div pt-0  ">
           <div>
-            <h3 className="ac-title">{title}</h3>
+            <h3 className="ac-title  text-center text-lg-start pt-5 lg:pt-8">{title}</h3>
           </div>
-          <div>
-            <div className="-mx-3 mt-12 p-2 border rounded-lg border-[#e695a7]" hidden={hidden}>
+          <div className="sm:mt-0 lg:mt-12">
+            <div className="-mx-3 mt-0 p-2 border rounded-lg border-[#e695a7] lg:mt-12" hidden={hidden}>
               <div class=" md:flex">
                 <div class="md:w-1/4">
                   <button

@@ -17,7 +17,7 @@ const EstimateLayout = () => {
 
         <div className="mx-auto font-[Poppins]">
             <section className="section bg-[#eeece1]">
-                <div className="container mx-auto flex items-start">
+                <div className="container flex items-start mx-auto">
                     <div class="rounded-md w-full p-10">
                         <ol class="list-reset flex">
                             <li><a href="#" class="text-blue-600 hover:text-blue-700">Flight</a></li>
@@ -36,11 +36,11 @@ const EstimateLayout = () => {
                 </div>
             </section>
             <section className="bg-rose-900">
-                <div className="flex flex-col sm:flex-row justify-between">
-                    <div className="px-0 text-xs md:text-xl lg:text-xl lg: px-10 text-white m-3">
+                <div className="flex flex-col justify-between sm:flex-row">
+                    <div className="px-0 px-10 m-3 text-xs text-white md:text-xl lg:text-xl lg:">
                         We Recommend
                     </div>
-                    <div className="px-0 text-xs md:text-xl lg:text-xl lg: px-10 text-white m-3">
+                    <div className="px-0 px-10 m-3 text-xs text-white md:text-xl lg:text-xl lg:">
                     <button class="appearance-none block text-xs  lg:text-xl w-full py-0 px-0 text-start justify-between flex "
                     id="grid-first-name" >
                     

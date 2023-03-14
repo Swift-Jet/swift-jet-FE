@@ -20,7 +20,7 @@ import FieldBooking from "./FieldBooking.js";
 export default function App() {
   return (
     <div className="mt-2 slider-div">
-      <Swiper
+      <Swiper 
         spaceBetween={30}
         centeredSlides={true}
         autoplay={{
@@ -34,7 +34,7 @@ export default function App() {
         modules={[Autoplay, Pagination, Navigation]}
         className="mySwiper"
       >
-        <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
+        <Swiper navigation={true} modules={[Navigation]} className="mySwiper ">
           <SwiperSlide>
             {" "}
             <img alt="" src={image1} />
@@ -51,9 +51,10 @@ export default function App() {
                   <p class=" max-w-lg sm:text-xl mt-3 sm:leading-relaxed">
                   We provide the best flying experience for you. We help you who want to travel privately to have easy access to private jet.
                 </p>
-            </div> */}
-       
+            </div> */}   
       <FieldBooking />
     </div>
+   
+    
   );
 }

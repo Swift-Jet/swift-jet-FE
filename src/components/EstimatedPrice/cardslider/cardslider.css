@@ -15,7 +15,7 @@ img {
 
 @media screen and (min-width: 600px) {
     .gallery {
-        padding-top: 250px;
+        padding-top: 60%;
         margin: 2rem;
         margin-bottom: 10px;
    }
@@ -47,3 +47,5 @@ img {
     box-shadow: 0 0 0 3px #900228;
     border-radius: 3px;
 }
+
+
