@@ -7,7 +7,7 @@ const HomePage = () => {
   return (
     <Layout>
       <Carosuel />
-      <BookingEngine />
+      {/* <BookingEngine /> */}
     </Layout>
   );
 };

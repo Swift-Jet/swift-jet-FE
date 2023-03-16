@@ -31,51 +31,58 @@
   object-fit: cover;
 }
 
-.field-booking{
-  position: absolute;
-  z-index: 1;
-  margin-top: 250px;
+.field-booking {
+  padding-top: 150px;
+  background: #5c0a32;
+}
 
-}
-.field-booking-loading{
+.field-booking-loading {
   position: absolute;
   z-index: 1;
-  margin-top: 250px;
+  padding-top: 250px;
 }
-.field-booking-inner{
+
+.field-booking-inner {
   width: 50%;
   margin-left: auto;
   margin-right: auto;
 }
-@media (max-width: 1017px) {
-  #myBtn {
-    display: none;
-  }
-}
 
-@media (max-width: 1127px) {
-  .contact-us {
-    display: none;
-  }
-
-}
 @media (max-width: 768px) {
 
-  .field-booking{
-    position: absolute;
-    z-index: 1;
-    margin-top: 250px;
-    background-color: #eeece1;
+  .field-booking {
+    padding-top: 100px;
+  }
+
+  .fbf-div {
+    border: 1px solid #5c0932;
+    margin-bottom: 100px;
+  }
+
+  .nav-div {
+    display: block;
   }
 }
+
 @media (max-width: 1024px) {
-  .button-2 {
+  /* .button-2 {
     display: none;
-  }
+  } */
 }
+
 .remove-skill {
   background: #fff;
   color: rgb(83, 8, 8);
   font-weight: 800;
   cursor: pointer;
+}
+
+.sw-link {
+
+  text-align: start;
+}
+
+.fbf-div {
+  border: 1px solid #5c0932;
+  margin-bottom: 150px;
 }

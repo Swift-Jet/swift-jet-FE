@@ -26,7 +26,7 @@ const App = () => {
       <Route path="/aircraft-estimate" component={AircraftEstimate}></Route>
       <Route path="/signInlayout" component={SignForm}></Route>
       <Route path="/registration" component={RegisterForm}></Route>
-      <Route path="/EstimstedPage" component={EstimateLayout}></Route>
+      <Route path="/EstimatedPage" component={EstimateLayout}></Route>
       
 
     </Switch>

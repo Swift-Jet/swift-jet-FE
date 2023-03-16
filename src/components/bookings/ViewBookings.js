@@ -6,24 +6,8 @@ const ViewBookings = () => {
   const { bookings } = useContext(BookingsContext);
   return (
     <div>
-      <section class="container px-4 mx-auto">
+      <section class="container mx-auto">
         <div class="sm:flex sm:items-center sm:justify-between">
-          <div>
-            <div class="flex items-center gap-x-3">
-              <h2 class="text-lg font-medium text-gray-800 dark:text-white">
-                Customers
-              </h2>
-
-              <span class="px-3 py-1 text-xs text-blue-600 bg-blue-100 rounded-full dark:bg-gray-800 dark:text-blue-400">
-                240 vendors
-              </span>
-            </div>
-
-            <p class="mt-1 text-sm text-gray-500 dark:text-gray-300">
-              These companies have purchased in the last 12 months.
-            </p>
-          </div>
-
           <div class="flex items-center mt-4 gap-x-3">
             <button class="flex items-center justify-center w-1/2 px-5 py-2 text-sm tracking-wide text-white transition-colors duration-200 bg-[#881237] rounded-lg shrink-0 sm:w-auto gap-x-2">
               <svg
@@ -46,48 +30,23 @@ const ViewBookings = () => {
           </div>
         </div>
 
-        <div class="mt-6 md:flex md:items-center md:justify-between">
+        {/* <div class="mt-6 md:flex md:items-center md:justify-between">
           <div class="inline-flex overflow-hidden bg-white border divide-x rounded-lg dark:bg-gray-900 rtl:flex-row-reverse dark:border-gray-700 dark:divide-gray-700">
             <button class="px-5 py-2 text-xs font-medium text-white transition-colors duration-200 bg-[#881237] sm:text-sm  dark:text-gray-300">
-              View all
+              New
             </button>
 
             <button class="px-5 py-2 text-xs font-medium text-[#881237] hover:text-white transition-colors duration-200 sm:text-sm dark:hover:bg-[#881237]  hover:bg-[#881237]">
-              Monitored
+              In progress
             </button>
 
             <button class="px-5 py-2 text-xs font-medium text-[#881237] hover:text-white transition-colors duration-200 sm:text-sm dark:hover:bg-[#881237]  hover:bg-[#881237]">
-              Unmonitored
+              Completed
             </button>
           </div>
+        </div> */}
 
-          <div class="relative flex items-center mt-4 md:mt-0">
-            <span class="absolute">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="1.5"
-                stroke="currentColor"
-                class="w-5 h-5 mx-3 text-gray-400 dark:text-gray-600"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
-                />
-              </svg>
-            </span>
-
-            <input
-              type="text"
-              placeholder="Search"
-              class="block w-full py-1.5 pr-5 text-gray-700 bg-white border border-gray-200 rounded-lg md:w-80 placeholder-gray-400/70 pl-11 rtl:pr-11 rtl:pl-5 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
-            />
-          </div>
-        </div>
-
-        <div class="flex flex-col mt-6">
+        <div class="flex flex-col mt-6  overflow-x-auto ">
           <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
             <div class="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
               <div class="overflow-hidden border border-gray-200 dark:border-gray-700 md:rounded-lg">
@@ -235,12 +194,15 @@ const ViewBookings = () => {
                               <div class="bg-blue-500 w-2/3 h-1.5"></div>
                             </div> */}
                             <div className="items-center">
-                              {data?.booking_details.depatureDate} - {data?.booking_details.depatureTime} hrs
+                              {data?.booking_details.depatureDate} -{" "}
+                              {data?.booking_details.depatureTime} hrs
                               <br />
                               {data?.booking_details.tripType ===
                               "Round Trip" ? (
                                 <div>
-                               {data?.booking_details.returningDate} - {data?.booking_details.returningTime} hrs (Return leg)
+                                  {data?.booking_details.returningDate} -{" "}
+                                  {data?.booking_details.returningTime} hrs
+                                  (Return leg)
                                 </div>
                               ) : null}
                             </div>

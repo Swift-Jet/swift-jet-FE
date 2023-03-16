@@ -17,8 +17,8 @@ const EstimateLayout = () => {
 
         <div className="mx-auto font-[Poppins]">
             <section className="section bg-[#eeece1]">
-                <div className="container flex items-start mx-auto">
-                    <div class="rounded-md w-full p-10">
+                <div className=" mx-auto flex items-start">
+                    <div class="rounded-md w-full flight-title">
                         <ol class="list-reset flex">
                             <li><a href="#" class="text-blue-600 hover:text-blue-700">Flight</a></li>
                             <li><span class="text-gray-500 mx-2">/</span></li>
@@ -28,40 +28,21 @@ const EstimateLayout = () => {
                             <div className="">
                                 <h1 className="text-2xl font-bold text-rose-900">Estimated Price For Your Flight</h1>
                             </div>
-                            <div className="mt-10">
+                            {/* <div className="mt-10">
                                 <Steps />
-                            </div>
+                            </div> */}
                         </div>
                     </div>
                 </div>
             </section>
-            <section className="bg-rose-900">
-                <div className="flex flex-col justify-between sm:flex-row">
-                    <div className="px-0 px-10 m-3 text-xs text-white md:text-xl lg:text-xl lg:">
+            {/* <section className="bg-rose-900">
+                <div className="flex flex-col sm:flex-row justify-between recommend-stn">
+                    <div className="px-0 text-xs md:text-xl lg:text-xl lg: px-10 text-white m-3 ">
                         We Recommend
                     </div>
-                    <div className="px-0 px-10 m-3 text-xs text-white md:text-xl lg:text-xl lg:">
-                    <button class="appearance-none block text-xs  lg:text-xl w-full py-0 px-0 text-start justify-between flex "
-                    id="grid-first-name" >
-                    
-                    Filter By: <span className="ml-2 ">Recommended</span>
-                    <svg
-                      width="8"
-                      height="14"
-                      className="mt-0 ml-4 lg:mt-2"
-                      viewBox="0 0 8 14"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M7.53998 6.29004L1.87998 0.640037C1.78702 0.546308 1.67642 0.471914 1.55456 0.421145C1.4327 0.370377 1.30199 0.344238 1.16998 0.344238C1.03797 0.344238 0.907264 0.370377 0.785405 0.421145C0.663546 0.471914 0.552945 0.546308 0.459982 0.640037C0.273731 0.827399 0.169189 1.08085 0.169189 1.34504C0.169189 1.60922 0.273731 1.86267 0.459982 2.05004L5.40998 7.05004L0.459982 12C0.273731 12.1874 0.169189 12.4409 0.169189 12.705C0.169189 12.9692 0.273731 13.2227 0.459982 13.41C0.552597 13.5045 0.663042 13.5797 0.784917 13.6312C0.906792 13.6827 1.03767 13.7095 1.16998 13.71C1.30229 13.7095 1.43317 13.6827 1.55505 13.6312C1.67692 13.5797 1.78737 13.5045 1.87998 13.41L7.53998 7.76004C7.64149 7.66639 7.7225 7.55274 7.7779 7.42624C7.83331 7.29974 7.86191 7.16314 7.86191 7.02504C7.86191 6.88693 7.83331 6.75033 7.7779 6.62383C7.7225 6.49733 7.64149 6.38368 7.53998 6.29004Z"
-                        fill="white"
-                      />
-                    </svg>
-                  </button>
-                    </div>
+                 
                 </div>
-            </section>
+            </section> */}
             <section>
                 <Estimatecards booking_details={bookDetails} aircraft_details={aircrafts} />
             </section>

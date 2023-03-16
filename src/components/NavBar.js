@@ -12,6 +12,7 @@ export default function NavBar() {
   const logout = () => {
     localStorage.setItem("authenticated", JSON.stringify(false));
     localStorage.removeItem("user");
+    localStorage.removeItem("airports");
     history.push("/");
   };
   let Links = [
@@ -19,16 +20,15 @@ export default function NavBar() {
     { name: "Aircrafts", link: "/aircraft" },
     { name: "Destinations", link: "/destination" },
     { name: "Get a Quote", link: "/" },
-    // {name:"Blog", link:"/"},
   ];
 
   return (
-    <nav className="w-full mt-2 bg-white shadow-md font-[poppins] lg:max-w-8xl">
-      <div className="flex flex-wrap justify-between px-4 mx-auto md:items-center md:px-8">
+    <nav className="w-full mt-2 bg-white font-[poppins] lg:max-w-8xl pb-2">
+      <div className="flex flex-wrap justify-between px-4 mx-auto md:items-center md:px-8 nav-div">
         <div className="w-full md:w-1/3">
           <div className="flex items-center justify-between md:py-0">
             <a href="javascript:void(0)">
-              <img alt="" src={logoprimary} class="w-24 md:w-16 lg:w-32" />
+              <img alt="" src={logoprimary} class="w-32 md:w-24 lg:w-32" />
             </a>
             <div className="md:hidden">
               <button
@@ -78,14 +78,14 @@ export default function NavBar() {
               {Links.map((link) => (
                 <li
                   key={link.name}
-                  className="text-lg md:relative group hover:text-rose-900 md:my-0 my-7 md:text-sm"
+                  className="text-lg md:relative group hover:text-rose-900 md:my-0 my-7 md:text-sm sw-link font-semibold"
                 >
                   <a href={link.link}>{link.name}</a>
                   <span className="absolute right-0 w-0 h-1 -bottom-1 bg-rose-900 group-hover:w-full group-hover:transition-all "></span>
                 </li>
               ))}
               <li className="hidden md:block relative box-border w-0.5 h-[50px] border-r-[2px] border-solid border-rose-900 contact-us "></li>
-              <li>
+              <li className="sm:text-start pr-6 pt-2">
                 <div className="relative contact-us">Talk To Our Team</div>
                 <div className="relative mb-3 text-sm font-medium contact-us">
                   +234 707 8965 234
@@ -93,7 +93,7 @@ export default function NavBar() {
               </li>
             </ul>
             {JSON.parse(localStorage.getItem("authenticated")) === true ? (
-              <div className="hidden space-x-2 md:inline-block">
+              <div className="space-x-2 md:inline-block flex">
                 <button
                   class="text-rose-900 button-1 border-2 border-rose-900 hover:bg-rose-900 hover:text-white active:bg-rose-900 font-bold rounded-full outline-none focus:outline-none ease-linear transition-all duration-150- px-3 py-1 "
                   type="button"
@@ -113,11 +113,11 @@ export default function NavBar() {
               </div>
             ) : null}
             {JSON.parse(localStorage.getItem("authenticated")) != true ? (
-              <div className="hidden space-x-2 md:inline-block">
+              <div className=" space-x-2 md:inline-block flex">
                 <button
                   class="text-rose-900 button-2  border-2 item-center border-rose-900 hover:bg-rose-900 hover:text-white active:bg-rose-900 font-bold rounded-full outline-none focus:outline-none  ease-linear transition-all duration-150  px-3 py-1"
                   type="button"
-                  id="myBtn"
+               
                   onClick={() => {
                     history.push("/signInlayout");
                   }}
@@ -127,7 +127,7 @@ export default function NavBar() {
                 <button
                   class="text-rose-900 button-2  border-2 border-rose-900 hover:bg-rose-900 hover:text-white active:bg-rose-900 font-bold rounded-full outline-none focus:outline-none ease-linear transition-all duration-150- px-3 py-1 "
                   type="button"
-                  id="myBtn"
+                
                   onClick={() => {
                     history.push("/registration");
                   }}

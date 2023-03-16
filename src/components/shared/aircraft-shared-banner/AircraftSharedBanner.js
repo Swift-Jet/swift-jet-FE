@@ -8,9 +8,9 @@ const AircraftSharedBanner = ({title, banner_img_url, hidden}) => {
       <div id="aircraft-banner-body font-[poppins]" className={banner_img_url}>
         <div className="aircraft-banner-body-div pt-0  ">
           <div>
-            <h3 className="ac-title  text-center text-lg-start pt-5 lg:pt-8">{title}</h3>
+            <h3 className="ac-title text-center sm:text-start text-lg-start pt-5 lg:pt-8">{title}</h3>
           </div>
-          <div className="sm:mt-0 lg:mt-12">
+          <div className="sm:mt-0 lg:mt-8 pb-12">
             <div className="-mx-3 mt-0 p-2 border rounded-lg border-[#e695a7] lg:mt-12" hidden={hidden}>
               <div class=" md:flex">
                 <div class="md:w-1/4">
@@ -48,7 +48,7 @@ const AircraftSharedBanner = ({title, banner_img_url, hidden}) => {
                 </div>
                 <div class="md:w-1/2">
                   <input
-                    class="appearance-none block w-full border border-grey-lighter py-4 px-4 sm:justify-center"
+                    class="appearance-none block w-full border border-grey-lighter py-4 px-4 sm:justify-center text-center"
                     id="grid-last-name"
                     type="text"
                     placeholder="Search Aircraft"

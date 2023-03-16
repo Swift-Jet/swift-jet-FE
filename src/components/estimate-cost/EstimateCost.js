@@ -79,7 +79,7 @@ const EstimateCost = () => {
                     </div>
                     <div class="col-sm-5 text-end">
                       <div class="py-3 sm:py-4">
-                        <div class="flex items-center space-x-4">
+                        <div class="flex items-center space-x-4 text-center">
                           <div class="flex-shrink-0"></div>
                           <div class="flex-1 min-w-0">
                             <p class="text-sm font-medium text-gray-500  dark:text-white">
@@ -144,7 +144,7 @@ const EstimateCost = () => {
                       </div>
                       <div class="col-sm-5 text-end">
                         <div class="py-3 sm:py-4">
-                          <div class="flex items-center space-x-4">
+                          <div class="flex items-center text-center space-x-4">
                             <div class="flex-shrink-0"></div>
                             <div class="flex-1 min-w-0">
                               <p class="text-sm font-medium text-gray-500  dark:text-white">
@@ -159,7 +159,7 @@ const EstimateCost = () => {
                 </div>
               </div>
               <div className="col-sm-6">
-                {/* <div class="w-full ">
+                <div class="w-full ">
                   <h5 class="mb-4 text-xl font-medium text-gray-900 dark:text-gray-900">
                     Flexible private flying.
                   </h5>
@@ -181,7 +181,7 @@ const EstimateCost = () => {
                       </span>
                     </li>
                   </ul>
-                </div> */}
+                </div>
               </div>
             </div>
 

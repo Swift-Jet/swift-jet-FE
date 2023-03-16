@@ -113,13 +113,13 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
   };
 
   return (
-    <div class=" bg-[#eeece1] mx-auto px-4 md:px-8 lg:px-16">
+    <div class=" bg-[#eeece1] mx-auto md:px-8 lg:px-16">
       <ToastContainer />
       <div class="flex flex-col md:flex-row">
         <div class="w-full md:w-5/6">
-          <div class="py-16">
-            <div class="xl:container m-auto px-6 text-gray-600 md:px-12 xl:px-16">
-              <div class="lg:bg-white  dark:lg:bg-white lg:p-16 rounded-[4rem] space-y-6 md:flex md:gap-6 justify-start md:space-y-0 lg:items-center">
+          <div class="">
+            <div class="xl:container px-6 text-gray-600 md:px-12">
+              <div class="lg:bg-white  dark:lg:bg-white lg:p-16 rounded-[1rem] space-y-6 md:flex md:gap-6 justify-start md:space-y-0 lg:items-center">
                 <div class="md:5/12 lg:w-3/4">
                   <Cardslider aircraft_details={bannerSuggestion} />
                 </div>
@@ -340,8 +340,8 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
 
         {booking_details?.tripType === "One way Trip" ? (
           <div class="w-full md:w-1/2">
-            <div className="py-16">
-              <div className="flex flex-col p-5 bg-white rounded-xl gap-y-8 ">
+            <div className="">
+              <div className=" flex flex-col p-5 bg-white rounded-xl gap-y-8 display-trip ">
                 <div className=" flex flex-row justify-between align-center">
                   <p>Your Search</p>
                   <button
@@ -368,7 +368,7 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
                       <path d="M271 936 80 745l192-192 42 42-120 120h649v60H194l119 119-42 42Zm418-337-42-42 119-119H117v-60h649L646 258l42-42 192 192-191 191Z" />
                     </svg>
                   </div>
-                  <div class="flex items-center">
+                  <div class="flex items-center text-center">
                     <p className="font-bold">
                       {booking_details?.destinationAirportCode}
                       <br />
@@ -426,8 +426,8 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
 
         {booking_details.tripType === "Round Trip" ? (
           <div class="w-full md:w-1/2">
-            <div className="py-16">
-              <div className="flex flex-col p-5 bg-white rounded-xl gap-y-8 ">
+            <div className="">
+              <div className=" flex flex-col p-5 bg-white rounded-xl gap-y-8 display-trip ">
                 <div className=" flex flex-row justify-between align-center">
                   <p>Your Search</p>
                   <button
@@ -454,7 +454,7 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
                       <path d="M271 936 80 745l192-192 42 42-120 120h649v60H194l119 119-42 42Zm418-337-42-42 119-119H117v-60h649L646 258l42-42 192 192-191 191Z" />
                     </svg>
                   </div>
-                  <div class="flex items-center">
+                  <div class="flex items-center text-center">
                     <p className="font-bold">
                       {booking_details?.destinationAirportCode}
                       <br />
@@ -498,7 +498,7 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
                 </div>
                 <div class="border-t border-gray-300 text-gray-600">
                   <div className="flex justify-between items-center mt-4">
-                    <div class="flex items-center ">
+                    <div class="flex items-center text-center">
                       <p className="font-bold">
                         {booking_details?.destinationAirportCode}
                         <br />
@@ -572,7 +572,7 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
         ) : null}
 
         {booking_details[0]?.tripType === "Multi-city Trip" ? (
-          <div class="w-full md:w-1/2 py-16">
+          <div class="w-full md:w-1/2 ">
             <div className="">
               <div className=" flex flex-row justify-between align-center p-5 bg-white rounded-t-xl">
                 <p>Your Search</p>
@@ -587,14 +587,14 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
                 return (
                   <div className="flex flex-col p-5 bg-white  gap-y-8 ">
                     <div class="flex justify-between items-center  text-gray-600">
-                      <div class="flex items-center">
+                      <div class="flex items-center w-1/2">
                         <p className="font-bold">
                           {item?.sourceAirportCode}
                           <br />
                           {item?.sourceAirport}
                         </p>
                       </div>
-                      <div class="flex items-center">
+                      <div class="flex items-center p-4 text-center">
                         <svg
                           className="svg-icon h-6 w-6 text-gray-600 fill-current "
                           xmlns="http://www.w3.org/2000/svg"
@@ -603,7 +603,7 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
                           <path d="M271 936 80 745l192-192 42 42-120 120h649v60H194l119 119-42 42Zm418-337-42-42 119-119H117v-60h649L646 258l42-42 192 192-191 191Z" />
                         </svg>
                       </div>
-                      <div class="flex items-center">
+                      <div class="flex items-center text-end w-1/2">
                         <p className="font-bold">
                           {item?.destinationAirportCode}
                           <br />
@@ -661,7 +661,7 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
           </div>
         ) : null}
       </div>
-      <div className="container">
+      <div className="other-cards">
         <h1 className="font-normal text-2xl font-bold text-black">
           We Also Found Other Flights
         </h1>
@@ -669,14 +669,14 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
         <div class="w-full md:w-1/2">
           {aircraft_details.map((item, i) => (
             <div className="py-4">
-              <div className="flex flex-col p-5 bg-white rounded-xl gap-y-8 ">
+              <div className="flex flex-col flight-card-content bg-white rounded-xl gap-y-8">
                 <div className=" flex flex-row justify-between align-center">
                   <img
                     src={item?.image_url}
                     class="rounded-full h-14 w-14"
                     alt=""
                   />
-                  <p className="font-bold">{item?.model}</p>
+                  <p className="font-bold flight-card-text truncate ml-2 mr-2">{item?.model}</p>
                   {/* <p className="font-bold text-rose-900 text-xl">
                     {" "}
                     <span>&#8358;</span> 160,000
@@ -693,7 +693,7 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
                   </button>
                 </div>
 
-                <div class="flex justify-between items-center  text-gray-600 m-4">
+                <div class="flex justify-between items-center  text-gray-600">
                   <div class="flex items-center">
                     <p className="text-xs">{item?.classification}</p>
                   </div>

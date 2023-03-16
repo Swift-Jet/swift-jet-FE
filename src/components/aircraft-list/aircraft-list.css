@@ -20,23 +20,29 @@
     padding-top: 0.5rem;
     padding-bottom: 0rem;
     border-radius: 10px 10px 0px 0px;
+    border-top: 2px solid #5c0932;
+    border-right: 2px solid #5c0932;
+    border-left: 2px solid #5c0932;
 
 }
+
 .ac-button:focus {
     outline: none;
     box-shadow: none;
 }
+
 .ac-button:hover {
-  color: #fff;
-  background-color: #5C0632 !important;
+    color: #fff;
+    background-color: #5C0632 !important;
 }
+
 .alh-desc {
     width: 90%;
     margin: auto;
 }
 
 .alh-desc-stn {
- 
+
     font-size: 'Aeonik';
 }
 
@@ -44,8 +50,29 @@
     font-family: 'Minion Pro';
     font-weight: 600;
 }
-.ac-card-div{
+
+.ac-card-div {
     width: 90%;
     margin: auto;
     margin-top: 50px;
+}
+
+@media (max-width: 768px) {
+
+    .field-booking {
+
+        padding-top: 100px;
+        background: #5c0a32;
+    }
+
+    .acb-icons,
+    .acb-links {
+        width: 80%;
+        margin: auto;
+        border-radius: 10px 10px 0px 0px;
+        border-top: 2px solid #5c0932;
+        border-right: 2px solid #5c0932;
+        border-left: 2px solid #5c0932;
+
+    }
 }

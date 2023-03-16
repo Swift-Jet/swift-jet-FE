@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { googleLogout, useGoogleLogin, GoogleLogin } from "@react-oauth/google";
 import axios from "axios";
+import { useHistory } from "react-router-dom";
 //import {getToken} from "../../apiHelper/requests.js"
 
 function GoogleLoginForm() {
   const [user, setUser] = useState([]);
   const [profile, setProfile] = useState([]);
   const [token, setToken] = useState([]);
+  const history = useHistory();
   const getToken = () => {
     axios
       .get(`https://swift-jet-backend.onrender.com/api/v1/user/token-provider`)
@@ -44,6 +46,8 @@ function GoogleLoginForm() {
           localStorage.setItem("user", JSON.stringify(user));
           localStorage.setItem("authenticated", JSON.stringify(true));
           localStorage.setItem("google-auth", JSON.stringify(true));
+          history.push(JSON.parse(localStorage.getItem("prevpath")));
+          localStorage.removeItem("prevpath");
           setProfile(res.data);
         })
         .catch((err) => console.log(err));

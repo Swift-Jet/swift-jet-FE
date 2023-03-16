@@ -11,6 +11,8 @@ import { useHistory } from "react-router-dom";
 import Card from "./shared/aircraft-type-card/card";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import data from "./airfields";
+
 const FieldBooking = () => {
   const [showAircraft, setShowAircraft] = useState(true);
   const [showAircraftDest, setShowAircraftDest] = useState(true);
@@ -31,25 +33,32 @@ const FieldBooking = () => {
   const [bookingArr, setBookingArr] = useState([]);
   const [addMoreBtn, setAddMoreBtn] = useState(false);
   const [loading, setLoading] = useState(false);
-  //const { airports } = useContext(AirportsContext);
 
-  const [airports, setAirports] = useState([]);
-  useEffect(() => {
-    function fetchData() {
-      setLoading(true);
-      axios
-        .get(`https://swift-jet-backend.onrender.com/api/v1/airport/all`)
-        .then((data) => {
-          setAirports(data?.data?.data);
-          console.log(data?.data?.data);
-          setLoading(false);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    }
-    fetchData();
-  }, []);
+  const { aircrafts } = useContext(AircraftsContext);
+
+  const [airports, setAirports] = useState(data?.airfields);
+
+  // useEffect(() => {
+  //   function fetchData() {
+  //     setLoading(true);
+  //     axios
+  //       .get(`https://swift-jet-backend.onrender.com/api/v1/airport/all`)
+  //       .then((data) => {
+  //         setAirports(data?.data?.data);
+  //         localStorage.setItem("airports", JSON.stringify(data?.data?.data));
+  //         setLoading(false);
+  //       })
+  //       .catch((error) => {
+  //         console.log(error);
+  //       });
+  //   }
+  //   const cachedAirport = JSON.parse(localStorage.getItem("airports"));
+  //   console.log("airportsssss", airports.airfields)
+  //  // setAirports(cachedAirport);
+  //   if (!cachedAirport) {
+  //     fetchData();
+  //   }
+  // }, []);
 
   const history = useHistory();
   let filteredData;
@@ -130,10 +139,11 @@ const FieldBooking = () => {
         depatureTime == "" ||
         passengers == ""
       ) {
-        toastMsg("Please fill all fields one");
+        toastMsg("Please fill all fields");
         valid = false;
       } else valid = true;
-    } else if (tripType == "Round Trip") {
+    }
+    if (tripType == "Round Trip") {
       if (
         sourceAirport == "" ||
         destinationAirport == "" ||
@@ -143,10 +153,11 @@ const FieldBooking = () => {
         returningTime == "" ||
         passengers == ""
       ) {
-        toastMsg("Please fill all fields two");
+        toastMsg("Please fill all fields");
         valid = false;
       } else valid = true;
-    } else if (tripType == "Multi-city Trip") {
+    }
+    if (tripType == "Multi-city Trip") {
       if (
         sourceAirport == "" ||
         destinationAirport == "" ||
@@ -154,8 +165,7 @@ const FieldBooking = () => {
         depatureTime == "" ||
         passengers == ""
       ) {
-        console.log(bookingDetails, valid, "valid");
-        toastMsg("Please fill all fields three");
+        toastMsg("Please fill all fields");
         valid = false;
       } else valid = true;
     }
@@ -186,58 +196,106 @@ const FieldBooking = () => {
         <div className="w-full text-left font-Aeonik text-rgba(77,77,77,1) field-booking-loading ">
           <div>
             <div className="bg-white 2xl:w-fit xl:w-fit lg:w-fit md:w-3/5 sm:w-4/5 mr-auto ml-auto border rounded rounded-lg mb-12 justify-center "></div>
-            <h1 className="justify-center flex  text-center"><svg width="95" height="110" viewBox="0 0 135 140" xmlns="http://www.w3.org/2000/svg" fill="#fff">
-    <rect y="10" width="15" height="120" rx="6">
-        <animate attributeName="height"
-             begin="0.5s" dur="1s"
-             values="120;110;100;90;80;70;60;50;40;140;120" calcMode="linear"
-             repeatCount="indefinite" />
-        <animate attributeName="y"
-             begin="0.5s" dur="1s"
-             values="10;15;20;25;30;35;40;45;50;0;10" calcMode="linear"
-             repeatCount="indefinite" />
-    </rect>
-    <rect x="30" y="10" width="15" height="120" rx="6">
-        <animate attributeName="height"
-             begin="0.25s" dur="1s"
-             values="120;110;100;90;80;70;60;50;40;140;120" calcMode="linear"
-             repeatCount="indefinite" />
-        <animate attributeName="y"
-             begin="0.25s" dur="1s"
-             values="10;15;20;25;30;35;40;45;50;0;10" calcMode="linear"
-             repeatCount="indefinite" />
-    </rect>
-    <rect x="60" width="15" height="140" rx="6">
-        <animate attributeName="height"
-             begin="0s" dur="1s"
-             values="120;110;100;90;80;70;60;50;40;140;120" calcMode="linear"
-             repeatCount="indefinite" />
-        <animate attributeName="y"
-             begin="0s" dur="1s"
-             values="10;15;20;25;30;35;40;45;50;0;10" calcMode="linear"
-             repeatCount="indefinite" />
-    </rect>
-    <rect x="90" y="10" width="15" height="120" rx="6">
-        <animate attributeName="height"
-             begin="0.25s" dur="1s"
-             values="120;110;100;90;80;70;60;50;40;140;120" calcMode="linear"
-             repeatCount="indefinite" />
-        <animate attributeName="y"
-             begin="0.25s" dur="1s"
-             values="10;15;20;25;30;35;40;45;50;0;10" calcMode="linear"
-             repeatCount="indefinite" />
-    </rect>
-    <rect x="120" y="10" width="15" height="120" rx="6">
-        <animate attributeName="height"
-             begin="0.5s" dur="1s"
-             values="120;110;100;90;80;70;60;50;40;140;120" calcMode="linear"
-             repeatCount="indefinite" />
-        <animate attributeName="y"
-             begin="0.5s" dur="1s"
-             values="10;15;20;25;30;35;40;45;50;0;10" calcMode="linear"
-             repeatCount="indefinite" />
-    </rect>
-</svg></h1>
+            <h1 className="justify-center flex  text-center">
+              <svg
+                width="95"
+                height="110"
+                viewBox="0 0 135 140"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="#fff"
+              >
+                <rect y="10" width="15" height="120" rx="6">
+                  <animate
+                    attributeName="height"
+                    begin="0.5s"
+                    dur="1s"
+                    values="120;110;100;90;80;70;60;50;40;140;120"
+                    calcMode="linear"
+                    repeatCount="indefinite"
+                  />
+                  <animate
+                    attributeName="y"
+                    begin="0.5s"
+                    dur="1s"
+                    values="10;15;20;25;30;35;40;45;50;0;10"
+                    calcMode="linear"
+                    repeatCount="indefinite"
+                  />
+                </rect>
+                <rect x="30" y="10" width="15" height="120" rx="6">
+                  <animate
+                    attributeName="height"
+                    begin="0.25s"
+                    dur="1s"
+                    values="120;110;100;90;80;70;60;50;40;140;120"
+                    calcMode="linear"
+                    repeatCount="indefinite"
+                  />
+                  <animate
+                    attributeName="y"
+                    begin="0.25s"
+                    dur="1s"
+                    values="10;15;20;25;30;35;40;45;50;0;10"
+                    calcMode="linear"
+                    repeatCount="indefinite"
+                  />
+                </rect>
+                <rect x="60" width="15" height="140" rx="6">
+                  <animate
+                    attributeName="height"
+                    begin="0s"
+                    dur="1s"
+                    values="120;110;100;90;80;70;60;50;40;140;120"
+                    calcMode="linear"
+                    repeatCount="indefinite"
+                  />
+                  <animate
+                    attributeName="y"
+                    begin="0s"
+                    dur="1s"
+                    values="10;15;20;25;30;35;40;45;50;0;10"
+                    calcMode="linear"
+                    repeatCount="indefinite"
+                  />
+                </rect>
+                <rect x="90" y="10" width="15" height="120" rx="6">
+                  <animate
+                    attributeName="height"
+                    begin="0.25s"
+                    dur="1s"
+                    values="120;110;100;90;80;70;60;50;40;140;120"
+                    calcMode="linear"
+                    repeatCount="indefinite"
+                  />
+                  <animate
+                    attributeName="y"
+                    begin="0.25s"
+                    dur="1s"
+                    values="10;15;20;25;30;35;40;45;50;0;10"
+                    calcMode="linear"
+                    repeatCount="indefinite"
+                  />
+                </rect>
+                <rect x="120" y="10" width="15" height="120" rx="6">
+                  <animate
+                    attributeName="height"
+                    begin="0.5s"
+                    dur="1s"
+                    values="120;110;100;90;80;70;60;50;40;140;120"
+                    calcMode="linear"
+                    repeatCount="indefinite"
+                  />
+                  <animate
+                    attributeName="y"
+                    begin="0.5s"
+                    dur="1s"
+                    values="10;15;20;25;30;35;40;45;50;0;10"
+                    calcMode="linear"
+                    repeatCount="indefinite"
+                  />
+                </rect>
+              </svg>
+            </h1>
           </div>
         </div>
       ) : (
@@ -272,16 +330,27 @@ const FieldBooking = () => {
             />
           </div>
 
-          <div className="bg-white 2xl:w-fit xl:w-fit lg:w-fit md:w-3/5 sm:w-4/5 mr-auto ml-auto border rounded rounded-lg mb-12">
+          <div className="bg-white 2xl:w-fit xl:w-fit lg:w-fit md:w-3/5 sm:w-4/5 mr-auto ml-auto fbf-div rounded rounded-lg mb-12">
             {bookingArr.map((data, i) => {
               return (
-                <div class="row">
-                  <div className="pt-4 col">{data?.sourceAirport}</div>
-                  <div className="pt-4 col">{data?.destinationAirport}</div>
-                  <div className="pt-4 col"> {data?.depatureDate}</div>
-                  <div className="pt-4 col">{data?.depatureTime}</div>
-                  <div className="pt-4 col">{data?.passengers}</div>
-                  <div className="pt-4 col">
+                <div class="row pr-8 pl-8">
+                  <div className="pt-4 col text-center text-[12px]">
+                    {data?.sourceAirportCode}
+                  </div>
+                  <div className="pt-4 col text-center text-[12px]">
+                    {data?.destinationAirportCode}
+                  </div>
+                  <div className="pt-4 col text-center text-[12px]">
+                    {" "}
+                    {data?.depatureDate}
+                  </div>
+                  <div className="pt-4 col text-center text-[12px]">
+                    {data?.depatureTime}
+                  </div>
+                  <div className="pt-4 col text-center text-[12px]">
+                    {data?.passengers}
+                  </div>
+                  <div className="pt-4 col text-center text-[12px]">
                     {" "}
                     <button
                       className="remove-skill"
@@ -330,28 +399,30 @@ const FieldBooking = () => {
 
                         <div className="absolute">
                           <ul
-                            class="rounded overflow-hidden shadow-md w-64 h-96 overflow-y-auto"
+                            class="rounded overflow-hidden shadow-md w-56 h-96 overflow-y-auto"
                             hidden={showAircraft}
                           >
-                            {searchInput && searchInput.length > 1
-                              ? filteredResults.map((item, i) => (
-                                  <div key={i}>
-                                    <li
-                                      class="text-xs cursor-pointer px-4 py-2 bg-white hover:bg-sky-100 hover:text-sky-600 border-b last:border-none border-gray-200 transition-all duration-300 ease-in-out"
-                                      onClick={() => {
-                                        document.getElementById("id-1").value =
-                                          item.name;
-                                        setShowAircraft(true);
-                                        setSourceAirport(item.name);
-                                        setSourceAirportCode(item.icao_code);
-                                      }}
-                                    >
-                                      {item.name} ({item.country_code}) /{" "}
-                                      {item.icao_code} / {item.iata_code}
-                                    </li>
-                                  </div>
-                                ))
-                              : null}
+                            {searchInput && searchInput.length > 0 ? (
+                              filteredResults.map((item, i) => (
+                                <div key={i}>
+                                  <li
+                                    class="text-xs cursor-pointer px-4 py-2 bg-white hover:bg-sky-100 hover:text-sky-600 border-b last:border-none border-gray-200 transition-all duration-300 ease-in-out"
+                                    onClick={() => {
+                                      document.getElementById("id-1").value =
+                                        item.name;
+                                      setShowAircraft(true);
+                                      setSourceAirport(item.name);
+                                      setSourceAirportCode(item.icao_code);
+                                    }}
+                                  >
+                                    {item.name} ({item.country_code}) /{" "}
+                                    {item.icao_code} / {item.iata_code}
+                                  </li>
+                                </div>
+                              ))
+                            ) : (
+                              <h2 className="text-center">Filtering......</h2>
+                            )}
                           </ul>
                         </div>
                       </div>
@@ -504,9 +575,9 @@ const FieldBooking = () => {
               </p>
             </div>
             <div className="2xl:grid-cols-3 2xl:grid xl:grid-cols-3 xl:grid lg:grid-cols-3 lg:grid md:grid-cols-3 md:grid pt-24 justify-center md:flex w-10/12 mr-auto ml-auto">
-              <AircraftCard />
-              <AircraftCard />
-              <AircraftCard />
+              {aircrafts.slice(0, 3).map((data, i) => (
+                <AircraftCard item={data} />
+              ))}
             </div>
             <div className="flex justify-center">
               <button class="bg-[#5C0632] hover:bg-[#5C0632] hover:text-white border text-[#ffffff] font-bold py-3 px-6 rounded-full">
@@ -514,7 +585,7 @@ const FieldBooking = () => {
               </button>
             </div>
           </div>
-          <div className="">
+          <div className="bg-white">
             <div className="w-1/2 mr-auto ml-auto text-center">
               <h3 className=" text-[2em] pt-12">Safety Accredited Aircrafts</h3>
               <p className="text-[1em] pt-6">

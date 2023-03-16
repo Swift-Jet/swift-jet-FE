@@ -20,7 +20,7 @@ import FieldBooking from "./FieldBooking.js";
 export default function App() {
   return (
     <div className="mt-2 slider-div">
-      <Swiper 
+      {/* <Swiper 
         spaceBetween={30}
         centeredSlides={true}
         autoplay={{
@@ -44,7 +44,7 @@ export default function App() {
             <img alt="" src={WELCOMEPAGE} />
           </SwiperSlide>
         </Swiper>
-      </Swiper>
+      </Swiper> */}
       
             {/* <div class=" z-40 absolute m-20 max-w-xl text-center text-white sm:text-left">
                 <h1 class="text-3xl font-extrabold sm:text-5xl">We Are The Best Host For The Journey</h1>
