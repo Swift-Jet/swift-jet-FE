@@ -27,7 +27,7 @@ const App = () => {
       <Route path="/signInlayout" component={SignForm}></Route>
       <Route path="/registration" component={RegisterForm}></Route>
       <Route path="/EstimatedPage" component={EstimateLayout}></Route>
-      
+      <Route path="/orders" component={Booking}></Route>
 
     </Switch>
   );

@@ -9,8 +9,6 @@ import { AircraftsContext } from "../../../context/aircraft-context";
 import AircraftBtn from "../../shared/aircraft-shared-button/AircraftBtn";
 
 export default function BasicGrid({ booking_details, aircraft_details }) {
-  
-
   const history = useHistory();
   const location = useLocation();
 
@@ -354,9 +352,9 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
                 <div class="flex justify-between items-center  text-gray-600">
                   <div class="flex items-center">
                     <p className="font-bold">
-                      {booking_details?.sourceAirportCode}
+                      {booking_details?.source.code}
                       <br />
-                      {booking_details.sourceAirport}
+                      {booking_details.source.name}
                     </p>
                   </div>
                   <div class="flex items-center">
@@ -370,9 +368,9 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
                   </div>
                   <div class="flex items-center text-center">
                     <p className="font-bold">
-                      {booking_details?.destinationAirportCode}
+                      {booking_details?.destination.code}
                       <br />
-                      {booking_details.destinationAirport}
+                      {booking_details.destination.name}
                     </p>
                   </div>
                 </div>
@@ -387,11 +385,11 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
                     </svg>
                     <p className="text-sm">
                       <span class="text-sm text-gray-400">
-                        {booking_details?.depatureDate}
+                        {booking_details?.depatureDate.startDate}
                       </span>
                       <span className="ml-2">AT</span>
                       <span className="ml-2">
-                        {booking_details?.depatureTime} HRS
+                        {booking_details?.depatureTime?.value}
                       </span>
                     </p>
                   </div>
@@ -405,7 +403,9 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
                     </svg>
                     <p>
                       <span class="text-sm text-gray-400">
-                        {booking_details?.passengers} PASSENGER(S)
+                        {booking_details?.adults}Adult(s)
+                        {booking_details?.children} Children
+                        {booking_details?.pets} Pets(s)
                       </span>
                     </p>
                   </div>
@@ -440,9 +440,9 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
                 <div class="flex justify-between items-center  text-gray-600">
                   <div class="flex items-center">
                     <p className="font-bold">
-                      {booking_details?.sourceAirportCode}
+                      {booking_details?.source.code}
                       <br />
-                      {booking_details.sourceAirport}
+                      {booking_details.source.name}
                     </p>
                   </div>
                   <div class="flex items-center">
@@ -456,9 +456,9 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
                   </div>
                   <div class="flex items-center text-center">
                     <p className="font-bold">
-                      {booking_details?.destinationAirportCode}
+                      {booking_details?.destination.code}
                       <br />
-                      {booking_details?.destinationAirport}
+                      {booking_details?.destination.name}
                     </p>
                   </div>
                 </div>
@@ -473,11 +473,11 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
                     </svg>
                     <p className="text-sm">
                       <span class="text-sm text-gray-400">
-                        {booking_details?.depatureDate}
+                        {booking_details?.depatureDate.startDate}
                       </span>
                       <span className="ml-2">AT</span>
                       <span className="ml-2">
-                        {booking_details?.depatureTime} HRS
+                        {booking_details?.depatureTime.value}
                       </span>
                     </p>
                   </div>
@@ -491,7 +491,9 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
                     </svg>
                     <p>
                       <span class="text-sm text-gray-400">
-                        {booking_details?.passengers} PASSENGER(S)
+                        {booking_details?.adults}Adult(s)
+                        {booking_details?.children} Children
+                        {booking_details?.pets} Pets(s)
                       </span>
                     </p>
                   </div>
@@ -500,9 +502,9 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
                   <div className="flex justify-between items-center mt-4">
                     <div class="flex items-center text-center">
                       <p className="font-bold">
-                        {booking_details?.destinationAirportCode}
+                        {booking_details?.destination.code}
                         <br />
-                        {booking_details.destinationAirport}
+                        {booking_details.destination.name}
                       </p>
                     </div>
                     <div class="flex items-center">
@@ -516,9 +518,9 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
                     </div>
                     <div class="flex items-center">
                       <p className="font-bold">
-                        {booking_details?.sourceAirportCode}
+                        {booking_details?.source.code}
                         <br />
-                        {booking_details.sourceAirport}
+                        {booking_details.source.name}
                       </p>
                     </div>
                   </div>
@@ -534,11 +536,11 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
                     </svg>
                     <p className="text-sm">
                       <span class="text-sm text-gray-400">
-                        {booking_details.returningDate}
+                        {booking_details.returningDate.startDate}
                       </span>
                       <span className="ml-2">AT</span>
                       <span className="ml-2">
-                        {booking_details.returningTime} HRS
+                        {booking_details.returningTime.value}
                       </span>
                     </p>
                   </div>
@@ -552,7 +554,9 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
                     </svg>
                     <p>
                       <span class="text-sm text-gray-400">
-                        {booking_details.passengers} PASSENGER(S)
+                        {booking_details?.adults}Adult(s)
+                        {booking_details?.children} Children
+                        {booking_details?.pets} Pets(s)
                       </span>
                     </p>
                   </div>
@@ -589,9 +593,9 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
                     <div class="flex justify-between items-center  text-gray-600">
                       <div class="flex items-center w-1/2">
                         <p className="font-bold">
-                          {item?.sourceAirportCode}
+                          {item?.source.code}
                           <br />
-                          {item?.sourceAirport}
+                          {item?.source.name}
                         </p>
                       </div>
                       <div class="flex items-center p-4 text-center">
@@ -603,11 +607,11 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
                           <path d="M271 936 80 745l192-192 42 42-120 120h649v60H194l119 119-42 42Zm418-337-42-42 119-119H117v-60h649L646 258l42-42 192 192-191 191Z" />
                         </svg>
                       </div>
-                      <div class="flex items-center text-end w-1/2">
+                      <div class="flex items-center text-end">
                         <p className="font-bold">
-                          {item?.destinationAirportCode}
+                          {item?.destination.code}
                           <br />
-                          {item.destinationAirport}
+                          {item.destination.name}
                         </p>
                       </div>
                     </div>
@@ -622,10 +626,12 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
                         </svg>
                         <p className="text-sm">
                           <span class="text-sm text-gray-400">
-                            {item?.depatureDate}
+                            {item?.depatureDate.startDate}
                           </span>
                           <span className="ml-2">AT</span>
-                          <span className="ml-2">{item?.depatureTime} HRS</span>
+                          <span className="ml-2">
+                            {item?.depatureTime.value}
+                          </span>
                         </p>
                       </div>
                       <div class="flex items-center">
@@ -676,7 +682,9 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
                     class="rounded-full h-14 w-14"
                     alt=""
                   />
-                  <p className="font-bold flight-card-text truncate ml-2 mr-2">{item?.model}</p>
+                  <p className="font-bold flight-card-text truncate ml-2 mr-2">
+                    {item?.model}
+                  </p>
                   {/* <p className="font-bold text-rose-900 text-xl">
                     {" "}
                     <span>&#8358;</span> 160,000

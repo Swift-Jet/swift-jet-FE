@@ -1,7 +1,11 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  darkMode: 'class',
   content: [
     "./src/**/*.{js,jsx,ts,tsx}",
+    "./node_modules/react-tailwindcss-datepicker/dist/index.esm.js",
+    "./node_modules/react-tailwindcss-select/dist/index.esm.js"
+
   ],
   theme: {
     screens: {
@@ -22,12 +26,13 @@ module.exports = {
     },
     
    fontFamily: {
-        display: ["Poppins", "sans-serif"],
+        display: ["Minion Pro"],
       },
   
     extend: {},
   },
   plugins: [
-    
+    require('@tailwindcss/forms'),
+
   ],
 }

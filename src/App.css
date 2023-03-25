@@ -32,7 +32,9 @@
   display: grid;
   grid-row-gap: 80px;
 }
-
+body{
+  font-family: 'Minion Pro' !important;
+}
 
 
 @keyframes App-logo-spin {

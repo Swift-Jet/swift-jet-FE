@@ -20,9 +20,9 @@
     padding-top: 0.5rem;
     padding-bottom: 0rem;
     border-radius: 10px 10px 0px 0px;
-    border-top: 2px solid #5c0932;
+    /* border-top: 2px solid #5c0932;
     border-right: 2px solid #5c0932;
-    border-left: 2px solid #5c0932;
+    border-left: 2px solid #5c0932; */
 
 }
 
@@ -47,7 +47,7 @@
 }
 
 .alh-title {
-    font-family: 'Minion Pro';
+    font-family: 'Minion Pro' !important;
     font-weight: 600;
 }
 
@@ -62,17 +62,21 @@
     .field-booking {
 
         padding-top: 100px;
-        background: #5c0a32;
+        background: #fff;
     }
-
+    .acb-icons{
+        padding-left: 10px !important;
+        padding-right: 10px !important;
+        justify-content: space-evenly;
+    }
     .acb-icons,
     .acb-links {
-        width: 80%;
+        width: 100%;
         margin: auto;
         border-radius: 10px 10px 0px 0px;
-        border-top: 2px solid #5c0932;
+        /* border-top: 2px solid #5c0932;
         border-right: 2px solid #5c0932;
-        border-left: 2px solid #5c0932;
+        border-left: 2px solid #5c0932; */
 
     }
 }

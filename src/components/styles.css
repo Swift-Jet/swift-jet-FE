@@ -4,6 +4,14 @@
   position: absolute !important;
 }
 
+input[type="date"] {
+  display: inline-flex
+}
+
+input[type="time"] {
+  display: inline-flex
+}
+
 .swiper-slide {
   text-align: center;
   font-size: 18px;
@@ -31,9 +39,17 @@
   object-fit: cover;
 }
 
+.fb-banner {
+  justify-content: center;
+  text-align: center;
+  padding-top: 100px;
+  background-image: url("https://travel.konga.com/banner.bdc6d2af502cf9e2d1b1.jpg") !important;
+  height: 400px;
+}
+
 .field-booking {
-  padding-top: 150px;
-  background: #5c0a32;
+  /* padding-top: 50px; */
+  background-color: #eeece1;
 }
 
 .field-booking-loading {
@@ -49,18 +65,115 @@
 }
 
 @media (max-width: 768px) {
-
-  .field-booking {
-    padding-top: 100px;
+  .react-slideshow-container{
+    padding: 10px !important;
+  }
+  .empty-legs{
+    padding-left: 30px !important;
+  }
+  .fsld-special{
+    padding-top: 50px;
+    background-color: #eeece1;
+    margin-bottom: 30px;
+  }
+  .booking-engine {
+    margin-top: 50px !important;
   }
 
+  .be-t-1 {
+    font-weight: 600;
+    color: #5c0632;
+    font-size: 25px !important;
+    margin-bottom: 5px;
+    text-align: center;
+    font-family: 'Minion Pro' !important;
+
+  }
+
+  .be-t-2 {
+    font-weight: 600;
+    color: #2e2d2e;
+    font-size: 15px !important;
+    margin-bottom: 5px;
+    text-align: center;
+    font-family: 'Minion Pro' !important;
+  }
+
+
+  .first-stn-left {
+    border: 0px !important;
+    background-color: #ffffff !important;
+
+  }
+
+  .react-ios-time-picker-container {
+    width: 300px !important;
+  }
+
+  .react-ios-time-picker {
+    margin-bottom: 250px !important;
+  }
+
+  .ai-div {
+    width: 96% !important;
+  }
+
+  .fb-banner {
+    padding-top: 100px;
+    /* height: 250px; */
+  }
+
+  .sw-link {
+    font-size: 12px;
+    text-align: start;
+    margin-top: 10px !important;
+    margin-bottom: 10px !important;
+  }
+
+  .field-booking {
+    /* margin-top: 50px !important; */
+    padding-top: 0px !important;
+  }
+
+  .mobile-btn {
+    width: 33.33%;
+  }
+
+  .contact {
+
+    margin-top: 20px !important;
+    padding-top: 0px !important;
+
+  }
+
+  #ac-button {
+    display: block;
+    width: 95% !important;
+    border-radius: 10px;
+    padding: 10px !important;
+    margin: auto;
+  }
+
+
   .fbf-div {
-    border: 1px solid #5c0932;
-    margin-bottom: 100px;
+    border: 1px solid #fff !important;
+    /* margin-bottom: 100px; */
   }
 
   .nav-div {
     display: block;
+    padding-left: 10px !important;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    padding-right: 10px !important;
+    /* border-bottom: 1px solid #881237; */
+  }
+
+  .contact-us {
+    font-size: 12px !important;
+  }
+  .load-passanger-form{
+    padding: 10px 5px 10px 5px !important;
   }
 }
 
@@ -71,7 +184,7 @@
 }
 
 .remove-skill {
-  background: #fff;
+
   color: rgb(83, 8, 8);
   font-weight: 800;
   cursor: pointer;
@@ -84,5 +197,313 @@
 
 .fbf-div {
   border: 1px solid #5c0932;
-  margin-bottom: 150px;
+  margin-bottom: 50px;
+}
+
+.ac-input-div {
+  width: 100%;
+}
+
+.ai-div {
+  width: 20%;
+}
+
+.first-stn-left-div {
+  padding-right: 0px !important;
+}
+
+.first-stn-left {
+  margin: auto;
+  width: -moz-fit-content;
+  width: 80%;
+  background-color: #f9fafb;
+  padding-right: 0px !important;
+  border-radius: 50px;
+  border: 1px solid #c494a4;
+}
+
+
+.input-div-booking {
+  border-radius: 20px !important;
+  padding-left: 20px !important;
+  /* border-top: 1px solid #881537 !important; */
+  /* margin-left: 10px;
+  margin-right: 10px; */
+}
+
+.input-div-booking:focus {
+  border: 0px !important;
+  outline: none !important;
+  border-color: #fff !important;
+  box-shadow: none !important;
+}
+
+.dark\:bg-slate-800,
+.dark\:text-white\/70 {
+  background-color: #ffffff !important;
+  color: #5c0932 !important;
+}
+
+.react-ios-time-picker-container {
+  background-color: #ffffff !important;
+  color: #fff !important;
+}
+
+.react-ios-time-picker-input {
+  width: 100% !important;
+}
+
+.react-ios-time-picker-hour.false {
+  color: #fff !important;
+}
+
+.react-ios-time-picker-btn {
+  padding: 10px 15px;
+  font-size: 13px;
+  color: #ffffff !important;
+  font-weight: 500;
+  z-index: 1;
+}
+
+.tracking-wide {
+  font-size: 12px;
+  color: #4d1430c7 !important;
+  font-weight: 600;
+  padding: 8px !important;
+}
+
+.passengers-modal {
+  margin: 40px;
+  padding: 20px;
+}
+
+.load-passanger-form {
+  margin-top: 20px;
+  border-radius: 20px !important;
+  border: 1px solid #e8d9df;
+  background-color: #f3f4f6;
+}
+
+
+.load-passanger-form:hover {
+  margin-top: 20px;
+  border-radius: 20px !important;
+  background-color: #5c0932;
+  border: 1px solid #e8d9df;
+  color: #fff !important;
+}
+
+.tracking-wide:focus,
+.react-ios-time-picker-input:focus {
+  border: 0px !important;
+  outline: none;
+  box-shadow: none;
+}
+
+.react-ios-time-picker-input {
+  border: 0px !important;
+  outline: none;
+  box-shadow: none;
+}
+
+.react-ios-time-picker-input {
+  cursor: text;
+  padding: 5px 10px;
+  border-radius: 5px;
+  border-radius: 20px !important;
+  background-color: #f9fafb;
+  border: 1px solid #e8d9df !important;
+
+}
+
+.load-passanger-form {
+  width: 100%;
+  padding: 15px 10px 15px 10px;
+}
+
+#browsers {
+  background-color: red !important;
+}
+
+.react-datalist-input__textbox {
+  background-color: #f9fafb !important;
+  border-radius: 20px !important;
+  padding: 15px !important;
+  border: 0px !important;
+}
+
+.react-datalist-input__container {
+  margin-top: 50px !important;
+  margin-bottom: 10px !important;
+}
+
+.react-datalist-input__textbox:focus {
+  background-color: #f9fafb !important;
+  border-radius: 20px !important;
+  padding: 15px !important;
+  border: 1px solid #5c0932 !important;
+  box-shadow: none;
+  outline: none;
+  margin-top: 50px;
+}
+
+.duration-300 {
+  transition-duration: 300ms;
+  /* padding: 5px !important; */
+  border-radius: 20px !important;
+  background-color: #f9fafb !important;
+  border: 1px solid #8815377a !important;
+}
+
+
+
+
+.duration-300:focus {
+  transition-duration: 300ms;
+  /* padding: 7px !important; */
+  border-radius: 20px !important;
+  border: 1px solid #5c0932 !important;
+}
+
+.truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  /* white-space: nowrap; */
+  font-size: 12px;
+  color: #4d1430c7;
+  font-weight: 600;
+}
+
+.input-date-time {
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+}
+
+.left-img-page {
+  width: 100%;
+  /* opacity: 0.8; */
+  /* margin: auto; */
+}
+
+.left-img-page-img {
+  border-radius: 50px !important;
+}
+
+.inner-input {
+  border: 1px solid #c6909e !important;
+}
+
+.duration-200:hover {
+  background-color: #5c09333a !important;
+  color: #4d1430c7 !important;
+}
+
+[type='checkbox']:checked,
+[type='radio']:checked {
+  border-color: #5c063274 !important;
+  background-color: #5c063274 !important;
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  accent-color: #5c0632 !important;
+}
+
+.label-fields {
+  font-size: 15px;
+  color: #5c0632;
+  font-weight: 700;
+}
+
+/* input[type='radio'] {
+  border: 2px solid red !important;
+ } */
+body {
+  accent-color: red;
+}
+
+.divider {
+  height: 15px;
+  border-left: 1px solid #ffffff;
+  margin-left: 5px;
+  border-style: dashed;
+}
+
+.booking-engine {
+  margin-top: 150px;
+  --bs-gutter-x: 0rem !important;
+}
+
+.booking-engine-title {
+  font-weight: 600;
+  font-size: 25px;
+}
+
+.be-t-1 {
+  font-weight: 600;
+  color: #5c0632;
+  font-size: 45px;
+  margin-bottom: 5px;
+  text-align: center;
+  font-family: 'Minion Pro' !important;
+
+}
+
+.be-t-2 {
+  font-weight: 600;
+  color: #2e2d2e;
+  font-size: 25px;
+  margin-bottom: 5px;
+  text-align: center;
+  font-family: 'Minion Pro' !important;
+}
+
+a,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+label {
+  font-family: 'Minion Pro' !important;
+}
+.react-slideshow-container{
+  padding: 0px 50px 50px 50px;
+  background-color: #fff;
+}
+
+
+.shared-flight-time{
+  color: #5c0632 !important;
+  /* margin-top:0px !important; */
+  /* padding-left: 10px; */
+}
+.shared-flight-time-date{
+  font-size: 15px;
+  color: #5c0632 !important;
+  font-weight: 600;
+}
+.bg-img-title {
+  position: absolute;
+  top: 420px;
+  left: 20px;
+}
+.flight-shared-img{
+  pointer-events: none;
+}
+.flight-shared-img:before{
+  pointer-events: all
+}
+.flight-shared-img:hover:before{
+  opacity: 0.5;
+}
+.route{
+  font-weight: 700;
+}
+.empty-legs{
+  padding-left: 70px;
+  font-weight: 700;
+  font-size: 20px;
+  padding-bottom: 10px !important;
 }

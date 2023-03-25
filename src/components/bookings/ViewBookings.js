@@ -46,11 +46,68 @@ const ViewBookings = () => {
           </div>
         </div> */}
 
-        <div class="flex flex-col mt-6  overflow-x-auto ">
+      
+
+        <div class="mt-6 sm:flex sm:items-center sm:justify-between ">
+          <div class="text-sm text-white">
+            Page{" "}
+            <span class="font-medium text-gray-700 dark:text-gray-100">
+              1 of 10
+            </span>
+          </div>
+
+          <div class="flex items-center mt-4 gap-x-4 sm:mt-0">
+            <a
+              href="#"
+              class="flex items-center justify-center w-1/2 px-5 py-2 text-sm text-gray-700 capitalize transition-colors duration-200 bg-white border rounded-md sm:w-auto gap-x-2 hover:bg-gray-100 dark:bg-gray-900 dark:text-gray-200 dark:border-gray-700 dark:hover:bg-gray-800"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-5 h-5 rtl:-scale-x-100"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18"
+                />
+              </svg>
+
+              <span>previous</span>
+            </a>
+
+            <a
+              href="#"
+              class="flex items-center justify-center w-1/2 px-5 py-2 text-sm text-gray-700 capitalize transition-colors duration-200 bg-white border rounded-md sm:w-auto gap-x-2 hover:bg-gray-100 dark:bg-gray-900 dark:text-gray-200 dark:border-gray-700 dark:hover:bg-gray-800"
+            >
+              <span>Next</span>
+
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-5 h-5 rtl:-scale-x-100"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div className="bookings-mobile-card">
+        <div class="flex flex-col mt-6  overflow-x-auto">
           <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
             <div class="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
               <div class="overflow-hidden border border-gray-200 dark:border-gray-700 md:rounded-lg">
-                <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+                <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700  desktop-booking-table">
                   <thead class="bg-[#881237] dark:bg-[#881237]-800">
                     <tr>
                       <th
@@ -231,64 +288,48 @@ const ViewBookings = () => {
                     })}
                   </tbody>
                 </table>
+                <div className="mobile-booking-card hidden">
+                  <div class="lg:w-1/3 bg-gray-900">
+                    <div class="flex ">
+                      <div class="h-full text-left px-4 py-4 bg-gray-800 w-full justify-end border-t-2 border-gray-900">
+                        <a to="jobdet" class="flex items-center flex-wrap">
+                          <img
+                            alt="testimonial"
+                            class="inline-block object-cover object-center w-16 h-16 mb-4 bg-gray-100 rounded"
+                            src="https://dummyimage.com/302x302/94a3b8/ffffff"
+                          />{" "}
+                          <span class="flex flex-col flex-grow pl-4">
+                            <span class="font-bold text-lg text-gray-100 -mt-4">
+                              Software developer{" "}
+                            </span>
+                            <span class="text-sm text-gray-500 uppercase font-bold">
+                              Location: Lomndon sdf
+                            </span>
+                          </span>
+                        </a>
+                        <div class="flex items-center flex-wrap ">
+                          <a
+                            to="jobdet"
+                            class="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0 px-2 py-1 border-2 border-indigo-500 rounded-full text-sm"
+                          >
+                            Remote Full Time
+                          </a>
+                          <span class="text-gray-800 mr-3 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none text-sm pr-3 py-1 px-2 bg-yellow-500 rounded-full">
+                            New
+                          </span>
+                          <span class="text-gray-400 inline-flex items-center leading-none text-sm">
+                            6 days
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                 
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
-
-        <div class="mt-6 sm:flex sm:items-center sm:justify-between ">
-          <div class="text-sm text-white">
-            Page{" "}
-            <span class="font-medium text-gray-700 dark:text-gray-100">
-              1 of 10
-            </span>
-          </div>
-
-          <div class="flex items-center mt-4 gap-x-4 sm:mt-0">
-            <a
-              href="#"
-              class="flex items-center justify-center w-1/2 px-5 py-2 text-sm text-gray-700 capitalize transition-colors duration-200 bg-white border rounded-md sm:w-auto gap-x-2 hover:bg-gray-100 dark:bg-gray-900 dark:text-gray-200 dark:border-gray-700 dark:hover:bg-gray-800"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="1.5"
-                stroke="currentColor"
-                class="w-5 h-5 rtl:-scale-x-100"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18"
-                />
-              </svg>
-
-              <span>previous</span>
-            </a>
-
-            <a
-              href="#"
-              class="flex items-center justify-center w-1/2 px-5 py-2 text-sm text-gray-700 capitalize transition-colors duration-200 bg-white border rounded-md sm:w-auto gap-x-2 hover:bg-gray-100 dark:bg-gray-900 dark:text-gray-200 dark:border-gray-700 dark:hover:bg-gray-800"
-            >
-              <span>Next</span>
-
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="1.5"
-                stroke="currentColor"
-                class="w-5 h-5 rtl:-scale-x-100"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"
-                />
-              </svg>
-            </a>
-          </div>
         </div>
       </section>
     </div>
