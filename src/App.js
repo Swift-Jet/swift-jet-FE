@@ -11,6 +11,8 @@ import SignForm from "./components/signInlayout/SignForm";
 import RegisterForm from "./pages/registration/Register";
 import EstimateLayout from "./pages/EstimatedPrice/EstimstedPage";
 import ResetPassword from "./pages/reset-password/ForgetPassword"
+import Bookingspage from "./pages/BookingPage/Bookingspage";
+import Adminspage from "./pages/admin-page.js/Adminspage";
 
 
 
@@ -28,6 +30,9 @@ const App = () => {
       <Route path="/registration" component={RegisterForm}></Route>
       <Route path="/EstimstedPage" component={EstimateLayout}></Route>
       <Route path="/reset-password" component={ResetPassword}></Route>
+      <Route path="/Bookingspage" component={Bookingspage}></Route>
+      <Route path="/Adminspage" component={Adminspage}></Route>
+      
       
 
     </Switch>
