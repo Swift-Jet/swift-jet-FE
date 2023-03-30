@@ -1,5 +1,5 @@
 .ac-name{
-    font-family: 'Minion Pro';
+    font-family: 'Minion Pro' !important;
 }
 
 .aircraft-details-head {
@@ -10,3 +10,20 @@
 .ac-details-1{
    width: 70%;
 }
+
+@media (max-width: 768px) {
+
+    .sa-props {
+        display: block;
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+    .aircraft-details-head-inner{
+        display: block;
+        width: 100%;
+        margin-left: 0px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+  }

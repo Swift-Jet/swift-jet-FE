@@ -4,7 +4,7 @@ import "./card.css";
 const Card = () => {
   return (
     <div>
-      <div class="max-w-sm bg-white  border-gray-200 rounded-lg mt-8 mb-8 2xl:w-3/5 xl:w-3/5 lg:w-3/5 md:w-3/5 sm:w-4/5 ac-group-list">
+      <div class="max-w-sm border-gray-200 rounded-lg mt-8 mb-8 2xl:w-3/5 xl:w-3/5 lg:w-3/5 md:w-3/5 sm:w-4/5 ac-group-list">
         <a href="#">
           <img
             class="rounded-full py-4 px-4 border border-[#EDCADC] border-4"

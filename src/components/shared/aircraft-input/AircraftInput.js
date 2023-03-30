@@ -1,4 +1,5 @@
 import React from "react";
+import './aircraft-input.css';
 
 const AircraftInput = ({
   type,
@@ -9,11 +10,12 @@ const AircraftInput = ({
   onChange,
   onClick,
   hidden,
-  name
+  name,
+  required
 }) => {
   return (
-    <div class="bg-white border border-[#881237] rounded-lg m-2" hidden={hidden}>
-      <label class="block text-white-700 py-2 px-3 text-sm mb-2 pl-3">
+    <div class="bg-white border-[#5c0632]-400 border rounded-lg m-2 ai-div" hidden={hidden}>
+      <label class="block text-[#5c0632] py-2 px-3 text-sm mb-2 pl-3 font-semibold">
         {labelText}
       </label>
       <input

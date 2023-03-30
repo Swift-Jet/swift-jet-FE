@@ -1,0 +1,2062 @@
+{
+    "data": [
+        {
+            "id": 696,
+            "name": "AGBOR FC",
+            "address": "23 Ojeh Nuel Street,  By Dla Road, Off Surmit Road  Asaba, Delta State.",
+            "phone": "08100608435",
+            "franchise_id": 1,
+            "lga": {
+                "id": 318,
+                "name": "Aniocha N",
+                "state_id": 1061493596,
+                "latitude": 6.34608,
+                "longitude": 6.47166,
+                "category": null
+            },
+            "state": {
+                "id": 1061493596,
+                "name": "Delta",
+                "region": "nationwide",
+                "state_code": "NG-DE"
+            }
+        },
+        {
+            "id": 685,
+            "name": "B2B IBADAN",
+            "address": "Ibadan",
+            "phone": "08083536819",
+            "franchise_id": 223,
+            "lga": {
+                "id": 24,
+                "name": "Ibadan North East",
+                "state_id": 1061493616,
+                "latitude": 7.36149,
+                "longitude": 3.93175,
+                "category": null
+            },
+            "state": {
+                "id": 1061493616,
+                "name": "Oyo",
+                "region": "nationwide",
+                "state_code": "NG-OY"
+            }
+        },
+        {
+            "id": 50,
+            "name": "Central Distribution Center",
+            "address": "3B Cocoa Industrial Avenue",
+            "phone": "08172043081",
+            "franchise_id": 1,
+            "lga": {
+                "id": 764,
+                "name": "Ikeja",
+                "state_id": 1061493610,
+                "latitude": 6.60184,
+                "longitude": 3.35149,
+                "category": null
+            },
+            "state": {
+                "id": 1061493610,
+                "name": "Lagos",
+                "region": "nationwide",
+                "state_code": "NG-LA"
+            }
+        },
+        {
+            "id": 791,
+            "name": "CROSSRIVER FC",
+            "address": "Former Lg Showroom, 2 Mary Slessor, Opposite Cultural Centre, Calabar",
+            "phone": "09095186790",
+            "franchise_id": 1,
+            "lga": {
+                "id": 284,
+                "name": "Abi",
+                "state_id": 1061493595,
+                "latitude": 6.83573,
+                "longitude": 7.23427,
+                "category": null
+            },
+            "state": {
+                "id": 1061493595,
+                "name": "Cross River",
+                "region": "nationwide",
+                "state_code": "NG-CR"
+            }
+        },
+        {
+            "id": 53,
+            "name": "Ibadan DC",
+            "address": "Beside Town Planning, Oluyole Estate, Ring Road, Ibadan.",
+            "phone": "09098935986",
+            "franchise_id": 1,
+            "lga": {
+                "id": 22,
+                "name": "Ibadan North",
+                "state_id": 1061493616,
+                "latitude": 7.41017,
+                "longitude": 3.91646,
+                "category": null
+            },
+            "state": {
+                "id": 1061493616,
+                "name": "Oyo",
+                "region": "nationwide",
+                "state_code": "NG-OY"
+            }
+        },
+        {
+            "id": 889,
+            "name": "KOGI FC",
+            "address": "Suite No 2 U Plaza, Opposite Muslim Community, Phase 1, Lokoja.",
+            "phone": "08021230207",
+            "franchise_id": 1,
+            "lga": {
+                "id": 174,
+                "name": "Adavi",
+                "state_id": 1061493608,
+                "latitude": 7.67198,
+                "longitude": 6.42904,
+                "category": null
+            },
+            "state": {
+                "id": 1061493608,
+                "name": "Kogi",
+                "region": "nationwide",
+                "state_code": "NG-KO"
+            }
+        },
+        {
+            "id": 837,
+            "name": "KOS  AGUNGI",
+            "address": "12. Chris Akinro Cl, Off Agungi Road, Agungi, Lagos",
+            "phone": "08095216836",
+            "franchise_id": 147,
+            "lga": {
+                "id": 767,
+                "name": "Lagos Island",
+                "state_id": 1061493610,
+                "latitude": 6.45488,
+                "longitude": 3.4246,
+                "category": null
+            },
+            "state": {
+                "id": 1061493610,
+                "name": "Lagos",
+                "region": "nationwide",
+                "state_code": "NG-LA"
+            }
+        },
+        {
+            "id": 175,
+            "name": "KOS ABARANJE SC 001",
+            "address": "God's Decisions Petrol Station 121 Abaranje Road, After Customs Bus Stop, Ikotun",
+            "phone": "09084444558",
+            "franchise_id": 67,
+            "lga": {
+                "id": 756,
+                "name": "Alimosho",
+                "state_id": 1061493610,
+                "latitude": 6.54661,
+                "longitude": 3.23825,
+                "category": null
+            },
+            "state": {
+                "id": 1061493610,
+                "name": "Lagos",
+                "region": "nationwide",
+                "state_code": "NG-LA"
+            }
+        },
+        {
+            "id": 136,
+            "name": "KOS ADAMAWA SC 001",
+            "address": "Tinsy House, Opp Adamawa State House Of Assembly, Gibson Jalo Way Yola.",
+            "phone": "07055149233",
+            "franchise_id": 32,
+            "lga": {
+                "id": 457,
+                "name": "Yola",
+                "state_id": 1061493588,
+                "latitude": 9.2035,
+                "longitude": 12.4954,
+                "category": null
+            },
+            "state": {
+                "id": 1061493588,
+                "name": "Adamawa",
+                "region": "nationwide",
+                "state_code": "NG-AD"
+            }
+        },
+        {
+            "id": 264,
+            "name": "KOS ADO-EKITI",
+            "address": "Shop 11, Oduduwa Textile Plaza, Iyi Ekiti Rd, Ado-Ekiti",
+            "phone": "08035634757",
+            "franchise_id": 144,
+            "lga": {
+                "id": 54,
+                "name": "Ado Ekiti",
+                "state_id": 1061493599,
+                "latitude": 7.61243,
+                "longitude": 5.23711,
+                "category": null
+            },
+            "state": {
+                "id": 1061493599,
+                "name": "Ekiti",
+                "region": "nationwide",
+                "state_code": "NG-EK"
+            }
+        },
+        {
+            "id": 190,
+            "name": "KOS AGBOWO SC 001",
+            "address": "Ui Hotels,Opposite Chapel Of The Resurrection, University Of Ibadan.",
+            "phone": "08180134937",
+            "franchise_id": 112,
+            "lga": {
+                "id": 22,
+                "name": "Ibadan North",
+                "state_id": 1061493616,
+                "latitude": 7.41017,
+                "longitude": 3.91646,
+                "category": null
+            },
+            "state": {
+                "id": 1061493616,
+                "name": "Oyo",
+                "region": "nationwide",
+                "state_code": "NG-OY"
+            }
+        },
+        {
+            "id": 145,
+            "name": "KOS AGEGE SP 001",
+            "address": "17 Olayiwola Street Off Charity Road,New Oko Oba. Agege, Lagos.",
+            "phone": "09081588260",
+            "franchise_id": 6,
+            "lga": {
+                "id": 754,
+                "name": "Agege/ijaiye",
+                "state_id": 1061493610,
+                "latitude": 6.62331,
+                "longitude": 3.33134,
+                "category": null
+            },
+            "state": {
+                "id": 1061493610,
+                "name": "Lagos",
+                "region": "nationwide",
+                "state_code": "NG-LA"
+            }
+        },
+        {
+            "id": 273,
+            "name": "KOS AGIP ",
+            "address": "Shops Ww1/2, Luli Shopping Mall. 20, Rumuola Road, Port Harcourt",
+            "phone": "08099283300",
+            "franchise_id": 31,
+            "lga": {
+                "id": 339,
+                "name": "Port Harcourt",
+                "state_id": 1061493618,
+                "latitude": 4.81555,
+                "longitude": 7.04984,
+                "category": null
+            },
+            "state": {
+                "id": 1061493618,
+                "name": "Rivers",
+                "region": "nationwide",
+                "state_code": "NG-RI"
+            }
+        },
+        {
+            "id": 319,
+            "name": "KOS AJAH 001",
+            "address": "Shop G14, (Ground Floor) The Hub Plaza, Pump And Sell Bus Stop,Addo Road, After Blenco Supermarket. Ajah.",
+            "phone": "08187977890",
+            "franchise_id": 216,
+            "lga": {
+                "id": 767,
+                "name": "Lagos Island",
+                "state_id": 1061493610,
+                "latitude": 6.45488,
+                "longitude": 3.4246,
+                "category": null
+            },
+            "state": {
+                "id": 1061493610,
+                "name": "Lagos",
+                "region": "nationwide",
+                "state_code": "NG-LA"
+            }
+        },
+        {
+            "id": 177,
+            "name": "KOS AJAO SC 001",
+            "address": "25, Osolo Way, Ajao Estate, Osolo Lagos",
+            "phone": "08109606919",
+            "franchise_id": 20,
+            "lga": {
+                "id": 771,
+                "name": "Oshodi/isolo",
+                "state_id": 1061493610,
+                "latitude": 6.5355,
+                "longitude": 3.30868,
+                "category": null
+            },
+            "state": {
+                "id": 1061493610,
+                "name": "Lagos",
+                "region": "nationwide",
+                "state_code": "NG-LA"
+            }
+        },
+        {
+            "id": 284,
+            "name": "KOS AKOKA",
+            "address": "Pmg Place, New Hall, Unilag",
+            "phone": "08058060388",
+            "franchise_id": 155,
+            "lga": {
+                "id": 768,
+                "name": "Lagos Mainland",
+                "state_id": 1061493610,
+                "latitude": 6.49772,
+                "longitude": 3.38425,
+                "category": null
+            },
+            "state": {
+                "id": 1061493610,
+                "name": "Lagos",
+                "region": "nationwide",
+                "state_code": "NG-LA"
+            }
+        },
+        {
+            "id": 88,
+            "name": "KOS AKWA IBOM SC 001",
+            "address": "37, Akpan Etuk, Off Nwaniba Road, Uyo",
+            "phone": "08065114605",
+            "franchise_id": 49,
+            "lga": {
+                "id": 239,
+                "name": "Uyo",
+                "state_id": 1061493589,
+                "latitude": 5.03774,
+                "longitude": 7.91279,
+                "category": null
+            },
+            "state": {
+                "id": 1061493589,
+                "name": "Akwa Ibom",
+                "region": "nationwide",
+                "state_code": "NG-AK"
+            }
+        },
+        {
+            "id": 125,
+            "name": "KOS ALIMOSHO SC 001",
+            "address": "80, Akowonjo Road (Adonia Plaza), Akowonjo Business District, Egbeda, Alimosho, Lagos. Landmark : Bale Bus-Stop Or Adonia Plaza.",
+            "phone": "09082510076",
+            "franchise_id": 11,
+            "lga": {
+                "id": 756,
+                "name": "Alimosho",
+                "state_id": 1061493610,
+                "latitude": 6.54661,
+                "longitude": 3.23825,
+                "category": null
+            },
+            "state": {
+                "id": 1061493610,
+                "name": "Lagos",
+                "region": "nationwide",
+                "state_code": "NG-LA"
+            }
+        },
+        {
+            "id": 176,
+            "name": "KOS ALLEN SC 001",
+            "address": "14, Ladipo Kuku Street, Off Allen Avenue By Wema Bank",
+            "phone": "08035032948",
+            "franchise_id": 33,
+            "lga": {
+                "id": 764,
+                "name": "Ikeja",
+                "state_id": 1061493610,
+                "latitude": 6.60184,
+                "longitude": 3.35149,
+                "category": null
+            },
+            "state": {
+                "id": 1061493610,
+                "name": "Lagos",
+                "region": "nationwide",
+                "state_code": "NG-LA"
+            }
+        },
+        {
+            "id": 120,
+            "name": "KOS ANAMBRA SC 001",
+            "address": "39 Awka Road Garbs Mega Plaza Before Five Star Restaurant Onitsha",
+            "phone": "08180521679",
+            "franchise_id": 12,
+            "lga": {
+                "id": 380,
+                "name": "Onitsha N.",
+                "state_id": 1061493590,
+                "latitude": 6.16239,
+                "longitude": 6.80295,
+                "category": null
+            },
+            "state": {
+                "id": 1061493590,
+                "name": "Anambra",
+                "region": "nationwide",
+                "state_code": "NG-AN"
+            }
+        },
+        {
+            "id": 187,
+            "name": "KOS ASABA SC 001",
+            "address": "Jesus Saves Road,Opposite Presidential Lodge,Off Surmit Road, Asaba, Delta State",
+            "phone": "08182834178",
+            "franchise_id": 101,
+            "lga": {
+                "id": 315,
+                "name": "Oshimili S",
+                "state_id": 1061493596,
+                "latitude": 6.40768,
+                "longitude": 6.62106,
+                "category": null
+            },
+            "state": {
+                "id": 1061493596,
+                "name": "Delta",
+                "region": "nationwide",
+                "state_code": "NG-DE"
+            }
+        },
+        {
+            "id": 838,
+            "name": "KOS AWOYAYA",
+            "address": "Nnpc Filling Station, Majek Second Gate Bsu Stop, Abijo Lekki - Epe Expressway",
+            "phone": "08130246901",
+            "franchise_id": 11,
+            "lga": {
+                "id": 760,
+                "name": "Epe",
+                "state_id": 1061493610,
+                "latitude": 6.59459,
+                "longitude": 3.97764,
+                "category": null
+            },
+            "state": {
+                "id": 1061493610,
+                "name": "Lagos",
+                "region": "nationwide",
+                "state_code": "NG-LA"
+            }
+        },
+        {
+            "id": 291,
+            "name": "KOS BADAGRY",
+            "address": "Office 5, Noble Plaza, Along Joseph Dosu Way (Opposite First Bank), Badagry",
+            "phone": "07065776054",
+            "franchise_id": 173,
+            "lga": {
+                "id": 957,
+                "name": "Badagry",
+                "state_id": 1061493610,
+                "latitude": 6.43158,
+                "longitude": 2.88764,
+                "category": null
+            },
+            "state": {
+                "id": 1061493610,
+                "name": "Lagos",
+                "region": "nationwide",
+                "state_code": "NG-LA"
+            }
+        },
+        {
+            "id": 282,
+            "name": "KOS Bauchi City",
+            "address": "Shop 21, Maigoro Plaza, Yandoka Road, After Pdp Secretariat, Before Muslim Pilgrims' Welfare Board Office, Bauchi",
+            "phone": "08088270252",
+            "franchise_id": 153,
+            "lga": {
+                "id": 478,
+                "name": "Bauchi",
+                "state_id": 1061493591,
+                "latitude": 10.301,
+                "longitude": 9.82365,
+                "category": null
+            },
+            "state": {
+                "id": 1061493591,
+                "name": "Bauchi",
+                "region": "nationwide",
+                "state_code": "NG-BA"
+            }
+        },
+        {
+            "id": 116,
+            "name": "KOS BAUCHI SC 001",
+            "address": "2A Dd Zang Way (Formerly Ibrahim Taiwo), Jos, Plateau",
+            "phone": "08066633865",
+            "franchise_id": 7,
+            "lga": {
+                "id": 483,
+                "name": "Alkaleri",
+                "state_id": 1061493591,
+                "latitude": 9.82629,
+                "longitude": 10.5296,
+                "category": null
+            },
+            "state": {
+                "id": 1061493591,
+                "name": "Bauchi",
+                "region": "nationwide",
+                "state_code": "NG-BA"
+            }
+        },
+        {
+            "id": 103,
+            "name": "KOS BAYELSA SC 001",
+            "address": "54 Erepa Road, Yenagoa Bayelsa State.",
+            "phone": "09022348494",
+            "franchise_id": 28,
+            "lga": {
+                "id": 270,
+                "name": "Yenagoa",
+                "state_id": 1061493592,
+                "latitude": 4.92116,
+                "longitude": 6.27477,
+                "category": null
+            },
+            "state": {
+                "id": 1061493592,
+                "name": "Bayelsa",
+                "region": "nationwide",
+                "state_code": "NG-BY"
+            }
+        },
+        {
+            "id": 107,
+            "name": "KOS BENUE SC 001",
+            "address": "O75 Iyochia-Ayu Road Opposite Nobis Supermarket Wurukum Makurdi",
+            "phone": "08022089721",
+            "franchise_id": 17,
+            "lga": {
+                "id": 140,
+                "name": "Markurdi",
+                "state_id": 1061493593,
+                "latitude": 7.73215,
+                "longitude": 8.53914,
+                "category": null
+            },
+            "state": {
+                "id": 1061493593,
+                "name": "Benue",
+                "region": "nationwide",
+                "state_code": "NG-BE"
+            }
+        },
+        {
+            "id": 236,
+            "name": "KOS BIRNI KEBBI SC",
+            "address": "Shop No. 12/13 Taushi Plaza Adjacent Bindawa, Ahmadu Bello Way Birnin Kebbi.",
+            "phone": "08032577331",
+            "franchise_id": 128,
+            "lga": {
+                "id": 697,
+                "name": "Birni Kebbi",
+                "state_id": 1061493607,
+                "latitude": 12.4318,
+                "longitude": 4.19562,
+                "category": null
+            },
+            "state": {
+                "id": 1061493607,
+                "name": "Kebbi",
+                "region": "nationwide",
+                "state_code": "NG-KE"
+            }
+        },
+        {
+            "id": 149,
+            "name": "KOS BONNY SC 001",
+            "address": "Atlantic Royal Suites, Off Abalamabie Road, Bonny.",
+            "phone": "08144184113",
+            "franchise_id": 31,
+            "lga": {
+                "id": 356,
+                "name": "Bonny",
+                "state_id": 1061493618,
+                "latitude": 4.41424,
+                "longitude": 7.1898,
+                "category": null
+            },
+            "state": {
+                "id": 1061493618,
+                "name": "Rivers",
+                "region": "nationwide",
+                "state_code": "NG-RI"
+            }
+        },
+        {
+            "id": 134,
+            "name": "KOS BORNO SC 001",
+            "address": "No. 64 Open Air Theater Adjacent Police Commissioner'S House At Damboa Road Junction, Maiduguri",
+            "phone": "08035093165",
+            "franchise_id": 27,
+            "lga": {
+                "id": 500,
+                "name": "Konduga",
+                "state_id": 1061493594,
+                "latitude": 11.6549,
+                "longitude": 13.4197,
+                "category": null
+            },
+            "state": {
+                "id": 1061493594,
+                "name": "Borno",
+                "region": "nationwide",
+                "state_code": "NG-BO"
+            }
+        },
+        {
+            "id": 92,
+            "name": "KOS CALABAR SC 001",
+            "address": "Lu Gold Complex, Opposite Cultural Centre, Calabar",
+            "phone": "08097140000",
+            "franchise_id": 30,
+            "lga": {
+                "id": 278,
+                "name": "Calabar Municipal",
+                "state_id": 1061493595,
+                "latitude": 5.01663,
+                "longitude": 8.36361,
+                "category": null
+            },
+            "state": {
+                "id": 1061493595,
+                "name": "Cross River",
+                "region": "nationwide",
+                "state_code": "NG-CR"
+            }
+        },
+        {
+            "id": 164,
+            "name": "KOS COMPUTER VILLAGE SP 001",
+            "address": "Ground Floor, Obafemi Awolowo House, Computer Village. Ikeja",
+            "phone": "07034822652",
+            "franchise_id": 2,
+            "lga": {
+                "id": 764,
+                "name": "Ikeja",
+                "state_id": 1061493610,
+                "latitude": 6.60184,
+                "longitude": 3.35149,
+                "category": null
+            },
+            "state": {
+                "id": 1061493610,
+                "name": "Lagos",
+                "region": "nationwide",
+                "state_code": "NG-LA"
+            }
+        },
+        {
+            "id": 82,
+            "name": "KOS DELTA SC 001",
+            "address": "Plot 8, 35Th Street Off West End Road Ddpa Estate By Airport Road Behind Ugborikoko Secondary School, Warri",
+            "phone": "08185080536",
+            "franchise_id": 13,
+            "lga": {
+                "id": 303,
+                "name": "Uvwie",
+                "state_id": 1061493596,
+                "latitude": 5.56496,
+                "longitude": 5.78266,
+                "category": null
+            },
+            "state": {
+                "id": 1061493596,
+                "name": "Delta",
+                "region": "nationwide",
+                "state_code": "NG-DE"
+            }
+        },
+        {
+            "id": 148,
+            "name": "KOS DIOBU SC 001",
+            "address": "Block 7, 3Rd Avenue, Elekahia Estate, Port Harcourt, Rivers State",
+            "phone": "08099160417",
+            "franchise_id": 24,
+            "lga": {
+                "id": 339,
+                "name": "Port Harcourt",
+                "state_id": 1061493618,
+                "latitude": 4.81555,
+                "longitude": 7.04984,
+                "category": null
+            },
+            "state": {
+                "id": 1061493618,
+                "name": "Rivers",
+                "region": "nationwide",
+                "state_code": "NG-RI"
+            }
+        },
+        {
+            "id": 111,
+            "name": "KOS EBONYI SC 001",
+            "address": "25, Waterworks Road,Abakaliki, Ebonyi",
+            "phone": "08174477235",
+            "franchise_id": 26,
+            "lga": {
+                "id": 400,
+                "name": "Abakaliki",
+                "state_id": 1061493597,
+                "latitude": 6.32306,
+                "longitude": 8.11201,
+                "category": null
+            },
+            "state": {
+                "id": 1061493597,
+                "name": "Ebonyi",
+                "region": "nationwide",
+                "state_code": "NG-EB"
+            }
+        },
+        {
+            "id": 78,
+            "name": "KOS EDO SC 001",
+            "address": "102, Sapele Road, By Kada Chicken, Benin City",
+            "phone": "08038015761",
+            "franchise_id": 34,
+            "lga": {
+                "id": 321,
+                "name": "Egor",
+                "state_id": 1061493598,
+                "latitude": 6.36711,
+                "longitude": 5.57223,
+                "category": null
+            },
+            "state": {
+                "id": 1061493598,
+                "name": "Edo",
+                "region": "nationwide",
+                "state_code": "NG-ED"
+            }
+        },
+        {
+            "id": 77,
+            "name": "KOS EKITI SC 001",
+            "address": "Shop 11, Oduduwa Textile Plaza, Iyi Ekiti Rd, Ado-Ekiti",
+            "phone": "08090202910",
+            "franchise_id": 144,
+            "lga": {
+                "id": 57,
+                "name": "Emure",
+                "state_id": 1061493599,
+                "latitude": 7.43167,
+                "longitude": 5.46205,
+                "category": null
+            },
+            "state": {
+                "id": 1061493599,
+                "name": "Ekiti",
+                "region": "nationwide",
+                "state_code": "NG-EK"
+            }
+        },
+        {
+            "id": 233,
+            "name": "KOS EKORO SC ",
+            "address": "20, Ekoro Road, Within Emperor Filling Station, Ekoro Road",
+            "phone": "08083536819 ",
+            "franchise_id": 104,
+            "lga": {
+                "id": 754,
+                "name": "Agege/ijaiye",
+                "state_id": 1061493610,
+                "latitude": 6.62331,
+                "longitude": 3.33134,
+                "category": null
+            },
+            "state": {
+                "id": 1061493610,
+                "name": "Lagos",
+                "region": "nationwide",
+                "state_code": "NG-LA"
+            }
+        },
+        {
+            "id": 151,
+            "name": "KOS ELEME",
+            "address": "No 30 Okporo Road, Favour Award Shopping Mall Rumuogba By Artillery Junction.",
+            "phone": "08138066594",
+            "franchise_id": 16,
+            "lga": {
+                "id": 340,
+                "name": "Obio/akpor",
+                "state_id": 1061493618,
+                "latitude": 4.87758,
+                "longitude": 7.02834,
+                "category": null
+            },
+            "state": {
+                "id": 1061493618,
+                "name": "Rivers",
+                "region": "nationwide",
+                "state_code": "NG-RI"
+            }
+        },
+        {
+            "id": 87,
+            "name": "KOS ENUGU SC 001",
+            "address": "Ss / 4 Upper Presidential Road, By Waec Bust - Stop Opposite Uba Bank, Enugu",
+            "phone": "08180755409",
+            "franchise_id": 26,
+            "lga": {
+                "id": 414,
+                "name": "Enugu North",
+                "state_id": 1061493600,
+                "latitude": 6.45837,
+                "longitude": 7.54639,
+                "category": null
+            },
+            "state": {
+                "id": 1061493600,
+                "name": "Enugu",
+                "region": "nationwide",
+                "state_code": "NG-EN"
+            }
+        },
+        {
+            "id": 276,
+            "name": "KOS ERUWA SC 001",
+            "address": "Shop 2 Adelami Adewusi Shopping Complex, Opposite Baptist Primary School, Off Old Nepa Street, Sango-Eruwa Oyo State.",
+            "phone": "08052467214",
+            "franchise_id": 151,
+            "lga": {
+                "id": 36,
+                "name": "Ibarapa East",
+                "state_id": 1061493616,
+                "latitude": 7.64102,
+                "longitude": 3.45993,
+                "category": null
+            },
+            "state": {
+                "id": 1061493616,
+                "name": "Oyo",
+                "region": "nationwide",
+                "state_code": "NG-OY"
+            }
+        },
+        {
+            "id": 142,
+            "name": "KOS GARKI SC001",
+            "address": "Plot 781, Muhammadu Buhari Way,Garki District,Fct,Abuja",
+            "phone": "09083050172",
+            "franchise_id": 40,
+            "lga": {
+                "id": 134,
+                "name": "Abuja Municipal",
+                "state_id": 1061493587,
+                "latitude": 9.06121,
+                "longitude": 7.42236,
+                "category": null
+            },
+            "state": {
+                "id": 1061493587,
+                "name": "Abuja",
+                "region": "nationwide",
+                "state_code": "NG-FC"
+            }
+        },
+        {
+            "id": 823,
+            "name": "KOS GBAGADA",
+            "address": "18, Adeola Raji Street, Atunrase Estate, Gbagada, Lagos",
+            "phone": "09082999915",
+            "franchise_id": 248,
+            "lga": {
+                "id": 766,
+                "name": "Kosofe",
+                "state_id": 1061493610,
+                "latitude": 6.59878,
+                "longitude": 3.40946,
+                "category": null
+            },
+            "state": {
+                "id": 1061493610,
+                "name": "Lagos",
+                "region": "nationwide",
+                "state_code": "NG-LA"
+            }
+        },
+        {
+            "id": 135,
+            "name": "KOS GOMBE SC 001",
+            "address": "Shongo Estate Beside V.I.O Office Gombe State",
+            "phone": "07055799627",
+            "franchise_id": 48,
+            "lga": {
+                "id": 525,
+                "name": "Gombe",
+                "state_id": 1061493601,
+                "latitude": 10.2791,
+                "longitude": 11.1731,
+                "category": null
+            },
+            "state": {
+                "id": 1061493601,
+                "name": "Gombe",
+                "region": "nationwide",
+                "state_code": "NG-GO"
+            }
+        },
+        {
+            "id": 248,
+            "name": "KOS GUSAU SC 001",
+            "address": "Idi Mosque Complex, Gen. Sani Abacha Road Opp Zenith Bank Gusau, Zamfara State",
+            "phone": "08168785746",
+            "franchise_id": 134,
+            "lga": {
+                "id": 740,
+                "name": "Gusau",
+                "state_id": 1061493622,
+                "latitude": 12.1628,
+                "longitude": 6.6745,
+                "category": null
+            },
+            "state": {
+                "id": 1061493622,
+                "name": "Zamfara",
+                "region": "nationwide",
+                "state_code": "NG-ZA"
+            }
+        },
+        {
+            "id": 183,
+            "name": "KOS GWAGWALADA SC 001",
+            "address": "Suite 11, Worldgate Plaza, Specialist Road, Gwagwalada, Abuja",
+            "phone": "08099087467 ",
+            "franchise_id": 23,
+            "lga": {
+                "id": 137,
+                "name": "Gwagwalada",
+                "state_id": 1061493587,
+                "latitude": 8.95083,
+                "longitude": 7.07674,
+                "category": null
+            },
+            "state": {
+                "id": 1061493587,
+                "name": "Abuja",
+                "region": "nationwide",
+                "state_code": "NG-FC"
+            }
+        },
+        {
+            "id": 184,
+            "name": "KOS IFE SC 001",
+            "address": "Block 9, Shop 6, Zone C Extension, Adjacent Mtn Office, Oau Central Market",
+            "phone": "08169773111",
+            "franchise_id": 105,
+            "lga": {
+                "id": 130,
+                "name": "Ife Central",
+                "state_id": 1061493615,
+                "latitude": 7.55548,
+                "longitude": 4.5315,
+                "category": null
+            },
+            "state": {
+                "id": 1061493615,
+                "name": "Osun",
+                "region": "nationwide",
+                "state_code": "NG-OS"
+            }
+        },
+        {
+            "id": 234,
+            "name": "KOS IGANDO",
+            "address": "1, Sholly Beauty Avenue, Ewediogbon Bus Stop, Beside Sot Filling Station, Lasu-Igando Road",
+            "phone": "08102225689",
+            "franchise_id": 126,
+            "lga": {
+                "id": 756,
+                "name": "Alimosho",
+                "state_id": 1061493610,
+                "latitude": 6.54661,
+                "longitude": 3.23825,
+                "category": null
+            },
+            "state": {
+                "id": 1061493610,
+                "name": "Lagos",
+                "region": "nationwide",
+                "state_code": "NG-LA"
+            }
+        },
+        {
+            "id": 210,
+            "name": "KOS IJEBU ODE",
+            "address": "66, Ibadan Road, Ijebu-Ode, Ogun State",
+            "phone": "08119634025",
+            "franchise_id": 14,
+            "lga": {
+                "id": 12,
+                "name": "Ijebu Ode",
+                "state_id": 1061493613,
+                "latitude": 6.82998,
+                "longitude": 3.91646,
+                "category": null
+            },
+            "state": {
+                "id": 1061493613,
+                "name": "Ogun",
+                "region": "nationwide",
+                "state_code": "NG-OG"
+            }
+        },
+        {
+            "id": 143,
+            "name": "KOS IKORODU SC OO1",
+            "address": "26 Ajenifuja Alejo Street, Behind Uba Ikorodu.",
+            "phone": "08175409174",
+            "franchise_id": 126,
+            "lga": {
+                "id": 765,
+                "name": "Ikorodu",
+                "state_id": 1061493610,
+                "latitude": 6.61941,
+                "longitude": 3.51045,
+                "category": null
+            },
+            "state": {
+                "id": 1061493610,
+                "name": "Lagos",
+                "region": "nationwide",
+                "state_code": "NG-LA"
+            }
+        },
+        {
+            "id": 158,
+            "name": "KOS IKOTA SP 001",
+            "address": "Shop No. J 167 Ikota Shopping Complex ( Behind Coco La Vida On Road 5)",
+            "phone": "08183014070",
+            "franchise_id": 216,
+            "lga": {
+                "id": 761,
+                "name": "Eti Osa",
+                "state_id": 1061493610,
+                "latitude": 6.45898,
+                "longitude": 3.60152,
+                "category": null
+            },
+            "state": {
+                "id": 1061493610,
+                "name": "Lagos",
+                "region": "nationwide",
+                "state_code": "NG-LA"
+            }
+        },
+        {
+            "id": 213,
+            "name": "KOS ILESHA",
+            "address": "A168,Isokun Street,Ilesha, Osun State",
+            "phone": "08119108243",
+            "franchise_id": 109,
+            "lga": {
+                "id": 119,
+                "name": "Ilesa West",
+                "state_id": 1061493615,
+                "latitude": 7.64,
+                "longitude": 4.71741,
+                "category": null
+            },
+            "state": {
+                "id": 1061493615,
+                "name": "Osun",
+                "region": "nationwide",
+                "state_code": "NG-OS"
+            }
+        },
+        {
+            "id": 52,
+            "name": "KOS ILORIN SC 001",
+            "address": "No 2, Ahmadu Bello Way, Beside Keystone Bank,Challenge , Ilorin,Kwara State",
+            "phone": "09032714455",
+            "franchise_id": 40,
+            "lga": {
+                "id": 72,
+                "name": "Ilorin South",
+                "state_id": 1061493609,
+                "latitude": 8.43466,
+                "longitude": 4.6657,
+                "category": null
+            },
+            "state": {
+                "id": 1061493609,
+                "name": "Kwara",
+                "region": "nationwide",
+                "state_code": "NG-KW"
+            }
+        },
+        {
+            "id": 128,
+            "name": "KOS ILUPEJU SC 001",
+            "address": "1A, Ayodele Ojo Street, Off Coker Road, Opposite The African Church, St. Paul'S Parish, Ilupeju",
+            "phone": "01-2918360",
+            "franchise_id": 20,
+            "lga": {
+                "id": 769,
+                "name": "Mushin",
+                "state_id": 1061493610,
+                "latitude": 6.53523,
+                "longitude": 3.34897,
+                "category": null
+            },
+            "state": {
+                "id": 1061493610,
+                "name": "Lagos",
+                "region": "nationwide",
+                "state_code": "NG-LA"
+            }
+        },
+        {
+            "id": 101,
+            "name": "KOS IMO SC001",
+            "address": "Plot 87, Housing Area, Old 'D',Off Port Harcourt Road,By Yaradua Drive,Owerri",
+            "phone": "07032478502",
+            "franchise_id": 22,
+            "lga": {
+                "id": 430,
+                "name": "Owerri",
+                "state_id": 1061493602,
+                "latitude": 5.48906,
+                "longitude": 7.01759,
+                "category": null
+            },
+            "state": {
+                "id": 1061493602,
+                "name": "Imo",
+                "region": "nationwide",
+                "state_code": "NG-IM"
+            }
+        },
+        {
+            "id": 209,
+            "name": "KOS IPAJA",
+            "address": "Saj Petrol Filling Station, Opp Anchor University, Ayobo-Ipaja Road, Lagos",
+            "phone": "08179313459",
+            "franchise_id": 104,
+            "lga": {
+                "id": 756,
+                "name": "Alimosho",
+                "state_id": 1061493610,
+                "latitude": 6.54661,
+                "longitude": 3.23825,
+                "category": null
+            },
+            "state": {
+                "id": 1061493610,
+                "name": "Lagos",
+                "region": "nationwide",
+                "state_code": "NG-LA"
+            }
+        },
+        {
+            "id": 139,
+            "name": "KOS JABI SC 001",
+            "address": "Suite D4-D5 Sabon Dale Plaza Off Obafemi Awolowo Way Beside Mr Bigg'S/Ecobank Jabi, Abuja.",
+            "phone": "08189309734",
+            "franchise_id": 23,
+            "lga": {
+                "id": 134,
+                "name": "Abuja Municipal",
+                "state_id": 1061493587,
+                "latitude": 9.06121,
+                "longitude": 7.42236,
+                "category": null
+            },
+            "state": {
+                "id": 1061493587,
+                "name": "Abuja",
+                "region": "nationwide",
+                "state_code": "NG-FC"
+            }
+        },
+        {
+            "id": 239,
+            "name": "KOS JAKANDE",
+            "address": "Shop 3, Prime Asset Plaza, Ailegun Road, Off Bucknor Road, Jakande Estate, Isolo, Lagos State. Local Government - Oshodi Isolo Local Government.",
+            "phone": "08033960318",
+            "franchise_id": 20,
+            "lga": {
+                "id": 771,
+                "name": "Oshodi/isolo",
+                "state_id": 1061493610,
+                "latitude": 6.5355,
+                "longitude": 3.30868,
+                "category": null
+            },
+            "state": {
+                "id": 1061493610,
+                "name": "Lagos",
+                "region": "nationwide",
+                "state_code": "NG-LA"
+            }
+        },
+        {
+            "id": 133,
+            "name": "KOS JIGAWA SC 001",
+            "address": "Baba Chai-Chai Plaza, Abdullahi Maikano Way, Dutse. Jigawa.",
+            "phone": "08078672159",
+            "franchise_id": 146,
+            "lga": {
+                "id": 569,
+                "name": "Dutse",
+                "state_id": 1061493603,
+                "latitude": 11.7024,
+                "longitude": 9.33402,
+                "category": null
+            },
+            "state": {
+                "id": 1061493603,
+                "name": "Jigawa",
+                "region": "nationwide",
+                "state_code": "NG-JI"
+            }
+        },
+        {
+            "id": 115,
+            "name": "KOS JOS SC 001",
+            "address": "2A Dd Zang Way (Formerly Ibrahim Taiwo), Jos, Plateau",
+            "phone": "08143172935",
+            "franchise_id": 7,
+            "lga": {
+                "id": 223,
+                "name": "Jos North",
+                "state_id": 1061493617,
+                "latitude": 9.91807,
+                "longitude": 8.88039,
+                "category": null
+            },
+            "state": {
+                "id": 1061493617,
+                "name": "Plateau",
+                "region": "nationwide",
+                "state_code": "NG-PL"
+            }
+        },
+        {
+            "id": 102,
+            "name": "KOS KADUNA SC 001",
+            "address": "Ahafsusan Plaza, F13 Ibadan Street/Jos Road, Kaduna",
+            "phone": "08188841899",
+            "franchise_id": 41,
+            "lga": {
+                "id": 596,
+                "name": "Kaduna North",
+                "state_id": 1061493604,
+                "latitude": 10.5105,
+                "longitude": 7.41651,
+                "category": null
+            },
+            "state": {
+                "id": 1061493604,
+                "name": "Kaduna",
+                "region": "nationwide",
+                "state_code": "NG-KD"
+            }
+        },
+        {
+            "id": 112,
+            "name": "KOS KANO SC 001",
+            "address": "Plot 454,Inuwa Dutse Road, Behind Aminu Kano Teaching Hosp, Kano.",
+            "phone": "08099999526",
+            "franchise_id": 43,
+            "lga": {
+                "id": 627,
+                "name": "Dawakin Tofa",
+                "state_id": 1061493605,
+                "latitude": 12.1304,
+                "longitude": 8.36567,
+                "category": null
+            },
+            "state": {
+                "id": 1061493605,
+                "name": "Kano",
+                "region": "nationwide",
+                "state_code": "NG-KN"
+            }
+        },
+        {
+            "id": 241,
+            "name": "KOS KARU",
+            "address": "Suite 10, Mazfallah Plaza Karu-Site Roundabout Behind Ecobank, Karu Abuja.",
+            "phone": "08036008920",
+            "franchise_id": 1,
+            "lga": {
+                "id": 134,
+                "name": "Abuja Municipal",
+                "state_id": 1061493587,
+                "latitude": 9.06121,
+                "longitude": 7.42236,
+                "category": null
+            },
+            "state": {
+                "id": 1061493587,
+                "name": "Abuja",
+                "region": "nationwide",
+                "state_code": "NG-FC"
+            }
+        },
+        {
+            "id": 132,
+            "name": "KOS KATSINA SC OO1",
+            "address": "Danmarna Shopping Plaza, Kofar Kaura Roundabout,Beside Ecobank, Katsina",
+            "phone": "08093269887",
+            "franchise_id": 65,
+            "lga": {
+                "id": 668,
+                "name": "Safana",
+                "state_id": 1061493606,
+                "latitude": 12.9732,
+                "longitude": 7.62333,
+                "category": null
+            },
+            "state": {
+                "id": 1061493606,
+                "name": "Katsina",
+                "region": "nationwide",
+                "state_code": "NG-KT"
+            }
+        },
+        {
+            "id": 117,
+            "name": "KOS KEBBI SC 001",
+            "address": "12/13 Taushi Plaza Ahmadu Bello Way Birnin Kebbi, Opposite Wazirin Gwandu`S House.",
+            "phone": "08032577331",
+            "franchise_id": 21,
+            "lga": {
+                "id": 699,
+                "name": "Augie",
+                "state_id": 1061493607,
+                "latitude": 12.8932,
+                "longitude": 4.59985,
+                "category": null
+            },
+            "state": {
+                "id": 1061493607,
+                "name": "Kebbi",
+                "region": "nationwide",
+                "state_code": "NG-KE"
+            }
+        },
+        {
+            "id": 104,
+            "name": "KOS KOGI SC 001",
+            "address": "Lokongoma Plaza, Okene Road, Lokoja",
+            "phone": " 0814 711 6574",
+            "franchise_id": 14,
+            "lga": {
+                "id": 163,
+                "name": "Lokoja",
+                "state_id": 1061493608,
+                "latitude": 7.80232,
+                "longitude": 6.73334,
+                "category": null
+            },
+            "state": {
+                "id": 1061493608,
+                "name": "Kogi",
+                "region": "nationwide",
+                "state_code": "NG-KO"
+            }
+        },
+        {
+            "id": 154,
+            "name": "KOS KUBWA SC 001",
+            "address": "Shop 8, Ejimuz Plaza Aso Savings Road Phase 2 Kubwa",
+            "phone": "08174801349",
+            "franchise_id": 42,
+            "lga": {
+                "id": 135,
+                "name": "Bwari",
+                "state_id": 1061493587,
+                "latitude": 9.28559,
+                "longitude": 7.37867,
+                "category": null
+            },
+            "state": {
+                "id": 1061493587,
+                "name": "Abuja",
+                "region": "nationwide",
+                "state_code": "NG-FC"
+            }
+        },
+        {
+            "id": 188,
+            "name": "KOS LAFIA SC 001",
+            "address": "65,Markurdi Road, Beside Police Headquarters, Lafia",
+            "phone": "08173471731",
+            "franchise_id": 99,
+            "lga": {
+                "id": 184,
+                "name": "Lafia",
+                "state_id": 1061493611,
+                "latitude": 8.50601,
+                "longitude": 8.52267,
+                "category": null
+            },
+            "state": {
+                "id": 1061493611,
+                "name": "Nasarawa",
+                "region": "nationwide",
+                "state_code": "NG-NA"
+            }
+        },
+        {
+            "id": 123,
+            "name": "KOS LEKKI SC 001",
+            "address": "11B Nathaniel Daniyan Street (Formerly Ohousi Itoya Street) Lekki Phase 1, Lekki",
+            "phone": "08091018416",
+            "franchise_id": 15,
+            "lga": {
+                "id": 761,
+                "name": "Eti Osa",
+                "state_id": 1061493610,
+                "latitude": 6.45898,
+                "longitude": 3.60152,
+                "category": null
+            },
+            "state": {
+                "id": 1061493610,
+                "name": "Lagos",
+                "region": "nationwide",
+                "state_code": "NG-LA"
+            }
+        },
+        {
+            "id": 162,
+            "name": "KOS MARINA SP 001",
+            "address": "81/87 Tantilizers Building Broad Street, Marina, Lagos",
+            "phone": "08088340294",
+            "franchise_id": 29,
+            "lga": {
+                "id": 767,
+                "name": "Lagos Island",
+                "state_id": 1061493610,
+                "latitude": 6.45488,
+                "longitude": 3.4246,
+                "category": null
+            },
+            "state": {
+                "id": 1061493610,
+                "name": "Lagos",
+                "region": "nationwide",
+                "state_code": "NG-LA"
+            }
+        },
+        {
+            "id": 126,
+            "name": "KOS MARYLAND SC 001",
+            "address": "14 Odunlami Str Opp Gvs Supermarket Anthony Village",
+            "phone": "09099355385",
+            "franchise_id": 10,
+            "lga": {
+                "id": 766,
+                "name": "Kosofe",
+                "state_id": 1061493610,
+                "latitude": 6.59878,
+                "longitude": 3.40946,
+                "category": null
+            },
+            "state": {
+                "id": 1061493610,
+                "name": "Lagos",
+                "region": "nationwide",
+                "state_code": "NG-LA"
+            }
+        },
+        {
+            "id": 283,
+            "name": "KOS Medilag",
+            "address": "Shop Tp12A, The Plaza, Opposite Student Hostel - Union Bank, Luth, Idiaraba, Lagos State",
+            "phone": "07063660236",
+            "franchise_id": 147,
+            "lga": {
+                "id": 769,
+                "name": "Mushin",
+                "state_id": 1061493610,
+                "latitude": 6.53523,
+                "longitude": 3.34897,
+                "category": null
+            },
+            "state": {
+                "id": 1061493610,
+                "name": "Lagos",
+                "region": "nationwide",
+                "state_code": "NG-LA"
+            }
+        },
+        {
+            "id": 105,
+            "name": "KOS NIGER SC 001",
+            "address": "83 Shiroro Road, Off Tunga Road, Minna,Niger State",
+            "phone": "08187682851",
+            "franchise_id": 40,
+            "lga": {
+                "id": 198,
+                "name": "Chanchaga",
+                "state_id": 1061493612,
+                "latitude": 9.62784,
+                "longitude": 6.54632,
+                "category": null
+            },
+            "state": {
+                "id": 1061493612,
+                "name": "Niger",
+                "region": "nationwide",
+                "state_code": "NG-NI"
+            }
+        },
+        {
+            "id": 155,
+            "name": "KOS OGBA SP 001",
+            "address": "6, Akintan Street, Dideolu Court, Ogba",
+            "phone": "08119641308",
+            "franchise_id": 2,
+            "lga": {
+                "id": 764,
+                "name": "Ikeja",
+                "state_id": 1061493610,
+                "latitude": 6.60184,
+                "longitude": 3.35149,
+                "category": null
+            },
+            "state": {
+                "id": 1061493610,
+                "name": "Lagos",
+                "region": "nationwide",
+                "state_code": "NG-LA"
+            }
+        },
+        {
+            "id": 185,
+            "name": "KOS OGBOMOSHO SC 001",
+            "address": "Shop 5, Seminary Shopping Complex, Nigerian Baptist Theologicalseminary (Nbts), Ogbomoso.",
+            "phone": "08102023837",
+            "franchise_id": 98,
+            "lga": {
+                "id": 49,
+                "name": "Ogbomosho N",
+                "state_id": 1061493616,
+                "latitude": 8.13354,
+                "longitude": 4.25385,
+                "category": null
+            },
+            "state": {
+                "id": 1061493616,
+                "name": "Oyo",
+                "region": "nationwide",
+                "state_code": "NG-OY"
+            }
+        },
+        {
+            "id": 96,
+            "name": "KOS OGUN SC OO1",
+            "address": "Oluwatoyin House, Lalubu Road, Opposite Zenith Bank, Okeilewo, Abeokuta",
+            "phone": "08094705654 ",
+            "franchise_id": 2,
+            "lga": {
+                "id": 2,
+                "name": "Abeokuta South",
+                "state_id": 1061493613,
+                "latitude": 7.15614,
+                "longitude": 3.34897,
+                "category": null
+            },
+            "state": {
+                "id": 1061493613,
+                "name": "Ogun",
+                "region": "nationwide",
+                "state_code": "NG-OG"
+            }
+        },
+        {
+            "id": 208,
+            "name": "KOS OJODU",
+            "address": "Shops 59 & 61, Ojodu Retail Market, Ojodu-Berger",
+            "phone": "08187477648.",
+            "franchise_id": 103,
+            "lga": {
+                "id": 764,
+                "name": "Ikeja",
+                "state_id": 1061493610,
+                "latitude": 6.60184,
+                "longitude": 3.35149,
+                "category": null
+            },
+            "state": {
+                "id": 1061493610,
+                "name": "Lagos",
+                "region": "nationwide",
+                "state_code": "NG-LA"
+            }
+        },
+        {
+            "id": 292,
+            "name": "KOS OJOTA",
+            "address": "Suite 4 Binukonu Ultra-Modern Market, Behind Union Bank, Ojota, Lagos.",
+            "phone": "08179313446",
+            "franchise_id": 104,
+            "lga": {
+                "id": 766,
+                "name": "Kosofe",
+                "state_id": 1061493610,
+                "latitude": 6.59878,
+                "longitude": 3.40946,
+                "category": null
+            },
+            "state": {
+                "id": 1061493610,
+                "name": "Lagos",
+                "region": "nationwide",
+                "state_code": "NG-LA"
+            }
+        },
+        {
+            "id": 270,
+            "name": "KOS OJUELEGBA SC",
+            "address": "12 Gbaja Street , Opposite St. Anthony Catholic Church And Adjacent Gbaja Market And Shopping Mall.",
+            "phone": "09085493903",
+            "franchise_id": 147,
+            "lga": {
+                "id": 773,
+                "name": "Surulere",
+                "state_id": 1061493610,
+                "latitude": 6.49263,
+                "longitude": 3.34897,
+                "category": null
+            },
+            "state": {
+                "id": 1061493610,
+                "name": "Lagos",
+                "region": "nationwide",
+                "state_code": "NG-LA"
+            }
+        },
+        {
+            "id": 90,
+            "name": "KOS ONDO SC 002",
+            "address": "No 213 Oyemekun Road(Peace House)Opposite Former Airways Along Ilesa Garage Road Akure.",
+            "phone": "08185206723",
+            "franchise_id": 35,
+            "lga": {
+                "id": 87,
+                "name": "Akure South",
+                "state_id": 1061493614,
+                "latitude": 7.21462,
+                "longitude": 5.16406,
+                "category": null
+            },
+            "state": {
+                "id": 1061493614,
+                "name": "Ondo",
+                "region": "nationwide",
+                "state_code": "NG-ON"
+            }
+        },
+        {
+            "id": 290,
+            "name": "KOS OWENA",
+            "address": "Mystic Cafe, Beside Sug Building, Adeyemi College Of Education,Ondo,Ondo State",
+            "phone": "08034663104",
+            "franchise_id": 171,
+            "lga": {
+                "id": 89,
+                "name": "Idanre",
+                "state_id": 1061493614,
+                "latitude": 7.09136,
+                "longitude": 5.14842,
+                "category": null
+            },
+            "state": {
+                "id": 1061493614,
+                "name": "Ondo",
+                "region": "nationwide",
+                "state_code": "NG-ON"
+            }
+        },
+        {
+            "id": 804,
+            "name": "KOS OWO",
+            "address": "1 Isaipen Street, Owo",
+            "phone": "08038515065",
+            "franchise_id": 1,
+            "lga": {
+                "id": 90,
+                "name": "Owo",
+                "state_id": 1061493614,
+                "latitude": 7.19885,
+                "longitude": 5.59324,
+                "category": null
+            },
+            "state": {
+                "id": 1061493614,
+                "name": "Ondo",
+                "region": "nationwide",
+                "state_code": "NG-ON"
+            }
+        },
+        {
+            "id": 189,
+            "name": "KOS OYO",
+            "address": "Beside S.M Mooras Fuel Station,Owode,Oyo, Oyo State",
+            "phone": "08134926448",
+            "franchise_id": 106,
+            "lga": {
+                "id": 32,
+                "name": "Oyo West",
+                "state_id": 1061493616,
+                "latitude": 7.89867,
+                "longitude": 3.78415,
+                "category": null
+            },
+            "state": {
+                "id": 1061493616,
+                "name": "Oyo",
+                "region": "nationwide",
+                "state_code": "NG-OY"
+            }
+        },
+        {
+            "id": 140,
+            "name": "KOS RING-ROAD  SC 001",
+            "address": "Plot 7, Block 2Mpa, Back Of Town Planning Office Opposite Link Majesty Hotel, Ring Road, Ibadan, Oyo State",
+            "phone": "08121030315",
+            "franchise_id": 9,
+            "lga": {
+                "id": 23,
+                "name": "Ibadan South West",
+                "state_id": 1061493616,
+                "latitude": 7.34581,
+                "longitude": 3.87571,
+                "category": null
+            },
+            "state": {
+                "id": 1061493616,
+                "name": "Oyo",
+                "region": "nationwide",
+                "state_code": "NG-OY"
+            }
+        },
+        {
+            "id": 174,
+            "name": "KOS SAGAMU SC 001",
+            "address": "92, Gra Road, Idi Agbon, Sabo, Sagamu,",
+            "phone": "08102693016",
+            "franchise_id": 14,
+            "lga": {
+                "id": 17,
+                "name": "Sagamu",
+                "state_id": 1061493613,
+                "latitude": 6.8322,
+                "longitude": 3.63191,
+                "category": null
+            },
+            "state": {
+                "id": 1061493613,
+                "name": "Ogun",
+                "region": "nationwide",
+                "state_code": "NG-OG"
+            }
+        },
+        {
+            "id": 212,
+            "name": "KOS SAKI",
+            "address": "Moshood Shopping Complex, Baaracks Bus-Stop,Opposite Ajegunle Garage, Oje -Owode Road,Saki,Oyo State Precious Enterprises",
+            "phone": "08102955642",
+            "franchise_id": 108,
+            "lga": {
+                "id": 44,
+                "name": "Saki West",
+                "state_id": 1061493616,
+                "latitude": 8.60334,
+                "longitude": 3.13782,
+                "category": null
+            },
+            "state": {
+                "id": 1061493616,
+                "name": "Oyo",
+                "region": "nationwide",
+                "state_code": "NG-OY"
+            }
+        },
+        {
+            "id": 211,
+            "name": "KOS SANGO-OTTA",
+            "address": "Brightway House, By Asbestos Bus Stop, Sango Ota, Ogun State",
+            "phone": "08086743970",
+            "franchise_id": 2,
+            "lga": {
+                "id": 5,
+                "name": "Ado Odo/otta",
+                "state_id": 1061493613,
+                "latitude": 6.61172,
+                "longitude": 3.05762,
+                "category": null
+            },
+            "state": {
+                "id": 1061493613,
+                "name": "Ogun",
+                "region": "nationwide",
+                "state_code": "NG-OG"
+            }
+        },
+        {
+            "id": 108,
+            "name": "KOS SOKOTO SC 001",
+            "address": "City View Plaza, Suit A2 Beside First Bank Diplomat Area, Sultan Abubakar Road Sokoto.",
+            "phone": "08147556520 ",
+            "franchise_id": 21,
+            "lga": {
+                "id": 718,
+                "name": "Sokoto N",
+                "state_id": 1061493619,
+                "latitude": 13.0059,
+                "longitude": 5.24755,
+                "category": null
+            },
+            "state": {
+                "id": 1061493619,
+                "name": "Sokoto",
+                "region": "nationwide",
+                "state_code": "NG-SO"
+            }
+        },
+        {
+            "id": 179,
+            "name": "KOS SULEJA",
+            "address": "Shop 5, Global Filling Station Plaza, Kaduna Road, Suleja, Niger State",
+            "phone": "08115264088",
+            "franchise_id": 102,
+            "lga": {
+                "id": 202,
+                "name": "Suleja",
+                "state_id": 1061493612,
+                "latitude": 9.21786,
+                "longitude": 7.1898,
+                "category": null
+            },
+            "state": {
+                "id": 1061493612,
+                "name": "Niger",
+                "region": "nationwide",
+                "state_code": "NG-NI"
+            }
+        },
+        {
+            "id": 124,
+            "name": "KOS SURA SC 001",
+            "address": "Block 11 Suite 2, Simpson Street Sura Shopping Complex Lagos Island",
+            "phone": "08185244595",
+            "franchise_id": 29,
+            "lga": {
+                "id": 767,
+                "name": "Lagos Island",
+                "state_id": 1061493610,
+                "latitude": 6.45488,
+                "longitude": 3.4246,
+                "category": null
+            },
+            "state": {
+                "id": 1061493610,
+                "name": "Lagos",
+                "region": "nationwide",
+                "state_code": "NG-LA"
+            }
+        },
+        {
+            "id": 137,
+            "name": "KOS TARABA SC 001",
+            "address": "Shop? No 31, Danejo Shopping Complex, Before First Bank Main Branch, Hammaruwa Way, Jalingo-Taraba State.",
+            "phone": "08164491943",
+            "franchise_id": 47,
+            "lga": {
+                "id": 537,
+                "name": "Jalingo",
+                "state_id": 1061493620,
+                "latitude": 8.89285,
+                "longitude": 11.3771,
+                "category": null
+            },
+            "state": {
+                "id": 1061493620,
+                "name": "Taraba",
+                "region": "nationwide",
+                "state_code": "NG-TA"
+            }
+        },
+        {
+            "id": 887,
+            "name": "Kos Umuahia 2",
+            "address": "42 Adelabu Off Nmadi Azikiwe Road Umuhaia.",
+            "phone": "08183035954",
+            "franchise_id": 247,
+            "lga": {
+                "id": 377,
+                "name": "Umuahia South",
+                "state_id": 1061493586,
+                "latitude": 5.49466,
+                "longitude": 7.41651,
+                "category": null
+            },
+            "state": {
+                "id": 1061493586,
+                "name": "Abia",
+                "region": "nationwide",
+                "state_code": "NG-AB"
+            }
+        },
+        {
+            "id": 161,
+            "name": "KOS VI SC 001",
+            "address": "7, Akin Olugbade Street, Victoria Island",
+            "phone": "08172043080",
+            "franchise_id": 97,
+            "lga": {
+                "id": 761,
+                "name": "Eti Osa",
+                "state_id": 1061493610,
+                "latitude": 6.45898,
+                "longitude": 3.60152,
+                "category": null
+            },
+            "state": {
+                "id": 1061493610,
+                "name": "Lagos",
+                "region": "nationwide",
+                "state_code": "NG-LA"
+            }
+        },
+        {
+            "id": 153,
+            "name": "KOS WUSE SC 001",
+            "address": "No 43, Nouakchott Street, Wuse Zone 1, Abuja. Landmark : White House (Building), Beside Unilorin House, Wuse Zone 1,Abuja.",
+            "phone": "09077842195",
+            "franchise_id": 46,
+            "lga": {
+                "id": 134,
+                "name": "Abuja Municipal",
+                "state_id": 1061493587,
+                "latitude": 9.06121,
+                "longitude": 7.42236,
+                "category": null
+            },
+            "state": {
+                "id": 1061493587,
+                "name": "Abuja",
+                "region": "nationwide",
+                "state_code": "NG-FC"
+            }
+        },
+        {
+            "id": 130,
+            "name": "KOS YABA SC 001",
+            "address": "315 Borno Way Yaba",
+            "phone": "08021426293",
+            "franchise_id": 5,
+            "lga": {
+                "id": 768,
+                "name": "Lagos Mainland",
+                "state_id": 1061493610,
+                "latitude": 6.49772,
+                "longitude": 3.38425,
+                "category": null
+            },
+            "state": {
+                "id": 1061493610,
+                "name": "Lagos",
+                "region": "nationwide",
+                "state_code": "NG-LA"
+            }
+        },
+        {
+            "id": 150,
+            "name": "KOS YOBE SC 001",
+            "address": "Beside Vio Office Shango Estate Gombe",
+            "phone": "07055799627",
+            "franchise_id": 48,
+            "lga": {
+                "id": 552,
+                "name": "Damaturu",
+                "state_id": 1061493621,
+                "latitude": 11.747,
+                "longitude": 11.9662,
+                "category": null
+            },
+            "state": {
+                "id": 1061493621,
+                "name": "Yobe",
+                "region": "nationwide",
+                "state_code": "NG-YO"
+            }
+        },
+        {
+            "id": 109,
+            "name": "KOS ZAMFARA SC 001",
+            "address": "Diplomat Street,City Plaza Suit A3 Opposite First Bank, Sokoto",
+            "phone": "08060277057",
+            "franchise_id": 21,
+            "lga": {
+                "id": 740,
+                "name": "Gusau",
+                "state_id": 1061493622,
+                "latitude": 12.1628,
+                "longitude": 6.6745,
+                "category": null
+            },
+            "state": {
+                "id": 1061493622,
+                "name": "Zamfara",
+                "region": "nationwide",
+                "state_code": "NG-ZA"
+            }
+        },
+        {
+            "id": 47,
+            "name": "Surulere SP",
+            "address": "80 Bode Thomas",
+            "phone": "08172043079",
+            "franchise_id": 1,
+            "lga": {
+                "id": 768,
+                "name": "Lagos Mainland",
+                "state_id": 1061493610,
+                "latitude": 6.49772,
+                "longitude": 3.38425,
+                "category": null
+            },
+            "state": {
+                "id": 1061493610,
+                "name": "Lagos",
+                "region": "nationwide",
+                "state_code": "NG-LA"
+            }
+        }
+    ]
+}

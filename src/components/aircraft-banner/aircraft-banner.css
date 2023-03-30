@@ -17,7 +17,7 @@
     color: #fff;
     font-size: 2.25rem;
     font-weight: 700;
-    font-family: 'Minion Pro';
+    font-family: 'Minion Pro' !important;
 }
 
 .ac-search-btn {
@@ -26,10 +26,10 @@
 }
 
 .ac-stn-quote {
-    font-family: 'Aeonik';
+    font-family: 'Minion Pro' !important;
     font-style: normal;
     font-weight: 400;
-    font-size: 24px;
+    /* font-size: 24px; */
     line-height: 30px;
     color: #989494;
 }

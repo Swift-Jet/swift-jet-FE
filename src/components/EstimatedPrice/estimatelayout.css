@@ -29,3 +29,51 @@ article li span:nth-of-type(2) {
 	vertical-align: middle;
 	color: #838689;
 }
+
+.recommend-stn {
+	margin-left: 5%;
+	margin-right: 5%;
+
+}
+
+.flight-title {
+	padding-left: 6.5rem;
+	padding-right: 6.5rem;
+	padding-top: 2.5rem;
+	padding-bottom: 2.5rem;
+}
+
+.other-cards {
+	padding: 3rem;
+}
+
+.flight-card-content {
+	padding: 2rem;
+}
+
+@media screen and (max-width: 768px) {
+	.other-cards {
+		padding: 1rem !important;
+	}
+
+	.flight-card-content {
+		padding: 1rem !important;
+	}
+
+	.quote-btn {
+		padding: 10px !important;
+		font-size: 0.75rem;
+		width: 120px !important;
+	
+	}
+	.flight-card-text {
+		font-size: 0.75rem;
+	}
+	.flight-title {
+		padding-left: 1.5rem !important;
+	}
+
+	.display-trip {
+		padding: 1rem !important;
+	}
+}

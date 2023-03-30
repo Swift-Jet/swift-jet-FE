@@ -19,4 +19,4 @@ export const images = [
       original: 'https://picsum.photos/id/1029/1000/600/',
       thumbnail: 'https://picsum.photos/id/1029/250/150/',
     },
-  ];
+  ]
