@@ -35,7 +35,7 @@ const RegisterUser = () => {
   return (
     <main class=" h-screen flex  justify-center items-center font-[Poppins]">
       <ToastContainer />
-      <div class="flex flex-col md:flex-row w-4/5 md:w-4/5 mx-auto rounded-3xl shadow-2xl">
+      <div class="flex flex-col md:flex-row w-4/5 md:w-4/5 sm:w-full mx-auto">
         <section class="bg-white p-6  md:p-10 md:min-w-[50%] flex flex-col gap-4 rounded-3xl">
           <div class="text-start mb-3">
             <h1 class="text-rose-900 font-bold text-3xl">

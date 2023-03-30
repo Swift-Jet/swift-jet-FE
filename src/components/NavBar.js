@@ -23,7 +23,7 @@ export default function NavBar() {
   ];
 
   return (
-    <nav className="fixed top-0 z-10 w-full bg-white font-[poppins] ">
+    <nav className="fixed top-0 z-10 w-full bg-white font-[poppins]">
       <div className="flex flex-wrap justify-between px-4 mx-auto md:items-center md:px-8 nav-div">
         <div className="w-full md:w-1/3">
           <div className="flex items-center justify-between md:py-0">

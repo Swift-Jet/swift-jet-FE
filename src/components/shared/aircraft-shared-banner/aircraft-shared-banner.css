@@ -2,7 +2,7 @@
     /* background-image: url('../../image/aircraft-banner.svg'); */
     background-size: cover;
     background-position: center;
-    height: 350px;
+    height: 350px !important;
 }
 /* .ac-title{
     font-size: 20px;

@@ -10,7 +10,7 @@ const AircraftSharedBanner = ({title, banner_img_url, hidden}) => {
           <div>
             <h3 className="ac-title text-center sm:text-start text-lg-start pt-5 lg:pt-8">{title}</h3>
           </div>
-          <div className="sm:mt-0 lg:mt-8 pb-12">
+          {/* <div className="sm:mt-0 lg:mt-8 pb-12">
             <div className="-mx-3 mt-0 p-2 border rounded-lg border-[#e695a7] lg:mt-12" hidden={hidden}>
               <div class=" md:flex">
                 <div class="md:w-1/4">
@@ -77,7 +77,7 @@ const AircraftSharedBanner = ({title, banner_img_url, hidden}) => {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
       </div> 
     </div>

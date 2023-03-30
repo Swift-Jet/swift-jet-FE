@@ -65,17 +65,20 @@ input[type="time"] {
 }
 
 @media (max-width: 768px) {
-  .react-slideshow-container{
+  .react-slideshow-container {
     padding: 10px !important;
   }
-  .empty-legs{
+
+  .empty-legs {
     padding-left: 30px !important;
   }
-  .fsld-special{
+
+  .fsld-special {
     padding-top: 50px;
     background-color: #eeece1;
     margin-bottom: 30px;
   }
+
   .booking-engine {
     margin-top: 50px !important;
   }
@@ -172,7 +175,8 @@ input[type="time"] {
   .contact-us {
     font-size: 12px !important;
   }
-  .load-passanger-form{
+
+  .load-passanger-form {
     padding: 10px 5px 10px 5px !important;
   }
 }
@@ -468,42 +472,123 @@ p,
 label {
   font-family: 'Minion Pro' !important;
 }
-.react-slideshow-container{
+
+.react-slideshow-container {
   padding: 0px 50px 50px 50px;
   background-color: #fff;
 }
 
 
-.shared-flight-time{
+.shared-flight-time {
   color: #5c0632 !important;
   /* margin-top:0px !important; */
   /* padding-left: 10px; */
 }
-.shared-flight-time-date{
+
+.shared-flight-time-date {
+  font-family: Minion Pro !important;
   font-size: 15px;
   color: #5c0632 !important;
   font-weight: 600;
 }
+
 .bg-img-title {
   position: absolute;
   top: 420px;
   left: 20px;
 }
-.flight-shared-img{
-  pointer-events: none;
-}
-.flight-shared-img:before{
-  pointer-events: all
-}
-.flight-shared-img:hover:before{
+
+
+
+
+
+/* .flight-shared-img:hover:before{
   opacity: 0.5;
+} */
+.cost {
+  font-weight: 600;
+  font-family: Minion Pro !important;
 }
-.route{
+
+.route {
   font-weight: 700;
+  font-family: Minion Pro !important;
 }
-.empty-legs{
+
+.empty-legs {
   padding-left: 70px;
   font-weight: 700;
   font-size: 20px;
   padding-bottom: 10px !important;
+}
+
+/* INTRO-SECTION BEGINS */
+
+#intro {
+  margin: 1% 10%;
+
+}
+
+.intro-section {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: -10%;
+  z-index: 1;
+  gap: 2rem;
+
+}
+
+.intro-col {
+  flex: 1 1 20rem;
+  text-align: center;
+  padding: 2rem 1rem;
+  margin: 1rem;
+  background-color: #fff;
+  color: #333;
+  border-radius: 20px;
+  position: relative;
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  box-shadow: 0 2px 48px 0 rgb(0 0 0 / 8%);
+
+}
+
+.intro-col:before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  background: #fff;
+  width: 100%;
+  opacity: .2;
+  height: 100%;
+  bottom: -10px;
+  left: 0px;
+  right: -40px;
+  margin: auto;
+  border-radius: 20px;
+}
+
+.intro-col img {
+  width: 60px;
+  margin-bottom: 2rem;
+}
+
+.intro-col h3 {
+  font-size: 2rem;
+}
+
+.intro-col p {
+  font-size: 1.4rem;
+  margin-top: 1.5rem;
+  margin-bottom: 2.2rem;
+  line-height: 25px;
+}
+
+.igh:hover{
+  
+}
+.sfc{
+  box-shadow: 3px 6px 2px #e5e2e2f2
 }

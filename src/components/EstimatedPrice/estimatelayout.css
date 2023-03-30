@@ -63,6 +63,7 @@ article li span:nth-of-type(2) {
 	.quote-btn {
 		padding: 10px !important;
 		font-size: 0.75rem;
+		width: 120px !important;
 	
 	}
 	.flight-card-text {

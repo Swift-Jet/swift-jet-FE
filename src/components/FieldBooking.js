@@ -254,7 +254,17 @@ const FieldBooking = () => {
       setFilteredResults([]);
     }
   };
-
+  const options = airports.map((item, i) => ({
+    label:
+      item.name +
+      " - " +
+      item.icao_code +
+      " - " +
+      item.iata_code +
+      " - " +
+      item.country_code,
+    value: item,
+  }));
   // const addFields = () => {
   //   let newfield = { name: "" };
   //   setInputFields([...inputFields, newfield]);
@@ -353,6 +363,7 @@ const FieldBooking = () => {
       },
     },
   ];
+
   return (
     <>
       <ToastContainer />
@@ -575,16 +586,30 @@ const FieldBooking = () => {
                 <Select
                   classNames={"truncate"}
                   value={sourceAirport}
+                  noOptionsMessage={"No  airport found"}
                   isSearchable={true}
                   menuIsOpen={false}
                   placeholder={"Origin"}
                   primaryColor={"sky"}
                   isClearable={false}
                   onChange={handleOrigin}
-                  options={airports.map((item, i) => ({
-                    label: item.name,
-                    value: item,
-                  }))}
+                  options={options}
+                  // formatOptionLabel={(data) => (
+                  //   <li
+                  //     className={`block transition duration-200 px-2 py-2 cursor-pointer select-none truncate rounded ${
+                  //       !data.isSelected
+                  //         ? `text-[#5c0632] bg-white`
+                  //         : `text-[#5c0632] bg-white`
+                  //     }`}
+                  //   >
+                  //     {data.label} - {data.value.icao_code} -{" "}
+                  //     {data.value.icao_code}
+                  //     {/*
+                  //         <h1 className="border rounded p-2 mr-4">
+
+                  //         </h1> */}
+                  //   </li>
+                  // )}
                 />
               </div>
               <div className="divider"></div>
@@ -592,6 +617,7 @@ const FieldBooking = () => {
               <div className="mt-2 mb-2">
                 <Select
                   classNames={"select-destination"}
+                  noOptionsMessage={"No  airport found"}
                   value={destinationAirport}
                   isSearchable={true}
                   menuIsOpen={false}
@@ -600,10 +626,29 @@ const FieldBooking = () => {
                   loading={false}
                   isClearable={false}
                   onChange={handleDestination}
-                  options={airports.map((item, i) => ({
-                    label: item.name,
-                    value: item,
-                  }))}
+                  options={options}
+                  // formatOptionLabel={(data) => (
+                  //   <li
+                  //     className={`block transition duration-200 px-2 py-2 cursor-pointer select-none truncate rounded ${
+                  //       !data.isSelected
+                  //         ? `text-[#5c0632] bg-white`
+                  //         : `text-[#5c0632] bg-white`
+                  //     }`}
+                  //   >
+                  //     {data.label} - {data.value.icao_code} -{" "}
+                  //     {data.value.icao_code}
+
+                  //     {/* <div className="flex ">
+                  //       {" "}
+                  //       {data.value.icao_code ? (
+                  //         <h1 className="border rounded p-2 mr-4">
+                  //           {data.value.icao_code}
+                  //         </h1>
+                  //       ) : null}
+
+                  //     </div> */}
+                  //   </li>
+                  // )}
                 />
               </div>
 
@@ -775,8 +820,6 @@ const FieldBooking = () => {
                                 </button>
                               </div>
                             </div>
-
-                       
                           </div>
 
                           <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
@@ -821,8 +864,6 @@ const FieldBooking = () => {
                                 </button>
                               </div>
                             </div>
-
-                        
                           </div>
                           <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
                             <label
@@ -862,7 +903,6 @@ const FieldBooking = () => {
                                 </button>
                               </div>
                             </div>
-
                           </div>
                         </div>
                         {/*footer*/}
@@ -891,7 +931,6 @@ const FieldBooking = () => {
                             </div>
                           ) : (
                             <div>
-                          
                               <button
                                 className="bg-[#5c0632] text-white active:bg-emerald-600 font-bold text-sm px-6 py-3 rounded-full shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
                                 type="button"
@@ -904,7 +943,6 @@ const FieldBooking = () => {
                               </button>
                             </div>
                           )}
-                      
                         </div>
                       </div>
                     </div>
@@ -1037,17 +1075,19 @@ const FieldBooking = () => {
             >
               <a
                 href="#"
-                class="block rounded-lg p-4 group/item hover:bg-slate-100"
+                class="block rounded-lg p-4  m-4 group/item hover:bg-[#eeece18c] sfc transition overflow-hidden h-108 h-108"
               >
-                <img
-                  alt="Home"
-                  src="https://dlwwkvaei5hfp.cloudfront.net/flightSectionRoutes/1677113718556884.jpg"
-                  class="h-56 w-full rounded-md object-cover flight-shared-img"
-                />
+                <div className="overflow-hidden rounded-lg">
+                  <img
+                    alt="Home"
+                    src="https://dlwwkvaei5hfp.cloudfront.net/flightSectionRoutes/1677113718556884.jpg"
+                    class="h-56 w-full rounded-lg object-cover overflow-hidden transition hover:scale-125"
+                  />
+                </div>
                 <div className="mt-2 shared-flight-time">
                   <dl>
                     <div>
-                      <dd class="text-white mt-2 shared-flight-time-date">
+                      <dd class="text-white mt-2 shared-flight-time-date font-['Minion Pro']">
                         Next Flight: 24th March 2023 at 13:00
                       </dd>
                     </div>
@@ -1056,37 +1096,21 @@ const FieldBooking = () => {
                 <div class="mt-0">
                   <dl>
                     <div>
-                      <dt class="sr-only">Price</dt>
-
-                      <dd class="text-md text-gray-500">$5500</dd>
-                    </div>
-
-                    <div>
                       <dt class="sr-only">Address</dt>
 
                       <dd class="font-medium route">
                         Abuja, Nigeria - Lagos, Nigeria
                       </dd>
                     </div>
+                    <div>
+                      <dt class="sr-only">Price</dt>
+
+                      <dd class="text-md text-gray-500 cost">$5500</dd>
+                    </div>
                   </dl>
 
-                  <div class="mt-6 flex items-center gap-8 text-xs">
+                  <div class="mt-3 flex items-center justify-between text-sm">
                     <div class="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2">
-                      <svg
-                        class="h-4 w-4 text-indigo-700"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z"
-                        />
-                      </svg>
-
                       <div class="mt-1.5 sm:mt-0">
                         <p class="text-gray-500">Passengers</p>
 
@@ -1095,44 +1119,6 @@ const FieldBooking = () => {
                     </div>
 
                     <div class="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2">
-                      <svg
-                        class="h-4 w-4 text-indigo-700"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
-                        />
-                      </svg>
-
-                      <div class="mt-1.5 sm:mt-0">
-                        <p class="text-gray-500">Travel Class</p>
-
-                        <p class="font-bold">Standard</p>
-                      </div>
-                    </div>
-
-                    <div class="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2">
-                      <svg
-                        class="h-4 w-4 text-indigo-700"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
-                        />
-                      </svg>
-
                       <div class="mt-1.5 sm:mt-0">
                         <p class="text-gray-500">Travel Class</p>
 
@@ -1144,17 +1130,19 @@ const FieldBooking = () => {
               </a>
               <a
                 href="#"
-                class="block rounded-lg p-4 group/item hover:bg-slate-100"
+                class="block rounded-lg p-4  m-4 group/item hover:bg-[#eeece18c] sfc transition overflow-hidden h-108"
               >
-                <img
-                  alt="Home"
-                  src="https://dlwwkvaei5hfp.cloudfront.net/flightSectionRoutes/1677113718556884.jpg"
-                  class="h-56 w-full rounded-md object-cover"
-                />
+                <div className="overflow-hidden rounded-lg">
+                  <img
+                    alt="Home"
+                    src="https://dlwwkvaei5hfp.cloudfront.net/flightSectionRoutes/1678299621114570.jpg"
+                    class="h-56 w-full rounded-md object-cover shared-flight-img overflow-hidden transition hover:scale-125"
+                  />
+                </div>
                 <div className="mt-2 shared-flight-time">
                   <dl>
                     <div>
-                      <dd class="text-[#000] mt-2 shared-flight-time-date">
+                      <dd class="text-[#000] mt-2 shared-flight-time-date font-['Minion Pro']">
                         Next Flight: 24th March 2023 at 13:00
                       </dd>
                     </div>
@@ -1163,37 +1151,21 @@ const FieldBooking = () => {
                 <div class="mt-0">
                   <dl>
                     <div>
-                      <dt class="sr-only">Price</dt>
-
-                      <dd class="text-md text-gray-500">$5500</dd>
-                    </div>
-
-                    <div>
                       <dt class="sr-only">Address</dt>
 
                       <dd class="font-medium route">
                         Abuja, Nigeria - Lagos, Nigeria
                       </dd>
                     </div>
+                    <div>
+                      <dt class="sr-only">Price</dt>
+
+                      <dd class="text-md text-gray-500 cost">$5500</dd>
+                    </div>
                   </dl>
 
-                  <div class="mt-6 flex items-center gap-8 text-xs">
+                  <div class=" mt-3 flex items-center justify-between text-sm">
                     <div class="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2">
-                      <svg
-                        class="h-4 w-4 text-indigo-700"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z"
-                        />
-                      </svg>
-
                       <div class="mt-1.5 sm:mt-0">
                         <p class="text-gray-500">Passengers</p>
 
@@ -1202,44 +1174,6 @@ const FieldBooking = () => {
                     </div>
 
                     <div class="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2">
-                      <svg
-                        class="h-4 w-4 text-indigo-700"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
-                        />
-                      </svg>
-
-                      <div class="mt-1.5 sm:mt-0">
-                        <p class="text-gray-500">Travel Class</p>
-
-                        <p class="font-bold">Standard</p>
-                      </div>
-                    </div>
-
-                    <div class="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2">
-                      <svg
-                        class="h-4 w-4 text-indigo-700"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
-                        />
-                      </svg>
-
                       <div class="mt-1.5 sm:mt-0">
                         <p class="text-gray-500">Travel Class</p>
 
@@ -1252,17 +1186,20 @@ const FieldBooking = () => {
 
               <a
                 href="#"
-                class="block rounded-lg p-4 group/item hover:bg-slate-100"
+                class="block rounded-lg p-4  m-4 group/item hover:bg-[#eeece18c] sfc transition overflow-hidden h-108"
               >
-                <img
-                  alt="Home"
-                  src="https://dlwwkvaei5hfp.cloudfront.net/flightSectionRoutes/1677113718556884.jpg"
-                  class="h-56 w-full rounded-md object-cover"
-                />
+                <div className="overflow-hidden rounded-lg">
+                  <img
+                    alt="Home"
+                    src="https://dlwwkvaei5hfp.cloudfront.net/flightSectionRoutes/1679941080965397.jpg"
+                    class="h-56 w-full rounded-md object-cover shared-flight-img overflow-hidden transition hover:scale-125"
+                  />
+                </div>
+
                 <div className="mt-2 shared-flight-time">
                   <dl>
                     <div>
-                      <dd class="text-white mt-2 shared-flight-time-date">
+                      <dd class="text-white mt-2 shared-flight-time-date font-['Minion Pro']">
                         Next Flight: 24th March 2023 at 13:00
                       </dd>
                     </div>
@@ -1271,37 +1208,21 @@ const FieldBooking = () => {
                 <div class="mt-0">
                   <dl>
                     <div>
-                      <dt class="sr-only">Price</dt>
-
-                      <dd class="text-md text-gray-500">$5500</dd>
-                    </div>
-
-                    <div>
                       <dt class="sr-only">Address</dt>
 
                       <dd class="font-medium route">
                         Abuja, Nigeria - Lagos, Nigeria
                       </dd>
                     </div>
+                    <div>
+                      <dt class="sr-only">Price</dt>
+
+                      <dd class="text-md text-gray-500 cost">$5500</dd>
+                    </div>
                   </dl>
 
-                  <div class="mt-6 flex items-center gap-8 text-xs">
+                  <div class=" mt-3 flex items-center justify-between text-sm">
                     <div class="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2">
-                      <svg
-                        class="h-4 w-4 text-indigo-700"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z"
-                        />
-                      </svg>
-
                       <div class="mt-1.5 sm:mt-0">
                         <p class="text-gray-500">Passengers</p>
 
@@ -1310,44 +1231,6 @@ const FieldBooking = () => {
                     </div>
 
                     <div class="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2">
-                      <svg
-                        class="h-4 w-4 text-indigo-700"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
-                        />
-                      </svg>
-
-                      <div class="mt-1.5 sm:mt-0">
-                        <p class="text-gray-500">Travel Class</p>
-
-                        <p class="font-bold">Standard</p>
-                      </div>
-                    </div>
-
-                    <div class="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2">
-                      <svg
-                        class="h-4 w-4 text-indigo-700"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
-                        />
-                      </svg>
-
                       <div class="mt-1.5 sm:mt-0">
                         <p class="text-gray-500">Travel Class</p>
 
@@ -1360,17 +1243,20 @@ const FieldBooking = () => {
 
               <a
                 href="#"
-                class="block rounded-lg p-4 group/item hover:bg-slate-100"
+                class="block rounded-lg p-4  m-4 group/item hover:bg-[#eeece18c] sfc transition overflow-hidden h-108"
               >
-                <img
-                  alt="Home"
-                  src="https://dlwwkvaei5hfp.cloudfront.net/flightSectionRoutes/1677113718556884.jpg"
-                  class="h-56 w-full rounded-md object-cover"
-                />
+                <div className="overflow-hidden rounded-lg">
+                  <img
+                    alt="Home"
+                    src="https://dlwwkvaei5hfp.cloudfront.net/flightSectionRoutes/1677776988468071.jpg"
+                    class="h-56 w-full rounded-md object-cover shared-flight-img overflow-hidden transition hover:scale-125"
+                  />
+                </div>
+
                 <div className="mt-2 shared-flight-time">
                   <dl>
                     <div>
-                      <dd class="text-white mt-2 shared-flight-time-date">
+                      <dd class="text-white mt-2 shared-flight-time-date font-['Minion Pro']">
                         Next Flight: 24th March 2023 at 13:00
                       </dd>
                     </div>
@@ -1378,12 +1264,7 @@ const FieldBooking = () => {
                 </div>
                 <div class="mt-0">
                   <dl>
-                    <div>
-                      <dt class="sr-only">Price</dt>
-
-                      <dd class="text-md text-gray-500">$5500</dd>
-                    </div>
-
+                    {" "}
                     <div>
                       <dt class="sr-only">Address</dt>
 
@@ -1391,25 +1272,15 @@ const FieldBooking = () => {
                         Abuja, Nigeria - Lagos, Nigeria
                       </dd>
                     </div>
+                    <div>
+                      <dt class="sr-only">Price</dt>
+
+                      <dd class="text-md text-gray-500 cost">$5500</dd>
+                    </div>
                   </dl>
 
-                  <div class="mt-6 flex items-center gap-8 text-xs">
+                  <div class=" mt-3 flex items-center justify-between text-sm">
                     <div class="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2">
-                      <svg
-                        class="h-4 w-4 text-indigo-700"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z"
-                        />
-                      </svg>
-
                       <div class="mt-1.5 sm:mt-0">
                         <p class="text-gray-500">Passengers</p>
 
@@ -1418,44 +1289,6 @@ const FieldBooking = () => {
                     </div>
 
                     <div class="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2">
-                      <svg
-                        class="h-4 w-4 text-indigo-700"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
-                        />
-                      </svg>
-
-                      <div class="mt-1.5 sm:mt-0">
-                        <p class="text-gray-500">Travel Class</p>
-
-                        <p class="font-bold">Standard</p>
-                      </div>
-                    </div>
-
-                    <div class="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2">
-                      <svg
-                        class="h-4 w-4 text-indigo-700"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
-                        />
-                      </svg>
-
                       <div class="mt-1.5 sm:mt-0">
                         <p class="text-gray-500">Travel Class</p>
 
@@ -1468,17 +1301,20 @@ const FieldBooking = () => {
 
               <a
                 href="#"
-                class="block rounded-lg p-4 group/item hover:bg-slate-100"
+                class="block rounded-lg p-4  m-4 group/item hover:bg-[#eeece18c] sfc transition overflow-hidden h-108"
               >
-                <img
-                  alt="Home"
-                  src="https://dlwwkvaei5hfp.cloudfront.net/flightSectionRoutes/1677113718556884.jpg"
-                  class="h-56 w-full rounded-md object-cover"
-                />
+                <div className="overflow-hidden rounded-lg">
+                  <img
+                    alt="Home"
+                    src="https://dlwwkvaei5hfp.cloudfront.net/flightSectionRoutes/1678735511528722.jpg"
+                    class="h-56 w-full rounded-md object-cover shared-flight-img overflow-hidden transition hover:scale-125"
+                  />
+                </div>
+
                 <div className="mt-2 shared-flight-time">
                   <dl>
                     <div>
-                      <dd class="text-white mt-2 shared-flight-time-date">
+                      <dd class="text-white mt-2 shared-flight-time-date font-['Minion Pro']">
                         Next Flight: 24th March 2023 at 13:00
                       </dd>
                     </div>
@@ -1487,37 +1323,21 @@ const FieldBooking = () => {
                 <div class="mt-0">
                   <dl>
                     <div>
-                      <dt class="sr-only">Price</dt>
-
-                      <dd class="text-md text-gray-500">$5500</dd>
-                    </div>
-
-                    <div>
                       <dt class="sr-only">Address</dt>
 
                       <dd class="font-medium route">
                         Abuja, Nigeria - Lagos, Nigeria
                       </dd>
                     </div>
+                    <div>
+                      <dt class="sr-only">Price</dt>
+
+                      <dd class="text-md text-gray-500 cost">$5500</dd>
+                    </div>
                   </dl>
 
-                  <div class="mt-6 flex items-center gap-8 text-xs">
+                  <div class="mt-3 flex items-center justify-between text-sm">
                     <div class="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2">
-                      <svg
-                        class="h-4 w-4 text-indigo-700"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z"
-                        />
-                      </svg>
-
                       <div class="mt-1.5 sm:mt-0">
                         <p class="text-gray-500">Passengers</p>
 
@@ -1526,44 +1346,6 @@ const FieldBooking = () => {
                     </div>
 
                     <div class="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2">
-                      <svg
-                        class="h-4 w-4 text-indigo-700"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
-                        />
-                      </svg>
-
-                      <div class="mt-1.5 sm:mt-0">
-                        <p class="text-gray-500">Travel Class</p>
-
-                        <p class="font-bold">Standard</p>
-                      </div>
-                    </div>
-
-                    <div class="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2">
-                      <svg
-                        class="h-4 w-4 text-indigo-700"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
-                        />
-                      </svg>
-
                       <div class="mt-1.5 sm:mt-0">
                         <p class="text-gray-500">Travel Class</p>
 
@@ -1576,17 +1358,20 @@ const FieldBooking = () => {
 
               <a
                 href="#"
-                class="block rounded-lg p-4 group/item hover:bg-slate-100"
+                class="block rounded-lg p-4  m-4 group/item hover:bg-[#eeece18c] sfc transition overflow-hidden h-108"
               >
-                <img
-                  alt="Home"
-                  src="https://dlwwkvaei5hfp.cloudfront.net/flightSectionRoutes/1677113718556884.jpg"
-                  class="h-56 w-full rounded-md object-cover"
-                />
+                <div className="overflow-hidden rounded-lg">
+                  <img
+                    alt="Home"
+                    src="https://dlwwkvaei5hfp.cloudfront.net/flightSectionRoutes/1660866285686301.jpg"
+                    class="h-56 w-full rounded-md object-cover shared-flight-img overflow-hidden transition hover:scale-125"
+                  />
+                </div>
+
                 <div className="mt-2 shared-flight-time">
                   <dl>
                     <div>
-                      <dd class="text-white mt-2 shared-flight-time-date">
+                      <dd class="text-white mt-2 shared-flight-time-date font-['Minion Pro']">
                         Next Flight: 24th March 2023 at 13:00
                       </dd>
                     </div>
@@ -1595,37 +1380,21 @@ const FieldBooking = () => {
                 <div class="mt-0">
                   <dl>
                     <div>
-                      <dt class="sr-only">Price</dt>
-
-                      <dd class="text-md text-gray-500">$5500</dd>
-                    </div>
-
-                    <div>
                       <dt class="sr-only">Address</dt>
 
                       <dd class="font-medium route">
                         Abuja, Nigeria - Lagos, Nigeria
                       </dd>
                     </div>
+                    <div>
+                      <dt class="sr-only">Price</dt>
+
+                      <dd class="text-md text-gray-500 cost">$5500</dd>
+                    </div>
                   </dl>
 
-                  <div class="mt-6 flex items-center gap-8 text-xs">
+                  <div class=" mt-3 flex items-center justify-between text-sm">
                     <div class="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2">
-                      <svg
-                        class="h-4 w-4 text-indigo-700"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z"
-                        />
-                      </svg>
-
                       <div class="mt-1.5 sm:mt-0">
                         <p class="text-gray-500">Passengers</p>
 
@@ -1634,44 +1403,6 @@ const FieldBooking = () => {
                     </div>
 
                     <div class="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2">
-                      <svg
-                        class="h-4 w-4 text-indigo-700"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
-                        />
-                      </svg>
-
-                      <div class="mt-1.5 sm:mt-0">
-                        <p class="text-gray-500">Travel Class</p>
-
-                        <p class="font-bold">Standard</p>
-                      </div>
-                    </div>
-
-                    <div class="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2">
-                      <svg
-                        class="h-4 w-4 text-indigo-700"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
-                        />
-                      </svg>
-
                       <div class="mt-1.5 sm:mt-0">
                         <p class="text-gray-500">Travel Class</p>
 
@@ -1684,17 +1415,19 @@ const FieldBooking = () => {
 
               <a
                 href="#"
-                class="block rounded-lg p-4 group/item hover:bg-slate-100"
+                class="block rounded-lg p-4  m-4 group/item hover:bg-[#eeece18c] sfc transition overflow-hidden h-108"
               >
-                <img
-                  alt="Home"
-                  src="https://dlwwkvaei5hfp.cloudfront.net/flightSectionRoutes/1677113718556884.jpg"
-                  class="h-56 w-full rounded-md object-cover"
-                />
+                <div className="overflow-hidden rounded-lg">
+                  <img
+                    alt="Home"
+                    src="https://dlwwkvaei5hfp.cloudfront.net/flightSectionRoutes/1679574321535263.jpg"
+                    class="h-56 w-full rounded-md object-cover shared-flight-img overflow-hidden transition hover:scale-125"
+                  />
+                </div>
                 <div className="mt-2 shared-flight-time">
                   <dl>
                     <div>
-                      <dd class="text-white mt-2 shared-flight-time-date">
+                      <dd class="text-white mt-2 shared-flight-time-date font-['Minion Pro']">
                         Next Flight: 24th March 2023 at 13:00
                       </dd>
                     </div>
@@ -1703,37 +1436,21 @@ const FieldBooking = () => {
                 <div class="mt-0">
                   <dl>
                     <div>
-                      <dt class="sr-only">Price</dt>
-
-                      <dd class="text-md text-gray-500">$5500</dd>
-                    </div>
-
-                    <div>
                       <dt class="sr-only">Address</dt>
 
                       <dd class="font-medium route">
                         Abuja, Nigeria - Lagos, Nigeria
                       </dd>
                     </div>
+                    <div>
+                      <dt class="sr-only">Price</dt>
+
+                      <dd class="text-md text-gray-500 cost">$5500</dd>
+                    </div>
                   </dl>
 
-                  <div class="mt-6 flex items-center gap-8 text-xs">
+                  <div class=" mt-3 flex items-center justify-between text-sm">
                     <div class="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2">
-                      <svg
-                        class="h-4 w-4 text-indigo-700"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z"
-                        />
-                      </svg>
-
                       <div class="mt-1.5 sm:mt-0">
                         <p class="text-gray-500">Passengers</p>
 
@@ -1742,44 +1459,6 @@ const FieldBooking = () => {
                     </div>
 
                     <div class="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2">
-                      <svg
-                        class="h-4 w-4 text-indigo-700"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
-                        />
-                      </svg>
-
-                      <div class="mt-1.5 sm:mt-0">
-                        <p class="text-gray-500">Travel Class</p>
-
-                        <p class="font-bold">Standard</p>
-                      </div>
-                    </div>
-
-                    <div class="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2">
-                      <svg
-                        class="h-4 w-4 text-indigo-700"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
-                        />
-                      </svg>
-
                       <div class="mt-1.5 sm:mt-0">
                         <p class="text-gray-500">Travel Class</p>
 
@@ -1825,6 +1504,8 @@ const FieldBooking = () => {
               <Card />
               <Card />
             </div>
+
+           
             <div className="flex justify-center">
               <button class="bg-[#5C0632] hover:bg-[#5C0632] hover:text-white border text-[#ffffff] font-bold py-3 px-6 rounded-full">
                 Explore All Destinations

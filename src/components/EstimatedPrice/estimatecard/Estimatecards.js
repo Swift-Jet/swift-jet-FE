@@ -34,15 +34,15 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
     overview_summary:
       "Midsize jets (also known as mid-sized jets) are the most popular category of private jets and provide a cost-effective option for flights of up to 4 hours, for up to 8 passengers",
     image_url:
-      "https://res.cloudinary.com/dzv98o7ds/image/upload/v1676747970/switf_jet_dev_staging/ccnmb0nty3zzbfg29jlu.avif",
+      "https://res.cloudinary.com/dzv98o7ds/image/upload/v1677872105/switf_jet_dev_staging/f0igixibrze3uj1obofa.jpg",
     image_url_2:
-      "https://res.cloudinary.com/dzv98o7ds/image/upload/v1676747970/switf_jet_dev_staging/dczj09iicx52cp7pyb0n.avif",
+      "https://res.cloudinary.com/dzv98o7ds/image/upload/v1677872105/switf_jet_dev_staging/f0igixibrze3uj1obofa.jpg",
     image_url_3:
-      "https://res.cloudinary.com/dzv98o7ds/image/upload/v1676747970/switf_jet_dev_staging/ghfdfteimwldft7hv7bv.avif",
+      "https://res.cloudinary.com/dzv98o7ds/image/upload/v1677872105/switf_jet_dev_staging/f0igixibrze3uj1obofa.jpg",
     image_url_4:
-      "https://res.cloudinary.com/dzv98o7ds/image/upload/v1676747970/switf_jet_dev_staging/y3jigyyppvklklzv57zn.avif",
+      "https://res.cloudinary.com/dzv98o7ds/image/upload/v1677872105/switf_jet_dev_staging/f0igixibrze3uj1obofa.jpg",
     image_url_5:
-      "https://res.cloudinary.com/dzv98o7ds/image/upload/v1676747970/switf_jet_dev_staging/g58das5afu3gcli8b2sp.avif",
+      "https://res.cloudinary.com/dzv98o7ds/image/upload/v1677872105/switf_jet_dev_staging/f0igixibrze3uj1obofa.jpg",
     __v: 0,
   });
 
@@ -352,7 +352,7 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
                 <div class="flex justify-between items-center  text-gray-600">
                   <div class="flex items-center">
                     <p className="font-bold">
-                      {booking_details?.source.code}
+                      {booking_details?.source.iata_code}
                       <br />
                       {booking_details.source.name}
                     </p>
@@ -367,8 +367,8 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
                     </svg>
                   </div>
                   <div class="flex items-center text-center">
-                    <p className="font-bold">
-                      {booking_details?.destination.code}
+                    <p className="font-bold text-end">
+                      {booking_details?.destination.iata_code}
                       <br />
                       {booking_details.destination.name}
                     </p>
@@ -440,7 +440,7 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
                 <div class="flex justify-between items-center  text-gray-600">
                   <div class="flex items-center">
                     <p className="font-bold">
-                      {booking_details?.source.code}
+                      {booking_details?.source.iata_code}
                       <br />
                       {booking_details.source.name}
                     </p>
@@ -455,8 +455,8 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
                     </svg>
                   </div>
                   <div class="flex items-center text-center">
-                    <p className="font-bold">
-                      {booking_details?.destination.code}
+                    <p className="font-bold text-end">
+                      {booking_details?.destination.iata_code}
                       <br />
                       {booking_details?.destination.name}
                     </p>
@@ -502,7 +502,7 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
                   <div className="flex justify-between items-center mt-4">
                     <div class="flex items-center text-center">
                       <p className="font-bold">
-                        {booking_details?.destination.code}
+                        {booking_details?.destination.iata_code}
                         <br />
                         {booking_details.destination.name}
                       </p>
@@ -517,8 +517,8 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
                       </svg>
                     </div>
                     <div class="flex items-center">
-                      <p className="font-bold">
-                        {booking_details?.source.code}
+                      <p className="font-bold text-end">
+                        {booking_details?.source.iata_code}
                         <br />
                         {booking_details.source.name}
                       </p>
@@ -593,7 +593,7 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
                     <div class="flex justify-between items-center  text-gray-600">
                       <div class="flex items-center w-1/2">
                         <p className="font-bold">
-                          {item?.source.code}
+                          {item?.source.iata_code}
                           <br />
                           {item?.source.name}
                         </p>
@@ -608,8 +608,8 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
                         </svg>
                       </div>
                       <div class="flex items-center text-end">
-                        <p className="font-bold">
-                          {item?.destination.code}
+                        <p className="font-bold text-end">
+                          {item?.destination.iata_code}
                           <br />
                           {item.destination.name}
                         </p>

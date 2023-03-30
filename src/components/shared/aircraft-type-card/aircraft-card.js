@@ -6,25 +6,25 @@ const AircraftCard = ({item}) => {
   const history = useHistory();
   return (
     <div>
-      <div class="max-w-sm bg-white border-gray-200 2xl:rounded-[180px] xl:rounded-[180px] sm:rounded-full lg:rounded-[180px] md:rounded-[180px]  mt-8 mb-8 2xl:w-4/5 xl:w-4/5 lg:w-4/5 md:w-3/5 sm:w-4/5 ac-group-list" onClick={() =>{
+      <div class="max-w-sm bg-white border-gray-200 rounded-lg mt-8 mb-8 2xl:w-4/5 xl:w-4/5 lg:w-4/5 md:w-3/5 sm:w-4/5 ac-group-list" onClick={() =>{
         history.push(`/aircraft-details/${item?._id}`)
       }}>
         <a href="#">
           <img
-            class="rounded-full py-4 px-4"
-            src="https://thumbs.dreamstime.com/b/air-travel-concept-jet-above-clouds-square-composition-39585443.jpg"
+            class="py-4 px-4 rounded-lg"
+            src={item?.image_url}
             alt=""
           />
         </a>
 
-        <div class="p-5">
+        <div class="p-2">
           <a href="#">
             <h5 class="mb-2 text-2xl font-bold tracking-tight text-[#4D4D4D]">
               {item?.manufacturer}
             </h5>
           </a>
-          <p class="mb-3 font-normal text-gray-700 dark:text-gray-400 inline-grid">
-            <p className="flex pt-3">
+          <p class="mb-3 font-normal text-gray-700 dark:text-gray-400 inline-grid w-full py-4 px-4">
+            <p className="flex justify-between pt-3">
               {" "}
               <svg
                 width="21"
@@ -47,17 +47,11 @@ const AircraftCard = ({item}) => {
                 xmlns="http://www.w3.org/2000/svg"
                 className="mr-4"
               >
-                <line
-                  x1="1"
-                  y1="2.18557e-08"
-                  x2="0.999999"
-                  y2="24"
-                  stroke="#4D4D4D"
-                />
+             
               </svg>
               Passenger: {item?.no_of_seats}
             </p>
-            <p className="flex pt-3">
+            <p className="flex justify-between pt-3">
               {" "}
               <svg
                 width="21"
@@ -80,17 +74,11 @@ const AircraftCard = ({item}) => {
                 xmlns="http://www.w3.org/2000/svg"
                 className="mr-4"
               >
-                <line
-                  x1="1"
-                  y1="2.18557e-08"
-                  x2="0.999999"
-                  y2="24"
-                  stroke="#4D4D4D"
-                />
+             
               </svg>
               Speed: {item?.speed} km/hr
             </p>
-            <p className="flex pt-3">
+            <p className="flex pt-3 justify-between">
               {" "}
               <svg
                 width="21"
@@ -113,13 +101,7 @@ const AircraftCard = ({item}) => {
                 xmlns="http://www.w3.org/2000/svg"
                 className="mr-4"
               >
-                <line
-                  x1="1"
-                  y1="2.18557e-08"
-                  x2="0.999999"
-                  y2="24"
-                  stroke="#4D4D4D"
-                />
+             
               </svg>
               Range:   {item?.range}ktx
             </p>
