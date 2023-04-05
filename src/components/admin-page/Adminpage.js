@@ -9,7 +9,6 @@ const Adminpage = () => {
    
     return (
  
-       
         <body class="bg-white dark:bg-white">
         <aside class="fixed top-0 z-10 ml-[-100%] flex h-screen w-full flex-col justify-between shadow bg-white px-6 pb-3 transition duration-300 md:w-6/12 lg:ml-0 lg:w-[35%] xl:w-[30%] 2xl:w-[15%] dark:bg-gray-800 dark:border-gray-200" >
           <div>
