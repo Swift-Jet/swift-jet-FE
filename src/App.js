@@ -12,10 +12,9 @@ import RegisterForm from "./pages/registration/Register";
 import EstimateLayout from "./pages/EstimatedPrice/EstimstedPage";
 import GoogleLoginForm from "./components/Login-Card/GoogleLoginForm";
 import Booking from "./pages/booking/booking";
-import ResetPassword from "./pages/reset-password/ForgetPassword"
+import ResetPassword from "./pages/reset-password/ForgetPassword";
 import Bookingspage from "./pages/BookingPage/Bookingspage";
 import Adminspage from "./pages/admin-page.js/Adminspage";
-
 
 const App = () => {
   return (
@@ -28,16 +27,11 @@ const App = () => {
       <Route path="/aircraft-estimate" component={AircraftEstimate}></Route>
       <Route path="/signInlayout" component={SignForm}></Route>
       <Route path="/registration" component={RegisterForm}></Route>
-     <Route path="/EstimatedPage" component={EstimateLayout}></Route>
+      <Route path="/EstimatedPage" component={EstimateLayout}></Route>
       <Route path="/orders" component={Booking}></Route>
       <Route path="/reset-password" component={ResetPassword}></Route>
       <Route path="/Bookingspage" component={Bookingspage}></Route>
       <Route path="/Adminspage" component={Adminspage}></Route>
-      
-      
-
-
-
     </Switch>
   );
 };
