@@ -3,6 +3,8 @@
     margin: auto;
     margin-bottom: 50px;
     text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+
 }
 
 @media (max-width: 1017px) {

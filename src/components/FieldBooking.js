@@ -316,12 +316,12 @@ const FieldBooking = () => {
         </p>
       </div> */}
       <div className="row mb-12 booking-engine ">
-        <div className="col-sm-6 first-stn-left-div flex flex-1 justify-center items-center  fsld-special">
+        <div className="col-sm-6 first-stn-left-div flex flex-1 justify-center items-center fsld-special">
           <div className="w-full">
             {" "}
             {bookingArr.map((data, i) => {
               return (
-                <div class="row pr-8 pl-8 2xl:w-4/5 xl:w-4/5 m-auto sm:w-full sm:pl-0 sm:pr-0">
+                <div class="row pr-8 pl-8 2xl:w-4/5 xl:w-4/5 m-auto sm:w-full   sm:pl-0 sm:pr-0">
                   <div className=" flex flex-col p-3 bg-[#eeece1] rounded-xl gap-y-3 display-trip ">
                     <div className=" flex flex-row justify-between align-center">
                       <p></p>
@@ -345,7 +345,7 @@ const FieldBooking = () => {
                         x
                       </button>
                     </div>
-                    <div class="flex justify-between items-center  text-gray-600">
+                    <div class="flex justify-between items-center text-gray-600">
                       <div class="flex items-center">
                         <p className="font-bold">
                           {data?.source.code}
@@ -431,10 +431,10 @@ const FieldBooking = () => {
             </div>
           </div>
         </div>
-        <div className="col-sm-6 first-stn-left-div">
-          <div className="first-stn-left ">
-            <form class="w-full max-w-lg m-auto pt-8 pb-8 ">
-              <h2 className="text-[#5c0632] booking-engine-title">
+        <div className="col-sm-6 first-stn-left-div ">
+          <div className="first-stn-left shadow-xl ">
+            <form class="w-full max-w-lg m-auto pt-8 pb-8  ">
+              <h2 className="text-[#5c0632] booking-engine-title ">
                 Book Flights
               </h2>
               <div className="justify-between flex  w-full sm:p-0">
@@ -962,122 +962,434 @@ const FieldBooking = () => {
           </div>
         </div>
       ) : (
-        <div className="w-full text-left font-Aeonik text-rgba(77,77,77,1) field-booking">
-          {flights && flights.length > 0 ? (
-            <div className="bg-[#eeece1] pb-12">
-              <div className="bg-[#ffffff] empty-legs">Empty Legs</div>
-              <Slide
-                slidesToScroll={4}
-                slidesToShow={4}
-                indicators={true}
-                responsive={responsiveSettings}
-                canSwipe={true}
-                duration={1000}
-                transitionDuration={1000}
+        <div className="w-full text-left font-Aeonik text-rgba(77,77,77,1) field-booking ">
+          <div className="bg-[#eeece1] pb-12">
+            <div className="bg-[#ffffff] empty-legs">Empty Legs</div>
+            <Slide
+              slidesToScroll={4}
+              slidesToShow={4}
+              indicators={true}
+              responsive={responsiveSettings}
+              canSwipe={true}
+              duration={1000}
+              transitionDuration={1000}
+            >
+              <a
+                href="#"
+                class="block rounded-lg p-4  m-4 group/item hover:bg-[#eeece18c] sfc transition overflow-hidden h-108 h-108"
               >
-                {flights?.map((data, i) => (
-                  <a
-                    href="#"
-                    class="block rounded-lg p-4  m-4 group/item hover:bg-[#eeece18c] sfc transition overflow-hidden h-108"
-                    onClick={() => {
-                      history.push(`/EstimatedPage`);
-                      localStorage.setItem(
-                        "bookingDetails",
-                        JSON.stringify({
-                          tripType: data?.flight_type,
-                          source: data?.departure_airport,
-                          destination: data?.destination_airport,
-                          depatureDate: data?.departure_time,
-                          depatureTime: data?.arrival_time,
-                          adults: data?.aircraft.no_of_seats,
-                          aircraft: data?.aircraft,
-                        })
-                      );
-                      localStorage.setItem(
-                        "sharedAircraft",
-                        JSON.stringify({
-                          aircraft: data?.aircraft,
-                        })
-                      );
-                    }}
-                  >
-                    <div className="overflow-hidden rounded-lg">
-                      <img
-                        alt="Home"
-                        src={data?.aircraft.image_url}
-                        class="h-56 w-full rounded-md object-cover shared-flight-img overflow-hidden transition hover:scale-125"
-                      />
+                <div className="overflow-hidden rounded-lg">
+                  <img
+                    alt="Home"
+                    src="https://dlwwkvaei5hfp.cloudfront.net/flightSectionRoutes/1677113718556884.jpg"
+                    class="h-56 w-full rounded-lg object-cover overflow-hidden transition hover:scale-125"
+                  />
+                </div>
+                <div className="mt-2 shared-flight-time">
+                  <dl>
+                    <div>
+                      <dd class="text-white mt-2 shared-flight-time-date font-['Minion Pro']">
+                        Next Flight: 24th March 2023 at 13:00
+                      </dd>
                     </div>
-                    <div className="mt-2 shared-flight-time">
-                      <dl>
-                        <div>
-                          <dd class="text-white mt-2 shared-flight-time-date font-['Minion Pro']">
-                            Next Flight: 24th March 2023 at {data.arrival_time}
-                          </dd>
-                        </div>
-                      </dl>
+                  </dl>
+                </div>
+                <div class="mt-0">
+                  <dl>
+                    <div>
+                      <dt class="sr-only">Address</dt>
+
+                      <dd class="font-medium route">
+                        Abuja, Nigeria - Lagos, Nigeria
+                      </dd>
                     </div>
-                    <div class="mt-0">
-                      <dl>
-                        <div>
-                          <dt class="sr-only">Address</dt>
+                    <div>
+                      <dt class="sr-only">Price</dt>
 
-                          <dd class="font-medium route">
-                            Abuja, Nigeria - Lagos, Nigeria
-                          </dd>
-                        </div>
-                        <div>
-                          <dt class="sr-only">Price</dt>
+                      <dd class="text-md text-gray-500 cost">$5500</dd>
+                    </div>
+                  </dl>
 
-                          <dd class="text-md text-gray-500 cost">$5500</dd>
-                        </div>
-                      </dl>
+                  <div class="mt-3 flex items-center justify-between text-sm">
+                    <div class="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2">
+                      <div class="mt-1.5 sm:mt-0">
+                        <p class="text-gray-500">Passengers</p>
 
-                      <div class=" mt-3 flex items-center justify-between text-sm">
-                        <div class="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2">
-                          <div class="mt-1.5 sm:mt-0">
-                            <p class="text-gray-500">Passengers</p>
-
-                            <p class="font-bold">9</p>
-                          </div>
-                        </div>
-
-                        <div class="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2">
-                          <div class="mt-1.5 sm:mt-0">
-                            <p class="text-gray-500">Travel Class</p>
-
-                            <p class="font-bold">Standard</p>
-                          </div>
-                        </div>
+                        <p class="font-bold">9</p>
                       </div>
                     </div>
-                  </a>
-                ))}
-              </Slide>
-              <div className="w-1/2 mr-auto ml-auto text-center sm:w-4/5">
-                <h3 className=" text-[2em] pt-12">
-                  Safety Accredited Aircrafts
-                </h3>
-                <p className="text-[1em] pt-6">
-                  We give you access to a safety & service accredited aircraft
-                  fleet for Jet Card and on-demand flights. As an Argus
-                  Certified Broker, we work to the highest industry standards of
-                  safety and best practice.
-                </p>
-              </div>
-              <div className="2xl:grid-cols-3 2xl:grid xl:grid-cols-3 xl:grid lg:grid-cols-3 lg:grid md:grid-cols-3 md:grid pt-24 justify-center md:flex w-10/12 mr-auto ml-auto">
-                {aircrafts.slice(0, 3).map((data, i) => (
-                  <AircraftCard item={data} />
-                ))}
-              </div>
-              <div className="flex justify-center">
-                <button class="bg-[#5C0632] hover:bg-[#5C0632] hover:text-white border text-[#ffffff] font-bold py-3 px-6 rounded-full">
-                  Explore And Find Aircrafts
-                </button>
-              </div>
-            </div>
-          ) : null}
 
+                    <div class="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2">
+                      <div class="mt-1.5 sm:mt-0">
+                        <p class="text-gray-500">Travel Class</p>
+
+                        <p class="font-bold">Standard</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </a>
+              <a
+                href="#"
+                class="block rounded-lg p-4  m-4 group/item hover:bg-[#eeece18c] sfc transition overflow-hidden h-108"
+              >
+                <div className="overflow-hidden rounded-lg">
+                  <img
+                    alt="Home"
+                    src="https://dlwwkvaei5hfp.cloudfront.net/flightSectionRoutes/1678299621114570.jpg"
+                    class="h-56 w-full rounded-md object-cover shared-flight-img overflow-hidden transition hover:scale-125"
+                  />
+                </div>
+                <div className="mt-2 shared-flight-time">
+                  <dl>
+                    <div>
+                      <dd class="text-[#000] mt-2 shared-flight-time-date font-['Minion Pro']">
+                        Next Flight: 24th March 2023 at 13:00
+                      </dd>
+                    </div>
+                  </dl>
+                </div>
+                <div class="mt-0">
+                  <dl>
+                    <div>
+                      <dt class="sr-only">Address</dt>
+
+                      <dd class="font-medium route">
+                        Abuja, Nigeria - Lagos, Nigeria
+                      </dd>
+                    </div>
+                    <div>
+                      <dt class="sr-only">Price</dt>
+
+                      <dd class="text-md text-gray-500 cost">$5500</dd>
+                    </div>
+                  </dl>
+
+                  <div class=" mt-3 flex items-center justify-between text-sm">
+                    <div class="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2">
+                      <div class="mt-1.5 sm:mt-0">
+                        <p class="text-gray-500">Passengers</p>
+
+                        <p class="font-bold">9</p>
+                      </div>
+                    </div>
+
+                    <div class="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2">
+                      <div class="mt-1.5 sm:mt-0">
+                        <p class="text-gray-500">Travel Class</p>
+
+                        <p class="font-bold">Standard</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </a>
+
+              <a
+                href="#"
+                class="block rounded-lg p-4  m-4 group/item hover:bg-[#eeece18c] sfc transition overflow-hidden h-108"
+              >
+                <div className="overflow-hidden rounded-lg">
+                  <img
+                    alt="Home"
+                    src="https://dlwwkvaei5hfp.cloudfront.net/flightSectionRoutes/1679941080965397.jpg"
+                    class="h-56 w-full rounded-md object-cover shared-flight-img overflow-hidden transition hover:scale-125"
+                  />
+                </div>
+
+                <div className="mt-2 shared-flight-time">
+                  <dl>
+                    <div>
+                      <dd class="text-white mt-2 shared-flight-time-date font-['Minion Pro']">
+                        Next Flight: 24th March 2023 at 13:00
+                      </dd>
+                    </div>
+                  </dl>
+                </div>
+                <div class="mt-0">
+                  <dl>
+                    <div>
+                      <dt class="sr-only">Address</dt>
+
+                      <dd class="font-medium route">
+                        Abuja, Nigeria - Lagos, Nigeria
+                      </dd>
+                    </div>
+                    <div>
+                      <dt class="sr-only">Price</dt>
+
+                      <dd class="text-md text-gray-500 cost">$5500</dd>
+                    </div>
+                  </dl>
+
+                  <div class=" mt-3 flex items-center justify-between text-sm">
+                    <div class="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2">
+                      <div class="mt-1.5 sm:mt-0">
+                        <p class="text-gray-500">Passengers</p>
+
+                        <p class="font-bold">9</p>
+                      </div>
+                    </div>
+
+                    <div class="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2">
+                      <div class="mt-1.5 sm:mt-0">
+                        <p class="text-gray-500">Travel Class</p>
+
+                        <p class="font-bold">Standard</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </a>
+
+              <a
+                href="#"
+                class="block rounded-lg p-4  m-4 group/item hover:bg-[#eeece18c] sfc transition overflow-hidden h-108"
+              >
+                <div className="overflow-hidden rounded-lg">
+                  <img
+                    alt="Home"
+                    src="https://dlwwkvaei5hfp.cloudfront.net/flightSectionRoutes/1677776988468071.jpg"
+                    class="h-56 w-full rounded-md object-cover shared-flight-img overflow-hidden transition hover:scale-125"
+                  />
+                </div>
+
+                <div className="mt-2 shared-flight-time">
+                  <dl>
+                    <div>
+                      <dd class="text-white mt-2 shared-flight-time-date font-['Minion Pro']">
+                        Next Flight: 24th March 2023 at 13:00
+                      </dd>
+                    </div>
+                  </dl>
+                </div>
+                <div class="mt-0">
+                  <dl>
+                    {" "}
+                    <div>
+                      <dt class="sr-only">Address</dt>
+
+                      <dd class="font-medium route">
+                        Abuja, Nigeria - Lagos, Nigeria
+                      </dd>
+                    </div>
+                    <div>
+                      <dt class="sr-only">Price</dt>
+
+                      <dd class="text-md text-gray-500 cost">$5500</dd>
+                    </div>
+                  </dl>
+
+                  <div class=" mt-3 flex items-center justify-between text-sm">
+                    <div class="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2">
+                      <div class="mt-1.5 sm:mt-0">
+                        <p class="text-gray-500">Passengers</p>
+
+                        <p class="font-bold">9</p>
+                      </div>
+                    </div>
+
+                    <div class="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2">
+                      <div class="mt-1.5 sm:mt-0">
+                        <p class="text-gray-500">Travel Class</p>
+
+                        <p class="font-bold">Standard</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </a>
+
+              <a
+                href="#"
+                class="block rounded-lg p-4  m-4 group/item hover:bg-[#eeece18c] sfc transition overflow-hidden h-108"
+              >
+                <div className="overflow-hidden rounded-lg">
+                  <img
+                    alt="Home"
+                    src="https://dlwwkvaei5hfp.cloudfront.net/flightSectionRoutes/1678735511528722.jpg"
+                    class="h-56 w-full rounded-md object-cover shared-flight-img overflow-hidden transition hover:scale-125"
+                  />
+                </div>
+
+                <div className="mt-2 shared-flight-time">
+                  <dl>
+                    <div>
+                      <dd class="text-white mt-2 shared-flight-time-date font-['Minion Pro']">
+                        Next Flight: 24th March 2023 at 13:00
+                      </dd>
+                    </div>
+                  </dl>
+                </div>
+                <div class="mt-0">
+                  <dl>
+                    <div>
+                      <dt class="sr-only">Address</dt>
+
+                      <dd class="font-medium route">
+                        Abuja, Nigeria - Lagos, Nigeria
+                      </dd>
+                    </div>
+                    <div>
+                      <dt class="sr-only">Price</dt>
+
+                      <dd class="text-md text-gray-500 cost">$5500</dd>
+                    </div>
+                  </dl>
+
+                  <div class="mt-3 flex items-center justify-between text-sm">
+                    <div class="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2">
+                      <div class="mt-1.5 sm:mt-0">
+                        <p class="text-gray-500">Passengers</p>
+
+                        <p class="font-bold">9</p>
+                      </div>
+                    </div>
+
+                    <div class="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2">
+                      <div class="mt-1.5 sm:mt-0">
+                        <p class="text-gray-500">Travel Class</p>
+
+                        <p class="font-bold">Standard</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </a>
+
+              <a
+                href="#"
+                class="block rounded-lg p-4  m-4 group/item hover:bg-[#eeece18c] sfc transition overflow-hidden h-108"
+              >
+                <div className="overflow-hidden rounded-lg">
+                  <img
+                    alt="Home"
+                    src="https://dlwwkvaei5hfp.cloudfront.net/flightSectionRoutes/1660866285686301.jpg"
+                    class="h-56 w-full rounded-md object-cover shared-flight-img overflow-hidden transition hover:scale-125"
+                  />
+                </div>
+
+                <div className="mt-2 shared-flight-time">
+                  <dl>
+                    <div>
+                      <dd class="text-white mt-2 shared-flight-time-date font-['Minion Pro']">
+                        Next Flight: 24th March 2023 at 13:00
+                      </dd>
+                    </div>
+                  </dl>
+                </div>
+                <div class="mt-0">
+                  <dl>
+                    <div>
+                      <dt class="sr-only">Address</dt>
+
+                      <dd class="font-medium route">
+                        Abuja, Nigeria - Lagos, Nigeria
+                      </dd>
+                    </div>
+                    <div>
+                      <dt class="sr-only">Price</dt>
+
+                      <dd class="text-md text-gray-500 cost">$5500</dd>
+                    </div>
+                  </dl>
+
+                  <div class=" mt-3 flex items-center justify-between text-sm">
+                    <div class="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2">
+                      <div class="mt-1.5 sm:mt-0">
+                        <p class="text-gray-500">Passengers</p>
+
+                        <p class="font-bold">9</p>
+                      </div>
+                    </div>
+
+                    <div class="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2">
+                      <div class="mt-1.5 sm:mt-0">
+                        <p class="text-gray-500">Travel Class</p>
+
+                        <p class="font-bold">Standard</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </a>
+
+              <a
+                href="#"
+                class="block rounded-lg p-4  m-4 group/item hover:bg-[#eeece18c] sfc transition overflow-hidden h-108"
+              >
+                <div className="overflow-hidden rounded-lg">
+                  <img
+                    alt="Home"
+                    src="https://dlwwkvaei5hfp.cloudfront.net/flightSectionRoutes/1679574321535263.jpg"
+                    class="h-56 w-full rounded-md object-cover shared-flight-img overflow-hidden transition hover:scale-125"
+                  />
+                </div>
+                <div className="mt-2 shared-flight-time">
+                  <dl>
+                    <div>
+                      <dd class="text-white mt-2 shared-flight-time-date font-['Minion Pro']">
+                        Next Flight: 24th March 2023 at 13:00
+                      </dd>
+                    </div>
+                  </dl>
+                </div>
+                <div class="mt-0">
+                  <dl>
+                    <div>
+                      <dt class="sr-only">Address</dt>
+
+                      <dd class="font-medium route">
+                        Abuja, Nigeria - Lagos, Nigeria
+                      </dd>
+                    </div>
+                    <div>
+                      <dt class="sr-only">Price</dt>
+
+                      <dd class="text-md text-gray-500 cost">$5500</dd>
+                    </div>
+                  </dl>
+
+                  <div class=" mt-3 flex items-center justify-between text-sm">
+                    <div class="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2">
+                      <div class="mt-1.5 sm:mt-0">
+                        <p class="text-gray-500">Passengers</p>
+
+                        <p class="font-bold">9</p>
+                      </div>
+                    </div>
+
+                    <div class="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2">
+                      <div class="mt-1.5 sm:mt-0">
+                        <p class="text-gray-500">Travel Class</p>
+
+                        <p class="font-bold">Standard</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </Slide>
+            <div className="w-1/2 mr-auto ml-auto text-center sm:w-4/5">
+              <h3 className=" text-[2em] pt-12">Safety Accredited Aircrafts</h3>
+              <p className="text-[1em] pt-6">
+                We give you access to a safety & service accredited aircraft
+                fleet for Jet Card and on-demand flights. As an Argus Certified
+                Broker, we work to the highest industry standards of safety and
+                best practice.
+              </p>
+            </div>
+            <div className="2xl:grid-cols-3 2xl:grid xl:grid-cols-3 xl:grid lg:grid-cols-3 lg:grid md:grid-cols-3 md:grid pt-24 justify-center md:flex w-10/12 mr-auto ml-auto">
+              {aircrafts.slice(0, 3).map((data, i) => (
+                <AircraftCard item={data} />
+              ))}
+            </div>
+            <div className="flex justify-center">
+              <button class="bg-[#5C0632] hover:bg-[#5C0632] hover:text-white border text-[#ffffff] font-bold py-3 px-6 rounded-full">
+                Explore And Find Aircrafts
+              </button>
+            </div>
+          </div>
           <div className="bg-white">
             <div className="w-1/2 mr-auto ml-auto text-center">
               <h3 className=" text-[2em] pt-12">Safety Accredited Aircrafts</h3>
