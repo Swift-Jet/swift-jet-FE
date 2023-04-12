@@ -466,7 +466,7 @@ const FieldBooking = () => {
                 </div>
               );
             })}
-            <div className="left-img-page ">
+            <div className="left-img-page">
               <Carousel
                 showIndicators={false}
                 autoPlay={true}
