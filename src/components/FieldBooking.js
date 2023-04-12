@@ -377,12 +377,12 @@ const FieldBooking = () => {
         </p>
       </div> */}
       <div className="row mb-12 booking-engine ">
-        <div className="col-sm-6 first-stn-left-div flex flex-1 justify-center items-center  fsld-special">
+        <div className="col-sm-6 first-stn-left-div flex flex-1 justify-center items-center fsld-special">
           <div className="w-full">
             {" "}
             {bookingArr.map((data, i) => {
               return (
-                <div class="row pr-8 pl-8 2xl:w-4/5 xl:w-4/5 m-auto sm:w-full sm:pl-0 sm:pr-0">
+                <div class="row pr-8 pl-8 2xl:w-4/5 xl:w-4/5 m-auto sm:w-full   sm:pl-0 sm:pr-0">
                   <div className=" flex flex-col p-3 bg-[#eeece1] rounded-xl gap-y-3 display-trip ">
                     <div className=" flex flex-row justify-between align-center">
                       <p></p>
@@ -406,7 +406,7 @@ const FieldBooking = () => {
                         x
                       </button>
                     </div>
-                    <div class="flex justify-between items-center  text-gray-600">
+                    <div class="flex justify-between items-center text-gray-600">
                       <div class="flex items-center">
                         <p className="font-bold">
                           {data?.source.code}
@@ -492,10 +492,10 @@ const FieldBooking = () => {
             </div>
           </div>
         </div>
-        <div className="col-sm-6 first-stn-left-div">
-          <div className="first-stn-left ">
-            <form class="w-full max-w-lg m-auto pt-8 pb-8 ">
-              <h2 className="text-[#5c0632] booking-engine-title">
+        <div className="col-sm-6 first-stn-left-div ">
+          <div className="first-stn-left shadow-xl ">
+            <form class="w-full max-w-lg m-auto pt-8 pb-8  ">
+              <h2 className="text-[#5c0632] booking-engine-title ">
                 Book Flights
               </h2>
               <div className="justify-between flex  w-full sm:p-0">

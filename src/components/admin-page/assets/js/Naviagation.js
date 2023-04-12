@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Logoprimary from "../imgs/logoprimary.png"
 
 
+
 function Navigation() {
   const [hoveredItem, setHoveredItem] = useState(null);
 
@@ -15,6 +16,7 @@ function Navigation() {
     navigation.classList.toggle("active");
     main.classList.toggle("active");
   }
+  
 
   return (
     <div>
@@ -30,8 +32,8 @@ function Navigation() {
 
                 <li className={hoveredItem === 2 ? "hovered" : ""} onMouseOver={() => handleMouseOver(2)}>
                     <a href="#">
-                        <span class="icon">
-                        <svg  className="m-3 w-6 h-6" xmlns="http://www.w3.org/2000/svg" height="48" viewBox="0 96 960 960" width="48"><path d="M220 876h150V626h220v250h150V486L480 291 220 486v390Zm0 60q-24.75 0-42.375-17.625T160 876V486q0-14.25 6.375-27T184 438l260-195q8.295-6 17.344-9 9.049-3 18.853-3 9.803 0 18.717 3 8.915 3 17.086 9l260 195q11.25 8.25 17.625 21T800 486v390q0 24.75-17.625 42.375T740 936H530V686H430v250H220Zm260-353Z"/></svg>
+                        <span class="icon ">
+                        <svg  className="m-3 w-6 h-6 " xmlns="http://www.w3.org/2000/svg" height="48" viewBox="0 96 960 960" width="48"><path d="M220 876h150V626h220v250h150V486L480 291 220 486v390Zm0 60q-24.75 0-42.375-17.625T160 876V486q0-14.25 6.375-27T184 438l260-195q8.295-6 17.344-9 9.049-3 18.853-3 9.803 0 18.717 3 8.915 3 17.086 9l260 195q11.25 8.25 17.625 21T800 486v390q0 24.75-17.625 42.375T740 936H530V686H430v250H220Zm260-353Z"/></svg>
                         </span>
                         <span class="title">Dashboard</span>
                     </a>
@@ -83,7 +85,7 @@ function Navigation() {
                 </li>
 
                 <li className={hoveredItem === 8 ? "hovered" : ""} onMouseOver={() => handleMouseOver(8)}>
-                    <a href="#">
+                    <a href="/Sigin">
                         <span class="icon">
                         <svg className="m-3 w-6 h-6" xmlns="http://www.w3.org/2000/svg" height="48" viewBox="0 96 960 960" width="48"><path d="M645 729q-9-9-9-21.75t9-21.25l80-80H405q-12.75 0-21.375-8.675-8.625-8.676-8.625-21.5 0-12.825 8.625-21.325T405 546h318l-81-81q-8-8-8-20.447 0-12.448 9.214-21.5Q651.661 414 664.33 414q12.67 0 21.67 9l133 133q5 5 7 10.133 2 5.134 2 11Q828 583 826 588q-2 5-7 10L687 730q-8 8-20.5 8t-21.5-9ZM180 936q-24 0-42-18t-18-42V276q0-24 18-42t42-18h261q12.75 0 21.375 8.675 8.625 8.676 8.625 21.5 0 12.825-8.625 21.325T441 276H180v600h261q12.75 0 21.375 8.675 8.625 8.676 8.625 21.5 0 12.825-8.625 21.325T441 936H180Z"/></svg>
                         </span>
