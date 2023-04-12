@@ -377,12 +377,12 @@ const FieldBooking = () => {
         </p>
       </div> */}
       <div className="row mb-12 booking-engine ">
-        <div className="col-sm-6 first-stn-left-div flex flex-1 justify-center items-center  fsld-special">
+        <div className="col-sm-6 first-stn-left-div flex flex-1 justify-center items-center fsld-special">
           <div className="w-full">
             {" "}
             {bookingArr.map((data, i) => {
               return (
-                <div class="row pr-8 pl-8 2xl:w-4/5 xl:w-4/5 m-auto sm:w-full sm:pl-0 sm:pr-0">
+                <div class="row pr-8 pl-8 2xl:w-4/5 xl:w-4/5 m-auto sm:w-full   sm:pl-0 sm:pr-0">
                   <div className=" flex flex-col p-3 bg-[#eeece1] rounded-xl gap-y-3 display-trip ">
                     <div className=" flex flex-row justify-between align-center">
                       <p></p>
@@ -406,7 +406,7 @@ const FieldBooking = () => {
                         x
                       </button>
                     </div>
-                    <div class="flex justify-between items-center  text-gray-600">
+                    <div class="flex justify-between items-center text-gray-600">
                       <div class="flex items-center">
                         <p className="font-bold">
                           {data?.source.code}
@@ -492,10 +492,10 @@ const FieldBooking = () => {
             </div>
           </div>
         </div>
-        <div className="col-sm-6 first-stn-left-div">
-          <div className="first-stn-left ">
-            <form class="w-full max-w-lg m-auto pt-8 pb-8 ">
-              <h2 className="text-[#5c0632] booking-engine-title">
+        <div className="col-sm-6 first-stn-left-div ">
+          <div className="first-stn-left shadow-xl ">
+            <form class="w-full max-w-lg m-auto pt-8 pb-8  ">
+              <h2 className="text-[#5c0632] booking-engine-title ">
                 Book Flights
               </h2>
               <div className="justify-between flex  w-full sm:p-0">
@@ -1061,7 +1061,7 @@ const FieldBooking = () => {
           </div>
         </div>
       ) : (
-        <div className="w-full text-left font-Aeonik text-rgba(77,77,77,1) field-booking ">
+        <div className="w-full text-left font[Poppins] text-rgba(77,77,77,1) field-booking ">
           <div className="bg-[#eeece1] pb-12">
             <div className="bg-[#ffffff] empty-legs">Empty Legs</div>
             <Slide
@@ -1075,9 +1075,9 @@ const FieldBooking = () => {
             >
               <a
                 href="#"
-                class="block rounded-lg p-4  m-4 group/item hover:bg-[#eeece18c] sfc transition overflow-hidden h-108 h-108"
+                class="block p-4  m-4 group/item hover:bg-[#eeece18c] sfc transition overflow-hidden h-108 h-108 rounded-3xl border border-gray-100 dark:border-gray-700 bg-white dark:bg-gray-800 shadow-2xl shadow-gray-600/10 dark:shadow-none "
               >
-                <div className="overflow-hidden rounded-lg">
+                <div className="overflow-hidden rounded-lg ">
                   <img
                     alt="Home"
                     src="https://dlwwkvaei5hfp.cloudfront.net/flightSectionRoutes/1677113718556884.jpg"
@@ -1087,7 +1087,7 @@ const FieldBooking = () => {
                 <div className="mt-2 shared-flight-time">
                   <dl>
                     <div>
-                      <dd class="text-white mt-2 shared-flight-time-date font-['Minion Pro']">
+                      <dd class="text-white mt-3 shared-flight-time-date font-['Poppins']">
                         Next Flight: 24th March 2023 at 13:00
                       </dd>
                     </div>
@@ -1114,7 +1114,7 @@ const FieldBooking = () => {
                       <div class="mt-1.5 sm:mt-0">
                         <p class="text-gray-500">Passengers</p>
 
-                        <p class="font-bold">9</p>
+                        <p class="font-bold ">9</p>
                       </div>
                     </div>
 
@@ -1130,7 +1130,7 @@ const FieldBooking = () => {
               </a>
               <a
                 href="#"
-                class="block rounded-lg p-4  m-4 group/item hover:bg-[#eeece18c] sfc transition overflow-hidden h-108"
+                class="block  p-4  m-4 group/item hover:bg-[#eeece18c] sfc transition overflow-hidden h-108 rounded-3xl border border-gray-100 dark:border-gray-700 bg-white dark:bg-gray-800 shadow-2xl shadow-gray-600/10 dark:shadow-none"
               >
                 <div className="overflow-hidden rounded-lg">
                   <img
@@ -1142,7 +1142,7 @@ const FieldBooking = () => {
                 <div className="mt-2 shared-flight-time">
                   <dl>
                     <div>
-                      <dd class="text-[#000] mt-2 shared-flight-time-date font-['Minion Pro']">
+                      <dd class="text-[#000] mt-3 shared-flight-time-date font-['Poppins']">
                         Next Flight: 24th March 2023 at 13:00
                       </dd>
                     </div>
@@ -1186,7 +1186,7 @@ const FieldBooking = () => {
 
               <a
                 href="#"
-                class="block rounded-lg p-4  m-4 group/item hover:bg-[#eeece18c] sfc transition overflow-hidden h-108"
+                class="block  p-4  m-4 group/item hover:bg-[#eeece18c] sfc transition overflow-hidden h-108 rounded-3xl border border-gray-100 dark:border-gray-700 bg-white dark:bg-gray-800 shadow-2xl shadow-gray-600/10 dark:shadow-none"
               >
                 <div className="overflow-hidden rounded-lg">
                   <img
@@ -1199,7 +1199,7 @@ const FieldBooking = () => {
                 <div className="mt-2 shared-flight-time">
                   <dl>
                     <div>
-                      <dd class="text-white mt-2 shared-flight-time-date font-['Minion Pro']">
+                      <dd class="text-white mt-3 shared-flight-time-date font-['Poppins']">
                         Next Flight: 24th March 2023 at 13:00
                       </dd>
                     </div>
@@ -1243,7 +1243,7 @@ const FieldBooking = () => {
 
               <a
                 href="#"
-                class="block rounded-lg p-4  m-4 group/item hover:bg-[#eeece18c] sfc transition overflow-hidden h-108"
+                class="block  p-4  m-4 group/item hover:bg-[#eeece18c] sfc transition overflow-hidden h-108 rounded-3xl border border-gray-100 dark:border-gray-700 bg-white dark:bg-gray-800 shadow-2xl shadow-gray-600/10 dark:shadow-none"
               >
                 <div className="overflow-hidden rounded-lg">
                   <img
@@ -1256,7 +1256,7 @@ const FieldBooking = () => {
                 <div className="mt-2 shared-flight-time">
                   <dl>
                     <div>
-                      <dd class="text-white mt-2 shared-flight-time-date font-['Minion Pro']">
+                      <dd class="text-white mt-3 shared-flight-time-date font-['Poppins']">
                         Next Flight: 24th March 2023 at 13:00
                       </dd>
                     </div>
@@ -1301,7 +1301,7 @@ const FieldBooking = () => {
 
               <a
                 href="#"
-                class="block rounded-lg p-4  m-4 group/item hover:bg-[#eeece18c] sfc transition overflow-hidden h-108"
+                class="block p-4  m-4 group/item hover:bg-[#eeece18c] sfc transition overflow-hidden h-108 rounded-3xl border border-gray-100 dark:border-gray-700 bg-white dark:bg-gray-800 shadow-2xl shadow-gray-600/10 dark:shadow-none"
               >
                 <div className="overflow-hidden rounded-lg">
                   <img
@@ -1314,7 +1314,7 @@ const FieldBooking = () => {
                 <div className="mt-2 shared-flight-time">
                   <dl>
                     <div>
-                      <dd class="text-white mt-2 shared-flight-time-date font-['Minion Pro']">
+                      <dd class="text-white mt-3 shared-flight-time-date font-['Poppins']">
                         Next Flight: 24th March 2023 at 13:00
                       </dd>
                     </div>
@@ -1358,7 +1358,7 @@ const FieldBooking = () => {
 
               <a
                 href="#"
-                class="block rounded-lg p-4  m-4 group/item hover:bg-[#eeece18c] sfc transition overflow-hidden h-108"
+                class="block  p-4  m-4 group/item hover:bg-[#eeece18c] sfc transition overflow-hidden h-108 rounded-3xl border border-gray-100 dark:border-gray-700 bg-white dark:bg-gray-800 shadow-2xl shadow-gray-600/10 dark:shadow-none"
               >
                 <div className="overflow-hidden rounded-lg">
                   <img
@@ -1371,7 +1371,7 @@ const FieldBooking = () => {
                 <div className="mt-2 shared-flight-time">
                   <dl>
                     <div>
-                      <dd class="text-white mt-2 shared-flight-time-date font-['Minion Pro']">
+                      <dd class="text-white mt-3 shared-flight-time-date font-['Poppins']">
                         Next Flight: 24th March 2023 at 13:00
                       </dd>
                     </div>
@@ -1415,7 +1415,7 @@ const FieldBooking = () => {
 
               <a
                 href="#"
-                class="block rounded-lg p-4  m-4 group/item hover:bg-[#eeece18c] sfc transition overflow-hidden h-108"
+                class="block  p-4  m-4 group/item hover:bg-[#eeece18c] sfc transition overflow-hidden h-108 rounded-3xl border border-gray-100 dark:border-gray-700 bg-white dark:bg-gray-800 shadow-2xl shadow-gray-600/10 dark:shadow-none"
               >
                 <div className="overflow-hidden rounded-lg">
                   <img
@@ -1427,7 +1427,7 @@ const FieldBooking = () => {
                 <div className="mt-2 shared-flight-time">
                   <dl>
                     <div>
-                      <dd class="text-white mt-2 shared-flight-time-date font-['Minion Pro']">
+                      <dd class="text-white mt-3 shared-flight-time-date font-['Poppins']">
                         Next Flight: 24th March 2023 at 13:00
                       </dd>
                     </div>

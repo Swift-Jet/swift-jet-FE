@@ -6,9 +6,9 @@ const AircraftSharedBanner = ({title, banner_img_url, hidden}) => {
   return (
     <div>
       <div id="aircraft-banner-body font-[poppins]" className={banner_img_url}>
-        <div className="aircraft-banner-body-div pt-0  ">
+        <div className="aircraft-banner-body-div p-7    ">
           <div>
-            <h3 className="ac-title text-center sm:text-start text-lg-start pt-5 lg:pt-8">{title}</h3>
+            <h3 className="ac-title  text-center sm:text-start text-lg-start pt-5 lg:pt-8">{title}</h3>
           </div>
           {/* <div className="sm:mt-0 lg:mt-8 pb-12">
             <div className="-mx-3 mt-0 p-2 border rounded-lg border-[#e695a7] lg:mt-12" hidden={hidden}>
