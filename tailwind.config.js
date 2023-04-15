@@ -26,7 +26,7 @@ module.exports = {
     },
     
    fontFamily: {
-        display: ["Minion Pro"],
+        display: ["Poppins"],
       },
   
     extend: {},

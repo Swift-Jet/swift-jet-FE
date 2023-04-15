@@ -15,6 +15,7 @@ import Booking from "./pages/booking/booking";
 import ResetPassword from "./pages/reset-password/ForgetPassword"
 import Bookingspage from "./pages/BookingPage/Bookingspage";
 import Adminspage from "./pages/admin-page.js/Adminspage";
+import Flight from "./components/admin-page/Flight"
 
 
 const App = () => {
@@ -33,6 +34,7 @@ const App = () => {
       <Route path="/reset-password" component={ResetPassword}></Route>
       <Route path="/Bookingspage" component={Bookingspage}></Route>
       <Route path="/Adminspage" component={Adminspage}></Route>
+      <Route path="/Flight" component={Flight}></Route>
       
       
 
