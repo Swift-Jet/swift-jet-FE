@@ -65,7 +65,7 @@ const SingleAircraft = ({ match }) => {
                 {link} / {link}
               </p>{" "}
             </p>
-            <p className="text-black ac-name flex text-[36px] font-['Minion Pro'] pt-4">
+            <p className="text-black ac-name flex text-[36px] font-['Poppins'] pt-4">
               {name}
             </p>
             <p className="text-black flex pt-4">{summary}</p>

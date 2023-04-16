@@ -89,7 +89,7 @@ input[type="time"] {
     font-size: 25px !important;
     margin-bottom: 5px;
     text-align: center;
-    font-family: 'Minion Pro' !important;
+    font-family: 'Poppins' !important;
 
   }
 
@@ -99,7 +99,7 @@ input[type="time"] {
     font-size: 15px !important;
     margin-bottom: 5px;
     text-align: center;
-    font-family: 'Minion Pro' !important;
+    font-family: 'Poppins' !important;
   }
 
 
@@ -448,7 +448,7 @@ body {
   font-size: 45px;
   margin-bottom: 5px;
   text-align: center;
-  font-family: 'Minion Pro' !important;
+  font-family: 'Poppins' !important;
 
 }
 
@@ -458,7 +458,7 @@ body {
   font-size: 25px;
   margin-bottom: 5px;
   text-align: center;
-  font-family: 'Minion Pro' !important;
+  font-family: 'Poppins' !important;
 }
 
 a,
@@ -470,7 +470,7 @@ h5,
 h6,
 p,
 label {
-  font-family: 'Minion Pro' !important;
+  font-family: 'Poppins' !important;
 }
 
 .react-slideshow-container {
@@ -486,7 +486,7 @@ label {
 }
 
 .shared-flight-time-date {
-  font-family: Minion Pro !important;
+  font-family: Poppins !important;
   font-size: 15px;
   color: #5c0632 !important;
   font-weight: 600;
@@ -507,12 +507,12 @@ label {
 } */
 .cost {
   font-weight: 600;
-  font-family: Minion Pro !important;
+  font-family: 'Poppins' !important;
 }
 
 .route {
   font-weight: 700;
-  font-family: Minion Pro !important;
+  font-family: 'Poppins' !important;
 }
 
 .empty-legs {

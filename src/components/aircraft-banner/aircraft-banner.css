@@ -17,7 +17,7 @@
     color: #fff;
     font-size: 2.25rem;
     font-weight: 700;
-    font-family: 'Minion Pro' !important;
+    font-family: 'Poppins' !important;
 }
 
 .ac-search-btn {
@@ -26,7 +26,7 @@
 }
 
 .ac-stn-quote {
-    font-family: 'Minion Pro' !important;
+    font-family: 'Poppins' !important;
     font-style: normal;
     font-weight: 400;
     /* font-size: 24px; */

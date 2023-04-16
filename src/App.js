@@ -15,7 +15,12 @@ import Booking from "./pages/booking/booking";
 import ResetPassword from "./pages/reset-password/ForgetPassword"
 import Bookingspage from "./pages/BookingPage/Bookingspage";
 import Adminspage from "./pages/admin-page.js/Adminspage";
-import Flight from "./components/admin-page/Flight"
+import Flight from "./components/admin-page/Flight";
+import Contacts from "./components/admin-page/Contacts";
+import Quotes from "./components/admin-page/Quotes";
+import Addaircraft from "./components/admin-page/Add-aircraft";
+import ScheduledTrip from "./components/admin-page/ScheduledTrip";
+import Deals from "./components/admin-page/Deals";
 
 
 const App = () => {
@@ -35,6 +40,11 @@ const App = () => {
       <Route path="/Bookingspage" component={Bookingspage}></Route>
       <Route path="/Adminspage" component={Adminspage}></Route>
       <Route path="/Flight" component={Flight}></Route>
+      <Route path="/Contacts" component={Contacts}></Route>
+      <Route path="/Quotes" component={Quotes}></Route>
+      <Route path="/Addaircraft" component={Addaircraft}></Route>
+      <Route path="/ScheduledTrip" component={ScheduledTrip}></Route>
+      <Route path="/Deals" component={Deals}></Route>
       
       
 
