@@ -26,7 +26,7 @@ export default function NavBar() {
                             <input type="checkbox" name="toggle_nav" id="toggle_nav" class="peer hidden"/>
                             <div class="w-full px-6 flex justify-between md:w-max md:px-0 z-30">
                                 <a href="#" aria-label="logo">
-                                    <img src={logoprimary} class="w-36 dark:hidden" alt="tailus logo" width="144" height="68"/>
+                                    <img src={logoprimary} class="w-36 dark:hidden" alt="swift logo" width="144" height="68"/>
                                     <img src="images/logo-white.svg" class="w-36 hidden dark:block" alt="tailus logo" width="144" height="68"/>
                                 </a>
                                 <div class="flex items-center md:hidden max-h-10">
@@ -87,12 +87,12 @@ export default function NavBar() {
                                 </div>
                                 {JSON.parse(localStorage.getItem("authenticated")) != true ? (
                                 <div class="w-full sm:w-max gap-4 flex min-w-max flex-col sm:flex-row text-xs">
-                                     <button class="text-rose-900 button-2  border-2 item-center border-rose-900 hover:bg-rose-900 hover:text-white active:bg-rose-900  rounded-full outline-none focus:outline-none  ease-linear transition-all duration-150  px-3 py-1" type="button"
+                                     <button class="text-rose-900 button-2  border-2 item-center border-rose-900 hover:bg-[#5C0632] hover:text-white active:bg-rose-900  rounded-full outline-none focus:outline-none  ease-linear transition-all duration-150  px-3 py-1" type="button"
                                         onClick={() => {
                                         history.push("/signInlayout"); }}>
                   <ArrowCircleLeftOutlinedIcon /> Sign In
                 </button>
-                <button class="text-white button-2 border-2 border-rose-900 bg-rose-900 hover:bg-rose-900 hover:text-white active:bg-rose-900  rounded-full outline-none focus:outline-none ease-linear transition-all duration-150- px-3 py-1  "
+                <button class="text-white button-2 border-2 border-rose-900 bg-[#5C0632] hover:bg-rose-900 hover:text-white active:bg-rose-900  rounded-full outline-none focus:outline-none ease-linear transition-all duration-150- px-3 py-1  "
                   type="button"
                 
                   onClick={() => {
