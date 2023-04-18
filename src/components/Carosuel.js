@@ -15,7 +15,7 @@ import "../App.css";
 
 // import required modules
 import { Autoplay, Pagination, Navigation } from "swiper";
-import FieldBooking from "./FieldBooking.js";
+import BookingEngineTest from "./assets/BookingEngineTest/BookingEngineTest";
 
 export default function App() {
   return (
@@ -52,7 +52,7 @@ export default function App() {
                   We provide the best flying experience for you. We help you who want to travel privately to have easy access to private jet.
                 </p>
             </div> */}   
-      <FieldBooking />
+      <BookingEngineTest />
     </div>
    
     
