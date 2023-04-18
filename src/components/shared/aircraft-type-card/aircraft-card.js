@@ -6,7 +6,7 @@ const AircraftCard = ({item}) => {
   const history = useHistory();
   return (
     <div>
-      <div class="max-w-sm bg-white border-gray-200 overflow-hidden justify-items-start bg-white rounded-2xl border border-gray-100  shadow-2xl shadow-gray-600/10 dark:shadow-none  shadow-md dark mt-8 mb-8 2xl:w-4/5 xl:w-4/5 lg:w-4/5 md:w-3/5 sm:w-4/5 ac-group-list" onClick={() =>{
+      <div class="max-w-sm bg-white border-gray-200 overflow-hidden justify-items-start bg-white rounded-2xl border border-gray-100  shadow-2xl shadow-gray-600/10 dark:shadow-none  shadow-md dark mt-8 mb-8 2xl:w-full xl:w-full lg:w-full md:w-full sm:w-full ac-group-list" onClick={() =>{
         history.push(`/aircraft-details/${item?._id}`)
       }}>
         <a href="#">
@@ -19,12 +19,12 @@ const AircraftCard = ({item}) => {
 
         <div class="p-3 ">
           <a href="#">
-            <h5 class="mb-2 text-2xl font-bold tracking-tight text-[#4D4D4D] ">
+            <h5 class="mb-2 text-xl font-bold tracking-tight text-[#4D4D4D] ">
               {item?.manufacturer}
             </h5>
           </a>
-          <p class="mb-3 font-normal  text-gray-700 dark:text-gray-400 inline-grid w-full py-4 px-1">
-            <p className="flex pt-3 text-xl">
+          <p class="mb-3 font-normal  text-gray-700 dark:text-gray-400 inline-grid w-full">
+            <p className="flex pt-3 text-sm">
               {" "}
               <svg
                 width="21"
@@ -51,7 +51,7 @@ const AircraftCard = ({item}) => {
               </svg>
               Passenger: {item?.no_of_seats}
             </p>
-            <p className="flex pt-3 text-xl">
+            <p className="flex pt-3 text-sm">
               {" "}
               <svg
                 width="21"
@@ -78,7 +78,7 @@ const AircraftCard = ({item}) => {
               </svg>
               Speed: {item?.speed} km/hr
             </p>
-            <p className="flex pt-3 text-xl ">
+            <p className="flex pt-3 text-sm ">
               {" "}
               <svg
                 width="21"

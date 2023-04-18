@@ -23,7 +23,7 @@ export default function NavBar() {
   ];
 
   return (
-    <nav className="fixed top-0 z-10 w-full bg-white font-[poppins]">
+    <nav className="fixed top-0 z-10 w-full font-[poppins]">
       <div className="flex flex-wrap justify-between px-4 mx-auto md:items-center md:px-8 nav-div">
         <div className="w-full md:w-1/3">
           <div className="flex items-center justify-between md:py-0">
@@ -95,14 +95,14 @@ export default function NavBar() {
             {JSON.parse(localStorage.getItem("authenticated")) === true ? (
               <div className="space-x-2 md:inline-block flex">
                 <button
-                  class="text-rose-900 button-1 border-2 border-rose-900 hover:bg-rose-900 hover:text-white active:bg-rose-900  rounded-full outline-none focus:outline-none ease-linear transition-all duration-150- px-3 py-1 "
+                  class="text-rose-900 button-1 border-1 border-rose-900 hover:bg-rose-900 hover:text-white active:bg-rose-900  rounded-full outline-none focus:outline-none ease-linear transition-all duration-150- px-3 py-1 "
                   type="button"
                   onClick={() => {}}
                 >
                   <PersonAddAltOutlinedIcon /> My Account
                 </button>
                 <button
-                  class="text-rose-900 button-1 border-2 border-rose-900 hover:bg-rose-900 hover:text-white active:bg-rose-900  rounded-full outline-none focus:outline-none ease-linear transition-all duration-150- px-3 py-1 "
+                  class="text-rose-900 button-1 border-1 border-rose-900 hover:bg-rose-900 hover:text-white active:bg-rose-900  rounded-full outline-none focus:outline-none ease-linear transition-all duration-150- px-3 py-1 "
                   type="button"
                   onClick={() => {
                     logout();
@@ -115,7 +115,7 @@ export default function NavBar() {
             {JSON.parse(localStorage.getItem("authenticated")) != true ? (
               <div className=" space-x-2 md:inline-block flex">
                 <button
-                  class="text-rose-900 button-2  border-2 item-center border-rose-900 hover:bg-rose-900 hover:text-white active:bg-rose-900  rounded-full outline-none focus:outline-none  ease-linear transition-all duration-150  px-3 py-1"
+                  class="text-rose-900 button-2  border-1 item-center border-rose-900 hover:bg-rose-900 hover:text-white active:bg-rose-900  rounded-full outline-none focus:outline-none  ease-linear transition-all duration-150  px-3 py-1"
                   type="button"
                
                   onClick={() => {
@@ -125,7 +125,7 @@ export default function NavBar() {
                   <ArrowCircleLeftOutlinedIcon /> Sign In
                 </button>
                 <button
-                  class="text-rose-900 button-2  border-2 border-rose-900 hover:bg-rose-900 hover:text-white active:bg-rose-900  rounded-full outline-none focus:outline-none ease-linear transition-all duration-150- px-3 py-1 "
+                  class="text-rose-900 button-2  border-1 border-rose-900 hover:bg-rose-900 hover:text-white active:bg-rose-900  rounded-full outline-none focus:outline-none ease-linear transition-all duration-150- px-3 py-1 "
                   type="button"
                 
                   onClick={() => {

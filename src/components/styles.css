@@ -3,11 +3,26 @@
   height: 80%;
   position: absolute !important;
 }
+.ai-div {
+  width: 20% !important;
 
+  border: 1px solid #5c0632 !important;
+}
 input[type="date"] {
   display: inline-flex
 }
+.nav-div {
+  
+  padding-left: 10px !important;
 
+  padding-right: 10px !important;
+  width: 90%;
+  margin: auto;
+  background: rgb(246, 242, 242);
+  margin-top: 30px;
+  border-radius: 25px;
+  /* border-bottom: 1px solid #881237; */
+}
 input[type="time"] {
   display: inline-flex
 }
@@ -49,7 +64,7 @@ input[type="time"] {
 
 .field-booking {
   /* padding-top: 50px; */
-  background-color: #eeece1;
+  /* background-color: #eeece1; */
 }
 
 .field-booking-loading {
@@ -65,6 +80,10 @@ input[type="time"] {
 }
 
 @media (max-width: 768px) {
+  .list-trips{
+
+    height: 200px !important;
+  }
   .react-slideshow-container {
     padding: 10px !important;
   }
@@ -74,39 +93,44 @@ input[type="time"] {
   }
 
   .fsld-special {
-    padding-top: 50px;
-    background-color: #eeece1;
-    margin-bottom: 30px;
+    padding-top:0px;
+
   }
 
   .booking-engine {
-    margin-top: 50px !important;
+    margin-top: -600px !important;
   }
 
   .be-t-1 {
     font-weight: 600;
     color: #5c0632;
-    font-size: 25px !important;
-    margin-bottom: 5px;
+    font-size: 20px !important;
+
     text-align: center;
-    font-family: 'Minion Pro' !important;
+    
 
   }
 
   .be-t-2 {
     font-weight: 600;
-    color: #2e2d2e;
+    color: #5c0632;
     font-size: 15px !important;
-    margin-bottom: 5px;
+    /* margin-bottom: 5px; */
     text-align: center;
-    font-family: 'Minion Pro' !important;
+    
   }
 
 
   .first-stn-left {
     border: 0px !important;
-    background-color: #ffffff !important;
+    /* background-color: #ffffff !important; */
+    width: 90% !important;
 
+  }
+
+  .first-stn-left-inner {
+
+    padding: 20px !important;
   }
 
   .react-ios-time-picker-container {
@@ -169,6 +193,11 @@ input[type="time"] {
     padding-bottom: 10px;
     padding-top: 10px;
     padding-right: 10px !important;
+    width: 90%;
+    margin: auto;
+  
+    margin-top: 30px;
+    border-radius: 25px;
     /* border-bottom: 1px solid #881237; */
   }
 
@@ -208,19 +237,17 @@ input[type="time"] {
   width: 100%;
 }
 
-.ai-div {
-  width: 20%;
-}
+
 
 .first-stn-left-div {
   padding-right: 0px !important;
 }
 
 .first-stn-left {
-  margin: auto;
+  margin-left: 6%;
   width: -moz-fit-content;
   width: 80%;
-  background-color: #f9fafb;
+  height: 520px;
   padding-right: 0px !important;
   border-radius: 50px;
   border: 1px solid #c494a4;
@@ -284,15 +311,15 @@ input[type="time"] {
 .load-passanger-form {
   margin-top: 20px;
   border-radius: 20px !important;
-  border: 1px solid #e8d9df;
-  background-color: #f3f4f6;
+  border: 1px solid #f6f2f2;
+  background-color: #f6f2f2;
 }
 
 
 .load-passanger-form:hover {
   margin-top: 20px;
   border-radius: 20px !important;
-  background-color: #5c0932;
+  background-color: #941353;
   border: 1px solid #e8d9df;
   color: #fff !important;
 }
@@ -355,8 +382,8 @@ input[type="time"] {
   transition-duration: 300ms;
   /* padding: 5px !important; */
   border-radius: 20px !important;
-  background-color: #f9fafb !important;
-  border: 1px solid #8815377a !important;
+  /* background-color: #f9fafb !important; */
+  border: 1px solid #ffffff7a !important;
 }
 
 
@@ -414,7 +441,7 @@ input[type="time"] {
 
 .label-fields {
   font-size: 15px;
-  color: #5c0632;
+  color: #c494a5;
   font-weight: 700;
 }
 
@@ -433,7 +460,7 @@ body {
 }
 
 .booking-engine {
-  margin-top: 150px;
+  margin-top: -600px;
   --bs-gutter-x: 0rem !important;
 }
 
@@ -444,21 +471,21 @@ body {
 
 .be-t-1 {
   font-weight: 600;
-  color: #5c0632;
-  font-size: 45px;
-  margin-bottom: 5px;
+  color: #8f285d;
+  font-size: 17px;
+  padding: 10px;
   text-align: center;
-  font-family: 'Minion Pro' !important;
+  
 
 }
 
 .be-t-2 {
   font-weight: 600;
-  color: #2e2d2e;
-  font-size: 25px;
-  margin-bottom: 5px;
+  color: #655bce;
+  font-size: 17px;
+  /* margin-bottom: 5px; */
   text-align: center;
-  font-family: 'Minion Pro' !important;
+  
 }
 
 a,
@@ -470,7 +497,7 @@ h5,
 h6,
 p,
 label {
-  font-family: 'Minion Pro' !important;
+  
 }
 
 .react-slideshow-container {
@@ -487,9 +514,9 @@ label {
 
 .shared-flight-time-date {
   font-family: Minion Pro !important;
-  font-size: 15px;
+  font-size: 13px;
   color: #5c0632 !important;
-  font-weight: 600;
+  font-weight: 800;
 }
 
 .bg-img-title {
@@ -586,9 +613,56 @@ label {
   line-height: 25px;
 }
 
-.igh:hover{
-  
+.igh:hover {}
+
+.sfc {
+  /* box-shadow: 3px 6px 2px #e5e2e2f2 */
 }
-.sfc{
-  box-shadow: 3px 6px 2px #e5e2e2f2
+
+a:hover {
+  color: inherit !important;
 }
+
+.slide-img {
+  width: 60%;
+  height: 80%;
+  margin: auto;
+}
+
+.h-96 {
+  height: 800px;
+}
+
+.video__content{
+  width: 100%;
+}
+.grow{
+  white-space: nowrap; 
+
+  overflow: hidden;
+  text-overflow: ellipsis; 
+
+}
+
+.list-trips{
+  background-color: rgb(255 255 255 / 30%);
+  margin-bottom: 20px !important;
+  padding-bottom: 10px;
+  width: 90%;
+  border-radius: 25px;
+  max-height: 500px;
+}
+
+.carousel-root {
+  outline: none;
+  padding: 10%;
+  width: 80%;
+  padding: 5%;
+  border: 1px solid #c494a4;
+  border-radius: 50px;
+  margin-left: 13%;
+  height: 520px;
+}
+/* .sl-text{
+  margin-top: -200px;
+} */

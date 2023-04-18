@@ -19,7 +19,7 @@ const AircraftInput = ({
         {labelText}
       </label>
       <input
-        class=" appearance-none border border-white rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-white"
+        class=" appearance-none border border-white rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-white text-xs"
         id={id}
         type={type}
         placeholder={placeholder}

@@ -85,7 +85,7 @@ const AircraftList = () => {
           ))}
         </div>
       </div>
-      <div className="bg-[#eeece1]">
+      <div className="">
         <div className="pt-3 alh-desc">
           <h2 className="pb-3 text-[#5C0632] text-[2rem] text-bold alh-title">
             {link}
@@ -94,7 +94,7 @@ const AircraftList = () => {
             {description}
           </p>
         </div>
-        <div className="2xl:grid-cols-4 2xl:grid xl:grid-cols-4 xl:grid lg:grid-cols-3 lg:grid md:grid-cols-3 md:grid  mt-12 justify-center md:flex ac-card-div">
+        <div className="2xl:grid-cols-4 2xl:grid xl:grid-cols-4 xl:grid lg:grid-cols-4 lg:grid md:grid-cols-4 md:grid  mt-12 justify-center md:flex ac-card-div">
           {aircrafts.map((data, i) => (
             <AircraftCard item={data} />
           ))}

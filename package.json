@@ -8,6 +8,7 @@
     "@craco/craco": "^7.0.0",
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
+    "@material-tailwind/react": "^1.4.2",
     "@mui/icons-material": "^5.11.0",
     "@mui/material": "^5.11.13",
     "@mui/styled-engine-sc": "^5.11.11",
@@ -84,6 +85,3 @@
     "vite": "^4.0.4"
   }
 }
-
-
-
