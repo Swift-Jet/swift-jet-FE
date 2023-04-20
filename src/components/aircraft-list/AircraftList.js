@@ -3,6 +3,7 @@ import "./aircraft-list.css";
 import AircraftCard from "../shared/aircraft-type-card/aircraft-card";
 import AircraftBtn from "../shared/aircraft-shared-button/AircraftBtn";
 import { AircraftsContext } from "../../context/aircraft-context";
+import TuneIcon from "@mui/icons-material/Tune";
 
 const aircraftTypes0bj = [
   {
@@ -45,7 +46,7 @@ const aircraftTypes0bj = [
 ];
 
 const AircraftList = () => {
-  const {aircrafts} = useContext(AircraftsContext);
+  const { aircrafts } = useContext(AircraftsContext);
   console.log("air craft", aircrafts);
 
   const [link, setLink] = useState("All");
@@ -59,34 +60,40 @@ const AircraftList = () => {
   };
   return (
     <div>
-      <div className="aircraft-list-head">
-        <div className="alh-links w-4/5">
+      <div className="aircraft-list-head ">
+        <div className="alh-links justify-between flex w-4/5">
           <p className="text-white flex">
             Aircraft /{" "}
             <p className="px-1" onClick={() => {}}>
               {link}
             </p>{" "}
           </p>
-        </div>
-
-        <div className="pt-4 justify-between flex alh-icons overflow-x-auto pb-3 w-4/5">
-          {aircraftTypes0bj.map((item, i) => (
-            <div>
-              <div>
-                {" "}
-                <AircraftBtn
-                  btnText={item.name}
-                  toggleText={() => {
-                    toggleLinkText(item.name, item.description);
-                  }}
-                />
-              </div>
-            </div>
-          ))}
+          <div className="dropdown dropdown-end dropdown-hover">
+            <label
+              tabIndex={0}
+              className="bg-transparent text-white text-xs m-1"
+            >
+              Filter Aircraft <TuneIcon />
+            </label>
+            <ul
+              tabIndex={0}
+              className="dropdown-content menu p-2 shadow rounded-box w-52 bg-white "
+            >
+              {aircraftTypes0bj.map((item, i) => (
+                <div>
+                  <div>
+                    <li className="hover:bg-[#ececec] hover:text-white">
+                      <a className="text-black text-xs hover:text-white">{item.name}</a>
+                    </li>
+                  </div>
+                </div>
+              ))}
+            </ul>
+          </div>
         </div>
       </div>
-      <div className="bg-[#eeece1]">
-        <div className="pt-3 alh-desc">
+      <div className="bg-white">
+        <div className="mt-24  ml-auto mr-auto w-4/5">
           <h2 className="pb-3 text-[#5C0632] text-[2rem] text-bold alh-title">
             {link}
           </h2>
@@ -94,7 +101,7 @@ const AircraftList = () => {
             {description}
           </p>
         </div>
-        <div className="2xl:grid-cols-4 2xl:grid xl:grid-cols-4 xl:grid lg:grid-cols-3 lg:grid md:grid-cols-3 md:grid  mt-12 justify-center md:flex ac-card-div">
+        <div className="mt-24 grid grid-cols-1 gap-12 gap-x-24 md:grid-cols-2 xl:grid-cols-3 ml-auto mr-auto w-4/5">
           {aircrafts.map((data, i) => (
             <AircraftCard item={data} />
           ))}

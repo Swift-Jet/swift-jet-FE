@@ -19,7 +19,7 @@ import FieldBooking from "./FieldBooking.js";
 
 export default function App() {
   return (
-    <div className="mt-2 slider-div">
+    <div className="slider-div">
       {/* <Swiper 
         spaceBetween={30}
         centeredSlides={true}

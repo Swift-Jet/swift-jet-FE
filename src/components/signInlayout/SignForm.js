@@ -110,7 +110,7 @@ const SignForm = () => {
                   id="username"
                   autocomplete="username"
                   placeholder="Enter Your Password"
-                  class="focus:outline-none block w-full rounded-l-full placeholder-gray-500 bg-gray-100 dark:bg-gray-100 dark:border-rose-900 pl-12 pr-4 h-12 text-gray-600 transition invalid:ring-2 invalid:ring-red-400"
+                  class="focus:outline-none block w-full rounded-l-full password-class placeholder-gray-500 bg-gray-100 dark:bg-gray-100 dark:border-rose-900 pl-12 pr-4 h-12 text-gray-600 transition invalid:ring-2 invalid:ring-red-400"
                   onChange={(e) => {
                     setPassword(e.target.value);
                   }}

@@ -46,12 +46,12 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
     __v: 0,
   });
   let sharedAircraft = {};
-  useEffect(() => {
-    let sharedAircraft1 = JSON.parse(localStorage.getItem("sharedAircraft"));
-    sharedAircraft = sharedAircraft1.aircraft;
-    console.log("sharedAircraft", sharedAircraft);
-    setBannerSuggestion(sharedAircraft)
-  }, []);
+  // useEffect(() => {
+  //   let sharedAircraft1 = JSON.parse(localStorage.getItem("sharedAircraft"));
+  //   sharedAircraft = sharedAircraft1.aircraft;
+  //   console.log("sharedAircraft", sharedAircraft);
+  //   setBannerSuggestion(sharedAircraft);
+  // }, []);
 
   let booking_payload = {};
   const toastMsg = (message) => toast(message);
@@ -121,227 +121,225 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
     <div class=" bg-[#eeece1] mx-auto md:px-8 lg:px-16">
       <ToastContainer />
       <div class="flex flex-col md:flex-row">
-        <div class="w-full md:w-5/6">
+        <div class="w-full md:w-3/5">
           <div class="">
             <div class="xl:container px-6 text-gray-600 md:px-12">
               <div class="lg:bg-white  dark:lg:bg-white lg:p-16 rounded-[1rem] space-y-6 md:flex md:gap-6 justify-start md:space-y-0 lg:items-center">
-             
-                  <div>
-                    <div class="md:5/12 lg:w-3/4">
-                      <Cardslider aircraft_details={bannerSuggestion} />
-                    </div>
-                    <div class="md:7/12 lg:w-3/4 flex flex-column gap-y-2 ">
-                      <h2 class="text-sm text-gray-300 md:text-xl dark:text-gray-400 ">
-                        {bannerSuggestion?.classification}
-                      </h2>
-                  
-                      <p class="text-xs text-rose-900 dark:text-rose-900 font-bold md:text-2xl">
-                        {bannerSuggestion?.model}
-                      </p>
-                      <p class="text-gray-400 dark:text-gray-400">
-                        Model: {bannerSuggestion?.model}
-                      </p>
-                      <div class="flex justify-between items-center text-gray-600">
-                        <div class="flex items-center">
-                          <svg
-                            className="svg-icon h-3 w-3 text-gray-600 fill-current mr-2 "
-                            viewBox="0 0 20 20"
-                          >
-                            <path d="M15.573,11.624c0.568-0.478,0.947-1.219,0.947-2.019c0-1.37-1.108-2.569-2.371-2.569s-2.371,1.2-2.371,2.569c0,0.8,0.379,1.542,0.946,2.019c-0.253,0.089-0.496,0.2-0.728,0.332c-0.743-0.898-1.745-1.573-2.891-1.911c0.877-0.61,1.486-1.666,1.486-2.812c0-1.79-1.479-3.359-3.162-3.359S4.269,5.443,4.269,7.233c0,1.146,0.608,2.202,1.486,2.812c-2.454,0.725-4.252,2.998-4.252,5.685c0,0.218,0.178,0.396,0.395,0.396h16.203c0.218,0,0.396-0.178,0.396-0.396C18.497,13.831,17.273,12.216,15.573,11.624 M12.568,9.605c0-0.822,0.689-1.779,1.581-1.779s1.58,0.957,1.58,1.779s-0.688,1.779-1.58,1.779S12.568,10.427,12.568,9.605 M5.06,7.233c0-1.213,1.014-2.569,2.371-2.569c1.358,0,2.371,1.355,2.371,2.569S8.789,9.802,7.431,9.802C6.073,9.802,5.06,8.447,5.06,7.233 M2.309,15.335c0.202-2.649,2.423-4.742,5.122-4.742s4.921,2.093,5.122,4.742H2.309z M13.346,15.335c-0.067-0.997-0.382-1.928-0.882-2.732c0.502-0.271,1.075-0.429,1.686-0.429c1.828,0,3.338,1.385,3.535,3.161H13.346z"></path>
-                          </svg>
-                          <p className="text-xs">
-                            <span class="text-xs text-gray-400 ">
-                              Passenger: {bannerSuggestion?.no_of_seats}
-                            </span>
-                            <span className="ml-2">|</span>{" "}
-                          </p>
-                        </div>
-                        <div class="flex items-center">
-                          <svg
-                            className="svg-icon h-3 w-3 text-gray-600 fill-current mr-2"
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 96 960 960"
-                          >
-                            <path d="M350 976v-42l80-60V623L80 726v-58l350-206V226q0-21 14.5-35.5T480 176q21 0 35.5 14.5T530 226v236l350 206v58L530 623v251l80 60v42l-130-37-130 37Z" />
-                          </svg>
-                          <p className="text-xs">
-                            <span class="text-xs text-gray-400 ">
-                              Speed: {bannerSuggestion?.speed}Kts
-                            </span>
-                            <span className="ml-2">|</span>
-                          </p>
-                        </div>
-                        <div class="flex items-center">
-                          <svg
-                            className="svg-icon h-3 w-3 text-gray-600 fill-current mr-2"
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 96 960 960"
-                          >
-                            <path d="M480 976q-84 0-157-31.5T196 859q-54-54-85-127.5T80 574q0-84 31-156.5T196 291q54-54 127-84.5T480 176q84 0 157 30.5T764 291q54 54 85 126.5T880 574q0 84-31 157.5T764 859q-54 54-127 85.5T480 976Zm0-58q35-36 58.5-82.5T577 725H384q14 60 37.5 108t58.5 85Zm-85-12q-25-38-43-82t-30-99H172q38 71 88 111.5T395 906Zm171-1q72-23 129.5-69T788 725H639q-13 54-30.5 98T566 905ZM152 665h159q-3-27-3.5-48.5T307 574q0-25 1-44.5t4-43.5H152q-7 24-9.5 43t-2.5 45q0 26 2.5 46.5T152 665Zm221 0h215q4-31 5-50.5t1-40.5q0-20-1-38.5t-5-49.5H373q-4 31-5 49.5t-1 38.5q0 21 1 40.5t5 50.5Zm275 0h160q7-24 9.5-44.5T820 574q0-26-2.5-45t-9.5-43H649q3 35 4 53.5t1 34.5q0 22-1.5 41.5T648 665Zm-10-239h150q-33-69-90.5-115T565 246q25 37 42.5 80T638 426Zm-254 0h194q-11-53-37-102.5T480 236q-32 27-54 71t-42 119Zm-212 0h151q11-54 28-96.5t43-82.5q-75 19-131 64t-91 115Z" />
-                          </svg>
-                          <p className="text-xs">
-                            <span class="text-xs text-gray-400">
-                              Range: {bannerSuggestion?.range}
-                            </span>
-                          </p>
-                        </div>
-                      </div>
-                      <div class="flex justify-between items-center text-gray-600 mt-2">
-                        <div class="flex items-center">
-                          <svg
-                            className="svg-icon h-3 w-3 text-gray-600 fill-current mr-2"
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 96 960 960"
-                          >
-                            <path d="M140 896q-26 0-43-17t-17-43V683q37-8 61.5-37.5T166 576q0-40-24.5-70T80 469V316q0-26 17-43t43-17h680q26 0 43 17t17 43v153q-37 7-61.5 37T794 576q0 40 24.5 69.5T880 683v153q0 26-17 43t-43 17H140Zm0-60h680V727q-38-26-62-65t-24-86q0-47 24-86t62-65V316H140v109q39 26 62.5 65t23.5 86q0 47-23.5 86T140 727v109Zm340-63q12 0 21-9t9-21q0-12-9-21t-21-9q-12 0-21 9t-9 21q0 12 9 21t21 9Zm0-167q12 0 21-9t9-21q0-12-9-21t-21-9q-12 0-21 9t-9 21q0 12 9 21t21 9Zm0-167q12 0 21-9t9-21q0-12-9-21t-21-9q-12 0-21 9t-9 21q0 12 9 21t21 9Zm0 137Z" />
-                          </svg>
-                          <p className="text-xs">
-                            <span class="text-xs text-gray-400">
-                              Luggage: 59cu.ft
-                            </span>
-                            <span className="ml-2">|</span>
-                          </p>
-                        </div>
-                        <div class="flex items-center">
-                          <svg
-                            className="svg-icon h-3 w-3 text-gray-600 fill-current mr-2"
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 96 960 960"
-                          >
-                            <path d="M480 936 320 776l44-44 86 86V334l-86 86-44-44 160-160 160 160-44 44-86-86v484l86-86 44 44-160 160Z" />
-                          </svg>
-                          <p className="text-xs">
-                            <span class="text-xs text-gray-400">
-                              Height: 1.78cm{" "}
-                            </span>
-                            <span className="ml-2">|</span>
-                          </p>
-                        </div>
-                        <div class="flex items-center">
-                          <svg
-                            className="svg-icon h-3 w-3 text-gray-600 fill-current mr-2"
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 96 960 960"
-                          >
-                            <path d="M281 736 121 576l160-160 43 43-88 87h489l-87-88 42-42 160 160-160 160-42-42 87-88-489 1 87 87-42 42Z" />
-                          </svg>
-                          <p className="text-xs">
-                            <span class="text-xs text-gray-400">
-                              width: 1.4cm
-                            </span>
-                          </p>
-                        </div>
-                      </div>
-                      <p class="text-gray-300 text-xs dark:text-gray-900 mt-3">
-                        Midsize jets (also known as mid-sized jets) are the most
-                        popular category of private jets and provide a
-                        cost-effective option for flights of up to 4 hours, for
-                        up to 8 passengers
-                      </p>
-
-                      <div class="py-2 ">
-                        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4">
-                          <div class="py-2">
-                            <img src={Frame636} class="" alt="" />
-                          </div>
-                          <div class="py-4">
-                            <p class=" text-sm text-gray-300 dark:text-gray-900">
-                              {bannerSuggestion?.manufacturer}
-                            </p>
-                          </div>
-                          <div class="py-4">
-                            <div class="flex items-center">
-                              <svg
-                                aria-hidden="true"
-                                class="w-5 h-5 text-yellow-400"
-                                fill="currentColor"
-                                viewBox="0 0 20 20"
-                                xmlns="http://www.w3.org/2000/svg"
-                              >
-                                <title>First star</title>
-                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
-                              </svg>
-                              <svg
-                                aria-hidden="true"
-                                class="w-5 h-5 text-yellow-400"
-                                fill="currentColor"
-                                viewBox="0 0 20 20"
-                                xmlns="http://www.w3.org/2000/svg"
-                              >
-                                <title>Second star</title>
-                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
-                              </svg>
-                              <svg
-                                aria-hidden="true"
-                                class="w-5 h-5 text-yellow-400"
-                                fill="currentColor"
-                                viewBox="0 0 20 20"
-                                xmlns="http://www.w3.org/2000/svg"
-                              >
-                                <title>Third star</title>
-                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
-                              </svg>
-                              <svg
-                                aria-hidden="true"
-                                class="w-5 h-5 text-yellow-400"
-                                fill="currentColor"
-                                viewBox="0 0 20 20"
-                                xmlns="http://www.w3.org/2000/svg"
-                              >
-                                <title>Fourth star</title>
-                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
-                              </svg>
-                              <svg
-                                aria-hidden="true"
-                                class="w-5 h-5 text-gray-300 dark:text-gray-500"
-                                fill="currentColor"
-                                viewBox="0 0 20 20"
-                                xmlns="http://www.w3.org/2000/svg"
-                              >
-                                <title>Fifth star</title>
-                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
-                              </svg>
-                            </div>
-                          </div>
-                          <div class="py-4">
-                            <h3 class="ml-2 text-sm text-gray-900 dark:text-gray-700">
-                              15 reviews
-                            </h3>
-                          </div>
-                        </div>
-                      </div>
-                      {loading === false ? (
-                        <button
-                          type="button"
-                          class="text-white hover:text-white border border-rose-900 bg-rose-900 focus:ring-4 focus:outline-none focus:ring-rose-900 font-medium rounded-2xl text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-rose-900 dark:text-rose-900 dark:hover:text-white dark:hover:bg-rose-900 dark:focus:ring-rose-900"
-                          onClick={() => {
-                            handleBookingPayload();
-                            handleSubmit();
-                            // setShowModal(true);
-                          }}
-                        >
-                          Book Now
-                        </button>
-                      ) : (
-                        <button
-                          type="button"
-                          class="text-white hover:text-white border border-rose-900 bg-rose-900 focus:ring-4 focus:outline-none focus:ring-rose-900 font-medium rounded-2xl text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-rose-900 dark:text-rose-900 dark:hover:text-white dark:hover:bg-rose-900 dark:focus:ring-rose-900"
-                        >
-                          <div class="flex items-center justify-center">
-                            <div
-                              class="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
-                              role="status"
-                            >
-                              <span class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">
-                                Loading...
-                              </span>
-                            </div>
-                          </div>
-                        </button>
-                      )}
-                    </div>
+                <div>
+                  <div class="md:5/12 lg:w-3/4 m-auto">
+                    <Cardslider aircraft_details={bannerSuggestion} />
                   </div>
-                
+                  <div class="md:5/12 lg:w-3/4 flex flex-column gap-y-2 m-auto">
+                    <h2 class="text-sm text-gray-300 md:text-xl dark:text-gray-400 ">
+                      {bannerSuggestion?.classification}
+                    </h2>
+
+                    <p class="text-xs text-rose-900 dark:text-rose-900 font-bold md:text-2xl">
+                      {bannerSuggestion?.model}
+                    </p>
+                    <p class="text-gray-400 dark:text-gray-400">
+                      Model: {bannerSuggestion?.model}
+                    </p>
+                    <div class="flex justify-between items-center text-gray-600">
+                      <div class="flex items-center">
+                        <svg
+                          className="svg-icon h-3 w-3 text-gray-600 fill-current mr-2 "
+                          viewBox="0 0 20 20"
+                        >
+                          <path d="M15.573,11.624c0.568-0.478,0.947-1.219,0.947-2.019c0-1.37-1.108-2.569-2.371-2.569s-2.371,1.2-2.371,2.569c0,0.8,0.379,1.542,0.946,2.019c-0.253,0.089-0.496,0.2-0.728,0.332c-0.743-0.898-1.745-1.573-2.891-1.911c0.877-0.61,1.486-1.666,1.486-2.812c0-1.79-1.479-3.359-3.162-3.359S4.269,5.443,4.269,7.233c0,1.146,0.608,2.202,1.486,2.812c-2.454,0.725-4.252,2.998-4.252,5.685c0,0.218,0.178,0.396,0.395,0.396h16.203c0.218,0,0.396-0.178,0.396-0.396C18.497,13.831,17.273,12.216,15.573,11.624 M12.568,9.605c0-0.822,0.689-1.779,1.581-1.779s1.58,0.957,1.58,1.779s-0.688,1.779-1.58,1.779S12.568,10.427,12.568,9.605 M5.06,7.233c0-1.213,1.014-2.569,2.371-2.569c1.358,0,2.371,1.355,2.371,2.569S8.789,9.802,7.431,9.802C6.073,9.802,5.06,8.447,5.06,7.233 M2.309,15.335c0.202-2.649,2.423-4.742,5.122-4.742s4.921,2.093,5.122,4.742H2.309z M13.346,15.335c-0.067-0.997-0.382-1.928-0.882-2.732c0.502-0.271,1.075-0.429,1.686-0.429c1.828,0,3.338,1.385,3.535,3.161H13.346z"></path>
+                        </svg>
+                        <p className="text-xs">
+                          <span class="text-xs text-gray-400 ">
+                            Passenger: {bannerSuggestion?.no_of_seats}
+                          </span>
+                          <span className="ml-2">|</span>{" "}
+                        </p>
+                      </div>
+                      <div class="flex items-center">
+                        <svg
+                          className="svg-icon h-3 w-3 text-gray-600 fill-current mr-2"
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 96 960 960"
+                        >
+                          <path d="M350 976v-42l80-60V623L80 726v-58l350-206V226q0-21 14.5-35.5T480 176q21 0 35.5 14.5T530 226v236l350 206v58L530 623v251l80 60v42l-130-37-130 37Z" />
+                        </svg>
+                        <p className="text-xs">
+                          <span class="text-xs text-gray-400 ">
+                            Speed: {bannerSuggestion?.speed}Kts
+                          </span>
+                          <span className="ml-2">|</span>
+                        </p>
+                      </div>
+                      <div class="flex items-center">
+                        <svg
+                          className="svg-icon h-3 w-3 text-gray-600 fill-current mr-2"
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 96 960 960"
+                        >
+                          <path d="M480 976q-84 0-157-31.5T196 859q-54-54-85-127.5T80 574q0-84 31-156.5T196 291q54-54 127-84.5T480 176q84 0 157 30.5T764 291q54 54 85 126.5T880 574q0 84-31 157.5T764 859q-54 54-127 85.5T480 976Zm0-58q35-36 58.5-82.5T577 725H384q14 60 37.5 108t58.5 85Zm-85-12q-25-38-43-82t-30-99H172q38 71 88 111.5T395 906Zm171-1q72-23 129.5-69T788 725H639q-13 54-30.5 98T566 905ZM152 665h159q-3-27-3.5-48.5T307 574q0-25 1-44.5t4-43.5H152q-7 24-9.5 43t-2.5 45q0 26 2.5 46.5T152 665Zm221 0h215q4-31 5-50.5t1-40.5q0-20-1-38.5t-5-49.5H373q-4 31-5 49.5t-1 38.5q0 21 1 40.5t5 50.5Zm275 0h160q7-24 9.5-44.5T820 574q0-26-2.5-45t-9.5-43H649q3 35 4 53.5t1 34.5q0 22-1.5 41.5T648 665Zm-10-239h150q-33-69-90.5-115T565 246q25 37 42.5 80T638 426Zm-254 0h194q-11-53-37-102.5T480 236q-32 27-54 71t-42 119Zm-212 0h151q11-54 28-96.5t43-82.5q-75 19-131 64t-91 115Z" />
+                        </svg>
+                        <p className="text-xs">
+                          <span class="text-xs text-gray-400">
+                            Range: {bannerSuggestion?.range}
+                          </span>
+                        </p>
+                      </div>
+                    </div>
+                    <div class="flex justify-between items-center text-gray-600 mt-2">
+                      <div class="flex items-center">
+                        <svg
+                          className="svg-icon h-3 w-3 text-gray-600 fill-current mr-2"
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 96 960 960"
+                        >
+                          <path d="M140 896q-26 0-43-17t-17-43V683q37-8 61.5-37.5T166 576q0-40-24.5-70T80 469V316q0-26 17-43t43-17h680q26 0 43 17t17 43v153q-37 7-61.5 37T794 576q0 40 24.5 69.5T880 683v153q0 26-17 43t-43 17H140Zm0-60h680V727q-38-26-62-65t-24-86q0-47 24-86t62-65V316H140v109q39 26 62.5 65t23.5 86q0 47-23.5 86T140 727v109Zm340-63q12 0 21-9t9-21q0-12-9-21t-21-9q-12 0-21 9t-9 21q0 12 9 21t21 9Zm0-167q12 0 21-9t9-21q0-12-9-21t-21-9q-12 0-21 9t-9 21q0 12 9 21t21 9Zm0-167q12 0 21-9t9-21q0-12-9-21t-21-9q-12 0-21 9t-9 21q0 12 9 21t21 9Zm0 137Z" />
+                        </svg>
+                        <p className="text-xs">
+                          <span class="text-xs text-gray-400">
+                            Luggage: 59cu.ft
+                          </span>
+                          <span className="ml-2">|</span>
+                        </p>
+                      </div>
+                      <div class="flex items-center">
+                        <svg
+                          className="svg-icon h-3 w-3 text-gray-600 fill-current mr-2"
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 96 960 960"
+                        >
+                          <path d="M480 936 320 776l44-44 86 86V334l-86 86-44-44 160-160 160 160-44 44-86-86v484l86-86 44 44-160 160Z" />
+                        </svg>
+                        <p className="text-xs">
+                          <span class="text-xs text-gray-400">
+                            Height: 1.78cm{" "}
+                          </span>
+                          <span className="ml-2">|</span>
+                        </p>
+                      </div>
+                      <div class="flex items-center">
+                        <svg
+                          className="svg-icon h-3 w-3 text-gray-600 fill-current mr-2"
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 96 960 960"
+                        >
+                          <path d="M281 736 121 576l160-160 43 43-88 87h489l-87-88 42-42 160 160-160 160-42-42 87-88-489 1 87 87-42 42Z" />
+                        </svg>
+                        <p className="text-xs">
+                          <span class="text-xs text-gray-400">
+                            width: 1.4cm
+                          </span>
+                        </p>
+                      </div>
+                    </div>
+                    <p class="text-gray-300 text-xs dark:text-gray-900 mt-3">
+                      Midsize jets (also known as mid-sized jets) are the most
+                      popular category of private jets and provide a
+                      cost-effective option for flights of up to 4 hours, for up
+                      to 8 passengers
+                    </p>
+
+                    <div class="py-2 ">
+                      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4">
+                        <div class="py-2">
+                          <img src={Frame636} class="" alt="" />
+                        </div>
+                        <div class="py-4">
+                          <p class=" text-sm text-gray-300 dark:text-gray-900">
+                            {bannerSuggestion?.manufacturer}
+                          </p>
+                        </div>
+                        <div class="py-4">
+                          <div class="flex items-center">
+                            <svg
+                              aria-hidden="true"
+                              class="w-5 h-5 text-yellow-400"
+                              fill="currentColor"
+                              viewBox="0 0 20 20"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <title>First star</title>
+                              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                            </svg>
+                            <svg
+                              aria-hidden="true"
+                              class="w-5 h-5 text-yellow-400"
+                              fill="currentColor"
+                              viewBox="0 0 20 20"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <title>Second star</title>
+                              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                            </svg>
+                            <svg
+                              aria-hidden="true"
+                              class="w-5 h-5 text-yellow-400"
+                              fill="currentColor"
+                              viewBox="0 0 20 20"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <title>Third star</title>
+                              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                            </svg>
+                            <svg
+                              aria-hidden="true"
+                              class="w-5 h-5 text-yellow-400"
+                              fill="currentColor"
+                              viewBox="0 0 20 20"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <title>Fourth star</title>
+                              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                            </svg>
+                            <svg
+                              aria-hidden="true"
+                              class="w-5 h-5 text-gray-300 dark:text-gray-500"
+                              fill="currentColor"
+                              viewBox="0 0 20 20"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <title>Fifth star</title>
+                              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                            </svg>
+                          </div>
+                        </div>
+                        <div class="py-4">
+                          <h3 class="ml-2 text-sm text-gray-900 dark:text-gray-700">
+                            15 reviews
+                          </h3>
+                        </div>
+                      </div>
+                    </div>
+                    {loading === false ? (
+                      <button
+                        type="button"
+                        class="text-white hover:text-white border border-rose-900 bg-rose-900 focus:ring-4 focus:outline-none focus:ring-rose-900 font-medium rounded-2xl text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-rose-900 dark:text-rose-900 dark:hover:text-white dark:hover:bg-rose-900 dark:focus:ring-rose-900"
+                        onClick={() => {
+                          handleBookingPayload();
+                          handleSubmit();
+                          // setShowModal(true);
+                        }}
+                      >
+                        Book Now
+                      </button>
+                    ) : (
+                      <button
+                        type="button"
+                        class="text-white hover:text-white border border-rose-900 bg-rose-900 focus:ring-4 focus:outline-none focus:ring-rose-900 font-medium rounded-2xl text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-rose-900 dark:text-rose-900 dark:hover:text-white dark:hover:bg-rose-900 dark:focus:ring-rose-900"
+                      >
+                        <div class="flex items-center justify-center">
+                          <div
+                            class="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
+                            role="status"
+                          >
+                            <span class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">
+                              Loading...
+                            </span>
+                          </div>
+                        </div>
+                      </button>
+                    )}
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -365,7 +363,9 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
                     <p className="font-bold">
                       {booking_details?.source.iata_code}
                       <br />
-                      {booking_details.source.name}
+                      {booking_details.source.name} <br />
+                      {booking_details.source.city},{" "}
+                      {booking_details.source.country}
                     </p>
                   </div>
                   <div class="flex items-center">
@@ -381,7 +381,9 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
                     <p className="font-bold text-end">
                       {booking_details?.destination.iata_code}
                       <br />
-                      {booking_details.destination.name}
+                      {booking_details.destination.name} <br />
+                      {booking_details.destination.city},{" "}
+                      {booking_details.destination.country}
                     </p>
                   </div>
                 </div>
@@ -453,7 +455,9 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
                     <p className="font-bold">
                       {booking_details?.source.iata_code}
                       <br />
-                      {booking_details.source.name}
+                      {booking_details.source.name} <br />
+                      {booking_details.source.city},{" "}
+                      {booking_details.source.country}
                     </p>
                   </div>
                   <div class="flex items-center">
@@ -469,7 +473,9 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
                     <p className="font-bold text-end">
                       {booking_details?.destination.iata_code}
                       <br />
-                      {booking_details?.destination.name}
+                      {booking_details.destination.name} <br />
+                      {booking_details.destination.city},{" "}
+                      {booking_details.destination.country}
                     </p>
                   </div>
                 </div>
@@ -512,10 +518,12 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
                 <div class="border-t border-gray-300 text-gray-600">
                   <div className="flex justify-between items-center mt-4">
                     <div class="flex items-center text-center">
-                      <p className="font-bold">
+                      <p className="font-bold text-start">
                         {booking_details?.destination.iata_code}
                         <br />
-                        {booking_details.destination.name}
+                        {booking_details.destination.name} <br />
+                        {booking_details.destination.city},{" "}
+                        {booking_details.destination.country}
                       </p>
                     </div>
                     <div class="flex items-center">
@@ -531,7 +539,9 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
                       <p className="font-bold text-end">
                         {booking_details?.source.iata_code}
                         <br />
-                        {booking_details.source.name}
+                        {booking_details.source.name} <br />
+                        {booking_details.source.city},{" "}
+                        {booking_details.source.country}
                       </p>
                     </div>
                   </div>
@@ -606,7 +616,8 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
                         <p className="font-bold">
                           {item?.source.iata_code}
                           <br />
-                          {item?.source.name}
+                          {item.source.name} <br />
+                          {item.source.city}, {item.source.country}
                         </p>
                       </div>
                       <div class="flex items-center p-4 text-center">
@@ -623,6 +634,8 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
                           {item?.destination.iata_code}
                           <br />
                           {item.destination.name}
+                          <br />
+                          {item.destination.city}, {item.destination.country}
                         </p>
                       </div>
                     </div>
@@ -678,7 +691,7 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
           </div>
         ) : null}
 
-{booking_details?.tripType === "Shared" ? (
+        {booking_details?.tripType === "Shared" ? (
           <div class="w-full md:w-1/2">
             <div className="">
               <div className=" flex flex-col p-5 bg-white rounded-xl gap-y-8 display-trip ">
@@ -696,7 +709,9 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
                     <p className="font-bold">
                       {booking_details?.source.iata_code}
                       <br />
-                      {booking_details.source.name}
+                      {booking_details.source.name} <br />
+                      {booking_details.source.city},{" "}
+                      {booking_details.source.country}
                     </p>
                   </div>
                   <div class="flex items-center">
@@ -731,7 +746,7 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
                       </span>
                       <span className="ml-2">AT</span>
                       <span className="ml-2">
-                      {booking_details?.depatureTime}
+                        {booking_details?.depatureTime}
                       </span>
                     </p>
                   </div>
@@ -746,7 +761,6 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
                     <p>
                       <span class="text-sm text-gray-400">
                         {booking_details?.aircraft.no_of_seats} Passengers(s)
-                        
                       </span>
                     </p>
                   </div>

@@ -40,13 +40,13 @@ const SingleAircraft = ({ match }) => {
     return item._id === id;
   });
 
-  console.log("aircraft", aircraft, id);
+
   const [link, setLink] = useState("All");
   const [name, setName] = useState("Beech BE200 Super King Air");
   const [summary, setSummary] = useState(
     "The next generation of the highly successful King Air turboprops"
   );
-  const [description, setDescription] = useState(
+  const [description, setDescription] = useState(  
     aircraftTypes0bj[0].description
   );
 
@@ -246,7 +246,9 @@ const SingleAircraft = ({ match }) => {
               </div>
             </div>
           </div>
+
           <div className=""></div>
+
         </div>
       </div>
     </div>

@@ -15,134 +15,182 @@ export default function NavBar() {
     localStorage.removeItem("airports");
     history.push("/");
   };
-  let Links = [
-    { name: "Flight", link: "/" },
-    { name: "Aircrafts", link: "/aircraft" },
-    { name: "Destinations", link: "/destination" },
-    { name: "Get a Quote", link: "/" },
-  ];
 
   return (
-    <nav className="fixed top-0 z-10 w-full bg-white font-[poppins]">
-      <div className="flex flex-wrap justify-between px-4 mx-auto md:items-center md:px-8 nav-div">
-        <div className="w-full md:w-1/3">
-          <div className="flex items-center justify-between md:py-0">
-            <a href="javascript:void(0)">
-              <img alt="" src={logoprimary} class="w-32 md:w-24 lg:w-32" />
-            </a>
-            <div className="md:hidden">
-              <button
-                className="p-2 text-gray-700 rounded-md outline-none focus:border-gray-400 focus:border md:hidden"
-                onClick={() => setNavbar(!navbar)}
-              >
-                {navbar ? (
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="w-6 h-6 text-rose-900image.png  breadcrumbs-container"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
+    <header class="absolute top-0 left-0 w-full flex justify-center">
+      <nav class="absolute w-full mt-3">
+        <div class="relative z-30   dark:bg-gray-900">
+          <div class="container nav-inner w-9/10 bg-white rounded-[50px] m-auto md:px-12 lg:py-0 lg:px-5">
+            <div class="flex flex-wrap items-center justify-between py-2.5 gap-6 md:gap-0">
+              <input
+                type="checkbox"
+                name="toggle_nav"
+                id="toggle_nav"
+                class="peer hidden"
+              />
+              <div class="w-full flex justify-between md:w-max md:px-0 z-30">
+                <a href="#" aria-label="logo">
+                  <img
+                    src={logoprimary}
+                    class="w-36 dark:hidden"
+                    alt="swift logo"
+                    width="144"
+                    height="68"
+                  />
+                  <img
+                    src="images/logo-white.svg"
+                    class="w-36 hidden dark:block"
+                    alt="tailus logo"
+                    width="144"
+                    height="68"
+                  />
+                </a>
+                <div class="flex items-center md:hidden ">
+                  <label
+                    role="button"
+                    for="toggle_nav"
+                    aria-label="humburger"
+                    id="hamburger"
+                    class="relative mb-0"
                   >
-                    <path
-                      fillRule="evenodd"
-                      d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                ) : (
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="w-6 h-6 text-rose-900 breadcrumbs-container"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth={2}
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M4 6h16M4 12h16M4 18h16"
-                    />
-                  </svg>
-                )}
-              </button>
+                    <div
+                      id="line"
+                      class="m-auto h-0.5 w-6 rounded bg-sky-900 dark:bg-gray-300 transition duration-300"
+                    ></div>
+                    <div
+                      id="line2"
+                      class="m-auto mt-2 h-0.5 w-6 rounded bg-sky-900 dark:bg-gray-300 transition duration-300"
+                    ></div>
+                    <div
+                      id="line3"
+                      class="m-auto mt-2 h-0.5 w-6 rounded bg-sky-900 dark:bg-gray-300 transition duration-300"
+                    ></div>
+                  </label>
+                </div>
+              </div>
+              <label
+                for="toggle_nav"
+                class="hidden peer-checked:block fixed w-full h-full left-0 top-0 z-10 bg-rose-100 bg-opacity-30 backdrop-blur backdrop-filter"
+              ></label>
+              <div class="hidden z-40 peer-checked:flex w-11/12  md:mx-0 flex-col justify-end items-center gap-y-8 p-6 rounded-xl bg-white dark:bg-gray-800 md:flex md:w-full  md:gap-y-0 md:gap-x-1 md:divide-x md:p-0  md:flex-row md:bg-transparent lg:w-7/12 mx-lg-none">
+                <div class="block w-full md:w-max">
+                  <ul class="gap-y-6 tracking-wide text-gray-500 dark:text-gray-300 font-medium flex flex-col md:flex-row md:gap-y-0">
+                    <li>
+                      <a href="/" class="block md:px-8">
+                        <div
+                          class="relative text-rose-900 dark:text-rose-900
+                                                            before:absolute before:-bottom-2 md:before:-bottom-3 before:w-full before:h-0.5 before:origin-left before:mt-auto before:rounded-t-full before:bg-rose-900"
+                        >
+                          <span className="lg:text-xs">Home</span>
+                        </div>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" class="block md:pr-4 group">
+                        <div
+                          class="relative group
+                                                            before:absolute before:-bottom-2 md:before:-bottom-3 before:w-full before:h-0.5 before:origin-left before:mt-auto before:rounded-full before:bg-rose-800 before:transition before:scale-x-0 group-hover:before:scale-x-100"
+                          id="about-us"
+                        >
+                          <span class="group-hover:text-rose-900 lg:text-xs ">
+                            About Us
+                          </span>
+                        </div>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="/aircraft" class="block md:pr-4 group">
+                        <div
+                          class="relative group
+                                                            before:absolute before:-bottom-2 md:before:-bottom-3 before:w-full before:h-0.5 before:origin-left before:mt-auto before:rounded-full before:bg-rose-800 before:transition before:scale-x-0 group-hover:before:scale-x-100"
+                        >
+                          <span class="group-hover:text-rose-900 lg:text-xs">
+                            Fleet
+                          </span>
+                        </div>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="/destination" class="block md:pr-4 group">
+                        <div
+                          class="relative group
+                                                            before:absolute before:-bottom-2 md:before:-bottom-3 before:w-full before:h-0.5 before:origin-left before:mt-auto before:rounded-full before:bg-rose-800 before:transition before:scale-x-0 group-hover:before:scale-x-100"
+                        >
+                          <span class="group-hover:text-rose-900 lg:text-xs">
+                            Destinations
+                          </span>
+                        </div>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="/services" class="block md:pr-4 group">
+                        <div
+                          class="relative group
+                                                            before:absolute before:-bottom-2 md:before:-bottom-3 before:w-full before:h-0.5 before:origin-left before:mt-auto before:rounded-full before:bg-rose-800 before:transition before:scale-x-0 group-hover:before:scale-x-100"
+                        >
+                          <span class="group-hover:text-rose-900 lg:text-xs">
+                            Services
+                          </span>
+                        </div>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="/contact" class="block md:pr-4 group">
+                        <div
+                          class="relative group
+                                                            before:absolute before:-bottom-2 md:before:-bottom-3 before:w-full before:h-0.5 before:origin-left before:mt-auto before:rounded-full before:bg-rose-800 before:transition before:scale-x-0 group-hover:before:scale-x-100"
+                        >
+                          <span class="group-hover:text-rose-900 lg:text-xs">
+                            Contact
+                          </span>
+                        </div>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="/faq" class="block md:pr-4 group">
+                        <div
+                          class="relative group
+                                                            before:absolute before:-bottom-2 md:before:-bottom-3 before:w-full before:h-0.5 before:origin-left before:mt-auto before:rounded-full before:bg-rose-800 before:transition before:scale-x-0 group-hover:before:scale-x-100"
+                        >
+                          <span class="group-hover:text-rose-900 lg:text-xs">
+                            FAQ
+                          </span>
+                        </div>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+                {JSON.parse(localStorage.getItem("authenticated")) != true ? (
+                  <div class="w-full sm:w-max gap-4 flex min-w-max flex-col sm:flex-row text-xs">
+                    <button
+                      class="text-rose-900 button-2  border-2 item-center border-rose-900 hover:bg-[#5C0632] hover:text-white active:bg-rose-900  rounded-full outline-none focus:outline-none  ease-linear transition-all duration-150  px-3 py-1"
+                      type="button"
+                      onClick={() => {
+                        history.push("/signInlayout");
+                      }}
+                    >
+                      <ArrowCircleLeftOutlinedIcon /> Sign In
+                    </button>
+                    <button
+                      class="text-white button-2 border-2 border-rose-900 bg-[#961054] hover:bg-rose-900 hover:text-white active:bg-rose-900  rounded-full outline-none focus:outline-none ease-linear transition-all duration-150- px-3 py-1  "
+                      type="button"
+                      onClick={() => {
+                        history.push("/registration");
+                      }}
+                    >
+                      <PersonAddAltOutlinedIcon /> Sign Up
+                    </button>
+                  </div>
+                ) : null}
+              </div>
             </div>
           </div>
         </div>
-        <div>
-          <div
-            className={`block text-center md:flex md:justify-end md:items-center  ${
-              navbar ? "block" : "hidden"
-            }`}
-          >
-            <ul className="flex-wrap items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">
-              {Links.map((link) => (
-                <li
-                  key={link.name}
-                  className="text-lg md:relative group hover:text-rose-900 md:my-0 my-7 md:text-sm sw-link font-semibold"
-                >
-                  <a href={link.link}>{link.name}</a>
-                  <span className="absolute right-0 w-0 h-1 -bottom-1 bg-rose-900 group-hover:w-full group-hover:transition-all "></span>
-                </li>
-              ))}
-              <li className="hidden md:block relative box-border w-0.5 h-[50px] border-r-[2px] border-solid border-rose-900 contact-us "></li>
-              <li className="sm:text-start pr-6 pt-2 contact">
-                <div className="relative contact-us">Talk To Our Team</div>
-                <div className="relative mb-3 text-sm font-medium contact-us">
-                  +234 707 8965 234
-                </div>
-              </li>
-            </ul>
-            {JSON.parse(localStorage.getItem("authenticated")) === true ? (
-              <div className="space-x-2 md:inline-block flex">
-                <button
-                  class="text-rose-900 button-1 border-2 border-rose-900 hover:bg-rose-900 hover:text-white active:bg-rose-900  rounded-full outline-none focus:outline-none ease-linear transition-all duration-150- px-3 py-1 "
-                  type="button"
-                  onClick={() => {}}
-                >
-                  <PersonAddAltOutlinedIcon /> My Account
-                </button>
-                <button
-                  class="text-rose-900 button-1 border-2 border-rose-900 hover:bg-rose-900 hover:text-white active:bg-rose-900  rounded-full outline-none focus:outline-none ease-linear transition-all duration-150- px-3 py-1 "
-                  type="button"
-                  onClick={() => {
-                    logout();
-                  }}
-                >
-                  <PersonAddAltOutlinedIcon /> Logout
-                </button>
-              </div>
-            ) : null}
-            {JSON.parse(localStorage.getItem("authenticated")) != true ? (
-              <div className=" space-x-2 md:inline-block flex">
-                <button
-                  class="text-rose-900 button-2  border-2 item-center border-rose-900 hover:bg-rose-900 hover:text-white active:bg-rose-900  rounded-full outline-none focus:outline-none  ease-linear transition-all duration-150  px-3 py-1"
-                  type="button"
-               
-                  onClick={() => {
-                    history.push("/signInlayout");
-                  }}
-                >
-                  <ArrowCircleLeftOutlinedIcon /> Sign In
-                </button>
-                <button
-                  class="text-rose-900 button-2  border-2 border-rose-900 hover:bg-rose-900 hover:text-white active:bg-rose-900  rounded-full outline-none focus:outline-none ease-linear transition-all duration-150- px-3 py-1 "
-                  type="button"
-                
-                  onClick={() => {
-                    history.push("/registration");
-                  }}
-                >
-                  <PersonAddAltOutlinedIcon /> Register
-                </button>
-              </div>
-            ) : null}
-          </div>
-        </div>
-      </div>
-    </nav>
-
- 
-
-                                    
+        <div
+          aria-hidden="true"
+          class="container h-4 -mt-6 mx-auto bg-green-600/30 dark:bg-green-900/30 blur md:-mt-4"
+        ></div>
+      </nav>
+    </header>
   );
 }

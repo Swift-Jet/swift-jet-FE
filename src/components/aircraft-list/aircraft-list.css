@@ -1,6 +1,6 @@
 .aircraft-list-head {
     background-color: #5C0632;
-    padding-top: 50px;
+    padding-top: 100px;
     padding-bottom: 20px;
 }
 
@@ -15,6 +15,7 @@
 .acb-links {
     /* width: 80%; */
     margin: auto;
+    /* margin-top: 250px; */
     background-color: #fff;
     padding-left: 0.5rem;
     padding-top: 0.5rem;
@@ -33,7 +34,7 @@
 
 .ac-button:hover {
     color: #fff;
-    background-color: #5C0632 !important;
+    background-color: #961054 !important;
 }
 
 .alh-desc {
@@ -52,7 +53,7 @@
 }
 
 .ac-card-div {
-    width: 90%;
+   
     margin: auto;
     margin-top: 50px;
 }
@@ -65,6 +66,7 @@
         background: #fff;
     }
     .acb-icons{
+        width: 97% !important;
         padding-left: 10px !important;
         padding-right: 10px !important;
         justify-content: space-evenly;
