@@ -1,0 +1,8 @@
+.contact-icon{
+    color: #961054;
+}
+.contact-input:focus{
+    outline: none !important;
+    box-shadow: none !important;
+    border: 1px solid #961054 !important;
+}

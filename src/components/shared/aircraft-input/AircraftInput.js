@@ -1,5 +1,6 @@
+import { FlightClass, FlightTakeoffOutlined } from "@mui/icons-material";
 import React from "react";
-import './aircraft-input.css';
+import "./aircraft-input.css";
 
 const AircraftInput = ({
   type,
@@ -8,26 +9,38 @@ const AircraftInput = ({
   labelText,
   id,
   onChange,
+  icon,
   onClick,
   hidden,
   name,
-  required
+  value,
+  required,
 }) => {
   return (
-    <div class="bg-white border-[#5c0632]-400 border rounded-lg m-2 ai-div" hidden={hidden}>
-      <label class="block text-[#5c0632] py-2 px-3 text-sm mb-2 pl-3 font-semibold">
+    <div
+      class="bg-white border-[#5c0632]-400 border rounded-lg m-2 ai-div"
+      hidden={hidden}
+      id={id}
+    >
+      <label class="block text-[#4D4D4D] py-2 px-3 text-xs mb-2 pl-3 font-medium">
         {labelText}
       </label>
-      <input
-        class=" appearance-none border border-white rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-white text-xs"
-        id={id}
-        type={type}
-        placeholder={placeholder}
-        disabled={disabled}
-        onClick={onClick}
-        onChange={onChange}
-        name={name}
-      />
+      <div className="flex py-2 px-3">
+        <input
+          class="text-start p-0 appearance-none border border-white rounded-lg w-full text-gray-700 leading-tight focus:outline-none focus:border-white focus:shadow-outline bg-white text-[13px] acb-input"
+          type={type}
+          placeholder={placeholder}
+          disabled={disabled}
+          onClick={onClick}
+          value={value}
+          onChange={onChange}
+          name={name}
+        />
+
+      
+        {icon}
+      
+      </div>
     </div>
   );
 };

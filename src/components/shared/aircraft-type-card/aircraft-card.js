@@ -6,24 +6,24 @@ const AircraftCard = ({item}) => {
   const history = useHistory();
   return (
     <div>
-      <div class="max-w-sm bg-white border-gray-200 overflow-hidden justify-items-start bg-white rounded-2xl border border-gray-100  shadow-2xl shadow-gray-600/10 dark:shadow-none  shadow-md dark mt-8 mb-8 2xl:w-full xl:w-full lg:w-full md:w-full sm:w-full ac-group-list" onClick={() =>{
+      <div class="max-w-sm bg-white border-gray-200 overflow-hidden justify-items-start bg-white rounded-full  border border-gray-100  shadow-2xl shadow-gray-600/10 dark:shadow-none  shadow-md dark mt-8 mb-8 2xl:w-full xl:w-full lg:w-full md:w-full sm:w-full ac-group-list" onClick={() =>{
         history.push(`/aircraft-details/${item?._id}`)
       }}>
         <a href="#">
           <img
-            class="object-cover w-full h-64"
-            src={item?.image_url}
+            class="rounded-full py-4 px-4"
+            src="https://thumbs.dreamstime.com/b/air-travel-concept-jet-above-clouds-square-composition-39585443.jpg"
             alt=""
           />
         </a>
 
-        <div class="p-3 ">
+        <div class="pb-5 pl-5 pr-5">
           <a href="#">
             <h5 class="mb-2 text-xl font-bold tracking-tight text-[#4D4D4D] ">
               {item?.manufacturer}
             </h5>
           </a>
-          <p class="mb-3 font-normal  text-gray-700 dark:text-gray-400 inline-grid w-full">
+          <p class="mb-3 font-normal  text-gray-700 dark:text-gray-400 inline-grid w-full justify-center">
             <p className="flex pt-3 text-sm">
               {" "}
               <svg
@@ -49,8 +49,25 @@ const AircraftCard = ({item}) => {
               >
              
               </svg>
+              <svg
+                width="2"
+                height="20"
+                viewBox="0 0 2 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                className="mr-4"
+              >
+                <line
+                  x1="1"
+                  y1="2.18557e-08"
+                  x2="0.999999"
+                  y2="24"
+                  stroke="#4D4D4D"
+                />
+              </svg>
               Passenger: {item?.no_of_seats}
             </p>
+            
             <p className="flex pt-3 text-sm">
               {" "}
               <svg
@@ -75,6 +92,22 @@ const AircraftCard = ({item}) => {
                 className="mr-2"
               >
              
+              </svg>
+              <svg
+                width="2"
+                height="20"
+                viewBox="0 0 2 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                className="mr-4"
+              >
+                <line
+                  x1="1"
+                  y1="2.18557e-08"
+                  x2="0.999999"
+                  y2="24"
+                  stroke="#4D4D4D"
+                />
               </svg>
               Speed: {item?.speed} km/hr
             </p>
@@ -102,6 +135,22 @@ const AircraftCard = ({item}) => {
                 className="mr-2"
               >
              
+              </svg>
+              <svg
+                width="2"
+                height="20"
+                viewBox="0 0 2 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                className="mr-4"
+              >
+                <line
+                  x1="1"
+                  y1="2.18557e-08"
+                  x2="0.999999"
+                  y2="24"
+                  stroke="#4D4D4D"
+                />
               </svg>
               Range:   {item?.range}ktx
             </p>

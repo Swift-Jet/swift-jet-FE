@@ -46,12 +46,12 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
     __v: 0,
   });
   let sharedAircraft = {};
-  useEffect(() => {
-    let sharedAircraft1 = JSON.parse(localStorage.getItem("sharedAircraft"));
-    sharedAircraft = sharedAircraft1.aircraft;
-    console.log("sharedAircraft", sharedAircraft);
-    setBannerSuggestion(sharedAircraft);
-  }, []);
+  // useEffect(() => {
+  //   let sharedAircraft1 = JSON.parse(localStorage.getItem("sharedAircraft"));
+  //   sharedAircraft = sharedAircraft1.aircraft;
+  //   console.log("sharedAircraft", sharedAircraft);
+  //   setBannerSuggestion(sharedAircraft);
+  // }, []);
 
   let booking_payload = {};
   const toastMsg = (message) => toast(message);

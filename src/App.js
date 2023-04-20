@@ -15,6 +15,9 @@ import Booking from "./pages/booking/booking";
 import ResetPassword from "./pages/reset-password/ForgetPassword";
 import Bookingspage from "./pages/BookingPage/Bookingspage";
 import Adminspage from "./pages/admin-page.js/Adminspage";
+import ContactPage from "./pages/contact-page/ContactPage";
+import ServicesPage from "./pages/services/ServicesPage";
+import FrequentQuestionsPage from "./pages/frequent-page/FrequentPage";
 
 const App = () => {
   return (
@@ -32,6 +35,9 @@ const App = () => {
       <Route path="/reset-password" component={ResetPassword}></Route>
       <Route path="/Bookingspage" component={Bookingspage}></Route>
       <Route path="/Adminspage" component={Adminspage}></Route>
+      <Route path="/services" component={ServicesPage}></Route>
+      <Route path="/contact" component={ContactPage}></Route>
+      <Route path="/faq" component={FrequentQuestionsPage}></Route>
     </Switch>
   );
 };

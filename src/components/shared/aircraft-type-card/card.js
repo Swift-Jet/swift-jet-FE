@@ -6,20 +6,21 @@ const DestCard = ({ img, name, position, socials }) => {
   return (
     <div className="">
       <Card color="transparent" shadow={false} className="text-center">
-        <Avatar
-          src={img}
-          alt=""
-          size="xxl"
-          className="h-full w-full shadow-lg shadow-gray-500/25"
-        />
-        <Typography
-          variant="h3"
-          color="blue-gray"
-          className="mt-6 mb-1"
-        >{name} </Typography>
+        <div class="">
+          <div class="px-4">
+            <img
+              src={img}
+              alt="..."
+              class="shadow-lg rounded-full max-w-full h-auto align-middle border-none dest-img"
+            />
+          </div>
+        </div>
+        <Typography variant="h3" color="blue-gray" className="mt-6 mb-1">
+          {name}{" "}
+        </Typography>
 
-        <Typography className="font-normal text-blue-gray-500">
-          position
+        <Typography className="font-medium text-sm text-gray-500">
+        The U.S. is a country of 50 states covering a vast swath of North America, with Alaska in the northwest and Hawaii extending the nation’s presence into the Pacific Ocean.
         </Typography>
       </Card>
       {/* <div class="max-w-sm bg-white  border-gray-200 rounded-lg mt-8 mb-8 2xl:w-3/5 xl:w-3/5 lg:w-3/5 md:w-3/5 sm:w-4/5 ac-group-list">

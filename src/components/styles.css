@@ -3,19 +3,15 @@
   height: 80%;
   position: absolute !important;
 }
+
 .ai-div {
-  width: 20% !important;
+  width: 20%;
 
-  border: 1px solid #5c0632 !important;
+  border: 1px solid #bdb7ba !important;
 }
-input[type="date"] {
-  display: inline-flex
-}
+
 .nav-div {
-  
-  padding-left: 10px !important;
-
-  padding-right: 10px !important;
+  padding: 10px !important;
   width: 90%;
   margin: auto;
   background: rgb(246, 242, 242);
@@ -23,8 +19,35 @@ input[type="date"] {
   border-radius: 25px;
   /* border-bottom: 1px solid #881237; */
 }
-input[type="time"] {
-  display: inline-flex
+
+.close-modal {
+  margin-top: -8px !important;
+}
+
+.acb-input {
+  font-weight: 600;
+}
+
+.add-button {
+  color: #961054;
+  font-size: 13px;
+  padding: 5px 15px;
+}
+
+.add-button:hover {
+  color: #fff;
+  font-size: 13px;
+  background-color: #961054;
+  /* text-decoration: underline; */
+  border: 1px solid #961054;
+  border-radius: 50px;
+  
+}
+
+.acb-input:focus {
+  border: 0px !important;
+  outline: none;
+  box-shadow: none;
 }
 
 .swiper-slide {
@@ -63,8 +86,22 @@ input[type="time"] {
 }
 
 .field-booking {
-  /* padding-top: 50px; */
+  background-color: rgb(0 0 0 / 30%);
+  background-size: cover;
   /* background-color: #eeece1; */
+  background-image: url(https://res.cloudinary.com/dzv98o7ds/image/upload/v1681858357/image1_tzt4dz.png);
+}
+
+.acb-icon {
+  margin-right: auto;
+  margin-left: auto;
+  /* margin-top: 250px; */
+  background-color: #fff;
+  margin-top: 120px;
+  padding-left: 0.5rem;
+  padding-top: 0.5rem;
+
+  border-radius: 10px 10px 0px 0px;
 }
 
 .field-booking-loading {
@@ -79,11 +116,83 @@ input[type="time"] {
   margin-right: auto;
 }
 
+.ac-button {
+  width: 100% !important;
+  justify-content: center;
+  color: #961054;
+}
+/* input[type="date"]::-webkit-inner-spin-button,
+input[type="date"]::-webkit-calendar-picker-indicator {
+  opacity: 0
+}
+input[type="time"]::-webkit-calendar-picker-indicator {
+  background: none;
+} */
+.go-btn {
+
+  border-width: 1px !important;
+}
+
+#id-4,
+#id-5 {
+  width: 100% !important;
+  margin-top: 20px !important;
+  margin-bottom: 0px !important;
+  margin-right: 0px !important;
+  margin-left: 0px !important;
+}
+
 @media (max-width: 768px) {
-  .list-trips{
+  .go-btn-div {
+    display: block !important;
+  }
+
+  .go-btn {
+    width: 90% !important;
+    margin-left: 5%;
+    margin-right: 5%;
+    border-radius: 10px !important;
+    border-width: 1px !important;
+  }
+
+  .aircraft-display {
+    width: 90%;
+  }
+
+  .advert-1 {
+    color: #5c0632 !important;
+    width: 100%;
+
+  }
+
+  .advert-2 {
+    color: #5c0632 !important;
+  }
+
+  .advert {
+    padding-top: 50px !important;
+    color: #5c0632 !important;
+  }
+
+  .route-icon {
+    margin-top: 0px !important;
+    margin-top: -15px !important;
+    margin-left: 45% !important;
+  }
+
+  .special-destination {
+    margin-top: -25px !important;
+  }
+
+  .route-icon-item {
+    display: none;
+  }
+
+  .list-trips {
 
     height: 200px !important;
   }
+
   .react-slideshow-container {
     padding: 10px !important;
   }
@@ -93,7 +202,7 @@ input[type="time"] {
   }
 
   .fsld-special {
-    padding-top:0px;
+    padding-top: 0px;
 
   }
 
@@ -107,7 +216,7 @@ input[type="time"] {
     font-size: 20px !important;
 
     text-align: center;
-    
+
 
   }
 
@@ -117,7 +226,7 @@ input[type="time"] {
     font-size: 15px !important;
     /* margin-bottom: 5px; */
     text-align: center;
-    
+
   }
 
 
@@ -157,9 +266,17 @@ input[type="time"] {
     margin-bottom: 10px !important;
   }
 
-  .field-booking {
-    /* margin-top: 50px !important; */
-    padding-top: 0px !important;
+  .acb-icon {
+    margin-right: auto;
+    margin-left: auto;
+    width: 96%;
+    background-color: #fff;
+    margin-top: 50px;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    padding-top: 0.5rem;
+
+    border-radius: 10px 10px 0px 0px;
   }
 
   .mobile-btn {
@@ -179,8 +296,15 @@ input[type="time"] {
     border-radius: 10px;
     padding: 10px !important;
     margin: auto;
+    padding: 5px !important;
   }
 
+  .ac-button {
+    font-size: 12px !important;
+    padding: 5px !important;
+    display: grid;
+    color: #4D4D4D;
+  }
 
   .fbf-div {
     border: 1px solid #fff !important;
@@ -195,7 +319,7 @@ input[type="time"] {
     padding-right: 10px !important;
     width: 90%;
     margin: auto;
-  
+
     margin-top: 30px;
     border-radius: 25px;
     /* border-bottom: 1px solid #881237; */
@@ -208,12 +332,37 @@ input[type="time"] {
   .load-passanger-form {
     padding: 10px 5px 10px 5px !important;
   }
+  .nav-inner{
+    border: 1px solid #b6a4ad;
+  }
 }
 
-@media (max-width: 1024px) {
-  /* .button-2 {
-    display: none;
-  } */
+@media(min-width: 770px)and (max-width: 1024px) {
+  .special-destination {
+    margin-top: -28px !important;
+  }
+
+  .route-icon {
+    margin-top: -15px !important;
+    margin-left: 45% !important;
+  }
+
+  .acb-icon {
+    margin-right: auto;
+    margin-left: auto;
+    width: 60%;
+    background-color: #fff;
+    margin-top: 50px;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    padding-top: 0.5rem;
+
+    border-radius: 10px 10px 0px 0px;
+  }
+
+  .ai-div {
+    width: 98% !important;
+  }
 }
 
 .remove-skill {
@@ -305,7 +454,7 @@ input[type="time"] {
 
 .passengers-modal {
   margin: 40px;
-  padding: 20px;
+  padding: 40px;
 }
 
 .load-passanger-form {
@@ -400,8 +549,8 @@ input[type="time"] {
   overflow: hidden;
   text-overflow: ellipsis;
   /* white-space: nowrap; */
-  font-size: 12px;
-  color: #4d1430c7;
+  font-size: 11px;
+  color: #4d4d4d;
   font-weight: 600;
 }
 
@@ -475,7 +624,7 @@ body {
   font-size: 17px;
   padding: 10px;
   text-align: center;
-  
+
 
 }
 
@@ -485,7 +634,7 @@ body {
   font-size: 17px;
   /* margin-bottom: 5px; */
   text-align: center;
-  
+
 }
 
 a,
@@ -496,9 +645,7 @@ h4,
 h5,
 h6,
 p,
-label {
-  
-}
+label {}
 
 .react-slideshow-container {
   padding: 0px 50px 50px 50px;
@@ -620,7 +767,7 @@ label {
 }
 
 a:hover {
-  color: inherit !important;
+  color: inherit;
 }
 
 .slide-img {
@@ -633,18 +780,19 @@ a:hover {
   height: 800px;
 }
 
-.video__content{
+.video__content {
   width: 100%;
 }
-.grow{
-  white-space: nowrap; 
+
+.grow {
+  white-space: nowrap;
 
   overflow: hidden;
-  text-overflow: ellipsis; 
+  text-overflow: ellipsis;
 
 }
 
-.list-trips{
+.list-trips {
   background-color: rgb(255 255 255 / 30%);
   margin-bottom: 20px !important;
   padding-bottom: 10px;
@@ -663,6 +811,28 @@ a:hover {
   margin-left: 13%;
   height: 520px;
 }
+
 /* .sl-text{
   margin-top: -200px;
 } */
+.trip-item {
+  display: flex;
+  width: 33.333%;
+}
+
+.route-icon {
+  margin-top: 30px;
+  margin-right: -20px;
+  margin-left: -20px;
+}
+
+.advert {
+  padding-top: 150px;
+}
+
+.advert-1 {
+  line-height: 2;
+}
+#about-us{
+width: max-content;
+}
