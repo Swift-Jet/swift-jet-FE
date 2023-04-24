@@ -7,9 +7,10 @@ import { BookingContext } from "../../context/booking-context";
 import { AircraftsContext } from "../../context/aircraft-context";
 import ArrowCircleLeftOutlinedIcon from "@mui/icons-material/ArrowCircleLeftOutlined";
 import PersonAddAltOutlinedIcon from "@mui/icons-material/PersonAddAltOutlined";
-import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
+import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
 const EstimateLayout = () => {
   const booking = JSON.parse(localStorage.getItem("bookingDetails"));
+  console.log("booking", booking);
   const [bookDetails, setBookDetails] = useState(booking);
   const [filteredResults, setFilteredResults] = useState([]);
   const history = useHistory();
@@ -33,7 +34,7 @@ const EstimateLayout = () => {
                 localStorage.removeItem("prevpath");
               }}
             >
-              <KeyboardBackspaceIcon /> 
+              <KeyboardBackspaceIcon />
             </button>
             <div className="mt-10">
               <div className="">

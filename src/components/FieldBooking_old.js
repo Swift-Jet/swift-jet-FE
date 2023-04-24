@@ -1229,7 +1229,7 @@ const FieldBooking = () => {
                     <div className="mt-2 shared-flight-time">
                       <dl>
                         <div>
-                          <dd class="text-white mt-2 shared-flight-time-date font-['Minion Pro']">
+                          <dd class="text-white mt-2 shared-flight-time-date">
                             Next Flight: 24th March 2023 at {data.arrival_time}
                           </dd>
                         </div>

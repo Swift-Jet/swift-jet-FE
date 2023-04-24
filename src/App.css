@@ -34,8 +34,19 @@
   display: grid;
   grid-row-gap: 80px;
 }
-body{
-  font-family: 'Minion Pro' !important;
+@media
+only screen and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (-o-min-device-pixel-ratio: 3/2),
+only screen and (min--moz-device-pixel-ratio: 1.5),
+only screen and (min-device-pixel-ratio: 1.5){
+
+
+  body > div{
+    width:100%;
+    position: relative;
+  overflow-x: hidden;
+   
+  }
 
 }
 

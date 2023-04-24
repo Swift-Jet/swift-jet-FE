@@ -361,11 +361,11 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
                 <div class="flex justify-between items-center  text-gray-600">
                   <div class="flex items-center">
                     <p className="font-bold">
-                      {booking_details?.source.iata_code}
+                      {booking_details.formData[0]?.source.iata_code}
                       <br />
-                      {booking_details.source.name} <br />
-                      {booking_details.source.city},{" "}
-                      {booking_details.source.country}
+                      {booking_details.formData[0]?.source.value.name} <br />
+                      {booking_details.formData[0]?.source.value.city},{" "}
+                      {booking_details.formData[0]?.source.value.country}
                     </p>
                   </div>
                   <div class="flex items-center">
@@ -379,11 +379,14 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
                   </div>
                   <div class="flex items-center text-center">
                     <p className="font-bold text-end">
-                      {booking_details?.destination.iata_code}
+                      {booking_details.formData[0]?.destination.value.iata_code}
                       <br />
-                      {booking_details.destination.name} <br />
-                      {booking_details.destination.city},{" "}
-                      {booking_details.destination.country}
+                      {booking_details.formData[0]?.destination.value.name}{" "}
+                      <br />
+                      {
+                        booking_details.formData[0]?.destination.value.city
+                      },{" "}
+                      {booking_details.formData[0]?.destination.value.country}
                     </p>
                   </div>
                 </div>
@@ -398,11 +401,11 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
                     </svg>
                     <p className="text-sm">
                       <span class="text-sm text-gray-400">
-                        {booking_details?.depatureDate.startDate}
+                        {booking_details?.formData[0]?.depatureDate}
                       </span>
                       <span className="ml-2">AT</span>
                       <span className="ml-2">
-                        {booking_details?.depatureTime?.value}
+                        {booking_details?.formData[0]?.depatureTime}
                       </span>
                     </p>
                   </div>
@@ -416,9 +419,11 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
                     </svg>
                     <p>
                       <span class="text-sm text-gray-400">
-                        {booking_details?.adults}Adult(s)
-                        {booking_details?.children} Children
-                        {booking_details?.pets} Pets(s)
+                        {booking_details?.formData[0]?.passengers.adults}
+                        Adult(s)
+                        {booking_details?.formData[0]?.passengers.children}{" "}
+                        Children
+                        {booking_details?.formData[0]?.passengers.pets} Pets(s)
                       </span>
                     </p>
                   </div>
@@ -453,11 +458,11 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
                 <div class="flex justify-between items-center  text-gray-600">
                   <div class="flex items-center">
                     <p className="font-bold">
-                      {booking_details?.source.iata_code}
+                      {booking_details.formData[0]?.source.value.iata_code}
                       <br />
-                      {booking_details.source.name} <br />
-                      {booking_details.source.city},{" "}
-                      {booking_details.source.country}
+                      {booking_details.formData[0]?.source.value.name} <br />
+                      {booking_details.formData[0]?.source.value.city},{" "}
+                      {booking_details.formData[0]?.source.value.country}
                     </p>
                   </div>
                   <div class="flex items-center">
@@ -471,11 +476,14 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
                   </div>
                   <div class="flex items-center text-center">
                     <p className="font-bold text-end">
-                      {booking_details?.destination.iata_code}
+                      {booking_details.formData[0]?.destination.value.iata_code}
                       <br />
-                      {booking_details.destination.name} <br />
-                      {booking_details.destination.city},{" "}
-                      {booking_details.destination.country}
+                      {booking_details.formData[0]?.destination.value.name}{" "}
+                      <br />
+                      {
+                        booking_details.formData[0]?.destination.value.city
+                      },{" "}
+                      {booking_details.formData[0]?.destination.value.country}
                     </p>
                   </div>
                 </div>
@@ -490,11 +498,11 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
                     </svg>
                     <p className="text-sm">
                       <span class="text-sm text-gray-400">
-                        {booking_details?.depatureDate.startDate}
+                        {booking_details.formData[0]?.depatureDate}
                       </span>
                       <span className="ml-2">AT</span>
                       <span className="ml-2">
-                        {booking_details?.depatureTime.value}
+                        {booking_details.formData[0]?.depatureTime}
                       </span>
                     </p>
                   </div>
@@ -508,9 +516,11 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
                     </svg>
                     <p>
                       <span class="text-sm text-gray-400">
-                        {booking_details?.adults}Adult(s)
-                        {booking_details?.children} Children
-                        {booking_details?.pets} Pets(s)
+                        {booking_details?.formData[0]?.passengers.adults}
+                        Adult(s)
+                        {booking_details?.formData[0]?.passengers.children}{" "}
+                        Children
+                        {booking_details?.formData[0]?.passengers.pets} Pets(s)
                       </span>
                     </p>
                   </div>
@@ -518,12 +528,20 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
                 <div class="border-t border-gray-300 text-gray-600">
                   <div className="flex justify-between items-center mt-4">
                     <div class="flex items-center text-center">
-                      <p className="font-bold text-start">
-                        {booking_details?.destination.iata_code}
+                      <p className="font-bold text-end">
+                        {
+                          booking_details.formData[0]?.destination.value
+                            .iata_code
+                        }
                         <br />
-                        {booking_details.destination.name} <br />
-                        {booking_details.destination.city},{" "}
-                        {booking_details.destination.country}
+                        {
+                          booking_details.formData[0]?.destination.value.name
+                        }{" "}
+                        <br />
+                        {
+                          booking_details.formData[0]?.destination.value.city
+                        },{" "}
+                        {booking_details.formData[0]?.destination.value.country}
                       </p>
                     </div>
                     <div class="flex items-center">
@@ -536,12 +554,12 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
                       </svg>
                     </div>
                     <div class="flex items-center">
-                      <p className="font-bold text-end">
-                        {booking_details?.source.iata_code}
+                      <p className="font-bold">
+                        {booking_details.formData[0]?.source.value.iata_code}
                         <br />
-                        {booking_details.source.name} <br />
-                        {booking_details.source.city},{" "}
-                        {booking_details.source.country}
+                        {booking_details.formData[0]?.source.value.name} <br />
+                        {booking_details.formData[0]?.source.value.city},{" "}
+                        {booking_details.formData[0]?.source.value.country}
                       </p>
                     </div>
                   </div>
@@ -557,11 +575,11 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
                     </svg>
                     <p className="text-sm">
                       <span class="text-sm text-gray-400">
-                        {booking_details.returningDate.startDate}
+                        {booking_details.formData[0].returningDate}
                       </span>
                       <span className="ml-2">AT</span>
                       <span className="ml-2">
-                        {booking_details.returningTime.value}
+                        {booking_details.formData[0].returningTime}
                       </span>
                     </p>
                   </div>
@@ -575,9 +593,11 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
                     </svg>
                     <p>
                       <span class="text-sm text-gray-400">
-                        {booking_details?.adults}Adult(s)
-                        {booking_details?.children} Children
-                        {booking_details?.pets} Pets(s)
+                        {booking_details?.formData[0]?.passengers.adults}
+                        Adult(s)
+                        {booking_details?.formData[0]?.passengers.children}{" "}
+                        Children
+                        {booking_details?.formData[0]?.passengers.pets} Pets(s)
                       </span>
                     </p>
                   </div>
@@ -596,7 +616,7 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
           </div>
         ) : null}
 
-        {booking_details[0]?.tripType === "Multi-city Trip" ? (
+        {booking_details?.tripType === "Multi-city Trip" ? (
           <div class="w-full md:w-1/2 ">
             <div className="">
               <div className=" flex flex-row justify-between align-center p-5 bg-white rounded-t-xl">
@@ -605,19 +625,20 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
                   type="button"
                   class="text-rose-900 hover:text-white border border-rose-900 hover:bg-rose-900 focus:ring-4 focus:outline-none focus:ring-rose-900 font-medium rounded-2xl text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-rose-900 dark:text-rose-900 dark:hover:text-white dark:hover:bg-rose-900 dark:focus:ring-rose-900"
                 >
-                  {booking_details[0]?.tripType}
+                  {booking_details?.tripType}
                 </button>
               </div>
-              {booking_details.map((item, i) => {
+              {booking_details?.formData.map((item, i) => {
                 return (
                   <div className="flex flex-col p-5 bg-white  gap-y-8 ">
                     <div class="flex justify-between items-center  text-gray-600">
                       <div class="flex items-center w-1/2">
                         <p className="font-bold">
-                          {item?.source.iata_code}
+                          {item?.source.value.iata_code}
                           <br />
-                          {item.source.name} <br />
-                          {item.source.city}, {item.source.country}
+                          {item?.source.value.name} <br />
+                          {item?.source.value.city},{" "}
+                          {item?.source.value.country}
                         </p>
                       </div>
                       <div class="flex items-center p-4 text-center">
@@ -630,12 +651,12 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
                         </svg>
                       </div>
                       <div class="flex items-center text-end">
-                        <p className="font-bold text-end">
-                          {item?.destination.iata_code}
+                        <p className="font-bold">
+                          {item?.destination.value.iata_code}
                           <br />
-                          {item.destination.name}
-                          <br />
-                          {item.destination.city}, {item.destination.country}
+                          {item?.destination.value.name} <br />
+                          {item?.destination.value.city},{" "}
+                          {item?.destination.value.country}
                         </p>
                       </div>
                     </div>
@@ -650,11 +671,11 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
                         </svg>
                         <p className="text-sm">
                           <span class="text-sm text-gray-400">
-                            {item?.depatureDate.startDate}
+                            {item?.depatureDate}
                           </span>
                           <span className="ml-2">AT</span>
                           <span className="ml-2">
-                            {item?.depatureTime.value}
+                            {item?.depatureTime}
                           </span>
                         </p>
                       </div>
@@ -668,7 +689,14 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
                         </svg>
                         <p>
                           <span class="text-sm text-gray-400">
-                            {item?.passengers} PASSENGER(S)
+                            <p>
+                              <span class="text-sm text-gray-400">
+                                {item?.passengers.adults}
+                                Adult(s)
+                                {item?.passengers.children} Children
+                                {item?.passengers.pets} Pets(s)
+                              </span>
+                            </p>
                           </span>
                         </p>
                       </div>
@@ -707,11 +735,11 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
                 <div class="flex justify-between items-center  text-gray-600">
                   <div class="flex items-center">
                     <p className="font-bold">
-                      {booking_details?.source.iata_code}
+                      {booking_details.formData[0]?.source.value.iata_code}
                       <br />
-                      {booking_details.source.name} <br />
-                      {booking_details.source.city},{" "}
-                      {booking_details.source.country}
+                      {booking_details.formData[0]?.source.value.name} <br />
+                      {booking_details.formData[0]?.source.value.city},{" "}
+                      {booking_details.formData[0]?.source.value.country}
                     </p>
                   </div>
                   <div class="flex items-center">
@@ -725,9 +753,14 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
                   </div>
                   <div class="flex items-center text-center">
                     <p className="font-bold text-end">
-                      {booking_details?.destination.iata_code}
+                      {booking_details.formData[0]?.destination.value.iata_code}
                       <br />
-                      {booking_details.destination.name}
+                      {booking_details.formData[0]?.destination.value.name}{" "}
+                      <br />
+                      {
+                        booking_details.formData[0]?.destination.value.city
+                      },{" "}
+                      {booking_details.formData[0]?.destination.value.country}
                     </p>
                   </div>
                 </div>
@@ -740,7 +773,7 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
                     >
                       <path d="M180 976q-24 0-42-18t-18-42V296q0-24 18-42t42-18h65v-60h65v60h340v-60h65v60h65q24 0 42 18t18 42v620q0 24-18 42t-42 18H180Zm0-60h600V486H180v430Zm0-490h600V296H180v130Zm0 0V296v130Zm300 230q-17 0-28.5-11.5T440 616q0-17 11.5-28.5T480 576q17 0 28.5 11.5T520 616q0 17-11.5 28.5T480 656Zm-160 0q-17 0-28.5-11.5T280 616q0-17 11.5-28.5T320 576q17 0 28.5 11.5T360 616q0 17-11.5 28.5T320 656Zm320 0q-17 0-28.5-11.5T600 616q0-17 11.5-28.5T640 576q17 0 28.5 11.5T680 616q0 17-11.5 28.5T640 656ZM480 816q-17 0-28.5-11.5T440 776q0-17 11.5-28.5T480 736q17 0 28.5 11.5T520 776q0 17-11.5 28.5T480 816Zm-160 0q-17 0-28.5-11.5T280 776q0-17 11.5-28.5T320 736q17 0 28.5 11.5T360 776q0 17-11.5 28.5T320 816Zm320 0q-17 0-28.5-11.5T600 776q0-17 11.5-28.5T640 736q17 0 28.5 11.5T680 776q0 17-11.5 28.5T640 816Z" />
                     </svg>
-                    <p className="text-sm">
+                    {/* <p className="text-sm">
                       <span class="text-sm text-gray-400">
                         {booking_details?.depatureDate.slice(0, 10)}
                       </span>
@@ -748,7 +781,7 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
                       <span className="ml-2">
                         {booking_details?.depatureTime}
                       </span>
-                    </p>
+                    </p> */}
                   </div>
                   <div class="flex items-center">
                     <svg

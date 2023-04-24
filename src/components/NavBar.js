@@ -4,6 +4,7 @@ import { useHistory } from "react-router-dom";
 import ArrowCircleLeftOutlinedIcon from "@mui/icons-material/ArrowCircleLeftOutlined";
 import PersonAddAltOutlinedIcon from "@mui/icons-material/PersonAddAltOutlined";
 import "../components/styles.css";
+import { AccountCircle, Flight, Logout, Person2Outlined, Person2Sharp } from "@mui/icons-material";
 
 export default function NavBar() {
   const history = useHistory();
@@ -181,7 +182,41 @@ export default function NavBar() {
                       <PersonAddAltOutlinedIcon /> Sign Up
                     </button>
                   </div>
-                ) : null}
+                ) : (
+                  <div className="dropdown dropdown-end dropdown-hover">
+                  <label
+                    tabIndex={0}
+                    className="bg-white text-[#5c0632] text-xs m-1"
+                  >
+                   <Person2Outlined />
+                  </label>
+                  <ul
+                    tabIndex={0}
+                    className="dropdown-content menu p-2 shadow rounded-box w-52 bg-white "
+                  >
+                    
+                      <div>
+                        <div>
+                          <li className="bg-white hover:bg-[#ececec] hover:text-white ">
+                            <a className="text-black text-xs hover:text-white" >Profile  <Person2Sharp /></a>
+                            <a className="text-black text-xs hover:text-white">Flights <Flight /> </a>
+                            <a className="text-black text-xs hover:text-white text-end" onClick={() => {logout()}}>Logout <Logout/></a>
+                          </li>
+                        </div>
+                      </div>
+                   
+                  </ul>
+                </div>
+                //   <button
+                //   class="text-white button-2 border-2 border-rose-900 bg-[#961054] hover:bg-rose-900 hover:text-white active:bg-rose-900  rounded-full outline-none focus:outline-none ease-linear transition-all duration-150- px-3 py-1  "
+                //   type="button"
+                //   onClick={() => {
+                //     history.push("/registration");
+                //   }}
+                // >
+                //   <AccountCircle /> 
+                // </button>
+                )}
               </div>
             </div>
           </div>

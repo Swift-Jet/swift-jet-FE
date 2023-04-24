@@ -41,7 +41,7 @@
   /* text-decoration: underline; */
   border: 1px solid #961054;
   border-radius: 50px;
-  
+
 }
 
 .acb-input:focus {
@@ -121,15 +121,21 @@
   justify-content: center;
   color: #961054;
 }
-/* input[type="date"]::-webkit-inner-spin-button,
-input[type="date"]::-webkit-calendar-picker-indicator {
-  opacity: 0
-}
-input[type="time"]::-webkit-calendar-picker-indicator {
-  background: none;
-} */
-.go-btn {
 
+input[type="date"]::-webkit-inner-spin-button,
+input[type="date"]::-webkit-calendar-picker-indicator,
+input[type="time"]::-webkit-inner-spin-button,
+input[type="time"]::-webkit-calendar-picker-indicator {
+  opacity: 0.5
+}
+
+input[type="time"]::-webkit-calendar-picker-indicator,
+input[type="date"]::-webkit-calendar-picker-indicator {
+  background: rgb(168, 140, 140);
+}
+
+.go-btn {
+  margin-bottom: 20px !important;
   border-width: 1px !important;
 }
 
@@ -332,7 +338,8 @@ input[type="time"]::-webkit-calendar-picker-indicator {
   .load-passanger-form {
     padding: 10px 5px 10px 5px !important;
   }
-  .nav-inner{
+
+  .nav-inner {
     border: 1px solid #b6a4ad;
   }
 }
@@ -660,10 +667,10 @@ label {}
 }
 
 .shared-flight-time-date {
-  font-family: Minion Pro !important;
-  font-size: 13px;
+
+  font-size: 12px;
   color: #5c0632 !important;
-  font-weight: 800;
+  font-weight: 600;
 }
 
 .bg-img-title {
@@ -681,12 +688,12 @@ label {}
 } */
 .cost {
   font-weight: 600;
-  font-family: Minion Pro !important;
+
 }
 
 .route {
-  font-weight: 700;
-  font-family: Minion Pro !important;
+  font-weight: 600;
+  font-size: 13px !important;
 }
 
 .empty-legs {
@@ -766,6 +773,34 @@ label {}
   /* box-shadow: 3px 6px 2px #e5e2e2f2 */
 }
 
+.sign {
+  background: #f3f4f6;
+  padding-right: 7px;
+  border-radius: 50px;
+  /* color: white; */
+  color: #961054;
+  border: 1px solid #961054;
+}
+
+.sign-left {
+  background: #f3f4f6;
+  padding-left: 7px;
+  border-radius: 50px;
+  /* color: white; */
+  color: #961054;
+  border: 1px solid #961054;
+}
+
+.sign:hover {
+  background: #961054;
+  color: #ffffff;
+}
+
+.sign-left:hover {
+  background: #961054;
+  color: #ffffff;
+}
+
 a:hover {
   color: inherit;
 }
@@ -833,6 +868,16 @@ a:hover {
 .advert-1 {
   line-height: 2;
 }
-#about-us{
-width: max-content;
+
+#about-us {
+  width: max-content;
+}
+
+.remove-leg {
+  cursor: pointer !important;
+}
+
+.remove-leg:hover {
+  cursor: pointer !important;
+  color: red;
 }
