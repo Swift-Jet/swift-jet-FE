@@ -14,12 +14,16 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Select from "react-tailwindcss-select";
 import "react-datalist-input/dist/styles.css";
+import "react-slideshow-image/dist/styles.css";
 import AddIcon from "@mui/icons-material/Add";
 import FlightTakeoffIcon from "@mui/icons-material/FlightTakeoff";
 import SendIcon from "@mui/icons-material/Send";
 import AOS from "aos";
 import "aos/dist/aos.css";
-
+import { Carousel } from "react-responsive-carousel";
+import { FlightsContext } from "../context/flight-context";
+import { Avatar, Typography } from "@material-tailwind/react";
+import { IconButton } from "@material-tailwind/react";
 import ConnectingAirportsIcon from "@mui/icons-material/ConnectingAirports";
 import AirplanemodeActiveIcon from "@mui/icons-material/AirplanemodeActive";
 import AirplaneTicketIcon from "@mui/icons-material/AirplaneTicket";
@@ -31,12 +35,13 @@ import {
   FlightLand,
   MultipleStop,
   Person2,
+  RemoveCircleOutline,
 } from "@mui/icons-material";
 import { DatePicker } from "@mui/x-date-pickers";
 
 const FieldBooking = () => {
   const [enableBtn, setEnableBtn] = useState(true);
-
+  const [airports, setAirports] = useState(data);
   const [loading, setLoading] = useState(false);
   const [adults, setAdults] = useState(1);
   const [children, setChildren] = useState(0);
@@ -55,46 +60,104 @@ const FieldBooking = () => {
   const [destinationAirport, setDestinationAirport] = useState("");
   const [destinationAirportCode, setDestinationAirportCode] = useState("");
   const [tripType, setTripType] = useState("One way Trip");
-  const [passengers, setPassengers] = useState("");
-  const [depatureDate, setDepatureDate] = useState("");
-  const [returningDate, setReturningDate] = useState("");
-  const [depatureTime, setDepatureTime] = useState("");
-  const [returningTime, setReturningTime] = useState("");
-  const [inputFields, setInputFields] = useState([{ name: "" }]);
-  const [bookingArr, setBookingArr] = useState([]);
+  // const [passengers, setPassengers] = useState("");
+  // const [depatureDate, setDepatureDate] = useState("");
+  // const [returningDate, setReturningDate] = useState("");
+  // const [depatureTime, setDepatureTime] = useState("");
+  // const [returningTime, setReturningTime] = useState("");
+  // const [inputFields, setInputFields] = useState([{ name: "" }]);
+  // const [bookingArr, setBookingArr] = useState([]);
   const [addMoreBtn, setAddMoreBtn] = useState(false);
   const [addReturnBtn, setAddReturnBtn] = useState(false);
-  const [airports, setAirports] = useState(data);
-  const { aircrafts } = useContext(AircraftsContext);
 
+  const [errors, setErrors] = useState([]);
+  const { aircrafts } = useContext(AircraftsContext);
+  const [formData, setFormData] = useState([
+    {
+      source: null,
+      destination: null,
+      depatureTime: null,
+      returningTime: null,
+      returningDate: null,
+      depatureDate: null,
+      passengers: { adults: 1, children: 0, pets: 0 },
+    },
+  ]);
   const history = useHistory();
   const location = useLocation();
-  let filteredData;
   let valid = false;
 
+  const handleInputChange = (e, index) => {
+    const { name, value } = e.target;
+    console.log(name, value );
+    const newFormData = [...formData];
+    newFormData[index][name] = value;
+    setFormData(newFormData);
+  };
+  const handlePassengersChange = (type, index, value) => {
+    const newFormData = [...formData];
+    if (value === -1) {
+      value = 0;
+    }
+
+    if (type === "adults" && value === 0) {
+      value = 1;
+    }
+    newFormData[index].passengers[type] = value;
+    setFormData(newFormData);
+  };
+
+  const handleAddForm = () => {
+    setFormData([
+      ...formData,
+      {
+        source: null,
+        destination: null,
+        depatureTime: null,
+        returningTime: null,
+        returningDate: null,
+        depatureDate: null,
+        passengers: { adults: 1, children: 0, pets: 0 },
+      },
+    ]);
+  };
+
+  const handleSelectChange = (selectedOption, index) => {
+    const newFormData = [...formData];
+    newFormData[index].source = selectedOption;
+    setFormData(newFormData);
+  };
+  const handleSelectChange1 = (selectedOption, index) => {
+    const newFormData = [...formData];
+    newFormData[index].destination = selectedOption;
+    setFormData(newFormData);
+  };
   const toastMsg = (message) => toast(message);
   const viewAddMoreBtn = () => {
     setAddMoreBtn(true);
   };
 
-  const handleOrigin = (currentValue) => {
-    setSource(currentValue.value);
-    setSourceAirport(currentValue);
-  };
-  const handleDestination = (currentValue) => {
-    setDestination(currentValue.value);
-    setDestinationAirport(currentValue);
-  };
-
-  const handleDepartTime = (currentValue) => {
-    setDepatureTime(currentValue);
-  };
-  const handleReturnTime = (currentValue) => {
-    setReturningTime(currentValue);
-  };
   const hideAddMoreBtn = () => {
     setAddMoreBtn(false);
   };
+  const responsiveSettings = [
+    {
+      breakpoint: 800,
+      settings: {
+        slidesToShow: 4,
+        slidesToScroll: 1,
+      },
+    },
+    {
+      breakpoint: 200,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+      },
+    },
+  ];
+  const { flights } = useContext(FlightsContext);
+
   const options = airports.map((item, i) => ({
     label:
       item.name +
@@ -106,17 +169,11 @@ const FieldBooking = () => {
       item.country,
     value: item,
   }));
+
   const bookingDetails = {
     tripType,
-    source,
-    destination,
-    adults,
-    children,
-    pets,
-    depatureDate,
-    returningDate,
-    depatureTime,
-    returningTime,
+    formData,
+ 
   };
   const teamData = [
     {
@@ -273,25 +330,7 @@ const FieldBooking = () => {
       ],
     },
   ];
-  const searchItems = (searchValue) => {
-    setSearchInput(searchValue);
-    if (searchInput !== "") {
-      filteredData = airports.filter((item) => {
-        return Object.values(item)
-          .join("")
-          .toLowerCase()
-          .includes(searchInput.toLowerCase());
-      });
-      setFilteredResults(filteredData);
-    } else {
-      setFilteredResults([]);
-    }
-  };
 
-  // const addFields = () => {
-  //   let newfield = { name: "" };
-  //   setInputFields([...inputFields, newfield]);
-  // };
   const handleIncrement = (value, state) => {
     value = value + 1;
 
@@ -310,81 +349,41 @@ const FieldBooking = () => {
     }
   };
   const storeBookingInfo = () => {
-    if (tripType == "One way Trip" || tripType == "Round Trip") {
-      localStorage.setItem("bookingDetails", JSON.stringify(bookingDetails));
-      setBookingArr(JSON.parse(localStorage.getItem("bookingDetails")));
-    } else {
-      var bookingInfoArr = [];
-      bookingInfoArr = JSON.parse(localStorage.getItem("bookingDetails")) || [];
-      bookingInfoArr.push(bookingDetails);
-      localStorage.setItem("bookingDetails", JSON.stringify(bookingInfoArr));
-      setBookingArr(JSON.parse(localStorage.getItem("bookingDetails")));
-    }
+    localStorage.setItem("bookingDetails", JSON.stringify(bookingDetails));
+    localStorage.setItem("prevpath", JSON.stringify(location.pathname));
+    history.push("/EstimatedPage");
   };
 
   const resetBookingForm = () => {
-    setSourceAirport("");
-    setDestinationAirport("");
-    setSourceAirportCode("");
-    setDestinationAirportCode("");
-    setPassengers("");
-    setDepatureDate("");
-    setReturningDate("");
-    setDepatureTime("");
+
     document.getElementById("flight-booking-form").reset();
   };
 
   const validateForm = () => {
-    if (tripType == "One way Trip") {
-      if (
-        sourceAirport == "" ||
-        destinationAirport == "" ||
-        depatureDate == "" ||
-        depatureTime == ""
-      ) {
-        toastMsg("Please fill all fields one");
-        valid = false;
-      } else valid = true;
-    } else if (tripType == "Round Trip") {
-      if (
-        sourceAirport == "" ||
-        destinationAirport == "" ||
-        depatureDate == "" ||
-        depatureTime == "" ||
-        returningDate == "" ||
-        returningTime == ""
-      ) {
-        toastMsg("Please fill all fields two");
-        valid = false;
-      } else valid = true;
-    } else if (tripType == "Multi-city Trip") {
-      if (
-        sourceAirport == "" ||
-        destinationAirport == "" ||
-        depatureDate == "" ||
-        depatureTime == ""
-      ) {
-        console.log(bookingDetails, valid, "valid");
-        toastMsg("Please fill all fields three");
-        valid = false;
-      } else valid = true;
-    }
-  };
-  const submitBookingInfo = (formType) => {
-    validateForm();
-    if (valid) {
-      if (formType == "multi") {
-        storeBookingInfo();
-      } else
-        localStorage.setItem("bookingDetails", JSON.stringify(bookingDetails));
-      localStorage.setItem("prevpath", JSON.stringify(location.pathname));
-      history.push("/EstimatedPage");
-    }
+    const newErrors = [];
+    formData.forEach((trip, index) => {
+      if (!trip.source || !trip.destination) {
+        newErrors.push(`Leg ${index + 1}: Please fill in all required fields.`);
+      }
+      setErrors(newErrors);
+      toastMsg(`Leg ${index + 1}: Please fill in all required fields.`);
+    });
+
+    return newErrors.length === 0;
   };
 
+  const handleRemoveFlight = (index) => {
+    if (formData.length > 1) {
+      const newFormData = [...formData];
+      newFormData.splice(index, 1);
+      console.log("formData", formData, index);
+      setFormData(newFormData);
+    }
+  };
   const subMultiBookForm = () => {
-    validateForm();
-    if (valid) {
+    const valid = validateForm();
+
+    if (valid == true) {
       storeBookingInfo();
       resetBookingForm();
     }
@@ -412,58 +411,28 @@ const FieldBooking = () => {
             We provide the best flying experience for you. We help you who want
             to travel privately to have easy access to private jet.
           </h4>
-          {/* <h4 className="text-white text-[30px] advert-2">
-            <AnimatedText
-              type="words"
-              interval={0.09}
-              duration={1}
-              animation={{
-                y: "100px",
-                ease: "linear",
-              }}
-            >
-              
-            </AnimatedText>
-          </h4>
-          <h4 className="text-white text-[17px] pt-8 advert-1 w-1/2">
-            <AnimatedText
-              type="words"
-              interval={0.04}
-              duration={1}
-              animation={{
-                y: "100px",
-                ease: "linear",
-              }}
-            >
-              We provide the best flying experience for you. We help you who
-              want to travel privately to have easy access to private jet.
-            </AnimatedText>
-          </h4> */}
-          {/* <h4 className="text-white text-[17px] pt-2 advert-1">
-         
-            <AnimatedText
-              type="words"
-              interval={0.09}
-              duration={2}
-              animation={{
-                y: "100px",
-                ease: "linear",
-              }}
-            >
-              want to travel privately to have easy access to private jet.
-            </AnimatedText>
-          </h4> */}
         </div>
         <div
           className="justify-between flex acb-icon  w-2/5"
-          data-aos="zoom-in"
-          data-aos-duration="2000"
+          data-aos="fade-up"
+          data-aos-duration="100"
           data-aos-easing="ease-out-cubic"
         >
           <div className="trip-item">
             <button
               type="button"
               onClick={() => {
+                setFormData([
+                  {
+                    source: null,
+                    destination: null,
+                    depatureTime: null,
+                    returningTime: null,
+                    returningDate: null,
+                    depatureDate: null,
+                    passengers: { adults: 1, children: 0, pets: 0 },
+                  },
+                ]);
                 setOneWayTrip(true);
                 setTripType("One way Trip");
                 hideAddMoreBtn();
@@ -483,6 +452,17 @@ const FieldBooking = () => {
               onClick={() => {
                 setOneWayTrip(false);
                 setTripType("Round Trip");
+                setFormData([
+                  {
+                    source: null,
+                    destination: null,
+                    depatureTime: null,
+                    returningTime: null,
+                    returningDate: null,
+                    depatureDate: null,
+                    passengers: { adults: 1, children: 0, pets: 0 },
+                  },
+                ]);
                 hideAddMoreBtn();
                 setAddReturnBtn(true);
                 localStorage.removeItem("bookingDetails");
@@ -520,7 +500,7 @@ const FieldBooking = () => {
           data-aos-offset="300"
           data-aos-easing="ease-in-sine"
         >
-          {bookingArr.map((data, i) => {
+          {/* {bookingArr.map((data, i) => {
             return (
               <div class="row">
                 <div className="pt-4 col">{data?.sourceAirport}</div>
@@ -552,27 +532,45 @@ const FieldBooking = () => {
                 </div>
               </div>
             );
-          })}
+          })} */}
           <form id="flight-booking-form" autoComplete="off">
-            {inputFields.map((input, index) => {
+            {formData.map((data, index) => {
               return (
-                <div>
-                  <div class="2xl:flex xl:flex  lg:flex  p-3" key={index}>
+                <div key={index}>
+                  {index !== 0 && (
+                    <div className="text-end pr-3">
+                      <button
+                        type="button"
+                        data-te-toggle="tooltip"
+                        title="Remove flight"
+                        onClick={() => handleRemoveFlight(index)}
+                        className="pt-2 pb-4 pl-2 pr-2 rounded-full text-red h-6 w-8 text-xs remove-leg"
+                      >
+                        <RemoveCircleOutline className="" />
+                      </button>
+                    </div>
+                  )}
+                  <div class="2xl:flex xl:flex  lg:flex  p-3">
                     <div className="mt-2 mb-2 ai-div rounded-lg m-2 font-medium">
                       <label class="block text-[#4D4D4D] py-2 px-3 text-xs mb-2 pl-3">
                         From Where
                       </label>
                       <Select
                         className="truncate-select"
-                        value={sourceAirport}
                         noOptionsMessage={"No airport found"}
                         isSearchable={true}
                         menuIsOpen={false}
                         placeholder={<FlightTakeoffIcon />}
                         primaryColor={"sky"}
                         isClearable={false}
-                        onChange={handleOrigin}
+                        name={`source.${index}`}
                         options={options}
+                        value={data.source}
+                        onChange={(selectedOption) =>
+                          handleSelectChange(selectedOption, index)
+                        }
+                        getOptionValue={(option) => option.value.id}
+                        getOptionLabel={(option) => option.label}
                       />
                     </div>
                     <svg
@@ -604,58 +602,329 @@ const FieldBooking = () => {
                       <Select
                         classNames={"select-destination"}
                         noOptionsMessage={"No airport found"}
-                        value={destinationAirport}
                         isSearchable={true}
                         menuIsOpen={false}
                         placeholder={<FlightLand />}
                         primaryColor={"sky"}
                         loading={false}
                         isClearable={false}
-                        onChange={handleDestination}
+                        name={`destination.${index}`}
                         options={options}
+                        value={data.destination}
+                        onChange={(selectedOption) =>
+                          handleSelectChange1(selectedOption, index)
+                        }
+                        getOptionValue={(option) => option.value.id}
+                        getOptionLabel={(option) => option.label}
                       />
                     </div>
 
                     <AircraftInput
                       type="date"
+                      name={`depatureDate`}
                       placeholder="Please Select Date"
                       labelText="Leaving On"
+                      value={data.depatureDate}
                       id="id-3"
                       onClick={() => {}}
                       onChange={(e) => {
-                        setDepatureDate(e.target.value);
+                        handleInputChange(e, index);
                       }}
                     />
 
                     <AircraftInput
                       type="time"
                       placeholder="Time"
+                      name={`depatureTime`}
+                      value={data.depatureTime}
                       labelText="Leaving Time"
                       id=""
                       onClick={() => {}}
                       onChange={(e) => {
-                        setDepatureTime(e.target.value);
+                        handleInputChange(e, index);
                       }}
+                    />
+                    
+                    {/* <div className="flex pt-3 gap-4">
+                      <div className="">
+                        <label
+                          htmlFor="numPets"
+                          className="text-xs font-medium"
+                        >
+                          Pets
+                        </label>
+                        <div className="flex items-center  pt-2 border-t-2 border-t-gray-500">
+                          <button
+                            type="button"
+                            className="pl-2 focus:outline-none h-4 pb-4 sign"
+                            onClick={handleSubtractPet}
+                          >
+                            -
+                          </button>
+                          <input
+                            type="number"
+                            id="numPets"
+                            name={`numPets.${index}`}
+                            className="w-12 text-center h-6 border-none outline-none"
+                            value={numPets}
+                            onChange={(e) => handleInputChange(e, index)}
+                          />
+                          <button
+                            type="button"
+                            className="pr-2 focus:outline-none h-4 pb-4 sign-left"
+                            onClick={handleAddPet}
+                          >
+                            +
+                          </button>
+                        </div>
+                      </div>
+                      <div className="">
+                        <label
+                          htmlFor="numChildren"
+                          className="text-xs font-medium"
+                        >
+                          Children
+                        </label>
+                        <div
+                          className="flex items-center pt-2 border-t-2 border-t-gray-500
+"
+                        >
+                          <button
+                            type="button"
+                            className="pl-2 focus:outline-none h-4 pb-4 sign"
+                            onClick={handleSubtractChild}
+                          >
+                            -
+                          </button>
+                          <input
+                            type="text"
+                            id="numChildren"
+                            name="numChildren"
+                            className="w-12 text-center h-6 border-none"
+                            value={numChildren}
+                            onChange={(e) => setNumChildren(e.target.value)}
+                          />
+                          <button
+                            type="button"
+                            className="pr-2 focus:outline-none h-4 pb-4 sign-left"
+                            onClick={handleAddChild}
+                          >
+                            +
+                          </button>
+                        </div>
+                      </div>
+                      <div className="">
+                        <label
+                          htmlFor="numAdults"
+                          className="text-xs font-medium"
+                        >
+                          Adults
+                        </label>
+                        <div className="flex items-center  pt-2 border-t-2 border-t-gray-500">
+                          <button
+                            type="button"
+                            className="pl-2 focus:outline-none h-4 pb-4 sign"
+                            onClick={handleSubtractAdult}
+                          >
+                            -
+                          </button>
+                          <input
+                            type="text"
+                            id="numAdults"
+                            name="numAdults"
+                            className="w-12 border-none text-center h-6"
+                            value={numAdults}
+                            onChange={(e) => setNumAdults(e.target.value)}
+                          />
+                          <button
+                            type="button"
+                            className="pr-2 focus:outline-none h-4 pb-4 sign-left"
+                            onClick={handleAddAdult}
+                          >
+                            +
+                          </button>
+                        </div>
+                      </div>
+                    </div> */}
+                    <div className="flex mt-4">
+                      <div className="w-1/3 pr-2">
+                        <label
+                          className="block mb-2 font-medium text-xs"
+                          htmlFor={`adults-${index}`}
+                        >
+                          Adults
+                        </label>
+                        <div className="flex items-center">
+                          <button
+                            type="button"
+                            onClick={() =>
+                              handlePassengersChange(
+                                "adults",
+                                index,
+                                data.passengers.adults - 1
+                              )
+                            }
+                            className="px-2 py-1 rounded-full bg-gray-200"
+                          >
+                            -
+                          </button>
+                          <span className="mx-4">
+                            {data?.passengers.adults}
+                          </span>
+                          <button
+                            type="button"
+                            onClick={() =>
+                              handlePassengersChange(
+                                "adults",
+                                index,
+                                data.passengers.adults + 1
+                              )
+                            }
+                            className="px-2 py-1 rounded-full bg-gray-200"
+                          >
+                            +
+                          </button>
+                        </div>
+                      </div>
+                      <div className="w-1/3 px-2">
+                        <label
+                          className="block mb-2 font-medium text-xs"
+                          htmlFor={`children-${index}`}
+                        >
+                          Children
+                        </label>
+                        <div className="flex items-center">
+                          <button
+                            type="button"
+                            onClick={() =>
+                              handlePassengersChange(
+                                "children",
+                                index,
+                                data.passengers.children - 1
+                              )
+                            }
+                            className="px-2 py-1 rounded-full bg-gray-200"
+                          >
+                            -
+                          </button>
+                          <span className="mx-4">
+                            {data?.passengers.children}
+                          </span>
+                          <button
+                            type="button"
+                            onClick={() =>
+                              handlePassengersChange(
+                                "children",
+                                index,
+                                data.passengers.children + 1
+                              )
+                            }
+                            className="px-2 py-1 rounded-full bg-gray-200"
+                          >
+                            +
+                          </button>
+                        </div>
+                      </div>
+                      <div className="w-1/3 pl-2">
+                        <label
+                          className="block mb-2 font-medium text-xs"
+                          htmlFor={`pets-${index}`}
+                        >
+                          Pets
+                        </label>
+                        <div className="flex items-center">
+                          <button
+                            type="button"
+                            onClick={() =>
+                              handlePassengersChange(
+                                "pets",
+                                index,
+                                data.passengers.pets - 1
+                              )
+                            }
+                            className="px-2 py-1 rounded-full bg-gray-200"
+                          >
+                            -
+                          </button>
+                          <span className="mx-4">{data?.passengers.pets}</span>
+                          <button
+                            type="button"
+                            onClick={() =>
+                              handlePassengersChange(
+                                "pets",
+                                index,
+                                data.passengers.pets + 1
+                              )
+                            }
+                            className="px-2 py-1 rounded-full bg-gray-200"
+                          >
+                            +
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  {showReturnModal ? (
+            <>
+              <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none ">
+                <div className="relative w-auto my-6 mx-auto max-w-3xl">
+                  {/*content*/}
+                  <div className="border-0 rounded-lg shadow-lg relative bg-white outline-none focus:outline-none passengers-modal w-4/5">
+                    {/*header*/}
+                    <div className="flex items-start justify-between border-b border-solid border-slate-200 rounded-t">
+                      <h3 className="text-md font-semibold text-[#5c0632]">
+                        Return Leg Details
+                      </h3>
+
+                      <button
+                        className="p-1  ml-auto bg-transparent border-0 text-red  float-right text-3xl leading-none close-modal font-semibold outline-none focus:outline-none"
+                        onClick={() => setShowReturnModal(false)}
+                      >
+                        <span className="text-black bg-[#fcf8f8] h-6 w-6 text-2xl block outline-none focus:outline-none">
+                          ×
+                        </span>
+                      </button>
+                    </div>
+                    {/*body*/}
+              
+                    <AircraftInput
+                      type="date"
+                      placeholder="Please Select Date"
+                      labelText="Returning On"
+                      name={`returningDate`}
+                      value={data.returningDate}
+                      id="id-4"
+                      onClick={() => {}}
+                      onChange={(e) => {
+                        handleInputChange(e, index);
+                      }}
+                      hidden={oneWayTrip}
                     />
 
                     <AircraftInput
-                      type="button"
-                      placeholder=""
-                      labelText="Passengers"
-                      value="1"
-                      id=""
-                      onClick={(e) => {
-                        setShowModal(true);
-                      }}
+                      type="time"
+                      placeholder="Time"
+                      name={`returningTime`}
+                      labelText="Returning Time"
+                      value={data.returningTime}
+                      id="id-5"
+                      onClick={() => {}}
                       onChange={(e) => {
-                        setPassengers(e.target.value);
+                        handleInputChange(e, index);
                       }}
-                      icon={<Person2 />}
+                      hidden={oneWayTrip}
                     />
+                    {/*footer*/}
                   </div>
+                </div>
+              </div>
+              <div className="fixed inset-0 z-40 bg-rose-50 bg-opacity-30 backdrop-blur-200"></div>
+            </>
+          ) : null}
                 </div>
               );
             })}
+          
             <div className=" flex justify-center pb-4" id="add-fields-multi">
               {addReturnBtn && addReturnBtn === true ? (
                 <button
@@ -673,7 +942,8 @@ const FieldBooking = () => {
                   type="button"
                   className="add-button"
                   onClick={() => {
-                    subMultiBookForm();
+                    //subMultiBookForm();
+                    handleAddForm();
                   }}
                 >
                   <AddIcon /> Add more
@@ -687,7 +957,7 @@ const FieldBooking = () => {
               type="submit"
               class="py-3 space-y-0.5 px-6 mr-6 mb-4 text-sm font-medium go-btn text-[#961054] hover:text-white focus:outline-none hover:bg-[#961054] rounded-full border-2  border-[#961054]  bg-gray-100 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:border-gray-600 dark:hover:text-white dark:hover:bg-[#5C0632] w-48"
               onClick={() => {
-                submitBookingInfo("multi");
+                subMultiBookForm();
               }}
             >
               <span className="mr-2"> Let's go</span>
@@ -836,60 +1106,224 @@ const FieldBooking = () => {
             </>
           ) : null}
 
-          {showReturnModal ? (
-            <>
-              <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none ">
-                <div className="relative w-auto my-6 mx-auto max-w-3xl">
-                  {/*content*/}
-                  <div className="border-0 rounded-lg shadow-lg relative bg-white outline-none focus:outline-none passengers-modal w-4/5">
-                    {/*header*/}
-                    <div className="flex items-start justify-between border-b border-solid border-slate-200 rounded-t">
-                      <h3 className="text-md font-semibold text-[#5c0632]">
-                        Return Leg Details
-                      </h3>
-
-                      <button
-                        className="p-1  ml-auto bg-transparent border-0 text-red  float-right text-3xl leading-none close-modal font-semibold outline-none focus:outline-none"
-                        onClick={() => setShowReturnModal(false)}
-                      >
-                        <span className="text-black bg-[#fcf8f8] h-6 w-6 text-2xl block outline-none focus:outline-none">
-                          ×
-                        </span>
-                      </button>
-                    </div>
-                    {/*body*/}
-                    <AircraftInput
-                      type="date"
-                      placeholder="Please Select Date"
-                      labelText="Returning On"
-                      id="id-4"
-                      onClick={() => {}}
-                      onChange={(e) => {
-                        setReturningDate(e.target.value);
-                      }}
-                      hidden={oneWayTrip}
-                    />
-
-                    <AircraftInput
-                      type="time"
-                      placeholder="Time"
-                      labelText="Returning Time"
-                      id="id-5"
-                      onClick={() => {}}
-                      onChange={(e) => {
-                        setReturningTime(e.target.value);
-                      }}
-                      hidden={oneWayTrip}
-                    />
-                    {/*footer*/}
-                  </div>
-                </div>
-              </div>
-              <div className="fixed inset-0 z-40 bg-rose-50 bg-opacity-30 backdrop-blur-200"></div>
-            </>
-          ) : null}
+        
         </div>
       </div>
+      {/* {loading === true ? (
+        <div className="w-full text-left font-Aeonik text-rgba(77,77,77,1) field-booking-loading ">
+          <div>
+            <div className="bg-white 2xl:w-fit xl:w-fit lg:w-fit md:w-3/5 sm:w-full mr-auto ml-auto border rounded rounded-lg mb-12 justify-center ">hello</div>
+            <h1 className="justify-center flex  text-center">
+              <svg
+                width="95"
+                height="110"
+                viewBox="0 0 135 140"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="#fff"
+              >
+                <rect y="10" width="15" height="120" rx="6">
+                  <animate
+                    attributeName="height"
+                    begin="0.5s"
+                    dur="1s"
+                    values="120;110;100;90;80;70;60;50;40;140;120"
+                    calcMode="linear"
+                    repeatCount="indefinite"
+                  />
+                  <animate
+                    attributeName="y"
+                    begin="0.5s"
+                    dur="1s"
+                    values="10;15;20;25;30;35;40;45;50;0;10"
+                    calcMode="linear"
+                    repeatCount="indefinite"
+                  />
+                </rect>
+                <rect x="30" y="10" width="15" height="120" rx="6">
+                  <animate
+                    attributeName="height"
+                    begin="0.25s"
+                    dur="1s"
+                    values="120;110;100;90;80;70;60;50;40;140;120"
+                    calcMode="linear"
+                    repeatCount="indefinite"
+                  />
+                  <animate
+                    attributeName="y"
+                    begin="0.25s"
+                    dur="1s"
+                    values="10;15;20;25;30;35;40;45;50;0;10"
+                    calcMode="linear"
+                    repeatCount="indefinite"
+                  />
+                </rect>
+                <rect x="60" width="15" height="140" rx="6">
+                  <animate
+                    attributeName="height"
+                    begin="0s"
+                    dur="1s"
+                    values="120;110;100;90;80;70;60;50;40;140;120"
+                    calcMode="linear"
+                    repeatCount="indefinite"
+                  />
+                  <animate
+                    attributeName="y"
+                    begin="0s"
+                    dur="1s"
+                    values="10;15;20;25;30;35;40;45;50;0;10"
+                    calcMode="linear"
+                    repeatCount="indefinite"
+                  />
+                </rect>
+                <rect x="90" y="10" width="15" height="120" rx="6">
+                  <animate
+                    attributeName="height"
+                    begin="0.25s"
+                    dur="1s"
+                    values="120;110;100;90;80;70;60;50;40;140;120"
+                    calcMode="linear"
+                    repeatCount="indefinite"
+                  />
+                  <animate
+                    attributeName="y"
+                    begin="0.25s"
+                    dur="1s"
+                    values="10;15;20;25;30;35;40;45;50;0;10"
+                    calcMode="linear"
+                    repeatCount="indefinite"
+                  />
+                </rect>
+                <rect x="120" y="10" width="15" height="120" rx="6">
+                  <animate
+                    attributeName="height"
+                    begin="0.5s"
+                    dur="1s"
+                    values="120;110;100;90;80;70;60;50;40;140;120"
+                    calcMode="linear"
+                    repeatCount="indefinite"
+                  />
+                  <animate
+                    attributeName="y"
+                    begin="0.5s"
+                    dur="1s"
+                    values="10;15;20;25;30;35;40;45;50;0;10"
+                    calcMode="linear"
+                    repeatCount="indefinite"
+                  />
+                </rect>
+              </svg>
+            </h1>
+          </div>
+          <div class="flex items-center gap-2">
+                <div class="bg-gray-200 border border-gray-200 w-16 h-5 animate-pulse"></div>
+                <span class="bg-tertiary h-1 w-1 rounded animate-pulse"></span>
+                <div class="bg-gray-200 border border-gray-200 w-16 h-5 animate-pulse"></div>
+            </div>
+        </div>
+      ) : (
+        <div className="bg-white w-full text-left font-Aeonik text-rgba(77,77,77,1)" >
+          {flights && flights.length > 0 ? (
+            <div className="">
+              <h2 className="bg-[#ffffff] text-center text-[2em] pt-24">
+                Empty Legs
+              </h2>
+              <Slide
+                slidesToScroll={4}
+                slidesToShow={4}
+                indicators={false}
+                responsive={responsiveSettings}
+                canSwipe={true}
+                duration={1000}
+                transitionDuration={1000}
+              >
+                {flights?.map((data, i) => (
+                  <a
+                    href="#"
+                    class="block rounded-lg p-4  m-10 group/item hover:bg-[#eeece18c] sfc transition overflow-hidden h-108"
+                    onClick={() => {
+                      history.push(`/EstimatedPage`);
+                      localStorage.setItem(
+                        "bookingDetails",
+                        JSON.stringify({
+                          tripType: data?.flight_type,
+                          source: data?.departure_airport,
+                          destination: data?.destination_airport,
+                          depatureDate: data?.departure_time,
+                          depatureTime: data?.arrival_time,
+                          adults: data?.aircraft.no_of_seats,
+                          aircraft: data?.aircraft,
+                        })
+                      );
+                      localStorage.setItem(
+                        "sharedAircraft",
+                        JSON.stringify({
+                          aircraft: data?.aircraft,
+                        })
+                      );
+                    }}
+                  >
+                    <div className="overflow-hidden rounded-lg">
+                      <img
+                        alt="Home"
+                        src={data?.aircraft.image_url}
+                        class="h-56 w-full rounded-md object-cover shared-flight-img overflow-hidden transition hover:scale-125"
+                        data-aos="fade-up"
+                        data-aos-duration="1000"
+
+                        data-aos-easing="ease-in-sine"
+                      />
+                    </div>
+                    <div className="mt-2 shared-flight-time">
+                      <dl>
+                        <div>
+                          <dd class="text-white mt-2 shared-flight-time-date" >
+                            Next Flight: 24th March 2023 at {data.arrival_time}
+                          </dd>
+                        </div>
+                      </dl>
+                    </div>
+                    <div class="mt-0">
+                      <dl>
+                        <div>
+                          <dt class="sr-only">Address</dt>
+
+                          <dd class="route">
+                            Abuja, Nigeria - Lagos, Nigeria
+                          </dd>
+                        </div>
+                        <div>
+                          <dt class="sr-only">Price</dt>
+
+                          <dd class="text-md text-gray-500 cost">$5500</dd>
+                        </div>
+                      </dl>
+
+                      <div class=" mt-3 flex items-center justify-between text-sm">
+                        <div class="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2">
+                          <div class="mt-1.5 sm:mt-0">
+                            <p class="text-gray-500">Passengers</p>
+
+                            <p class="font-bold">9</p>
+                          </div>
+                        </div>
+
+                        <div class="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2">
+                          <div class="mt-1.5 sm:mt-0">
+                            <p class="text-gray-500">Travel Class</p>
+
+                            <p class="font-bold">Standard</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                ))}
+              </Slide>
+            </div>
+          ) : null}
+
+        </div>
+      )} */}
       <div className="bg-[#eeece1] pb-12">
         <div className="w-1/2 mr-auto ml-auto aircraft-display  text-center">
           <h3
@@ -927,15 +1361,18 @@ const FieldBooking = () => {
           ))}
         </div>
         <div className="flex justify-center">
-          <button class="bg-[#5C0632] hover:bg-[#5C0632] hover:text-white border text-[#ffffff] font-bold py-3 px-6 rounded-full">
+          <a
+            href="/aircraft"
+            class="bg-[#5C0632] hover:bg-[#5C0632] hover:text-white border text-[#ffffff] font-bold py-3 px-6 rounded-full"
+          >
             Explore And Find Aircrafts
-          </button>
+          </a>
         </div>
       </div>
       <div className="bg-white">
         <div
           className="w-1/2 mr-auto ml-auto text-center"
-          data-aos="zoom-in"
+          data-aos="1000"
           data-aos-duration="2000"
           data-aos-easing="ease-out-cubic"
         >
@@ -968,6 +1405,7 @@ const FieldBooking = () => {
             Explore All Destinations
           </a>
         </div>
+        <div></div>
       </div>
       <ToastContainer />
     </>
@@ -975,3 +1413,301 @@ const FieldBooking = () => {
 };
 
 export default withRouter(FieldBooking);
+
+// import React, { useState } from "react";
+// import Select from "react-select";
+
+// const MultiFlightForm = () => {
+//   const [airports, setAirports] = useState(data);
+//   const [trips, setTrips] = useState([
+//     { from: "", to: "", departureDate: "", returnDate: "" },
+//   ]);
+//   const [addMoreBtn, setAddMoreBtn] = useState(false);
+//   const [addReturnBtn, setAddReturnBtn] = useState(false);
+//   const [tripType, setTripType] = useState("one-way");
+//   const [errors, setErrors] = useState([]);
+
+//   const handleAddTrip = () => {
+//     setTrips([
+//       ...trips,
+//       { from: "", to: "", departureDate: "", returnDate: "" },
+//     ]);
+//   };
+
+//   const handleTripTypeChange = (e) => {
+//     setTripType(e.target.value);
+//     setTrips([{ from: "", to: "", departureDate: "", returnDate: "" }]);
+//     setErrors([]);
+//   };
+
+//   const validateForm = () => {
+//     const newErrors = [];
+//     trips.forEach((trip, index) => {
+//       if (!trip.from || !trip.to || !trip.departureDate) {
+//         newErrors.push(
+//           `Trip ${index + 1}: Please fill in all required fields.`
+//         );
+//       }
+//     });
+//     setErrors(newErrors);
+//     return newErrors.length === 0;
+//   };
+
+//   const handleInputChange = (e, index) => {
+//     const { name, value } = e.target;
+//     const newTrips = [...trips];
+//     newTrips[index][name] = value;
+//     setTrips(newTrips);
+//   };
+
+//   const handleSelectChange = (selectedOption, index, field) => {
+//     const newTrips = [...trips];
+//     newTrips[index][field] = selectedOption;
+//     setTrips(newTrips);
+//   };
+
+//   const handleSubmit = (e) => {
+//     e.preventDefault();
+//     if (validateForm()) {
+//       console.log(trips);
+//     }
+//   };
+//   const options = airports.map((item, i) => ({
+//     label:
+//       item.name +
+//       " - " +
+//       item.city +
+//       " - " +
+//       item.iata_code +
+//       " - " +
+//       item.country,
+//     value: item,
+//   }));
+//   return (
+//     <form onSubmit={handleSubmit} className="w-full max-w-md mx-auto">
+//       <div className="my-4">
+//         <label className="block text-gray-700 font-bold mb-2">Trip Type:</label>
+//         <div className="inline-block relative w-64">
+//           <select
+//             className="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline"
+//             value={tripType}
+//             onChange={handleTripTypeChange}
+//           >
+//             <option value="one-way">One-Way Trip</option>
+//             <option value="round-trip">Round-Trip</option>
+//             <option value="multi-city">Multi-City Trip</option>
+//           </select>
+//           <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+//             <svg
+//               className="fill-current h-4 w-4"
+//               xmlns="http://www.w3.org/2000/svg"
+//               viewBox="0 0 20 20"
+//             >
+//               <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
+//               <path
+//                 fillRule="evenodd"
+//                 d="M18 10a8.944 0 0 0-.146-.277l-6-8a1.003 1.003 0 0 0-1.554 0l-6 8a1.003 1.003 0 0 0 .146 1.277l.083.083a1.003 1.003 0 0 0 1.277-.146L10 7.724l4.146 5.53a1.003 1.003 0 0 0 1.277.146l.083-.083a1.003 1.003 0 0 0 .146-1.277z"
+//               />
+//             </svg>
+//           </div>
+//         </div>
+//       </div>
+//       {trips.map((trip, index) => (
+//         <div key={index} className="border border-gray-400 rounded p-4 mb-4">
+//           <h2 className="text-xl font-bold mb-4">Trip {index + 1}</h2>
+//           <div className="mb-4">
+//             <label className="block text-gray-700 font-bold mb-2">From:</label>
+//             <Select
+//               options={options}
+//               value={trip.from}
+//               onChange={(selectedOption) =>
+//                 handleSelectChange(selectedOption, index, "from")
+//               }
+//             />
+//           </div>
+//           <div className="mb-4">
+//             <label className="block text-gray-700 font-bold mb-2">To:</label>
+//             <Select
+//               options={options}
+//               value={trip.to}
+//               onChange={(selectedOption) =>
+//                 handleSelectChange(selectedOption, index, "to")
+//               }
+//             />
+//           </div>
+//           <div className="mb-4">
+//             <label className="block text-gray-700 font-bold mb-2">
+//               Departure Date:
+//             </label>
+//             <input
+//               className="appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline"
+//               type="date"
+//               name="departureDate"
+//               value={trip.departureDate}
+//               onChange={(e) => handleInputChange(e, index)}
+//             />
+//           </div>
+//           {tripType === "round-trip" && (
+//             <div className="mb-4">
+//               <label className="block text-gray-700 font-bold mb-2">
+//                 Return Date:
+//               </label>
+//               <input
+//                 className="appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline"
+//                 type="date"
+//                 name="returnDate"
+//                 value={trip.returnDate}
+//                 onChange={(e) => handleInputChange(e, index)}
+//               />
+//             </div>
+//           )}
+//              <form id="flight-booking-form" autoComplete="off">
+
+//                 <div>
+//                   <div class="2xl:flex xl:flex  lg:flex  p-3" key={index}>
+//                     <div className="mt-2 mb-2 ai-div rounded-lg m-2 font-medium">
+//                       <label class="block text-[#4D4D4D] py-2 px-3 text-xs mb-2 pl-3">
+//                         From Where
+//                       </label>
+//                       <Select
+//                           options={options}
+//                           value={trip.from}
+//                           onChange={(selectedOption) =>
+//                             handleSelectChange(selectedOption, index, "from")
+//                           }
+//                         className="truncate-select"
+
+//                       />
+//                     </div>
+//                     <svg
+//                       width="40"
+//                       className="route-icon"
+//                       height="40"
+//                       viewBox="0 0 32 32"
+//                       fill="none"
+//                       xmlns="http://www.w3.org/2000/svg"
+//                     >
+//                       <rect width="32" height="32" rx="16" fill="#FCF9FC" />
+//                       <path
+//                         d="M15.29 19.71C15.4299 19.851 15.6086 19.9472 15.8033 19.9863C15.9981 20.0253 16.2 20.0055 16.3835 19.9294C16.5669 19.8532 16.7235 19.7241 16.8333 19.5586C16.9431 19.3931 17.0012 19.1986 17 19C16.9963 18.7352 16.8927 18.4816 16.71 18.29C16.5694 18.1512 16.3908 18.0572 16.1968 18.0199C16.0028 17.9825 15.8021 18.0034 15.62 18.08C15.4972 18.1276 15.3851 18.199 15.29 18.29C15.1073 18.4816 15.0037 18.7352 15 19C14.9992 19.1316 15.0245 19.2621 15.0742 19.3839C15.124 19.5057 15.1973 19.6166 15.29 19.71ZM23.91 19.51H19.38C19.1148 19.51 18.8604 19.6154 18.6729 19.8029C18.4854 19.9904 18.38 20.2448 18.38 20.51C18.38 20.7752 18.4854 21.0296 18.6729 21.2171C18.8604 21.4046 19.1148 21.51 19.38 21.51H21.78C20.6769 22.6627 19.2544 23.4593 17.6952 23.7974C16.1359 24.1355 14.5112 23.9996 13.0298 23.4072C11.5483 22.8149 10.2779 21.7931 9.38159 20.4732C8.48531 19.1532 8.00418 17.5955 8 16C8 15.7348 7.89464 15.4804 7.70711 15.2929C7.51957 15.1054 7.26522 15 7 15C6.73478 15 6.48043 15.1054 6.29289 15.2929C6.10536 15.4804 6 15.7348 6 16C6.00529 17.9528 6.58222 19.8613 7.6596 21.49C8.73699 23.1187 10.2677 24.3964 12.0627 25.1652C13.8578 25.9341 15.8387 26.1605 17.761 25.8166C19.6833 25.4727 21.4628 24.5735 22.88 23.23V25C22.88 25.2652 22.9854 25.5196 23.1729 25.7071C23.3604 25.8946 23.6148 26 23.88 26C24.1452 26 24.3996 25.8946 24.5871 25.7071C24.7746 25.5196 24.88 25.2652 24.88 25V20.5C24.8775 20.2416 24.7752 19.9943 24.5943 19.8097C24.4135 19.6251 24.1683 19.5177 23.91 19.51ZM16 6C13.4364 6.00731 10.9735 6.99891 9.12 8.77V7C9.12 6.73478 9.01464 6.48043 8.82711 6.29289C8.63957 6.10536 8.38522 6 8.12 6C7.85478 6 7.60043 6.10536 7.41289 6.29289C7.22536 6.48043 7.12 6.73478 7.12 7V11.5C7.12 11.7652 7.22536 12.0196 7.41289 12.2071C7.60043 12.3946 7.85478 12.5 8.12 12.5H12.62C12.8852 12.5 13.1396 12.3946 13.3271 12.2071C13.5146 12.0196 13.62 11.7652 13.62 11.5C13.62 11.2348 13.5146 10.9804 13.3271 10.7929C13.1396 10.6054 12.8852 10.5 12.62 10.5H10.22C11.3225 9.34787 12.7441 8.5515 14.3024 8.21311C15.8607 7.87472 17.4846 8.00975 18.9656 8.60086C20.4466 9.19198 21.7172 10.2122 22.6142 11.5306C23.5113 12.849 23.9938 14.4054 24 16C24 16.2652 24.1054 16.5196 24.2929 16.7071C24.4804 16.8946 24.7348 17 25 17C25.2652 17 25.5196 16.8946 25.7071 16.7071C25.8946 16.5196 26 16.2652 26 16C26 14.6868 25.7413 13.3864 25.2388 12.1732C24.7362 10.9599 23.9997 9.85752 23.0711 8.92893C22.1425 8.00035 21.0401 7.26375 19.8268 6.7612C18.6136 6.25866 17.3132 6 16 6ZM16 17C16.2652 17 16.5196 16.8946 16.7071 16.7071C16.8946 16.5196 17 16.2652 17 16V13C17 12.7348 16.8946 12.4804 16.7071 12.2929C16.5196 12.1054 16.2652 12 16 12C15.7348 12 15.4804 12.1054 15.2929 12.2929C15.1054 12.4804 15 12.7348 15 13V16C15 16.2652 15.1054 16.5196 15.2929 16.7071C15.4804 16.8946 15.7348 17 16 17Z"
+//                         fill="#5C0632"
+//                       />
+//                       <rect
+//                         x="14"
+//                         y="11"
+//                         width="4"
+//                         height="10"
+//                         fill="#FCF9FC"
+//                       />
+//                     </svg>
+
+//                     <div className="mt-2 mb-2 ai-div rounded-lg m-2 special-destination font-medium">
+//                       <label class="block text-[#4D4D4D] py-2 px-3 text-xs mb-2 pl-3 ">
+//                         To Where
+//                       </label>
+//                       <Select
+//                         classNames={"select-destination"}
+//                         options={options}
+//                         value={trip.to}
+//                         onChange={(selectedOption) =>
+//                           handleSelectChange(selectedOption, index, "to")
+//                         }
+//                       />
+//                     </div>
+
+//                     <AircraftInput
+//                       type="date"
+//                       name={`formData[${index}].date`}
+//                       placeholder="Please Select Date"
+//                       labelText="Leaving On"
+//                       id="id-3"
+//                       onClick={() => {}}
+//                       onChange={(e) => {
+//                        // setDepatureDate(e.target.value);
+//                       }}
+//                     />
+
+//                     <AircraftInput
+//                       type="time"
+//                       placeholder="Time"
+//                       name={`formData[${index}].time`}
+//                       labelText="Leaving Time"
+//                       id=""
+//                       onClick={() => {}}
+//                       onChange={(e) => {
+//                         //setDepatureTime(e.target.value);
+//                       }}
+//                     />
+
+//                     <AircraftInput
+//                       type="button"
+//                       placeholder=""
+//                       labelText="Passengers"
+//                       value="1"
+//                       id=""
+//                       onClick={(e) => {
+//                        // setShowModal(true);
+//                       }}
+//                       onChange={(e) => {
+//                        // setPassengers(e.target.value);
+//                       }}
+//                       icon={<Person2 />}
+//                     />
+//                   </div>
+//                 </div>
+
+//             <div className=" flex justify-center pb-4" id="add-fields-multi">
+//               {addReturnBtn && addReturnBtn === true ? (
+//                 <button
+//                   type="button"
+//                   className="add-button"
+//                   onClick={() => {
+//                     //setShowReturnModal(true);
+//                   }}
+//                 >
+//                   <AddIcon /> Add Returning Details
+//                 </button>
+//               ) : null}
+//               {addMoreBtn && addMoreBtn === true ? (
+//                 <button
+//                   type="button"
+//                   className="add-button"
+//                   onClick={() => {
+//                     //subMultiBookForm();
+//                   //  handleAddForm();
+//                   }}
+//                 >
+//                   <AddIcon /> Add more
+//                 </button>
+//               ) : null}
+//             </div>
+//           </form>
+//         </div>
+//       ))}
+//       {errors.length > 0 && (
+//         <div className="mb-4">
+//           {errors.map((error) => (
+//             <p key={error} className="text-red-500 mb-2">
+//               {error}
+//             </p>
+//           ))}
+//         </div>
+//       )}
+//       <button
+//         className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+//         type="button"
+//       //  onClick={handleAddTrip}
+//       >
+//         Add Another Trip
+//       </button>
+//       <button
+//         className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded ml-4"
+//         type="submit"
+//       >
+//         Submit
+//       </button>
+//     </form>
+//   );
+// };
+
+// export default MultiFlightForm;

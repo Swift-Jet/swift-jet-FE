@@ -48,7 +48,7 @@
 }
 
 .alh-title {
-    font-family: 'Minion Pro' !important;
+   
     font-weight: 600;
 }
 
@@ -63,7 +63,7 @@
     .field-booking {
 
         padding-top: 100px;
-        background: #fff;
+        background: #eeece1;
     }
     .acb-icons{
         width: 97% !important;

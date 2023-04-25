@@ -7,6 +7,7 @@ import { AircraftsContext } from "../../context/aircraft-context";
 
 const EstimateCost = () => {
   const booking = JSON.parse(localStorage.getItem("bookingDetails"));
+  
   const [bookDetails, setBookDetails] = useState(booking);
   const [filteredResults, setFilteredResults] = useState([]);
   const [showModal, setShowModal] = React.useState(true);
