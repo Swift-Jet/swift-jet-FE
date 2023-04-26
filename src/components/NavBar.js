@@ -4,6 +4,7 @@ import { useHistory } from "react-router-dom";
 import ArrowCircleLeftOutlinedIcon from "@mui/icons-material/ArrowCircleLeftOutlined";
 import PersonAddAltOutlinedIcon from "@mui/icons-material/PersonAddAltOutlined";
 import "../components/styles.css";
+import { AccountCircle, Flight, Logout, Person2Outlined, Person2Sharp } from "@mui/icons-material";
 
 export default function NavBar() {
   const history = useHistory();
@@ -15,7 +16,6 @@ export default function NavBar() {
     localStorage.removeItem("airports");
     history.push("/");
   };
- 
 
   return (
     <header class="absolute top-0 left-0 w-full flex justify-center">
@@ -173,7 +173,7 @@ export default function NavBar() {
                       <ArrowCircleLeftOutlinedIcon /> Sign In
                     </button>
                     <button
-                      class="text-white ml-1 button-2 border-2 border-rose-900 bg-[#961054] hover:bg-rose-900 hover:text-white active:bg-rose-900  rounded-full outline-none focus:outline-none ease-linear transition-all duration-150- px-3 py-1  "
+                      class="text-white button-2 border-2 border-rose-900 bg-[#961054] hover:bg-rose-900 hover:text-white active:bg-rose-900  rounded-full outline-none focus:outline-none ease-linear transition-all duration-150- px-3 py-1  "
                       type="button"
                       onClick={() => {
                         history.push("/registration");
@@ -207,9 +207,25 @@ export default function NavBar() {
                    
                   </ul>
                 </div>
-                <div aria-hidden="true" class="container h-4 -mt-6 mx-auto bg-green-600/30 dark:bg-green-900/30 blur md:-mt-4"></div>
-            </nav>
-        </header>
-
+                //   <button
+                //   class="text-white button-2 border-2 border-rose-900 bg-[#961054] hover:bg-rose-900 hover:text-white active:bg-rose-900  rounded-full outline-none focus:outline-none ease-linear transition-all duration-150- px-3 py-1  "
+                //   type="button"
+                //   onClick={() => {
+                //     history.push("/registration");
+                //   }}
+                // >
+                //   <AccountCircle /> 
+                // </button>
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          aria-hidden="true"
+          class="container h-4 -mt-6 mx-auto bg-green-600/30 dark:bg-green-900/30 blur md:-mt-4"
+        ></div>
+      </nav>
+    </header>
   );
 }
