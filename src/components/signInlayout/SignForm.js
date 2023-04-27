@@ -150,11 +150,11 @@ const SignForm = () => {
               </div>
             </div>
             <div class="flex flex-row justify-between ">
-              <a href="#" class="text-rose-900">
+              <a href="/reset-password" class="text-rose-900">
                 {" "}
                 Forget Password
               </a>
-              <a href="#" class="text-rose-900">
+              <a href="/registration" class="text-rose-900">
                 {" "}
                 Register
               </a>
