@@ -1,15 +1,43 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import logoprimary from "../image/logoprimary.png";
 import { useHistory } from "react-router-dom";
 import ArrowCircleLeftOutlinedIcon from "@mui/icons-material/ArrowCircleLeftOutlined";
 import PersonAddAltOutlinedIcon from "@mui/icons-material/PersonAddAltOutlined";
 import "../components/styles.css";
-import { AccountCircle, Flight, Logout, Person2Outlined, Person2Sharp } from "@mui/icons-material";
+import {
+  AccountCircle,
+  Call,
+  Email,
+  Flight,
+  Logout,
+  Person2Outlined,
+  Person2Sharp,
+  WhatsApp,
+} from "@mui/icons-material";
 
 export default function NavBar() {
   const history = useHistory();
   const [navbar, setNavbar] = useState(false);
 
+  const [visible, setVisible] = useState(false);
+
+  const toggleVisible = () => {
+    const scrolled = document.documentElement.scrollTop;
+    if (scrolled > 300) {
+      setVisible(true);
+    } else if (scrolled <= 300) {
+      setVisible(false);
+    }
+  };
+
+  const scrollToBottom = () => {
+    window.scrollTo({
+      top: document.documentElement.scrollHeight,
+      behavior: "smooth",
+    });
+  };
+
+  window.addEventListener("scroll", toggleVisible);
   const logout = () => {
     localStorage.setItem("authenticated", JSON.stringify(false));
     localStorage.removeItem("user");
@@ -71,7 +99,7 @@ export default function NavBar() {
               </div>
               <label
                 for="toggle_nav"
-                class="hidden peer-checked:block fixed w-full h-full left-0 top-0 z-10 bg-rose-100 bg-opacity-30 backdrop-blur backdrop-filter"
+                class="hidden peer-checked:block fixed w-full h-full left-0 top-0 z-10 bg-rose-100 backdrop-filter"
               ></label>
               <div class="hidden z-40 peer-checked:flex w-11/12  md:mx-0 flex-col justify-end items-center gap-y-8 p-6 rounded-xl bg-white dark:bg-gray-800 md:flex md:w-full  md:gap-y-0 md:gap-x-1 md:divide-x md:p-0  md:flex-row md:bg-transparent lg:w-7/12 mx-lg-none">
                 <div class="block w-full md:w-max">
@@ -86,19 +114,7 @@ export default function NavBar() {
                         </div>
                       </a>
                     </li>
-                    <li>
-                      <a href="#" class="block md:pr-4 group">
-                        <div
-                          class="relative group
-                                                            before:absolute before:-bottom-2 md:before:-bottom-3 before:w-full before:h-0.5 before:origin-left before:mt-auto before:rounded-full before:bg-rose-800 before:transition before:scale-x-0 group-hover:before:scale-x-100"
-                          id="about-us"
-                        >
-                          <span class="group-hover:text-rose-900 lg:text-xs ">
-                            About Us
-                          </span>
-                        </div>
-                      </a>
-                    </li>
+                   
                     <li>
                       <a href="/aircraft" class="block md:pr-4 group">
                         <div
@@ -123,41 +139,139 @@ export default function NavBar() {
                         </div>
                       </a>
                     </li>
-                    <li>
-                      <a href="/services" class="block md:pr-4 group">
-                        <div
-                          class="relative group
-                                                            before:absolute before:-bottom-2 md:before:-bottom-3 before:w-full before:h-0.5 before:origin-left before:mt-auto before:rounded-full before:bg-rose-800 before:transition before:scale-x-0 group-hover:before:scale-x-100"
-                        >
-                          <span class="group-hover:text-rose-900 lg:text-xs">
-                            Services
-                          </span>
-                        </div>
+                    <li className="dropdown dropdown-end dropdown-hover">
+                      <a
+                        tabIndex={0}
+                        className="bg-white text-[#5c0632] block md:pr-4 group "
+                      >
+                        Company
                       </a>
+                      <ul
+                        tabIndex={0}
+                        className="dropdown-content menu p-2 shadow rounded-box w-52"
+                      >
+                        <div>
+                          <div>
+                            <li className="bg-white hover:bg-[#ececec] shadow rounded-box">
+                              <a className="text-[#961054] text-xs">About Us</a>
+                              <a className="text-[#961054] text-xs">Reviews</a>
+                              <a className="text-[#961054] text-xs">Careers</a>
+                            </li>
+                          </div>
+                        </div>
+                      </ul>
                     </li>
-                    <li>
-                      <a href="/contact" class="block md:pr-4 group">
-                        <div
-                          class="relative group
-                                                            before:absolute before:-bottom-2 md:before:-bottom-3 before:w-full before:h-0.5 before:origin-left before:mt-auto before:rounded-full before:bg-rose-800 before:transition before:scale-x-0 group-hover:before:scale-x-100"
-                        >
-                          <span class="group-hover:text-rose-900 lg:text-xs">
-                            Contact
-                          </span>
-                        </div>
+                    <li className="dropdown dropdown-end dropdown-hover">
+                      <a
+                        tabIndex={0}
+                        className="bg-white text-[#5c0632] block md:pr-4 group "
+                      >
+                        Our Services
                       </a>
+                      <ul
+                        tabIndex={0}
+                        className="dropdown-content menu p-2 shadow rounded-box w-52"
+                      >
+                        <div>
+                          <div>
+                            <li className="bg-white hover:bg-[#ececec] shadow rounded-box dd-link">
+                              <a
+                                className="text-[#961054] text-xs dd-link"
+                                onClick={scrollToBottom}
+                              >
+                                Inflight catering
+                              </a>
+                              <a
+                                className="text-[#961054] text-xs"
+                                onClick={scrollToBottom}
+                              >
+                                Medical evac
+                              </a>
+                            </li>
+                          </div>
+                        </div>
+                      </ul>
                     </li>
-                    <li>
-                      <a href="/faq" class="block md:pr-4 group">
-                        <div
-                          class="relative group
-                                                            before:absolute before:-bottom-2 md:before:-bottom-3 before:w-full before:h-0.5 before:origin-left before:mt-auto before:rounded-full before:bg-rose-800 before:transition before:scale-x-0 group-hover:before:scale-x-100"
-                        >
-                          <span class="group-hover:text-rose-900 lg:text-xs">
-                            FAQ
-                          </span>
-                        </div>
+
+                    <li className="dropdown dropdown-end dropdown-hover">
+                      <a
+                        tabIndex={0}
+                        className="bg-white text-[#5c0632] block md:pr-4 group "
+                      >
+                        Contact Us
                       </a>
+                      <ul
+                        tabIndex={0}
+                        className="dropdown-content menu p-2 shadow rounded-box w-52 "
+                      >
+                        <div>
+                          <div>
+                            <li className="bg-white hover:bg-[#ececec] focus:bg-[#ececec] shadow rounded-box">
+                              <a
+                                className="text-[#961054] text-xs"
+                                onClick={scrollToBottom}
+                              >
+                                Call us 
+                              </a>
+                              <a
+                                className="text-[#961054] text-xs"
+                                onClick={scrollToBottom}
+                              >
+                                WhatsApp Us 
+                              </a>
+                              <a
+                                className="text-[#961054] text-xs"
+                                onClick={scrollToBottom}
+                              >
+                                Email Us 
+                              </a>
+                            </li>
+                          </div>
+                        </div>
+                      </ul>
+                    </li>
+                    <li className="dropdown dropdown-end dropdown-hover">
+                      <a
+                        tabIndex={0}
+                        className="bg-white text-[#5c0632] block md:pr-4 group "
+                      >
+                        Resources
+                      </a>
+                      <ul
+                        tabIndex={0}
+                        className="dropdown-content menu p-2 shadow rounded-box w-52"
+                      >
+                        <div>
+                          <div>
+                            <li className="bg-white hover:bg-[#ececec] focus:bg-[#ececec] shadow rounded-box">
+                              <a
+                                className="text-[#961054] text-xs"
+                                onClick={scrollToBottom}
+                              >
+                                Terms of use
+                              </a>
+                              <a
+                                className="text-[#961054] text-xs"
+                                onClick={scrollToBottom}
+                              >
+                                Privacy Policy
+                              </a>
+                              <a
+                                className="text-[#961054] text-xs"
+                                onClick={scrollToBottom}
+                              >
+                                Press & Media
+                              </a>
+                              <a
+                                className="text-[#961054] text-xs"
+                                onClick={scrollToBottom}
+                              >
+                                FAQ
+                              </a>
+                            </li>
+                          </div>
+                        </div>
+                      </ul>
                     </li>
                   </ul>
                 </div>
@@ -184,38 +298,47 @@ export default function NavBar() {
                   </div>
                 ) : (
                   <div className="dropdown dropdown-end dropdown-hover">
-                  <label
-                    tabIndex={0}
-                    className="bg-white text-[#5c0632] text-xs m-1"
-                  >
-                   <Person2Outlined />
-                  </label>
-                  <ul
-                    tabIndex={0}
-                    className="dropdown-content menu p-2 shadow rounded-box w-52 bg-white "
-                  >
-                    
+                    <label
+                      tabIndex={0}
+                      className="bg-white text-[#5c0632] text-xs m-1"
+                    >
+                      <Person2Outlined />
+                    </label>
+                    <ul
+                      tabIndex={0}
+                      className="dropdown-content menu p-2 shadow rounded-box w-52 bg-white "
+                    >
                       <div>
                         <div>
                           <li className="bg-white hover:bg-[#ececec] hover:text-white ">
-                            <a className="text-black text-xs hover:text-white" >Profile  <Person2Sharp /></a>
-                            <a className="text-black text-xs hover:text-white">Flights <Flight /> </a>
-                            <a className="text-black text-xs hover:text-white text-end" onClick={() => {logout()}}>Logout <Logout/></a>
+                            <a className="text-black text-xs hover:text-white">
+                              Profile <Person2Sharp />
+                            </a>
+                            <a className="text-black text-xs hover:text-white">
+                              Flights <Flight />{" "}
+                            </a>
+                            <a
+                              className="text-black text-xs hover:text-white text-end"
+                              onClick={() => {
+                                logout();
+                              }}
+                            >
+                              Logout <Logout />
+                            </a>
                           </li>
                         </div>
                       </div>
-                   
-                  </ul>
-                </div>
-                //   <button
-                //   class="text-white button-2 border-2 border-rose-900 bg-[#961054] hover:bg-rose-900 hover:text-white active:bg-rose-900  rounded-full outline-none focus:outline-none ease-linear transition-all duration-150- px-3 py-1  "
-                //   type="button"
-                //   onClick={() => {
-                //     history.push("/registration");
-                //   }}
-                // >
-                //   <AccountCircle /> 
-                // </button>
+                    </ul>
+                  </div>
+                  //   <button
+                  //   class="text-white button-2 border-2 border-rose-900 bg-[#961054] hover:bg-rose-900 hover:text-white active:bg-rose-900  rounded-full outline-none focus:outline-none ease-linear transition-all duration-150- px-3 py-1  "
+                  //   type="button"
+                  //   onClick={() => {
+                  //     history.push("/registration");
+                  //   }}
+                  // >
+                  //   <AccountCircle />
+                  // </button>
                 )}
               </div>
             </div>

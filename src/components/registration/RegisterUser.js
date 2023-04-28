@@ -23,7 +23,7 @@ const RegisterUser = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post(`https://swift-jet-backend.onrender.com/api/v1/user/add`, data)
+      .post(`http://localhost:8000/api/v1/user/add`, data)
       .then((data) => {
         toastMsg(data?.data.message);
         e.target.reset();

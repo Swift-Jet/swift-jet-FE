@@ -101,7 +101,7 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
     setLoading(true);
     axios
       .post(
-        "https://swift-jet-backend.onrender.com/api/v1/booking/add",
+        "http://localhost:8000/api/v1/booking/add",
         booking_payload
       )
       .then((data) => {

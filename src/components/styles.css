@@ -881,3 +881,6 @@ a:hover {
   cursor: pointer !important;
   color: red;
 }
+.dd-link:focus{
+  background-color: red !important;
+}
