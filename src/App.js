@@ -18,6 +18,9 @@ import Adminspage from "./pages/admin-page.js/Adminspage";
 import ContactPage from "./pages/contact-page/ContactPage";
 import ServicesPage from "./pages/services/ServicesPage";
 import FrequentQuestionsPage from "./pages/frequent-page/FrequentPage";
+import Aboutuspage from "./pages/about-us/Aboutuspage";
+import Medicalpage from "./pages/Medical-Evac/medicalpage"
+import Cateringpage from "./pages/Catering-Serivce/Cateringpage";
 
 const App = () => {
   return (
@@ -38,6 +41,10 @@ const App = () => {
       <Route path="/services" component={ServicesPage}></Route>
       <Route path="/contact" component={ContactPage}></Route>
       <Route path="/faq" component={FrequentQuestionsPage}></Route>
+      <Route path="/Aboutuspage" component={Aboutuspage}></Route>
+      <Route path="/Medicalpage" component={Medicalpage}></Route>
+      <Route path="/Cateringpage" component={Cateringpage}></Route>
+
     </Switch>
   );
 };

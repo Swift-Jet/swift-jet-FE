@@ -148,13 +148,13 @@ export default function NavBar() {
                       </a>
                       <ul
                         tabIndex={0}
-                        className="dropdown-content menu p-2 shadow rounded-box w-52"
+                        className="p-2 shadow dropdown-content menu rounded-box w-52"
                       >
                         <div>
                           <div>
                             <li className="bg-white hover:bg-[#ececec] shadow rounded-box">
-                              <a className="text-[#961054] text-xs">About Us</a>
-                              <a className="text-[#961054] text-xs">Reviews</a>
+                              <a href="/Aboutuspage" className="text-[#961054] text-xs">About Us</a>
+                              <a href="/"className="text-[#961054] text-xs">Reviews</a>
                               <a className="text-[#961054] text-xs">Careers</a>
                             </li>
                           </div>
@@ -170,20 +170,20 @@ export default function NavBar() {
                       </a>
                       <ul
                         tabIndex={0}
-                        className="dropdown-content menu p-2 shadow rounded-box w-52"
+                        className="p-2 shadow dropdown-content menu rounded-box w-52"
                       >
                         <div>
                           <div>
                             <li className="bg-white hover:bg-[#ececec] shadow rounded-box dd-link">
-                              <a
+                              <a href="Cateringpage"
                                 className="text-[#961054] text-xs dd-link"
-                                onClick={scrollToBottom}
+                               
                               >
                                 Inflight catering
                               </a>
-                              <a
+                              <a href="Medicalpage"
                                 className="text-[#961054] text-xs"
-                                onClick={scrollToBottom}
+                               
                               >
                                 Medical evac
                               </a>
@@ -202,7 +202,7 @@ export default function NavBar() {
                       </a>
                       <ul
                         tabIndex={0}
-                        className="dropdown-content menu p-2 shadow rounded-box w-52 "
+                        className="p-2 shadow dropdown-content menu rounded-box w-52 "
                       >
                         <div>
                           <div>
@@ -239,7 +239,7 @@ export default function NavBar() {
                       </a>
                       <ul
                         tabIndex={0}
-                        className="dropdown-content menu p-2 shadow rounded-box w-52"
+                        className="p-2 shadow dropdown-content menu rounded-box w-52"
                       >
                         <div>
                           <div>
@@ -306,19 +306,19 @@ export default function NavBar() {
                     </label>
                     <ul
                       tabIndex={0}
-                      className="dropdown-content menu p-2 shadow rounded-box w-52 bg-white "
+                      className="p-2 bg-white shadow dropdown-content menu rounded-box w-52 "
                     >
                       <div>
                         <div>
                           <li className="bg-white hover:bg-[#ececec] hover:text-white ">
-                            <a className="text-black text-xs hover:text-white">
+                            <a className="text-xs text-black hover:text-white">
                               Profile <Person2Sharp />
                             </a>
-                            <a className="text-black text-xs hover:text-white">
+                            <a className="text-xs text-black hover:text-white">
                               Flights <Flight />{" "}
                             </a>
                             <a
-                              className="text-black text-xs hover:text-white text-end"
+                              className="text-xs text-black hover:text-white text-end"
                               onClick={() => {
                                 logout();
                               }}
