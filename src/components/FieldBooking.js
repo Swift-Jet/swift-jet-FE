@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext, useEffect, useRef } from "react";
 import AnimatedText from "react-animated-text-content";
 import { withRouter } from "react-router";
 import AircraftInput from "./shared/aircraft-input/AircraftInput";
@@ -60,13 +60,6 @@ const FieldBooking = () => {
   const [destinationAirport, setDestinationAirport] = useState("");
   const [destinationAirportCode, setDestinationAirportCode] = useState("");
   const [tripType, setTripType] = useState("One way Trip");
-  // const [passengers, setPassengers] = useState("");
-  // const [depatureDate, setDepatureDate] = useState("");
-  // const [returningDate, setReturningDate] = useState("");
-  // const [depatureTime, setDepatureTime] = useState("");
-  // const [returningTime, setReturningTime] = useState("");
-  // const [inputFields, setInputFields] = useState([{ name: "" }]);
-  // const [bookingArr, setBookingArr] = useState([]);
   const [addMoreBtn, setAddMoreBtn] = useState(false);
   const [addReturnBtn, setAddReturnBtn] = useState(false);
 
@@ -83,6 +76,7 @@ const FieldBooking = () => {
       passengers: { adults: 1, children: 0, pets: 0 },
     },
   ]);
+
   const history = useHistory();
   const location = useLocation();
   let valid = false;
