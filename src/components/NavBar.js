@@ -20,7 +20,7 @@ export default function NavBar() {
   return (
     <header class="absolute top-0 left-0 w-full flex justify-center">
       <nav class="absolute w-full mt-3">
-        <div class="relative z-30   dark:bg-gray-900">
+        <div class="relative z-30   dark:bg-white">
           <div class="container nav-inner w-9/10 bg-white rounded-[50px] m-auto md:px-12 lg:py-0 lg:px-5">
             <div class="flex flex-wrap items-center justify-between py-2.5 gap-6 md:gap-0">
               <input
@@ -87,7 +87,7 @@ export default function NavBar() {
                       </a>
                     </li>
                     <li>
-                      <a href="#" class="block md:pr-4 group">
+                      <a href="/Aboutuspage" class="block md:pr-4 group">
                         <div
                           class="relative group
                                                             before:absolute before:-bottom-2 md:before:-bottom-3 before:w-full before:h-0.5 before:origin-left before:mt-auto before:rounded-full before:bg-rose-800 before:transition before:scale-x-0 group-hover:before:scale-x-100"
@@ -192,15 +192,15 @@ export default function NavBar() {
                   </label>
                   <ul
                     tabIndex={0}
-                    className="dropdown-content menu p-2 shadow rounded-box w-52 bg-white "
+                    className="p-2 bg-white shadow dropdown-content menu rounded-box w-52 "
                   >
                     
                       <div>
                         <div>
                           <li className="bg-white hover:bg-[#ececec] hover:text-white ">
-                            <a className="text-black text-xs hover:text-white" >Profile  <Person2Sharp /></a>
-                            <a className="text-black text-xs hover:text-white">Flights <Flight /> </a>
-                            <a className="text-black text-xs hover:text-white text-end" onClick={() => {logout()}}>Logout <Logout/></a>
+                            <a className="text-xs text-black hover:text-white" >Profile  <Person2Sharp /></a>
+                            <a className="text-xs text-black hover:text-white">Flights <Flight /> </a>
+                            <a className="text-xs text-black hover:text-white text-end" onClick={() => {logout()}}>Logout <Logout/></a>
                           </li>
                         </div>
                       </div>
