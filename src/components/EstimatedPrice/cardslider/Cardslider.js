@@ -1,56 +1,83 @@
-import React from "react";
-import "../cardslider/cardslider.css"
+import React, { useState } from 'react';
+import { BsChevronCompactLeft, BsChevronCompactRight } from 'react-icons/bs';
+import { RxDotFilled } from 'react-icons/rx';
+
+
 
 function Gallery({aircraft_details}) {
   console.log("aircraft_details", aircraft_details);
+  const slides = [
+    {
+      url: "https://media.cntraveler.com/photos/581b8e750ee23d7b457512e9/master/w_3989,h_2655,c_limit/private-jet-tarmac-GettyImages-523476302.jpg",
+    },
+    {
+      url: "https://media.architecturaldigest.com/photos/60c7d09fe7a72cd8dc8e97ad/16:9/w_2560%2Cc_limit/Amanzz.jpeg",
+    },
+    {
+      url: 'https://www.jetflite.fi/uploads/challenger-650-oh-wiw-plane-heroimage-jetflite.jpg',
+    },
+
+    {
+      url: 'https://www.jetflite.fi/uploads/challenger-650-oh-wiw-plane-heroimage-jetflite.jpg',
+    },
+    {
+      url: 'https://www.jetflite.fi/uploads/challenger-650-oh-wiw-plane-heroimage-jetflite.jpg',
+    },
+  ];
+
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const prevSlide = () => {
+    const isFirstSlide = currentIndex === 0;
+    const newIndex = isFirstSlide ? slides.length - 1 : currentIndex - 1;
+    setCurrentIndex(newIndex);
+  };
+
+  const nextSlide = () => {
+    const isLastSlide = currentIndex === slides.length - 1;
+    const newIndex = isLastSlide ? 0 : currentIndex + 1;
+    setCurrentIndex(newIndex);
+  };
+
+  const goToSlide = (slideIndex) => {
+    setCurrentIndex(slideIndex);
+  };
+
   return (
-
-<div id="gallery" class="relative w-full mb-8" data-carousel="slide">
-   
-    <div class="relative h-56 overflow-hidden rounded-2xl md:h-96">
-       
-        <div class="hidden duration-700 ease-in-out" data-carousel-item>
-            <img src="https://media.cntraveler.com/photos/581b8e750ee23d7b457512e9/master/w_3989,h_2655,c_limit/private-jet-tarmac-GettyImages-523476302.jpg" class="absolute block max-w-full h-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt=""/>
-        </div>
-       
-        <div class="hidden duration-700 ease-in-out" data-carousel-item="active">
-            <img src="https://media.cntraveler.com/photos/581b8e750ee23d7b457512e9/master/w_3989,h_2655,c_limit/private-jet-tarmac-GettyImages-523476302.jpg" class="absolute block max-w-full h-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt=""/>
-        </div>
-       
-        <div class="hidden duration-700 ease-in-out" data-carousel-item>
-            <img src="https://media.cntraveler.com/photos/581b8e750ee23d7b457512e9/master/w_3989,h_2655,c_limit/private-jet-tarmac-GettyImages-523476302.jpg" class="absolute block max-w-full h-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt=""/>
-        </div>
-      
-        <div class="hidden duration-700 ease-in-out" data-carousel-item>
-            <img src="https://media.cntraveler.com/photos/581b8e750ee23d7b457512e9/master/w_3989,h_2655,c_limit/private-jet-tarmac-GettyImages-523476302.jpg" class="absolute block max-w-full h-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt=""/>
-        </div>
-      
-        <div class="hidden duration-700 ease-in-out" data-carousel-item>
-            <img src="https://media.cntraveler.com/photos/581b8e750ee23d7b457512e9/master/w_3989,h_2655,c_limit/private-jet-tarmac-GettyImages-523476302.jpg" class="absolute block max-w-full h-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt=""/>
-        </div>
+    <div className='max-w-[1400px] h-[380px] w-full m-auto py-16 px-4 relative group'>
+      <div
+        style={{ backgroundImage: `url(${slides[currentIndex].url})` }}
+        className='w-full h-full duration-500 bg-center bg-cover rounded-2xl'
+      ></div>
+      {/* Left Arrow */}
+      <div className='hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] left-5 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer'>
+        <BsChevronCompactLeft onClick={prevSlide} size={30} />
+      </div>
+      {/* Right Arrow */}
+      <div className='hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] right-5 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer'>
+        <BsChevronCompactRight onClick={nextSlide} size={30} />
+      </div>
+      <div className='flex justify-center py-2 top-4'>
+        {slides.map((slide, slideIndex) => (
+          <div
+            key={slideIndex}
+            onClick={() => goToSlide(slideIndex)}
+            className='text-2xl cursor-pointer'
+          >
+            <RxDotFilled />
+          </div>
+        ))}
+      </div>
     </div>
-    
-    <button type="button" class="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
-        <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-            <svg aria-hidden="true" class="w-6 h-6 text-white dark:text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
-            <span class="sr-only">Previous</span>
-        </span>
-    </button>
-    <button type="button" class="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-next>
-        <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-            <svg aria-hidden="true" class="w-6 h-6 text-white dark:text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-            <span class="sr-only">Next</span>
-        </span>
-    </button>
-</div>
-
-
-
-  
-
-  
-
   );
 }
 
 export default Gallery;
+
+
+
+
+
+
+
+
