@@ -192,44 +192,6 @@ export default function NavBar() {
                         </div>
                       </ul>
                     </li>
-
-                    <li className="dropdown dropdown-end dropdown-hover">
-                      <a
-                        tabIndex={0}
-                        className="bg-white text-[#5c0632] block md:pr-4 group "
-                      >
-                        Contact Us
-                      </a>
-                      <ul
-                        tabIndex={0}
-                        className="p-2 shadow dropdown-content menu rounded-box w-52 "
-                      >
-                        <div>
-                          <div>
-                            <li className="bg-white hover:bg-[#ececec] focus:bg-[#ececec] shadow rounded-box">
-                              <a
-                                className="text-[#961054] text-xs"
-                                onClick={scrollToBottom}
-                              >
-                                Call us 
-                              </a>
-                              <a
-                                className="text-[#961054] text-xs"
-                                onClick={scrollToBottom}
-                              >
-                                WhatsApp Us 
-                              </a>
-                              <a
-                                className="text-[#961054] text-xs"
-                                onClick={scrollToBottom}
-                              >
-                                Email Us 
-                              </a>
-                            </li>
-                          </div>
-                        </div>
-                      </ul>
-                    </li>
                     <li className="dropdown dropdown-end dropdown-hover">
                       <a
                         tabIndex={0}
@@ -273,6 +235,45 @@ export default function NavBar() {
                         </div>
                       </ul>
                     </li>
+
+                    <li className="dropdown dropdown-end dropdown-hover">
+                      <a
+                        tabIndex={0}
+                        className="bg-white text-[#5c0632] block md:pr-4 group "
+                      >
+                        Contact Us
+                      </a>
+                      <ul
+                        tabIndex={0}
+                        className="p-2 shadow dropdown-content menu rounded-box w-52 "
+                      >
+                        <div>
+                          <div>
+                            <li className="bg-white hover:bg-[#ececec] focus:bg-[#ececec] shadow rounded-box">
+                              <a
+                                className="text-[#961054] text-xs"
+                                onClick={scrollToBottom}
+                              >
+                                Call us 
+                              </a>
+                              <a
+                                className="text-[#961054] text-xs"
+                                onClick={scrollToBottom}
+                              >
+                                WhatsApp Us 
+                              </a>
+                              <a
+                                className="text-[#961054] text-xs"
+                                onClick={scrollToBottom}
+                              >
+                                Email Us 
+                              </a>
+                            </li>
+                          </div>
+                        </div>
+                      </ul>
+                    </li>
+                    
                   </ul>
                 </div>
                 {JSON.parse(localStorage.getItem("authenticated")) != true ? (
