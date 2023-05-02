@@ -1,8 +1,8 @@
 import * as React from 'react';
-import Box from '@mui/material/Box';
-import Stepper from '@mui/material/Stepper';
-import Step from '@mui/material/Step';
-import StepLabel from '@mui/material/StepLabel';
+import Box from '@mui/material/Box/Box';
+import Stepper from '@mui/material/Stepper/Stepper';
+import Step from '@mui/material/Step/Step';
+import StepLabel from '@mui/material/StepLabel/StepLabel';
 import "./stepper.css"
 
 const steps = [
