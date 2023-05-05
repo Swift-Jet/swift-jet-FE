@@ -27,8 +27,8 @@ const SignUp = () => {
               <div>
                 <div class="flex items-center justify-between">
                   <label for="pwd" class="text-gray-600 dark:text-gray-300">Password</label>
-                  <button class="-mr-2 p-2" type="reset" >
-                    <span class="text-sm text-primary">Forgot your password ?</span>
+                  <button href="/reset-password" class="-mr-2 p-2" type="reset" >
+                    <span  class="text-sm text-primary">Forgot your password ?</span>
                   </button>
                 </div>
                 <input
@@ -53,7 +53,7 @@ const SignUp = () => {
         </div>
         <div class="space-x-4 text-center text-gray-500">
           <span>&copy; tailus</span>
-          <a href="#" class="text-sm hover:text-primary">Contact</a>
+          <a href="/contact" class="text-sm hover:text-primary">Contact</a>
           <a href="#" class="text-sm hover:text-primary">Privacy & Terms</a>
         </div>
       </div>

@@ -88,6 +88,7 @@ const Footer = () => {
             <div class="w-full px-4 lg:w-1/4 md:w-1/2">
               <h2 class="mb-3 text-sm font-medium tracking-widest text-white uppercase title-font">
                 About
+                
               </h2>
               <nav class="mb-10 list-none">
                 <li class="mt-3">
@@ -113,12 +114,12 @@ const Footer = () => {
               </h2>
               <nav class="mb-10 list-none">
                 <li class="mt-3">
-                  <a class="text-white cursor-pointer  text-xs hover:text-white">
+                  <a href="/contact" class="text-white cursor-pointer  text-xs hover:text-white">
                     Contact Support
                   </a>
                 </li>
                 <li class="mt-3">
-                  <a class="text-white cursor-pointer  text-xs hover:text-white">
+                  <a  href="/contact" class="text-white cursor-pointer  text-xs hover:text-white">
                     Help Resources
                   </a>
                 </li>
@@ -145,7 +146,7 @@ const Footer = () => {
                   </a>
                 </li>
                 <li class="mt-3">
-                  <a class="text-white cursor-pointer  text-xs hover:text-white">
+                  <a href="/faq" class="text-white cursor-pointer  text-xs hover:text-white">
                     FAQ
                   </a>
                 </li>
@@ -153,16 +154,18 @@ const Footer = () => {
             </div>
             <div class="w-full px-4 lg:w-1/4 md:w-1/2">
               <h2 class="mb-3 text-sm font-medium tracking-widest text-white uppercase title-font">
+              
                 Contact
+              
               </h2>
               <nav class="mb-10 list-none">
                 <li class="mt-3">
-                  <a class="text-white cursor-pointer  text-xs hover:text-white">
+                  <a  href="/contact" class="text-white cursor-pointer  text-xs hover:text-white">
                     Send a Message
                   </a>
                 </li>
                 <li class="mt-3">
-                  <a class="text-white cursor-pointer  text-xs hover:text-white">
+                  <a  href="/contact" class="text-white cursor-pointer  text-xs hover:text-white">
                     Request a Quote
                   </a>
                 </li>

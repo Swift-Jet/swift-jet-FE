@@ -172,7 +172,7 @@ const RegisterUser = () => {
             </div>
             <div class="flex ">
               <p className="text-xs lg:text-sm">Already have an account with us ?</p>
-              <a href="#" class="text-rose-900 text-xs lg:text-sm lg:ml-2">
+              <a href="/signInlayout" class="text-rose-900 text-xs lg:text-sm lg:ml-2">
                 {" "}
                 Sign In
               </a>

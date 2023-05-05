@@ -154,7 +154,7 @@ export default function NavBar() {
                           <div>
                             <li className="bg-white hover:bg-[#ececec] shadow rounded-box">
                               <a href="/Aboutuspage" className="text-[#961054] text-xs">About Us</a>
-                              <a href="/"className="text-[#961054] text-xs">Reviews</a>
+                              <a href="/reviews"className="text-[#961054] text-xs">Reviews</a>
                               <a className="text-[#961054] text-xs">Careers</a>
                             </li>
                           </div>
