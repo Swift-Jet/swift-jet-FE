@@ -21,6 +21,7 @@ import FrequentQuestionsPage from "./pages/frequent-page/FrequentPage";
 import Aboutuspage from "./pages/about-us/Aboutuspage";
 import Medicalpage from "./pages/Medical-Evac/medicalpage"
 import Cateringpage from "./pages/Catering-Serivce/Cateringpage";
+import UserProfile from "./components/profile/user-profile";
 
 const App = () => {
   return (
@@ -44,6 +45,7 @@ const App = () => {
       <Route path="/Aboutuspage" component={Aboutuspage}></Route>
       <Route path="/Medicalpage" component={Medicalpage}></Route>
       <Route path="/Cateringpage" component={Cateringpage}></Route>
+      <Route path="/UserProfile" component={UserProfile}></Route>
 
     </Switch>
   );

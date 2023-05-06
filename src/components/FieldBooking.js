@@ -27,6 +27,7 @@ import { IconButton } from "@material-tailwind/react";
 import ConnectingAirportsIcon from "@mui/icons-material/ConnectingAirports";
 import AirplanemodeActiveIcon from "@mui/icons-material/AirplanemodeActive";
 import AirplaneTicketIcon from "@mui/icons-material/AirplaneTicket";
+
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import {
   AccessTime,
@@ -38,6 +39,7 @@ import {
   RemoveCircleOutline,
 } from "@mui/icons-material";
 import { DatePicker } from "@mui/x-date-pickers";
+import Review from "./review/Review";
 
 const FieldBooking = () => {
   const [enableBtn, setEnableBtn] = useState(true);
@@ -407,7 +409,7 @@ const FieldBooking = () => {
           </h4>
         </div>
         <div
-          className="justify-between flex acb-icon  w-2/5"
+          className="flex justify-between w-2/5 acb-icon"
           data-aos="fade-up"
           data-aos-duration="100"
           data-aos-easing="ease-out-cubic"
@@ -532,20 +534,20 @@ const FieldBooking = () => {
               return (
                 <div key={index}>
                   {index !== 0 && (
-                    <div className="text-end pr-3">
+                    <div className="pr-3 text-end">
                       <button
                         type="button"
                         data-te-toggle="tooltip"
                         title="Remove flight"
                         onClick={() => handleRemoveFlight(index)}
-                        className="pt-2 pb-4 pl-2 pr-2 rounded-full text-red h-6 w-8 text-xs remove-leg"
+                        className="w-8 h-6 pt-2 pb-4 pl-2 pr-2 text-xs rounded-full text-red remove-leg"
                       >
                         <RemoveCircleOutline className="" />
                       </button>
                     </div>
                   )}
                   <div class="2xl:flex xl:flex  lg:flex  p-3">
-                    <div className="mt-2 mb-2 ai-div rounded-lg m-2 font-medium">
+                    <div className="m-2 mt-2 mb-2 font-medium rounded-lg ai-div">
                       <label class="block text-[#4D4D4D] py-2 px-3 text-xs mb-2 pl-3">
                         From Where
                       </label>
@@ -589,7 +591,7 @@ const FieldBooking = () => {
                       />
                     </svg>
 
-                    <div className="mt-2 mb-2 ai-div rounded-lg m-2 special-destination font-medium">
+                    <div className="m-2 mt-2 mb-2 font-medium rounded-lg ai-div special-destination">
                       <label class="block text-[#4D4D4D] py-2 px-3 text-xs mb-2 pl-3 ">
                         To Where
                       </label>
@@ -639,7 +641,7 @@ const FieldBooking = () => {
                       }}
                     />
                     
-                    {/* <div className="flex pt-3 gap-4">
+                    {/* <div className="flex gap-4 pt-3">
                       <div className="">
                         <label
                           htmlFor="numPets"
@@ -647,10 +649,10 @@ const FieldBooking = () => {
                         >
                           Pets
                         </label>
-                        <div className="flex items-center  pt-2 border-t-2 border-t-gray-500">
+                        <div className="flex items-center pt-2 border-t-2 border-t-gray-500">
                           <button
                             type="button"
-                            className="pl-2 focus:outline-none h-4 pb-4 sign"
+                            className="h-4 pb-4 pl-2 focus:outline-none sign"
                             onClick={handleSubtractPet}
                           >
                             -
@@ -659,13 +661,13 @@ const FieldBooking = () => {
                             type="number"
                             id="numPets"
                             name={`numPets.${index}`}
-                            className="w-12 text-center h-6 border-none outline-none"
+                            className="w-12 h-6 text-center border-none outline-none"
                             value={numPets}
                             onChange={(e) => handleInputChange(e, index)}
                           />
                           <button
                             type="button"
-                            className="pr-2 focus:outline-none h-4 pb-4 sign-left"
+                            className="h-4 pb-4 pr-2 focus:outline-none sign-left"
                             onClick={handleAddPet}
                           >
                             +
@@ -680,12 +682,11 @@ const FieldBooking = () => {
                           Children
                         </label>
                         <div
-                          className="flex items-center pt-2 border-t-2 border-t-gray-500
-"
+                          className="flex items-center pt-2 border-t-2 border-t-gray-500 "
                         >
                           <button
                             type="button"
-                            className="pl-2 focus:outline-none h-4 pb-4 sign"
+                            className="h-4 pb-4 pl-2 focus:outline-none sign"
                             onClick={handleSubtractChild}
                           >
                             -
@@ -694,13 +695,13 @@ const FieldBooking = () => {
                             type="text"
                             id="numChildren"
                             name="numChildren"
-                            className="w-12 text-center h-6 border-none"
+                            className="w-12 h-6 text-center border-none"
                             value={numChildren}
                             onChange={(e) => setNumChildren(e.target.value)}
                           />
                           <button
                             type="button"
-                            className="pr-2 focus:outline-none h-4 pb-4 sign-left"
+                            className="h-4 pb-4 pr-2 focus:outline-none sign-left"
                             onClick={handleAddChild}
                           >
                             +
@@ -714,10 +715,10 @@ const FieldBooking = () => {
                         >
                           Adults
                         </label>
-                        <div className="flex items-center  pt-2 border-t-2 border-t-gray-500">
+                        <div className="flex items-center pt-2 border-t-2 border-t-gray-500">
                           <button
                             type="button"
-                            className="pl-2 focus:outline-none h-4 pb-4 sign"
+                            className="h-4 pb-4 pl-2 focus:outline-none sign"
                             onClick={handleSubtractAdult}
                           >
                             -
@@ -726,13 +727,13 @@ const FieldBooking = () => {
                             type="text"
                             id="numAdults"
                             name="numAdults"
-                            className="w-12 border-none text-center h-6"
+                            className="w-12 h-6 text-center border-none"
                             value={numAdults}
                             onChange={(e) => setNumAdults(e.target.value)}
                           />
                           <button
                             type="button"
-                            className="pr-2 focus:outline-none h-4 pb-4 sign-left"
+                            className="h-4 pb-4 pr-2 focus:outline-none sign-left"
                             onClick={handleAddAdult}
                           >
                             +
@@ -743,7 +744,7 @@ const FieldBooking = () => {
                     <div className="flex mt-4">
                       <div className="w-1/3 pr-2">
                         <label
-                          className="block mb-2 font-medium text-xs"
+                          className="block mb-2 text-xs font-medium"
                           htmlFor={`adults-${index}`}
                         >
                           Adults
@@ -758,7 +759,7 @@ const FieldBooking = () => {
                                 data.passengers.adults - 1
                               )
                             }
-                            className="px-2 py-1 rounded-full bg-gray-200"
+                            className="px-2 py-1 bg-gray-200 rounded-full"
                           >
                             -
                           </button>
@@ -774,7 +775,7 @@ const FieldBooking = () => {
                                 data.passengers.adults + 1
                               )
                             }
-                            className="px-2 py-1 rounded-full bg-gray-200"
+                            className="px-2 py-1 bg-gray-200 rounded-full"
                           >
                             +
                           </button>
@@ -782,7 +783,7 @@ const FieldBooking = () => {
                       </div>
                       <div className="w-1/3 px-2">
                         <label
-                          className="block mb-2 font-medium text-xs"
+                          className="block mb-2 text-xs font-medium"
                           htmlFor={`children-${index}`}
                         >
                           Children
@@ -797,7 +798,7 @@ const FieldBooking = () => {
                                 data.passengers.children - 1
                               )
                             }
-                            className="px-2 py-1 rounded-full bg-gray-200"
+                            className="px-2 py-1 bg-gray-200 rounded-full"
                           >
                             -
                           </button>
@@ -813,7 +814,7 @@ const FieldBooking = () => {
                                 data.passengers.children + 1
                               )
                             }
-                            className="px-2 py-1 rounded-full bg-gray-200"
+                            className="px-2 py-1 bg-gray-200 rounded-full"
                           >
                             +
                           </button>
@@ -821,7 +822,7 @@ const FieldBooking = () => {
                       </div>
                       <div className="w-1/3 pl-2">
                         <label
-                          className="block mb-2 font-medium text-xs"
+                          className="block mb-2 text-xs font-medium"
                           htmlFor={`pets-${index}`}
                         >
                           Pets
@@ -836,7 +837,7 @@ const FieldBooking = () => {
                                 data.passengers.pets - 1
                               )
                             }
-                            className="px-2 py-1 rounded-full bg-gray-200"
+                            className="px-2 py-1 bg-gray-200 rounded-full"
                           >
                             -
                           </button>
@@ -850,7 +851,7 @@ const FieldBooking = () => {
                                 data.passengers.pets + 1
                               )
                             }
-                            className="px-2 py-1 rounded-full bg-gray-200"
+                            className="px-2 py-1 bg-gray-200 rounded-full"
                           >
                             +
                           </button>
@@ -860,18 +861,18 @@ const FieldBooking = () => {
                   </div>
                   {showReturnModal ? (
             <>
-              <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none ">
-                <div className="relative w-auto my-6 mx-auto max-w-3xl">
+              <div className="fixed inset-0 z-50 flex items-center justify-center overflow-x-hidden overflow-y-auto outline-none focus:outline-none ">
+                <div className="relative w-auto max-w-3xl mx-auto my-6">
                   {/*content*/}
-                  <div className="border-0 rounded-lg shadow-lg relative bg-white outline-none focus:outline-none passengers-modal w-4/5">
+                  <div className="relative w-4/5 bg-white border-0 rounded-lg shadow-lg outline-none focus:outline-none passengers-modal">
                     {/*header*/}
-                    <div className="flex items-start justify-between border-b border-solid border-slate-200 rounded-t">
+                    <div className="flex items-start justify-between border-b border-solid rounded-t border-slate-200">
                       <h3 className="text-md font-semibold text-[#5c0632]">
                         Return Leg Details
                       </h3>
 
                       <button
-                        className="p-1  ml-auto bg-transparent border-0 text-red  float-right text-3xl leading-none close-modal font-semibold outline-none focus:outline-none"
+                        className="float-right p-1 ml-auto text-3xl font-semibold leading-none bg-transparent border-0 outline-none text-red close-modal focus:outline-none"
                         onClick={() => setShowReturnModal(false)}
                       >
                         <span className="text-black bg-[#fcf8f8] h-6 w-6 text-2xl block outline-none focus:outline-none">
@@ -919,7 +920,7 @@ const FieldBooking = () => {
               );
             })}
           
-            <div className=" flex justify-center pb-4" id="add-fields-multi">
+            <div className="flex justify-center pb-4 " id="add-fields-multi">
               {addReturnBtn && addReturnBtn === true ? (
                 <button
                   type="button"
@@ -960,18 +961,18 @@ const FieldBooking = () => {
           </div>
           {showModal ? (
             <>
-              <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none ">
-                <div className="relative w-auto my-6 mx-auto max-w-3xl">
+              <div className="fixed inset-0 z-50 flex items-center justify-center overflow-x-hidden overflow-y-auto outline-none focus:outline-none ">
+                <div className="relative w-auto max-w-3xl mx-auto my-6">
                   {/*content*/}
-                  <div className="border-0 rounded-lg shadow-lg relative bg-white outline-none focus:outline-none passengers-modal">
+                  <div className="relative bg-white border-0 rounded-lg shadow-lg outline-none focus:outline-none passengers-modal">
                     {/*header*/}
-                    <div className="flex items-start justify-between border-b border-solid border-slate-200 rounded-t">
+                    <div className="flex items-start justify-between border-b border-solid rounded-t border-slate-200">
                       <h3 className="text-xl mb-2 font-semibold text-[#5c0632]">
                         Passengers
                       </h3>
 
                       <button
-                        className="p-1 ml-auto bg-transparent border-0 text-red  float-right text-3xl leading-none font-semibold outline-none focus:outline-none"
+                        className="float-right p-1 ml-auto text-3xl font-semibold leading-none bg-transparent border-0 outline-none text-red focus:outline-none"
                         onClick={() => setShowModal(false)}
                       >
                         <span className="text-black bg-[#fcf8f8] h-6 w-6 text-2xl block outline-none focus:outline-none">
@@ -1106,8 +1107,8 @@ const FieldBooking = () => {
       {/* {loading === true ? (
         <div className="w-full text-left font-Aeonik text-rgba(77,77,77,1) field-booking-loading ">
           <div>
-            <div className="bg-white 2xl:w-fit xl:w-fit lg:w-fit md:w-3/5 sm:w-full mr-auto ml-auto border rounded rounded-lg mb-12 justify-center ">hello</div>
-            <h1 className="justify-center flex  text-center">
+            <div className="justify-center mb-12 ml-auto mr-auto bg-white border rounded rounded-lg 2xl:w-fit xl:w-fit lg:w-fit md:w-3/5 sm:w-full ">hello</div>
+            <h1 className="flex justify-center text-center">
               <svg
                 width="95"
                 height="110"
@@ -1319,7 +1320,7 @@ const FieldBooking = () => {
         </div>
       )} */}
       <div className="bg-[#eeece1] pb-12">
-        <div className="w-1/2 mr-auto ml-auto aircraft-display  text-center">
+        <div className="w-1/2 ml-auto mr-auto text-center aircraft-display">
           <h3
             className=" text-[2em] pt-12 "
             data-aos="fade-up"
@@ -1342,14 +1343,14 @@ const FieldBooking = () => {
           </p>
         </div>
         <div
-          className="2xl:grid-cols-3 2xl:grid xl:grid-cols-3 xl:grid lg:grid-cols-3 lg:grid md:grid-cols-3 md:grid pt-24 justify-center md:flex w-10/12 mr-auto ml-auto"
+          className="justify-center w-10/12 pt-24 ml-auto mr-auto 2xl:grid-cols-3 2xl:grid xl:grid-cols-3 xl:grid lg:grid-cols-3 lg:grid md:grid-cols-3 md:grid md:flex"
           data-aos="fade-left"
           data-aos-duration="1000"
           data-aos-offset="300"
           data-aos-easing="ease-in-sine"
         >
           {aircrafts.slice(0, 3).map((data, i) => (
-            <div className="pr-8 pl-8">
+            <div className="pl-8 pr-8">
               <AircraftCard item={data} />
             </div>
           ))}
@@ -1365,7 +1366,7 @@ const FieldBooking = () => {
       </div>
       <div className="bg-white">
         <div
-          className="w-1/2 mr-auto ml-auto text-center"
+          className="w-1/2 ml-auto mr-auto text-center"
           data-aos="1000"
           data-aos-duration="2000"
           data-aos-easing="ease-out-cubic"
@@ -1379,13 +1380,13 @@ const FieldBooking = () => {
         </div>
 
         <div
-          className="2xl:grid-cols-3 2xl:grid xl:grid-cols-3 xl:grid lg:grid-cols-3 lg:grid md:grid-cols-3 md:grid pt-24 justify-center md:flex w-10/12 mr-auto ml-auto"
+          className="justify-center w-10/12 pt-24 ml-auto mr-auto 2xl:grid-cols-3 2xl:grid xl:grid-cols-3 xl:grid lg:grid-cols-3 lg:grid md:grid-cols-3 md:grid md:flex"
           data-aos="flip-left"
           data-aos-duration="1000"
           data-aos-easing="ease-in-cubic"
         >
           {teamData.slice(0, 3).map((data, i) => (
-            <div className="pr-8 pl-8">
+            <div className="pl-8 pr-8">
               <Card img={data.img} name={data.name} />
             </div>
           ))}
@@ -1398,9 +1399,17 @@ const FieldBooking = () => {
           >
             Explore All Destinations
           </a>
+        
         </div>
-        <div></div>
+        <div>
+          
+        </div>
+         
       </div>
+      <div className="mt-5">
+      <Review/>
+      </div>
+     
       <ToastContainer />
     </>
   );
@@ -1480,10 +1489,10 @@ export default withRouter(FieldBooking);
 //   return (
 //     <form onSubmit={handleSubmit} className="w-full max-w-md mx-auto">
 //       <div className="my-4">
-//         <label className="block text-gray-700 font-bold mb-2">Trip Type:</label>
-//         <div className="inline-block relative w-64">
+//         <label className="block mb-2 font-bold text-gray-700">Trip Type:</label>
+//         <div className="relative inline-block w-64">
 //           <select
-//             className="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline"
+//             className="block w-full px-4 py-2 pr-8 leading-tight bg-white border border-gray-400 rounded shadow appearance-none hover:border-gray-500 focus:outline-none focus:shadow-outline"
 //             value={tripType}
 //             onChange={handleTripTypeChange}
 //           >
@@ -1491,9 +1500,9 @@ export default withRouter(FieldBooking);
 //             <option value="round-trip">Round-Trip</option>
 //             <option value="multi-city">Multi-City Trip</option>
 //           </select>
-//           <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+//           <div className="absolute inset-y-0 right-0 flex items-center px-2 text-gray-700 pointer-events-none">
 //             <svg
-//               className="fill-current h-4 w-4"
+//               className="w-4 h-4 fill-current"
 //               xmlns="http://www.w3.org/2000/svg"
 //               viewBox="0 0 20 20"
 //             >
@@ -1507,10 +1516,10 @@ export default withRouter(FieldBooking);
 //         </div>
 //       </div>
 //       {trips.map((trip, index) => (
-//         <div key={index} className="border border-gray-400 rounded p-4 mb-4">
-//           <h2 className="text-xl font-bold mb-4">Trip {index + 1}</h2>
+//         <div key={index} className="p-4 mb-4 border border-gray-400 rounded">
+//           <h2 className="mb-4 text-xl font-bold">Trip {index + 1}</h2>
 //           <div className="mb-4">
-//             <label className="block text-gray-700 font-bold mb-2">From:</label>
+//             <label className="block mb-2 font-bold text-gray-700">From:</label>
 //             <Select
 //               options={options}
 //               value={trip.from}
@@ -1520,7 +1529,7 @@ export default withRouter(FieldBooking);
 //             />
 //           </div>
 //           <div className="mb-4">
-//             <label className="block text-gray-700 font-bold mb-2">To:</label>
+//             <label className="block mb-2 font-bold text-gray-700">To:</label>
 //             <Select
 //               options={options}
 //               value={trip.to}
@@ -1530,11 +1539,11 @@ export default withRouter(FieldBooking);
 //             />
 //           </div>
 //           <div className="mb-4">
-//             <label className="block text-gray-700 font-bold mb-2">
+//             <label className="block mb-2 font-bold text-gray-700">
 //               Departure Date:
 //             </label>
 //             <input
-//               className="appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline"
+//               className="w-full px-4 py-2 pr-8 leading-tight bg-white border border-gray-400 rounded shadow appearance-none hover:border-gray-500 focus:outline-none focus:shadow-outline"
 //               type="date"
 //               name="departureDate"
 //               value={trip.departureDate}
@@ -1543,11 +1552,11 @@ export default withRouter(FieldBooking);
 //           </div>
 //           {tripType === "round-trip" && (
 //             <div className="mb-4">
-//               <label className="block text-gray-700 font-bold mb-2">
+//               <label className="block mb-2 font-bold text-gray-700">
 //                 Return Date:
 //               </label>
 //               <input
-//                 className="appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline"
+//                 className="w-full px-4 py-2 pr-8 leading-tight bg-white border border-gray-400 rounded shadow appearance-none hover:border-gray-500 focus:outline-none focus:shadow-outline"
 //                 type="date"
 //                 name="returnDate"
 //                 value={trip.returnDate}
@@ -1559,7 +1568,7 @@ export default withRouter(FieldBooking);
 
 //                 <div>
 //                   <div class="2xl:flex xl:flex  lg:flex  p-3" key={index}>
-//                     <div className="mt-2 mb-2 ai-div rounded-lg m-2 font-medium">
+//                     <div className="m-2 mt-2 mb-2 font-medium rounded-lg ai-div">
 //                       <label class="block text-[#4D4D4D] py-2 px-3 text-xs mb-2 pl-3">
 //                         From Where
 //                       </label>
@@ -1595,7 +1604,7 @@ export default withRouter(FieldBooking);
 //                       />
 //                     </svg>
 
-//                     <div className="mt-2 mb-2 ai-div rounded-lg m-2 special-destination font-medium">
+//                     <div className="m-2 mt-2 mb-2 font-medium rounded-lg ai-div special-destination">
 //                       <label class="block text-[#4D4D4D] py-2 px-3 text-xs mb-2 pl-3 ">
 //                         To Where
 //                       </label>
@@ -1650,7 +1659,7 @@ export default withRouter(FieldBooking);
 //                   </div>
 //                 </div>
 
-//             <div className=" flex justify-center pb-4" id="add-fields-multi">
+//             <div className="flex justify-center pb-4 " id="add-fields-multi">
 //               {addReturnBtn && addReturnBtn === true ? (
 //                 <button
 //                   type="button"
@@ -1681,21 +1690,21 @@ export default withRouter(FieldBooking);
 //       {errors.length > 0 && (
 //         <div className="mb-4">
 //           {errors.map((error) => (
-//             <p key={error} className="text-red-500 mb-2">
+//             <p key={error} className="mb-2 text-red-500">
 //               {error}
 //             </p>
 //           ))}
 //         </div>
 //       )}
 //       <button
-//         className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+//         className="px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700"
 //         type="button"
 //       //  onClick={handleAddTrip}
 //       >
 //         Add Another Trip
 //       </button>
 //       <button
-//         className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded ml-4"
+//         className="px-4 py-2 ml-4 font-bold text-white bg-green-500 rounded hover:bg-green-700"
 //         type="submit"
 //       >
 //         Submit
