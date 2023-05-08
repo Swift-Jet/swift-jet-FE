@@ -127,14 +127,14 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
                   <div class="md:5/12 lg:w-3/4 m-auto">
                     <Cardslider aircraft_details={bannerSuggestion} />
                   </div>
-                  <div class="md:5/12 lg:w-full flex flex-column gap-y-2 m-auto px-3">
-                    <h2 class="text-sm text-gray-300 md:text-xl dark:text-gray-400  ">
+                  <div class="md:5/12 lg:w-full flex flex-column gap-y-2 m-auto  ">
+                    <h2 class="text-sm text-gray-300 md:text-xl dark:text-gray-400 px-12  ">
                       {bannerSuggestion?.classification}
                     </h2>
-                    <p class="text-xs text-rose-900 dark:text-rose-900 font-bold md:text-2xl">
+                    <p class="text-xs text-rose-900 dark:text-rose-900 font-bold md:text-2xl px-12 ">
                       {bannerSuggestion?.model}
                     </p>
-                    <p class="text-gray-400 dark:text-gray-400">
+                    <p class="text-gray-400 dark:text-gray-400 px-12">
                       Model: {bannerSuggestion?.model}
                     </p>
                     <div class="mt-2 flex flex-wrap justify-center items-center gap-4"> 
