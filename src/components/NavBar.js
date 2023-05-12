@@ -243,27 +243,27 @@ export default function NavBar() {
                         <div>
                           <div>
                             <li className="bg-white hover:bg-[#ececec] focus:bg-[#ececec] shadow rounded-box">
-                              <a href="#"
+                              <a href="/UseOfTermPage"
                                 className="text-[#961054] text-xs"
-                                onClick={scrollToBottom}
+                               
                               >
                                 Terms of use
                               </a>
-                              <a href="#"
+                              <a href=""
                                 className="text-[#961054] text-xs"
-                                onClick={scrollToBottom}
+                             
                               >
                                 Privacy Policy
                               </a>
                               <a href="#"
                                 className="text-[#961054] text-xs"
-                                onClick={scrollToBottom}
+                             
                               >
                                 Press & Media
                               </a>
                               <a href="/faq"
                                 className="text-[#961054] text-xs"
-                                onClick={scrollToBottom}
+                               
                               >
                                 FAQ
                               </a>

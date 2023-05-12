@@ -28,6 +28,7 @@ import Deals from "./components/admin-page/Deals";
 import Quotes from "./components/admin-page/Quotes";
 import ScheduledTrip from "./components/admin-page/ScheduledTrip";
 import Addaircraft from "./components/admin-page/Add-aircraft";
+import UseOfTermPage from "./pages/UFT/UseOfTermPage";
 
 const App = () => {
   return (
@@ -58,6 +59,7 @@ const App = () => {
       <Route path="/ScheduledTrip" component={ScheduledTrip}></Route>
        <Route path="/Deals" component={Deals}></Route>
       <Route path="/Contacts" component={Contacts}></Route> 
+      <Route path="/UseOfTermPage" component={UseOfTermPage}></Route> 
 
     </Switch>
   );
