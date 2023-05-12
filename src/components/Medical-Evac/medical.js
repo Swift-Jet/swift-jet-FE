@@ -22,11 +22,12 @@ const Medical = () => {
                             Air Ambulance - Medical Evacuation Flights
                         </h2>
                         <p class="my-8 text-x text-justify text-gray-600 dark:text-gray-300">
-                            Air Ambulance Evacuation and Medical Air Transport
-
-                            An air ambulance is the quickest way to transport patients who are too weak and unable to endure regular commercial flights. Air ambulance is the best option for patients who require medical attention on-board by a qualified nurse or doctor.
-
-                            Medical private jets or helicopters have been specially equipped for a patient that requires extensive or urgent medical assistance during transportation. They offer a full ICU setup (stretchers, bases with power and oxygen, and medical equipment). It is the safest and quickest travel option for patients who are too sick or weak to endure the rigors of commercial flights or from remote locations with no direct flights. Our certified doctors and nurses are available for hire and ready to fly with you.
+                            Welcome to the medical evacuation page of Swift Wings Limited, where we provide emergency
+                            air ambulance services to individuals who require urgent medical attention.
+                            We understand that medical emergencies can happen at any time, and when they do, it is
+                            essential to have a reliable and timely means of transportation to the appropriate medical facility.
+                            Our medical evacuation services are designed to transport individuals in critical condition from
+                            remote or hard-to-reach locations to the nearest medical facility with the appropriate care.
                         </p>
                         <div class="divide-y space-y-4 divide-gray-100 dark:divide-gray-800">
                             <div class="mt-8 flex gap-4 md:items-center">
@@ -70,10 +71,12 @@ const Medical = () => {
                             Medical Air Ambulance Jet Equipment
                         </h2>
                         <p class="my-8 text-x text-justify text-gray-600 dark:text-gray-300">
-                            We ensure that the aircraft is manned by highly skilled medical flight crew including a doctor and a nurse (sometimes a third medical professional is also included depending on the medical case and/or the length of the air ambulance journey) for private charter air ambulance. All aircraft we use, utilize state-of-the-art lifter/ loader systems to ensure quick loading and unloading of patients with no manual lifting while providing the highest level of safety possible.
+                            Our medical evacuation service is staffed by a team of highly qualified and experienced medical
+                            professionals who are equipped with the necessary equipment and medication to provide critical
+                            care en route. Our medical staff work closely with the attending physician and family members
+                            to ensure that the patient's medical needs are adequately met throughout the transportation
+                            process.
 
-                            The medical equipment of an air ambulance includes: Stretcher, vacuum mattress, and loading dock Emergency backup for mobile use Emergency and intensive-care respiratorSuctioning unit Ampules
-                            ICU monitoring system Defibrillator At least 3,000 liters of oxygen
                         </p>
                     </div>
                 </div>
@@ -93,10 +96,20 @@ const Medical = () => {
                     </div>
                     <div class="md:7/12 lg:w-1/2">
                         <h2 class="text-3xl font-bold text-rose-900 md:text-4xl dark:text-white">
-                        Medical Evacuation flights All Around the Globe
+                            Medical Evacuation flights All Around the Globe
                         </h2>
                         <p class="my-8 text-x text-justify text-gray-600 dark:text-gray-300">
-                        Heart attacks, strokes, trauma, and pulmonary problems (coronavirus COVID-19 medical evacuation) are all common reasons travelers need emergency medical assistance, as well as cases where low altitude flights are required such as the bends. And because private jets and air ambulances can use many more airports than commercial airlines, and often fly more direct routes, air ambulances can pick up a patient from the closest airport to the treating hospital and land at the closest airport to the receiving hospitals
+                            We have a fleet of private jets that are equipped with the necessary medical equipment and are
+                            staffed by experienced medical personnel to provide a seamless medical evacuation service. We
+                            understand that medical emergencies can be stressful, and we, therefore, strive to provide our
+                            clients with peace of mind by taking care of all the details and logistics of the medical
+                            transportation.
+                            Our medical evacuation service is available 24 hours a day, seven days a week, and can be
+                            arranged at short notice. We work with hospitals, clinics, and insurance providers to ensure that
+                            our clients receive the best possible care and attention during their medical transportation.
+                            In case of a medical emergency, do not hesitate to contact us for immediate assistance. Our team
+                            is always ready to provide the necessary support and transportation to get you or your loved one
+                            to the appropriate medical facility as quickly and safely as possible.
                         </p>
 
                     </div>
