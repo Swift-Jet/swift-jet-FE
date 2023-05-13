@@ -35,7 +35,7 @@ const RegisterUser = () => {
   return (
     <main class=" h-screen flex  justify-center items-center font-[Poppins]">
       <ToastContainer />
-      <div class="flex flex-col md:flex-row w-1/2 md:w-4/5 mx-auto rounded-3xl shadow-2xl">
+      <div class="flex flex-col md:flex-row w-full md:w-4/5 mx-auto rounded-3xl shadow-2xl">
         <section class="bg-white p-6  md:p-10 md:min-w-[50%] flex flex-col gap-4 rounded-3xl">
           <div class="text-start mb-3">
             <h1 class="text-rose-900 font-bold text-3xl">
@@ -172,7 +172,7 @@ const RegisterUser = () => {
             </div>
             <div class="flex ">
               <p className="text-xs lg:text-sm">Already have an account with us ?</p>
-              <a href="#" class="text-rose-900 text-xs lg:text-sm lg:ml-2">
+              <a href="/signInlayout" class="text-rose-900 text-xs lg:text-sm lg:ml-2">
                 {" "}
                 Sign In
               </a>

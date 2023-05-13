@@ -116,7 +116,7 @@ const SignForm = () => {
                   }}
                 />
                 <button
-                  className="focus:outline-none block rounded-r-full placeholder-gray-500 bg-gray-100 dark:bg-gray-100 dark:border-rose-900 pl-12 pr-4 h-12 text-gray-600 transition  invalid:ring-2 invalid:ring-red-400 focus:ring-1 focus:ring-rose-100"
+                  className="block h-12 pl-12 pr-4 text-gray-600 placeholder-gray-500 transition bg-gray-100 rounded-r-full focus:outline-none dark:bg-gray-100 dark:border-rose-900 invalid:ring-2 invalid:ring-red-400 focus:ring-1 focus:ring-rose-100"
                   onClick={togglePasswordFunc}
                   type="button"
                 >
@@ -150,11 +150,11 @@ const SignForm = () => {
               </div>
             </div>
             <div class="flex flex-row justify-between ">
-              <a href="#" class="text-rose-900">
+              <a href="/reset-password" class="text-rose-900">
                 {" "}
                 Forget Password
               </a>
-              <a href="#" class="text-rose-900">
+              <a href="/registration" class="text-rose-900">
                 {" "}
                 Register
               </a>
@@ -199,7 +199,7 @@ const SignForm = () => {
         </section>
         <section class="hidden lg:inline-block text-white  rounded-3xl w-3/5">
           <div class="mt-16">
-            <img alt="" src={Frame584} className="w-4/5  " />
+            <img alt="" src={Frame584} className="w-4/5 " />
           </div>
         </section>
       </div>

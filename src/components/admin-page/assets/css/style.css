@@ -1,19 +1,20 @@
 /* =========== Google Fonts ============ */
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap");
+
 
 /* =============== Globals ============== */
 * {
-  font-family: "Poppins", sans-serif;
+  font-family: "Ubuntu", sans-serif;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
 :root {
-  --blue: #C70039 ;
+  --blue: #5C0632;
   --white: #fff;
   --gray: #f5f5f5;
-  --black1: #222;
+  --black1: rgb(24, 23, 23);
   --black2: #999;
 }
 
@@ -32,7 +33,7 @@ body {
   position: fixed;
   width: 300px;
   height: 100%;
-  background: var(--blue);
+  background: var(--blue); 
   border-left: 10px solid var(--blue);
   transition: 0.5s;
   overflow: hidden;
@@ -58,7 +59,7 @@ body {
 
 .navigation ul li:hover,
 .navigation ul li.hovered {
-  background-color: var(--white);
+  background-color: #eeece1;
 }
 
 .navigation ul li:nth-child(1) {
@@ -76,7 +77,7 @@ body {
 }
 .navigation ul li:hover a,
 .navigation ul li.hovered a {
-  color: var(--rose);
+  color: var(--blue);
 }
 
 .navigation ul li a .icon {
@@ -86,12 +87,18 @@ body {
   height: 60px;
   line-height: 75px;
   text-align: center;
-
+  color: #fff !important;
 }
 .navigation ul li a .icon ion-icon {
   font-size: 1.75rem;
 }
-
+.icon-color{
+  fill: rgb(186, 186, 186) !important; 
+  transition: fill 0.3s ease;
+}
+.icon-color:hover {
+  fill: #5C0632 !important;
+}
 .navigation ul li a .title {
   position: relative;
   display: block;
@@ -113,8 +120,9 @@ body {
   height: 50px;
   background-color: transparent;
   border-radius: 50%;
-  box-shadow: 35px 35px 0 10px var(--white);
+  box-shadow: 35px 35px 0 10px #eeece1;
   pointer-events: none;
+  transition: fill 0.15s ease-in-out
 }
 .navigation ul li:hover a::after,
 .navigation ul li.hovered a::after {
@@ -126,17 +134,18 @@ body {
   height: 50px;
   background-color: transparent;
   border-radius: 50%;
-  box-shadow: 35px -35px 0 10px var(--white);
+  box-shadow: 35px -35px 0 10px #eeece1;
   pointer-events: none;
+  transition: fill 0.0s ease-in-out
 }
 
 /* ===================== Main ===================== */
 .main {
-  position: absolute;
-  width: calc(100% - 300px);
+  position: relative;
+  width: calc(100% - 136px);
   left: 300px;
   min-height: 100vh;
-  background: var(--white);
+  background: #eeece1;
   transition: 0.5s;
 }
 .main.active {
@@ -162,7 +171,9 @@ body {
   align-items: center;
   font-size: 2.5rem;
   cursor: pointer;
-  color:#fff !important
+  background-color: #5C0632 !important;
+  color: #fff !important;
+  box-shadow: none !important
 }
 
 .search {
@@ -218,7 +229,7 @@ body {
   width: 100%;
   padding: 20px;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   grid-gap: 30px;
 }
 
@@ -469,3 +480,32 @@ body {
     left: initial;
   }
 }
+
+.checkbox:checked + .check-icon {
+  display: flex;
+}
+
+.table {
+  border-spacing: 0 15px;
+}
+
+i {
+  font-size: 1rem !important;
+}
+
+.table tr {
+  border-radius: 20px;
+}
+
+tr td:nth-child(n + 6),
+tr th:nth-child(n + 6) {
+  border-radius: 0 0.625rem 0.625rem 0;
+}
+
+tr td:nth-child(1),
+tr th:nth-child(1) {
+  border-radius: 0.625rem 0 0 0.625rem;
+}
+
+
+

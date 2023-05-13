@@ -77,5 +77,6 @@ article li span:nth-of-type(2) {
 
 	.display-trip {
 		padding: 1rem !important;
+		margin-top: 30px !important;
 	}
 }

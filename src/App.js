@@ -18,6 +18,17 @@ import Adminspage from "./pages/admin-page.js/Adminspage";
 import ContactPage from "./pages/contact-page/ContactPage";
 import ServicesPage from "./pages/services/ServicesPage";
 import FrequentQuestionsPage from "./pages/frequent-page/FrequentPage";
+import Aboutuspage from "./pages/about-us/Aboutuspage";
+import Medicalpage from "./pages/Medical-Evac/medicalpage"
+import Cateringpage from "./pages/Catering-Serivce/Cateringpage";
+import UserProfile from "./components/profile/user-profile";
+import Contacts from "./components/admin-page/Contacts";
+import Flight from "./components/admin-page/Flight";
+import Deals from "./components/admin-page/Deals";
+import Quotes from "./components/admin-page/Quotes";
+import ScheduledTrip from "./components/admin-page/ScheduledTrip";
+import Addaircraft from "./components/admin-page/Add-aircraft";
+import UseOfTermPage from "./pages/UFT/UseOfTermPage";
 
 const App = () => {
   return (
@@ -38,6 +49,18 @@ const App = () => {
       <Route path="/services" component={ServicesPage}></Route>
       <Route path="/contact" component={ContactPage}></Route>
       <Route path="/faq" component={FrequentQuestionsPage}></Route>
+      <Route path="/Aboutuspage" component={Aboutuspage}></Route>
+      <Route path="/Medicalpage" component={Medicalpage}></Route>
+      <Route path="/Cateringpage" component={Cateringpage}></Route>
+      <Route path="/UserProfile" component={UserProfile}></Route>
+      <Route path="/Addaircraft" component={Addaircraft}></Route>
+      <Route path="/Flight" component={Flight}></Route>
+      <Route path="/Quotes" component={Quotes}></Route>
+      <Route path="/ScheduledTrip" component={ScheduledTrip}></Route>
+       <Route path="/Deals" component={Deals}></Route>
+      <Route path="/Contacts" component={Contacts}></Route> 
+      <Route path="/UseOfTermPage" component={UseOfTermPage}></Route> 
+
     </Switch>
   );
 };

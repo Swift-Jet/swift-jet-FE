@@ -19,7 +19,7 @@ const EstimateLayout = () => {
   return (
     <div className="mx-auto font-[Poppins]">
       <section className="section bg-[#eeece1]">
-        <div className=" mx-auto flex items-start">
+        <div className="flex items-start mx-auto ">
           <div class="rounded-md w-full flight-title">
             {/* <ol class="list-reset flex">
                             <li><a href="#" class="text-blue-600 hover:text-blue-700">Flight</a></li>
@@ -34,7 +34,7 @@ const EstimateLayout = () => {
                 localStorage.removeItem("prevpath");
               }}
             >
-              <KeyboardBackspaceIcon />
+              <KeyboardBackspaceIcon /><span className="ml-2">Back</span>
             </button>
             <div className="mt-10">
               <div className="">
@@ -50,8 +50,8 @@ const EstimateLayout = () => {
         </div>
       </section>
       {/* <section className="bg-rose-900">
-                <div className="flex flex-col sm:flex-row justify-between recommend-stn">
-                    <div className="px-0 text-xs md:text-xl lg:text-xl lg: px-10 text-white m-3 ">
+                <div className="flex flex-col justify-between sm:flex-row recommend-stn">
+                    <div className="px-0 px-10 m-3 text-xs text-white md:text-xl lg:text-xl lg: ">
                         We Recommend
                     </div>
                  
