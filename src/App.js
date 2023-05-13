@@ -22,6 +22,7 @@ import Aboutuspage from "./pages/about-us/Aboutuspage";
 import Medicalpage from "./pages/Medical-Evac/medicalpage"
 import Cateringpage from "./pages/Catering-Serivce/Cateringpage";
 import UserProfile from "./components/profile/user-profile";
+import RecentTrips from "./components/profile/RecentTrips";
 import Contacts from "./components/admin-page/Contacts";
 import Flight from "./components/admin-page/Flight";
 import Deals from "./components/admin-page/Deals";
@@ -60,6 +61,7 @@ const App = () => {
        <Route path="/Deals" component={Deals}></Route>
       <Route path="/Contacts" component={Contacts}></Route> 
       <Route path="/UseOfTermPage" component={UseOfTermPage}></Route> 
+      <Route path="/RecentTrips" component={RecentTrips}></Route>
 
     </Switch>
   );
