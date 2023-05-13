@@ -33,7 +33,7 @@ const Fleet = () => {
                 </div>
 
                 <div class="user">
-                    <img src="assets/imgs/customer01.jpg" alt=""/>
+                    <img src="assets/imgs/profile/user.png" alt=""/>
                 </div>
             </div>
 

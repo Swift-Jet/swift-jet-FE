@@ -59,7 +59,7 @@ body {
 .navigation ul li:hover,
 .navigation ul li.hovered {
   background-color: #eeece1;
-  transition: 0.5s ease-out ;
+
 }
 
 .navigation ul li:nth-child(1) {
