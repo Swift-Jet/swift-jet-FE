@@ -11,6 +11,7 @@ import { useHistory, useLocation } from "react-router-dom";
 import Card from "./shared/aircraft-type-card/card";
 import data from "./data.json";
 import { ToastContainer, toast } from "react-toastify";
+import { Slide } from "react-slideshow-image";
 import "react-toastify/dist/ReactToastify.css";
 import Select from "react-tailwindcss-select";
 import "react-datalist-input/dist/styles.css";
@@ -1104,7 +1105,7 @@ const FieldBooking = () => {
         
         </div>
       </div>
-      {/* {loading === true ? (
+      {loading === true ? (
         <div className="w-full text-left font-Aeonik text-rgba(77,77,77,1) field-booking-loading ">
           <div>
             <div className="justify-center mb-12 ml-auto mr-auto bg-white border rounded rounded-lg 2xl:w-fit xl:w-fit lg:w-fit md:w-3/5 sm:w-full ">hello</div>
@@ -1318,7 +1319,7 @@ const FieldBooking = () => {
           ) : null}
 
         </div>
-      )} */}
+      )} 
       <div className="bg-[#eeece1] pb-12">
         <div className="w-1/2 ml-auto mr-auto text-center aircraft-display">
           <h3
