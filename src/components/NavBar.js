@@ -58,13 +58,12 @@ export default function NavBar() {
                 class="peer hidden"
               />
               <div class="w-full flex justify-between md:w-max md:px-0 z-30">
-                <a href="#" aria-label="logo">
+                <a href="/" aria-label="logo">
                   <img
                     src={logoprimary}
-                    class="w-36 dark:hidden"
+                    class="h-16 dark:hidden"
                     alt="swift logo"
-                    width="144"
-                    height="68"
+                
                   />
                   <img
                     src="images/logo-white.svg"
@@ -249,13 +248,13 @@ export default function NavBar() {
                               >
                                 Terms of use
                               </a>
-                              <a href=""
+                              <a href="/UseOfTermPage"
                                 className="text-[#961054] text-xs"
                              
                               >
                                 Privacy Policy
                               </a>
-                              <a href="#"
+                              <a href="/UseOfTermPage" 
                                 className="text-[#961054] text-xs"
                              
                               >
@@ -310,7 +309,7 @@ export default function NavBar() {
                       <div>
                         <div>
                           <li className="bg-white hover:bg-[#ececec] hover:text-white ">
-                            <a className="text-xs text-black hover:text-white">
+                            <a href="/UserProfile" className="text-xs text-black hover:text-white">
                               Profile <Person2Sharp />
                             </a>
                             <a className="text-xs text-black hover:text-white">

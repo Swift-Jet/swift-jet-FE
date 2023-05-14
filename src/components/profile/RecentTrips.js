@@ -17,7 +17,7 @@ const RecentTrips = () => {
                     </ul>
 
 
-                    <div className="container mt-3 p-2 mx-auto sm:p-4 dark:text-gray-100 ">
+                    <div className="container grid gap-0  mt-3 p-2 mx-auto sm:p-4 dark:text-gray-100 ">
                         <h2 className="mb-0 text-2xl font-semibold leading-tight">Trips</h2>
                         <div className="overflow-x-auto mr-8 w-full bg-[#eeece1]  rounded-lg mx-auto  flex overflow-hidden rounded-b-none mt-3  ">
                             <table className="min-w-full text-xs">

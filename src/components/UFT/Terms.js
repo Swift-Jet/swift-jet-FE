@@ -95,7 +95,7 @@ const Terms = () => {
                                 </AccordionItem>
                                 <AccordionPanel id="panel-2">
                                 <div className='p-8'>
-                                    <p className="  mb-4">
+                                    <p className="  mb-4" id="#PrivacyPolicy">
                                         Swift Wings Limited operates swiftwingsjet.com. This page informs you of our policies
                                         regarding the collection, use, and disclosure of personal information we receive from users of the
                                         Website.
@@ -178,8 +178,8 @@ const Terms = () => {
                                     C. PRESS & MEDIA.
                                 </AccordionItem>
                                 <AccordionPanel id="panel-3">
-                                <div className='p-8'></div>
-                                    <p className=" mb-4">
+                                <div className='p-8'>
+                                    <p className=" mb-4" id="#PrivacyPolicy">
                                         Welcome to the press and media page of Swift Wings Limited. Our commitment to excellence
                                         and innovation in the private jet charter industry has earned us recognition as one of the leading
                                         providers of luxury air travel in Nigeria. This page serves as a resource for journalists, bloggers,
@@ -228,6 +228,7 @@ const Terms = () => {
                                         ● Instagram: @Swift_jetcharterservice
                                         Thank you for your interest in Swift Wings Limited. We look forward to working with you
                                     </p>
+                                    </div>
                                 </AccordionPanel>
                             </Accordion>
 

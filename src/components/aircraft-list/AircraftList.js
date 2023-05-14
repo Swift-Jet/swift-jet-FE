@@ -62,7 +62,7 @@ const AircraftList = () => {
     <div>
       <div className="aircraft-list-head ">
         <div className="alh-links justify-between flex w-4/5">
-          <p className="text-white flex">
+          <p className="text-white flex mt-3">
             Aircraft /{" "}
             <p className="px-1" onClick={() => {}}>
               {link}
@@ -71,7 +71,7 @@ const AircraftList = () => {
           <div className="dropdown dropdown-end dropdown-hover">
             <label
               tabIndex={0}
-              className="bg-transparent text-white text-xs m-1"
+              className="bg-transparent text-white text-xs m-1 mt-3"
             >
               Filter Aircraft <TuneIcon />
             </label>

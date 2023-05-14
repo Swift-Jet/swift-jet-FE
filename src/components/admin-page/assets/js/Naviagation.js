@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Logoprimary from "../imgs/logoprimary.png"
+import Swiftwings from "../imgs/Swiftwings.png"
 import {Link} from "react-router-dom";
 
 
@@ -25,9 +25,16 @@ function Navigation() {
                 <li className={hoveredItem === 1 ? "hovered" : ""} onMouseOver={() => handleMouseOver(1)} >
                 <Link to="/aircraft">
                     <span class="icon">
-                            <ion-icon name="swiftwings"></ion-icon>
+                    <a href="/" aria-label="logo">
+                  <img
+                    src={Swiftwings}
+                    class="w-36 dark:hidden"
+                    alt="swift logo"
+                    
+                  />
+                  </a>
                         </span>
-                        <span class="title">Swift Wings</span>
+                       
                     </Link>
                 </li>
 
