@@ -45,7 +45,7 @@ const Medical = () => {
                                 </div>
                                 <div class="w-5/6 mt-8">
                                     <h4 class="font-semibold text-lg text-gray-700 dark:text-teal-300">24×7 availability:</h4>
-                                    <p class="text-gray-500 dark:text-gray-400"> Give us a call +971 58 511-9237, or +1 855 551-2233, or +7 499 350-0000 and we will arrange an air ambulance flight for you</p>
+                                    <p class="text-gray-500 dark:text-gray-400"> Give us call +2348058444378 or email info@swiftjetscs.com and we will arrange an air ambulance flight for you</p>
                                 </div>
                             </div>
                         </div>

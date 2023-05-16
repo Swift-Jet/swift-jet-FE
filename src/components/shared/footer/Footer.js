@@ -171,7 +171,7 @@ const Footer = () => {
                 </li>
                 <li class="mt-3">
                   <a class="text-white cursor-pointer  text-xs hover:text-white">
-                    +123-456-7890
+                  info@swiftjetscs.com or +2348058444378
                   </a>
                 </li>
               </nav>
