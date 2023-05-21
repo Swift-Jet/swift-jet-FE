@@ -30,13 +30,18 @@ const Addaircraft = () => {
                 </svg>
               </a>
             </div>
-            <div class="inline-flex border rounded w-7/12 px-2 lg:px-6 h-12 bg-transparent">
-              <div class="relative text-gray-600">
-                <input type="search" name="search" placeholder="Search" class="bg-white h-10 px-5 pr-10 rounded-full border-[#5C0632]text-sm focus:outline-none" />
+            <div class="inline-flex  rounded w-7/12 px-2 lg:px-6 h-12 bg-transparent">
+            <div class="search">
+                    <label>
+                    <div class="relative text-gray-600">
+                <input type="search" name="search" placeholder="Search" class="bg-white h-10 px-5 pr-10 rounded-full text-sm focus:outline-none" />
                 <button type="submit" class="absolute right-0 top-0 mt-3 mr-4">
-                  <svg xmlns="http://www.w3.org/2000/svg" height="48" viewBox="0 96 960 960" width="48"><path d="M796 935 533 672q-30 26-69.959 40.5T378 727q-108.162 0-183.081-75Q120 577 120 471t75-181q75-75 181.5-75t181 75Q632 365 632 471.15 632 514 618 554q-14 40-42 75l264 262-44 44ZM377 667q81.25 0 138.125-57.5T572 471q0-81-56.875-138.5T377 275q-82.083 0-139.542 57.5Q180 390 180 471t57.458 138.5Q294.917 667 377 667Z" /></svg>
+                  <svg className="w-4 h-4 fill-current" xmlns="http://www.w3.org/2000/svg" height="48" viewBox="0 96 960 960" width="48"><path d="M796 935 533 672q-30 26-69.959 40.5T378 727q-108.162 0-183.081-75Q120 577 120 471t75-181q75-75 181.5-75t181 75Q632 365 632 471.15 632 514 618 554q-14 40-42 75l264 262-44 44ZM377 667q81.25 0 138.125-57.5T572 471q0-81-56.875-138.5T377 275q-82.083 0-139.542 57.5Q180 390 180 471t57.458 138.5Q294.917 667 377 667Z" /></svg>
                 </button>
               </div>
+                        <ion-icon name="search-outline"></ion-icon>
+                    </label>
+                </div>
             </div>
           </div>
           <div>

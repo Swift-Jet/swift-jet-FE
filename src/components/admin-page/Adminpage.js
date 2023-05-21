@@ -33,11 +33,9 @@ const Fleet = () => {
                 </div>
 
                 <div class="user">
-                    <img src="assets/imgs/profile/user.png" alt=""/>
+                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=256&q=80" alt=""/>
                 </div>
             </div>
-
-          
             <div class="cardBox">
                 <div class="card">
                     <div>

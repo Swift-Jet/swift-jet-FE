@@ -4,7 +4,7 @@ import "./contact.css";
 
 const Contact = () => {
   return (
-    <div class="antialiased bg-white pt-24">
+    <div class="antialiased bg-white mt-28">
     
 <section class="relative z-10 overflow-hidden bg-white py-20 lg:py-[120px]">
   <div class="container mx-auto">

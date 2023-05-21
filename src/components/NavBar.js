@@ -175,13 +175,11 @@ export default function NavBar() {
                             <li className="bg-white hover:bg-[#ececec] shadow rounded-box dd-link">
                               <a href="/Cateringpage"
                                 className="text-[#961054] text-xs dd-link"
-                                onClick={scrollToBottom}
                               >
                                 Inflight catering
                               </a>
                               <a href="/Medicalpage"
                                 className="text-[#961054] text-xs"
-                                onClick={scrollToBottom}
                               >
                                 Medical evac
                               </a>
@@ -206,20 +204,17 @@ export default function NavBar() {
                           <div>
                             <li className="bg-white hover:bg-[#ececec] focus:bg-[#ececec] shadow rounded-box">
                               <a href="/contact"
-                                className="text-[#961054] text-xs"
-                                onClick={scrollToBottom}
+                                className="text-[#961054] text-xs"    
                               >
                                 Call us 
                               </a>
                               <a href="/contact"
-                                className="text-[#961054] text-xs"
-                                onClick={scrollToBottom}
+                                className="text-[#961054] text-xs" 
                               >
                                 WhatsApp Us 
                               </a>
                               <a href="/contact"
                                 className="text-[#961054] text-xs"
-                                onClick={scrollToBottom}
                               >
                                 Email Us 
                               </a>

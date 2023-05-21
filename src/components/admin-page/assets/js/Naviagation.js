@@ -23,7 +23,7 @@ function Navigation() {
     <div>
       <ul className="navigation">
                 <li className={hoveredItem === 1 ? "hovered" : ""} onMouseOver={() => handleMouseOver(1)} >
-                <Link to="/aircraft">
+                {/* <Link to="/aircraft">
                     <span class="icon">
                     <a href="/" aria-label="logo">
                   <img
@@ -35,7 +35,7 @@ function Navigation() {
                   </a>
                         </span>
                        
-                    </Link>
+                    </Link> */}
                 </li>
 
                 <li className={hoveredItem === 2 ? "hovered" : ""} onMouseOver={() => handleMouseOver(2)}>
