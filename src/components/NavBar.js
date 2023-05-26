@@ -304,7 +304,8 @@ export default function NavBar() {
                       <div>
                         <div>
                           <li className="bg-white hover:bg-[#ececec] hover:text-white ">
-                            <a href="/UserProfile" className="text-xs text-black hover:text-white">
+                          
+                            <a  href="/UserProfile" className="text-xs text-black hover:text-white">
                               Profile <Person2Sharp />
                             </a>
                             <a className="text-xs text-black hover:text-white">

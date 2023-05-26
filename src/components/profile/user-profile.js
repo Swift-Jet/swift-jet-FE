@@ -41,10 +41,15 @@ const UserProfile = () => {
                             </div>
 
                         </div>
-                        <div class="p-16 py-8 bg-gray-300 clearfix rounded-b-lg border-t border-gray-200">
-                            <p class="float-left text-xs text-gray-500 tracking-tight mt-2">Click on Save to update your Profile Info</p>
-                            <input type="submit" class="bg-[#5C0632] text-white text-sm font-medium px-6 py-2 rounded float-right uppercase cursor-pointer" value="Save" />
+                        <div class="p-16 py-8 bg-gray-300 rounded-b-lg border-t border-gray-200 flex items-center justify-between">
+                            <p class="text-xs text-gray-500 tracking-tight mt-2">Click on Save to update your Profile Info</p>
+                            <div>
+                                <input type="submit" class="bg-[#5C0632] text-white text-sm font-medium px-6 py-2 rounded uppercase cursor-pointer mr-2" value="Save" />
+                                <a href="/" class="bg-[#5C0632] text-white text-sm font-medium px-6 py-2 rounded uppercase cursor-pointer">Close</a>
+                            </div>
                         </div>
+
+
                     </form>
                 </div>
             </div>
