@@ -13,14 +13,14 @@ const UserProfile = () => {
                     <ul class="flex border-b border-gray-300 text-sm font-medium text-gray-600 px-6 md:px-0">
                         <li class="mr-8 text-gray-900 border-b-2 border-[#5C0632] "><a href="#" class="py-4 inline-block">Profile Info</a></li>
                         <li class="mr-8 hover:text-gray-900"><a href="/RecentTrips" class="py-4 inline-block">Recent Trips</a></li>
-                        <li class="mr-8 hover:text-gray-900"><a href="#_" class="py-4 inline-block">Settings</a></li>
+                        {/* <li class="mr-8 hover:text-gray-900"><a href="#_" class="py-4 inline-block">Settings</a></li> */}
                     </ul>
                     <form action="{{ route('profile.save') }}" method="POST" enctype="multipart/form-data">
 
                         <div class="w-full bg-[#eeece1]  rounded-lg mx-auto  flex overflow-hidden rounded-b-none mt-3">
                             <div class="w-1/3 bg-gray-100 p-8 hidden md:inline-block">
                                 <h2 class="font-medium text-md text-gray-700 mb-4 tracking-wide">Profile Info</h2>
-                                <p class="text-xs text-gray-500">Update your basic profile information such as Email Address, Name, and Image.</p>
+                                <p class="text-xs text-gray-500">Update your basic profile information such as Email Address and Name</p>
                             </div>
                             <div class="md:w-2/3 w-full">
                                 <div class="py-8 px-16">

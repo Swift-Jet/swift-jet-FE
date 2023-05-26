@@ -79,8 +79,7 @@ const Review = () => {
         </div>
 
         <p class="line-clamp-2 sm:line-clamp-none mt-4 text-gray-500">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt
-          voluptatem alias ut provident sapiente repellendus.
+        "I recently had the pleasure of flying with SwiftWings, and I must say it was an exceptional experience from start to finish. The level of luxury and comfort provided by SwiftWings' private jet service was unparalleled. The aircraft was immaculate, spacious, and equipped with state-of-the-art amenities. The crew members were professional, attentive, and went above and beyond to ensure our journey was smooth and enjoyable. SwiftWings' attention to detail and commitment to customer satisfaction truly sets them apart. I highly recommend their services to anyone looking for a premium private jet experience."
         </p>
       </blockquote>
 
@@ -146,13 +145,12 @@ const Review = () => {
               </svg>
             </div>
 
-            <p class="mt-1 text-lg font-medium text-gray-700">Paul Starr</p>
+            <p class="mt-1 text-lg font-medium text-gray-700">Samson Oladeji</p>
           </div>
         </div>
 
         <p class="line-clamp-2 sm:line-clamp-none mt-4 text-gray-500">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt
-          voluptatem alias ut provident sapiente repellendus.
+        "Choosing SwiftWings for my private jet travel was undoubtedly one of the best decisions I've made. From the moment I booked my flight to the moment I stepped off the aircraft, I felt like a VIP. The entire SwiftWings team was incredibly helpful, accommodating, and responsive to my needs. Their pilots are highly skilled, and the flight was seamless and comfortable. The interior of the jet was luxurious, with plush seating and a well-stocked bar. SwiftWings exceeded my expectations in every aspect, and I will undoubtedly be flying with them again in the future."
         </p>
       </blockquote>
 
@@ -218,13 +216,12 @@ const Review = () => {
               </svg>
             </div>
 
-            <p class="mt-1 text-lg font-medium text-gray-700">Paul Starr</p>
+            <p class="mt-1 text-lg font-medium text-gray-700">Oluwaseun Folarin</p>
           </div>
         </div>
 
         <p class="line-clamp-2 sm:line-clamp-none mt-4 text-gray-500">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt
-          voluptatem alias ut provident sapiente repellendus.
+        My experience with SwiftWings was nothing short of extraordinary. As a frequent traveler, I've had the opportunity to fly with various private jet companies, but SwiftWings truly stands out. Their attention to detail and commitment to exceptional service were evident from the moment I made my reservation. The aircraft was not only beautifully designed but also equipped with cutting-edge technology that enhanced the overall flying experience. The SwiftWings team ensured that every aspect of my journey was flawlessly executed, providing a level of comfort and convenience that is second to none. SwiftWings has become my go-to private jet company, and I wholeheartedly recommend them to anyone seeking an unforgettable travel experience
         </p>
       </blockquote>
     </div>

@@ -5,7 +5,7 @@ const RecentTrips = () => {
     return (
 
 
-        <section class="bg-[#eeece1] ">
+        <section class="bg-[#eeece1]">
             <div class="bg-white">
 
                 <div class="container grid gap-0 mx-auto max-w-3xl mt-8">
@@ -19,7 +19,7 @@ const RecentTrips = () => {
 
                     <div className="container grid gap-0  mt-3 p-2 mx-auto sm:p-4 dark:text-gray-100 ">
                         <h2 className="mb-0 text-2xl font-semibold leading-tight">Trips</h2>
-                        <div className="overflow-x-auto mr-8 w-full bg-[#eeece1]  rounded-lg mx-auto  flex overflow-hidden rounded-b-none mt-3  ">
+                        <div className="overflow-x-auto mr-8 w-full shadow-md  rounded-lg mx-auto  flex overflow-hidden rounded-b-none mt-3  ">
                             <table className="min-w-full text-xs">
                                 <colgroup>
                                     <col />
@@ -30,10 +30,10 @@ const RecentTrips = () => {
                                     <col className="w-24" />
                                 </colgroup>
                                 <thead className="dark:bg-gray-700">
-                                    <tr className="text-left">
-                                        <th className="p-3">Invoice #</th>
-                                        <th className="p-3">Client</th>
-                                        <th className="p-3">Issued</th>
+                                    <tr className="text-left text-rose-900">
+                                        <th className="p-3">Trip Id</th>
+                                        <th className="p-3">Aircraft</th>
+                                        <th className="p-3">Date</th>
                                         <th className="p-3">Due</th>
                                         <th className="p-3 text-right">Amount</th>
                                         <th className="p-3">Status</th>
@@ -45,7 +45,7 @@ const RecentTrips = () => {
                                             <p>97412378923</p>
                                         </td>
                                         <td className="p-3">
-                                            <p>Microsoft Corporation</p>
+                                            <p>Aircraft</p>
                                         </td>
                                         <td className="p-3">
                                             <p>14 Jan 2022</p>
@@ -58,7 +58,7 @@ const RecentTrips = () => {
                                         <td className="p-3 text-right">
                                             <p>$15,792</p>
                                         </td>
-                                        <td className="p-3 text-right">
+                                        <td className="p-3 text-right text-rose-900">
                                             <span className="px-3 py-1 font-semibold rounded-md dark:bg-violet-400 dark:text-gray-900">
                                                 <span>Pending</span>
                                             </span>
@@ -69,7 +69,7 @@ const RecentTrips = () => {
                                             <p>97412378923</p>
                                         </td>
                                         <td className="p-3">
-                                            <p>Tesla Inc.</p>
+                                            <p>Aircraft</p>
                                         </td>
                                         <td className="p-3">
                                             <p>14 Jan 2022</p>
@@ -82,9 +82,9 @@ const RecentTrips = () => {
                                         <td className="p-3 text-right">
                                             <p>$275</p>
                                         </td>
-                                        <td className="p-3 text-right">
+                                        <td className="p-3 text-right text-green-900">
                                             <span className="px-3 py-1 font-semibold rounded-md dark:bg-violet-400 dark:text-gray-900">
-                                                <span>Pending</span>
+                                                <span>Completed</span>
                                             </span>
                                         </td>
                                     </tr>
@@ -93,7 +93,7 @@ const RecentTrips = () => {
                                             <p>97412378923</p>
                                         </td>
                                         <td className="p-3">
-                                            <p>Coca Cola co.</p>
+                                            <p>Aircraft</p>
                                         </td>
                                         <td className="p-3">
                                             <p>14 Jan 2022</p>
@@ -106,9 +106,9 @@ const RecentTrips = () => {
                                         <td className="p-3 text-right">
                                             <p>$8,950,500</p>
                                         </td>
-                                        <td className="p-3 text-right">
+                                        <td className="p-3 text-right text-green-900">
                                             <span className="px-3 py-1 font-semibold rounded-md dark:bg-violet-400 dark:text-gray-900">
-                                                <span>Pending</span>
+                                                <span>Completed</span>
                                             </span>
                                         </td>
                                     </tr>
@@ -117,7 +117,7 @@ const RecentTrips = () => {
                                             <p>97412378923</p>
                                         </td>
                                         <td className="p-3">
-                                            <p>Nvidia Corporation</p>
+                                            <p>Aircraft</p>
                                         </td>
                                         <td className="p-3">
                                             <p>14 Jan 2022</p>
@@ -130,9 +130,9 @@ const RecentTrips = () => {
                                         <td className="p-3 text-right">
                                             <p>$98,218</p>
                                         </td>
-                                        <td className="p-3 text-right">
+                                        <td className="p-3 text-right text-green-900">
                                             <span className="px-3 py-1 font-semibold rounded-md dark:bg-violet-400 dark:text-gray-900">
-                                                <span>Pending</span>
+                                                <span>Completed</span>
                                             </span>
                                         </td>
                                     </tr>
