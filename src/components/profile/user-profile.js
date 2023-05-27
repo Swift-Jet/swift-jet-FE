@@ -12,7 +12,7 @@ const UserProfile = () => {
                     <h1 class="text-2xl font-bold text-gray-700 px-6 md:px-0">Profile Settings</h1>
                     <ul class="flex border-b border-gray-300 text-sm font-medium text-gray-600 px-6 md:px-0">
                         <li class="mr-8 text-gray-900 border-b-2 border-[#5C0632] "><a href="#" class="py-4 inline-block">Profile Info</a></li>
-                        <li class="mr-8 hover:text-gray-900"><a href="/RecentTrips" class="py-4 inline-block">Recent Trips</a></li>
+                        {/* <li class="mr-8 hover:text-gray-900"><a href="/RecentTrips" class="py-4 inline-block">Recent Trips</a></li> */}
                         {/* <li class="mr-8 hover:text-gray-900"><a href="#_" class="py-4 inline-block">Settings</a></li> */}
                     </ul>
                     <form action="{{ route('profile.save') }}" method="POST" enctype="multipart/form-data">
