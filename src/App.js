@@ -30,6 +30,7 @@ import Quotes from "./components/admin-page/Quotes";
 import ScheduledTrip from "./components/admin-page/ScheduledTrip";
 import Addaircraft from "./components/admin-page/Add-aircraft";
 import UseOfTermPage from "./pages/UFT/UseOfTermPage";
+import ConfirmFlight from "./pages/Track-Flight/ConfirmFlight";
 
 const App = () => {
   return (
@@ -62,6 +63,9 @@ const App = () => {
       <Route path="/Contacts" component={Contacts}></Route> 
       <Route path="/UseOfTermPage" component={UseOfTermPage}></Route> 
       <Route path="/RecentTrips" component={RecentTrips}></Route>
+      <Route path="/RecentTrips" component={RecentTrips}></Route>
+      <Route path="/ConfirmFlight" component={ConfirmFlight}></Route>
+
 
     </Switch>
   );
