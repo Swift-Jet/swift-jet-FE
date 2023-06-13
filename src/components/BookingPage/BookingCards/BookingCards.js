@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
-import privatejet from "../BookingCards/privatejet.jpeg";
-import frame from "../BookingCards/Frame636.png";
-import weapon from "../BookingCards/no-weapons-icon.svg";
-import smoking from "../BookingCards/no-smoking-area-icon.svg";
-import sharpobject from "../BookingCards/no-knife-icon.svg";
-import flameable from "../BookingCards/no-fire-flame-icon.svg";
+//import privatejet from "../BookingCards/privatejet.jpeg";
+//import frame from "../BookingCards/Frame636.png";
+//import weapon from "../BookingCards/no-weapons-icon.svg";
+//import smoking from "../BookingCards/no-smoking-area-icon.svg";
+//import sharpobject from "../BookingCards/no-knife-icon.svg";
+//import flameable from "../BookingCards/no-fire-flame-icon.svg";
 
 const BookingCards = () => {
     return (
@@ -181,9 +181,9 @@ const BookingCards = () => {
                         <div class="max-w-[50rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
                             <div class="grid sm:grid-cols-2 lg:grid-cols-4 items-center gap-12">
                                 <div class="text-center">
-                                    <div class="flex justify-center items-center w-12 h-12 bg-white border border-red-500 !important rounded-full mx-auto">
+                                    {/* <div class="flex justify-center items-center w-12 h-12 bg-white border border-red-500 !important rounded-full mx-auto">
                                         <img alt="" src={smoking} />
-                                    </div>
+                                    </div> */}
                                     <div class="mt-3">
                                         <h3 class="text-sm text-gray-900">Smoking</h3>
 
@@ -191,27 +191,27 @@ const BookingCards = () => {
                                 </div>
 
                                 <div class="text-center">
-                                    <div class="flex justify-center items-center w-12 h-12 bg-white border border-gray-200 rounded-full mx-auto ">
+                                    {/* <div class="flex justify-center items-center w-12 h-12 bg-white border border-gray-200 rounded-full mx-auto ">
                                         <img alt="" src={weapon} />
-                                    </div>
+                                    </div> */}
                                     <div class="mt-3">
                                         <h3 class="text-sm  text-gray-900 ">Weapon</h3>
 
                                     </div>
                                 </div>
                                 <div class="text-center">
-                                    <div class="flex justify-center items-center w-12 h-12 bg-white border border-gray-200 rounded-full mx-auto dark:bg-gray-800 dark:border-gray-700">
+                                    {/* <div class="flex justify-center items-center w-12 h-12 bg-white border border-gray-200 rounded-full mx-auto dark:bg-gray-800 dark:border-gray-700">
                                         <img alt="" src={sharpobject} />
-                                    </div>
+                                    </div> */}
                                     <div class="mt-3">
                                         <h3 class="text-sm text-gray-900 ">Sharp Object</h3>
 
                                     </div>
                                 </div>
                                 <div class="text-center">
-                                    <div class="flex justify-center items-center w-12 h-12 bg-gray-50 border border-gray-200 rounded-full mx-auto dark:bg-gray-800 dark:border-gray-700">
+                                    {/* <div class="flex justify-center items-center w-12 h-12 bg-gray-50 border border-gray-200 rounded-full mx-auto dark:bg-gray-800 dark:border-gray-700">
                                         <img alt="" src={flameable} />
-                                    </div>
+                                    </div> */}
                                     <div class="mt-3">
                                         <h3 class="text-sm text-gray-900 ">Flammable Liquid Over 100ml</h3>
                                     </div>
@@ -221,13 +221,13 @@ const BookingCards = () => {
                     </div>
                 </div>
                 <div class="group flex flex-col h-full bg-white rounded-xl border border-gray-200 shadow-sm rounded-xl dark:bg-slate-900 dark:border-gray-700 dark:shadow-slate-700/[.7]">
-                    <div class="h-30 flex flex-col justify-center items-center rounded-lg">
+                    {/* <div class="h-30 flex flex-col justify-center items-center rounded-lg">
                         <img
                             alt=""
                             src={privatejet}
                             className="rounded-t-lg object-cover object-center w-full rounded-t-md h-28 dark:bg-gray-500"
                         />
-                    </div>
+                    </div> */}
                     <div class="p-4 md:p-6">
                         <span class="block mb-1 text-xl font-semibold uppercase ">
                             Beech BE200 Super King Air
