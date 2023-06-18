@@ -4,8 +4,8 @@ import React, { useContext } from "react";
 const Catering = () => {
   return (
 
-    <section className="mt-32">
-      <div class="px-6 pt-32 m-auto md:py-12 xl:container md:px-12">
+    <section className="py-16 bg-white mt-32">
+      <div class="xl:container  m-auto px-6 text-gray-600 md:px-12 xl:px-16">
         <div aria-hidden="true" class="absolute inset-0 h-32 my-auto rotate-45 opacity-50 w-96 bg-gradient-to-r from-primaryLight to-secondaryLight blur-3xl dark:opacity-20"></div>
         <div class="relative lg:flex lg:items-start lg:gap-12">
           <div class="text-start lg:text-left md:mt-12 lg:mt-0 sm:w-10/12 md:w-2/3 sm:mx-auto lg:mr-auto lg:w-6/12">

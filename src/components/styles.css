@@ -885,5 +885,5 @@ a:hover {
   color: red;
 }
 .dd-link:focus{
-  background-color: red !important;
+  background-color: gray !important;
 }

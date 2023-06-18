@@ -117,7 +117,7 @@ export default function NavBar() {
                     <li>
                       <a href="/aircraft" class="block md:pr-4 group">
                         <div
-                          class="relative group before:absolute before:-bottom-2 md:before:-bottom-3 before:w-full before:h-0.5 before:origin-left before:mt-auto before:rounded-full before:bg-rose-800 before:transition before:scale-x-0 group-hover:before:scale-x-100"
+                          class="relative  text-rose-900 dark:text-rose-900 group before:absolute before:-bottom-2 md:before:-bottom-3 before:w-full before:h-0.5 before:origin-left before:mt-auto before:rounded-full before:bg-rose-800 before:transition before:scale-x-0 group-hover:before:scale-x-100"
                         >
                           <span class="group-hover:text-rose-900 lg:text-xs">
                             Fleet
@@ -128,7 +128,7 @@ export default function NavBar() {
                     <li>
                       <a href="/destination" class="block md:pr-4 group">
                         <div
-                          class="relative group
+                          class="relative group text-rose-900 dark:text-rose-900
                                                             before:absolute before:-bottom-2 md:before:-bottom-3 before:w-full before:h-0.5 before:origin-left before:mt-auto before:rounded-full before:bg-rose-800 before:transition before:scale-x-0 group-hover:before:scale-x-100"
                         >
                           <span class="group-hover:text-rose-900 lg:text-xs">
@@ -172,14 +172,16 @@ export default function NavBar() {
                       >
                         <div>
                           <div>
-                            <li className="bg-white hover:bg-[#ececec] shadow rounded-box dd-link">
+                            <li className="bg-white hover:bg-[#ececec] focus:bg-[#ececec] shadow rounded-box dd-link">
                               <a href="/Cateringpage"
                                 className="text-[#961054] text-xs dd-link"
+                                onClick={scrollToBottom}
                               >
                                 Inflight catering
                               </a>
                               <a href="/Medicalpage"
-                                className="text-[#961054] text-xs"
+                                className="text-[#961054] text-xs dd-link"
+                                onClick={scrollToBottom}
                               >
                                 Medical evac
                               </a>
@@ -204,17 +206,20 @@ export default function NavBar() {
                           <div>
                             <li className="bg-white hover:bg-[#ececec] focus:bg-[#ececec] shadow rounded-box">
                               <a href="/contact"
-                                className="text-[#961054] text-xs"    
+                                className="text-[#961054] text-xs"
+                                onClick={scrollToBottom}
                               >
                                 Call us 
                               </a>
                               <a href="/contact"
-                                className="text-[#961054] text-xs" 
+                                className="text-[#961054] text-xs"
+                                onClick={scrollToBottom}
                               >
                                 WhatsApp Us 
                               </a>
                               <a href="/contact"
                                 className="text-[#961054] text-xs"
+                                onClick={scrollToBottom}
                               >
                                 Email Us 
                               </a>
@@ -304,8 +309,7 @@ export default function NavBar() {
                       <div>
                         <div>
                           <li className="bg-white hover:bg-[#ececec] hover:text-white ">
-                          
-                            <a  href="/UserProfile" className="text-xs text-black hover:text-white">
+                            <a href="/UserProfile" className="text-xs text-black hover:text-white">
                               Profile <Person2Sharp />
                             </a>
                             <a className="text-xs text-black hover:text-white">

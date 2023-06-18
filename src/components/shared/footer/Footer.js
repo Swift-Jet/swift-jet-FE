@@ -16,7 +16,7 @@ const Footer = () => {
             <a class="flex items-center justify-center font-medium text-white title-font md:justify-start">
             
             </a>
-            <p class="mt-2 text-sm text-white">Book, Fly and Explore!</p>
+            <p class="mt-2 text-xl text-white">Book, Fly and Explore!</p>
             <div class="mt-4">
               <span class="inline-flex justify-center mt-2 sm:ml-auto sm:mt-0 sm:justify-start">
                 <a class="text-white cursor-pointer hover:text-gray-700">
@@ -86,91 +86,91 @@ const Footer = () => {
           </div>
           <div class="flex flex-wrap flex-grow mt-10 -mb-10 text-center md:pl-20 md:mt-0 md:text-left">
             <div class="w-full px-4 lg:w-1/4 md:w-1/2">
-              <h2 class="mb-3 text-sm font-medium tracking-widest text-white uppercase title-font">
+              <h2 class="mb-3 text-2xl font-medium tracking-widest text-white uppercase title-font">
                 About
                 
               </h2>
               <nav class="mb-10 list-none">
                 <li class="mt-3">
-                  <a class="text-white cursor-pointer  text-xs hover:text-white">
+                  <a class="text-white cursor-pointer  text-lg hover:text-white">
                     Company
                   </a>
                 </li>
                 <li class="mt-3">
-                  <a class="text-white cursor-pointer  text-xs hover:text-white">
+                  <a class="text-white cursor-pointer  text-lg hover:text-white">
                     Careers
                   </a>
                 </li>
                 <li class="mt-3">
-                  <a class="text-white cursor-pointer  text-xs hover:text-white">
+                  <a class="text-white cursor-pointer  text-lg hover:text-white">
                     Blog
                   </a>
                 </li>
               </nav>
             </div>
             <div class="w-full px-4 lg:w-1/4 md:w-1/2">
-              <h2 class="mb-3 text-sm font-medium tracking-widest text-white uppercase title-font">
+              <h2 class="mb-3 text-2xl font-medium tracking-widest text-white uppercase title-font">
                 Support
               </h2>
               <nav class="mb-10 list-none">
                 <li class="mt-3">
-                  <a href="/contact" class="text-white cursor-pointer  text-xs hover:text-white">
+                  <a href="/contact" class="text-white cursor-pointer  text-lg hover:text-white">
                     Contact Support
                   </a>
                 </li>
                 <li class="mt-3">
-                  <a  href="/contact" class="text-white cursor-pointer  text-xs hover:text-white">
+                  <a  href="/contact" class="text-white cursor-pointer  text-lg hover:text-white">
                     Help Resources
                   </a>
                 </li>
                 <li class="mt-3">
-                  <a class="text-white cursor-pointer  text-xs hover:text-white">
+                  <a class="text-white cursor-pointer  text-lg hover:text-white">
                     Release Updates
                   </a>
                 </li>
               </nav>
             </div>
             <div class="w-full px-4 lg:w-1/4 md:w-1/2">
-              <h2 class="mb-3 text-sm font-medium tracking-widest text-white uppercase title-font">
+              <h2 class="mb-3 text-2xl font-medium tracking-widest text-white uppercase title-font">
                 Platform
               </h2>
               <nav class="mb-10 list-none">
                 <li class="mt-3">
-                  <a class="text-white cursor-pointer  text-xs hover:text-white">
+                  <a class="text-white cursor-pointer  text-lg hover:text-white">
                     Terms &amp; Privacy
                   </a>
                 </li>
                 <li class="mt-3">
-                  <a class="text-white cursor-pointer  text-xs hover:text-white">
+                  <a class="text-white cursor-pointer  text-lg hover:text-white">
                     Pricing
                   </a>
                 </li>
                 <li class="mt-3">
-                  <a href="/faq" class="text-white cursor-pointer  text-xs hover:text-white">
+                  <a href="/faq" class="text-white cursor-pointer  text-lg hover:text-white">
                     FAQ
                   </a>
                 </li>
               </nav>
             </div>
             <div class="w-full px-4 lg:w-1/4 md:w-1/2">
-              <h2 class="mb-3 text-sm font-medium tracking-widest text-white uppercase title-font">
+              <h2 class="mb-3 text-2xl font-medium tracking-widest text-white uppercase title-font">
               
                 Contact
               
               </h2>
               <nav class="mb-10 list-none">
                 <li class="mt-3">
-                  <a  href="/contact" class="text-white cursor-pointer  text-xs hover:text-white">
+                  <a  href="/contact" class="text-white cursor-pointer  text-lg hover:text-white">
                     Send a Message
                   </a>
                 </li>
                 <li class="mt-3">
-                  <a  href="/contact" class="text-white cursor-pointer  text-xs hover:text-white">
+                  <a  href="/contact" class="text-white cursor-pointer  text-lg hover:text-white">
                     Request a Quote
                   </a>
                 </li>
                 <li class="mt-3">
-                  <a class="text-white cursor-pointer  text-xs hover:text-white">
+                  <a class="text-white cursor-pointer  text-lg hover:text-white">
                   info@swiftjetscs.com or +2348058444378
                   </a>
                 </li>
