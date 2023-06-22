@@ -11,6 +11,7 @@ const FlightsContextProvider = ({ children }) => {
         "http://localhost:8000/api/v1/flight/all"
       );
       setFlights(data?.data);
+      console.log("data?.data", data?.data);
     }
 
     fetchData();

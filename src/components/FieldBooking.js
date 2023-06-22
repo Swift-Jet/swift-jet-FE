@@ -86,7 +86,6 @@ const FieldBooking = () => {
 
   const handleInputChange = (e, index) => {
     const { name, value } = e.target;
-    console.log(name, value );
     const newFormData = [...formData];
     newFormData[index][name] = value;
     setFormData(newFormData);
@@ -1244,8 +1243,8 @@ const FieldBooking = () => {
                           tripType: data?.flight_type,
                           source: data?.departure_airport,
                           destination: data?.destination_airport,
-                          depatureDate: data?.departure_time,
-                          depatureTime: data?.arrival_time,
+                          depatureDate: data?.departure_date,
+                          depatureTime: data?.departure_time,
                           adults: data?.aircraft.no_of_seats,
                           aircraft: data?.aircraft,
                         })
@@ -1273,7 +1272,7 @@ const FieldBooking = () => {
                       <dl>
                         <div>
                           <dd class="text-white mt-2 shared-flight-time-date" >
-                            Next Flight: 24th March 2023 at {data.arrival_time}
+                            Next Flight: {data.created_date.slice(0, 10)} at {data.arrival_time}
                           </dd>
                         </div>
                       </dl>
@@ -1284,13 +1283,13 @@ const FieldBooking = () => {
                           <dt class="sr-only">Address</dt>
 
                           <dd class="route">
-                            Abuja, Nigeria - Lagos, Nigeria
+                            {data?.departure_airport?.value.city}, {data?.departure_airport?.value.country} - {data?.destination_airport?.value.city}, {data?.destination_airport?.value.country} 
                           </dd>
                         </div>
                         <div>
                           <dt class="sr-only">Price</dt>
 
-                          <dd class="text-md text-gray-500 cost">$5500</dd>
+                          <dd class="text-md text-gray-500 cost">$ {data?.inbound_price}</dd>
                         </div>
                       </dl>
 
