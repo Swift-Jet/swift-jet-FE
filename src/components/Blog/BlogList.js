@@ -10,6 +10,7 @@ const BlogList = () => {
     const getAllEntries = async () => {
       try {
         await client.getEntries().then((entries) => {
+          console.log("entries", entries);
           setBlogPosts(entries);
         });
       } catch (error) {

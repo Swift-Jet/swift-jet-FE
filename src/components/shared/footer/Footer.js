@@ -95,14 +95,14 @@ const Footer = () => {
                   <a class="text-white cursor-pointer  text-lg hover:text-white">
                     Company
                   </a>
-                </li>
+                </li>y
                 <li class="mt-3">
                   <a class="text-white cursor-pointer  text-lg hover:text-white">
                     Careers
                   </a>
                 </li>
                 <li class="mt-3">
-                  <a class="text-white cursor-pointer  text-lg hover:text-white">
+                  <a class="text-white cursor-pointer  text-lg hover:text-white" href="/blogList">
                     Blog
                   </a>
                 </li>
