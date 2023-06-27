@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { createClient } from 'contentful';
-import { Link } from 'react-router-dom';
 import Layout from '../shared/layout/Layout';
 
-const BlogList = ({match}) => {
+const SingleBlog = ({match}) => {
   const { id } = match.params;
-  console.log("id", id);
   const [blogPosts, setBlogPosts] = useState([]);
   const client = createClient({ space: 'sfoa8p0bdcyz', accessToken: 'U5vQTREGJEbHPWSLGJdzMv7xlBJyA6Nqk2r9Mp6yhlk' });
 
@@ -13,8 +11,8 @@ const BlogList = ({match}) => {
     const getAllEntries = async () => {
       try {
         const entries = await client.getEntries();
-       // const singleEntry = entries.filter((item) => item.post.sys.id == "") 
-        setBlogPosts(entries.items);
+        const singleEntry = entries.items.filter((item) => item.sys.id == id) 
+        setBlogPosts(singleEntry);
       } catch (error) {
         console.log(`Error fetching authors ${error}`);
       }
@@ -29,24 +27,30 @@ const BlogList = ({match}) => {
         <div>
           <div className="posts">
            <div className="justify-center flex">
-           <h1 className="content-subhead mb-4 text-[2em]">Our Blogs</h1>
+          
            </div>
             {blogPosts.map((post) => (
          
               <section className="post mb-12" key={post.sys.id}>
                 <header className="post-header">
+                <h2 className="text-gray-900 font-bold text-2xl tracking-tight mt-2 mb-4 italic">{post.fields.blogTitle}</h2>
                   <img src={post.fields.blogImage.fields.file.url} title="" alt={post.fields.title} className='bg-white shadow-md border border-gray-200 rounded-lg' />
-                  <h2 className="text-gray-900 font-bold text-2xl tracking-tight mt-2">{post.fields.title}</h2>
                 </header>
+                <br></br>
                 <div className="post-description">
-                  <p>{post.fields.blogSummary}</p>
-                  <Link to={`/blogDetails/${post.sys.id}`} className="text-white bg-rose-900 hover:bg-rose-900 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2 text-center inline-flex items-center mt-2">
+                  <p className='italic'>{post.fields.blogSummary}</p>
+                  {/* <Link to={`/blogDetails/${post.sys.id}`} className="text-white bg-rose-900 hover:bg-rose-900 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2 text-center inline-flex items-center mt-2">
                     Read More
-                  </Link>
+                  </Link> */}
+                  <br></br>
+                  <p>{post.fields.postContent}</p>
                   <br></br>
                   <br></br>
                   <p className="post-meta flex justify-end">
-                    <a href="https://thecodeangle.com/" className="post-author">By Swiftwings</a>
+                    <a href="" className="post-author">By Swiftwings Authors</a>
+                  </p>
+                  <p className="post-meta flex justify-end">
+                    <a href="" className="post-author">Posted On {(post.fields.createdDate).slice(0, 10)}</a>
                   </p>
                 </div>
               </section>
@@ -67,4 +71,4 @@ const BlogList = ({match}) => {
   );
 };
 
-export default BlogList;
+export default SingleBlog;

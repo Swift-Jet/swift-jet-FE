@@ -55,7 +55,7 @@ const SingleAircraft = ({ match }) => {
     setDescription(description);
   };
   return (
-    <div className="aircraft-details-head ">
+    <div className="aircraft-details-head mt-24">
       <div className=" aircraft-details-head-inner   mr-auto ml-24 w-3/5">
         <div>
           <div className="">

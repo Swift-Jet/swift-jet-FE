@@ -51,17 +51,8 @@ const FieldBooking = () => {
   const [pets, setPets] = useState(0);
   const [showModal, setShowModal] = React.useState(false);
   const [showReturnModal, setShowReturnModal] = React.useState(false);
-  const [showAircraft, setShowAircraft] = useState(true);
-  const [showAircraftDest, setShowAircraftDest] = useState(true);
-  const [source, setSource] = useState("");
-  const [destination, setDestination] = useState("");
-  const [searchInput, setSearchInput] = useState("");
-  const [filteredResults, setFilteredResults] = useState([]);
+
   const [oneWayTrip, setOneWayTrip] = useState(true);
-  const [sourceAirport, setSourceAirport] = useState("");
-  const [sourceAirportCode, setSourceAirportCode] = useState("");
-  const [destinationAirport, setDestinationAirport] = useState("");
-  const [destinationAirportCode, setDestinationAirportCode] = useState("");
   const [tripType, setTripType] = useState("One way Trip");
   const [addMoreBtn, setAddMoreBtn] = useState(false);
   const [addReturnBtn, setAddReturnBtn] = useState(false);
@@ -351,7 +342,6 @@ const FieldBooking = () => {
   };
 
   const resetBookingForm = () => {
-
     document.getElementById("flight-booking-form").reset();
   };
 
@@ -1255,6 +1245,7 @@ const FieldBooking = () => {
                           aircraft: data?.aircraft,
                         })
                       );
+                      localStorage.setItem("prevpath", JSON.stringify(location.pathname));
                     }}
                   >
                     <div className="overflow-hidden rounded-lg">

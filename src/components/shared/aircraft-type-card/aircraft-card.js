@@ -3,16 +3,18 @@ import { useHistory } from "react-router-dom";
 import "./card.css";
 
 const AircraftCard = ({item}) => {
+
   const history = useHistory();
   return (
     <div>
-      <div class="max-w-sm bg-white border-gray-200 overflow-hidden justify-items-start bg-white rounded-full  border border-gray-100  shadow-2xl shadow-gray-600/10 dark:shadow-none  shadow-md dark mt-8 mb-8 2xl:w-full xl:w-full lg:w-full md:w-full sm:w-full ac-group-list" onClick={() =>{
+      <div class=" max-w-sm bg-white border-gray-200 overflow-hidden justify-items-start bg-white  border border-gray-100  shadow-2xl shadow-gray-600/10 dark:shadow-none  shadow-md dark mt-8 mb-8 2xl:w-full xl:w-full lg:w-full md:w-full sm:w-full ac-group-list" onClick={() =>{
         history.push(`/aircraft-details/${item?._id}`)
       }}>
         <a href="#">
           <img
-            class="rounded-full py-4 px-4"
-            src="https://thumbs.dreamstime.com/b/air-travel-concept-jet-above-clouds-square-composition-39585443.jpg"
+            class="rounded-sm w-full h-64 py-4 px-4"
+            // src={item?.image_url}
+            src="https://res.cloudinary.com/dzv98o7ds/image/upload/v1687789858/WhatsApp_Image_2023-06-06_at_14.29.16_bxemwc.jpg"
             alt=""
           />
         </a>

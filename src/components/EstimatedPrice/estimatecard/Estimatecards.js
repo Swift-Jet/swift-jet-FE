@@ -93,7 +93,7 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
   const handleSubmit = () => {
     setLoading(true);
     axios
-      .post("http://localhost:8000/api/v1/booking/add", booking_payload)
+      .post("https://swift-jet-backend.onrender.com/api/v1/booking/add", booking_payload)
       .then((data) => {
         localStorage.removeItem("quotes");
         localStorage.removeItem("bookingDetails");

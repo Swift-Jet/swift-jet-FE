@@ -1,15 +1,23 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState} from 'react';
 import "../review/main"
+import Layout from '../shared/layout/Layout';
+
 
 const UserProfile = () => {
+
+
+    const [user, setUser] = useState({})
+    useEffect(() => {
+     let user = JSON.parse(localStorage.getItem("user"));
+     setUser(user);
+      }, []);
     return (
 
-
-        <section class="bg-[#eeece1] ">
+       <Layout>
+         <section class="bg-[#eeece1] mt-24 ">
             <div class="bg-white">
 
                 <div class="container grid gap-0 mx-auto max-w-3xl mt-8">
-                    <h1 class="text-2xl font-bold text-gray-700 px-6 md:px-0">Profile Settings</h1>
                     <ul class="flex border-b border-gray-300 text-sm font-medium text-gray-600 px-6 md:px-0">
                         <li class="mr-8 text-gray-900 border-b-2 border-[#5C0632] "><a href="#" class="py-4 inline-block">Profile Info</a></li>
                         {/* <li class="mr-8 hover:text-gray-900"><a href="/RecentTrips" class="py-4 inline-block">Recent Trips</a></li> */}
@@ -25,12 +33,12 @@ const UserProfile = () => {
                             <div class="md:w-2/3 w-full">
                                 <div class="py-8 px-16">
                                     <label for="name" class="text-sm text-gray-600">Name</label>
-                                    <input class="mt-2 border-2 border-gray-200 px-3 py-2 block w-full rounded-lg text-base text-gray-900 focus:outline-none focus:border-indigo-500" type="text" value="" name="name" />
+                                    <input class="mt-2 border-2 border-gray-200 px-3 py-2 block w-full rounded-lg text-base text-gray-900 focus:outline-none focus:border-indigo-500" type="text" value={user?.first_name + " " + user?.last_name} name="name" />
                                 </div>
                                 <hr class="border-gray-200" />
                                 <div class="py-8 px-16">
                                     <label for="email" class="text-sm text-gray-600">Email Address</label>
-                                    <input class="mt-2 border-2 border-gray-200 px-3 py-2 block w-full rounded-lg text-base text-gray-900 focus:outline-none focus:border-indigo-500" type="email" name="email" value="" />
+                                    <input class="mt-2 border-2 border-gray-200 px-3 py-2 block w-full rounded-lg text-base text-gray-900 focus:outline-none focus:border-indigo-500" type="email" name="email" value={user?.email} />
                                 </div>
                                 <hr class="border-gray-200" />
                                 <div class="py-8 px-16">
@@ -54,6 +62,7 @@ const UserProfile = () => {
                 </div>
             </div>
         </section>
+       </Layout>
     );
 };
 

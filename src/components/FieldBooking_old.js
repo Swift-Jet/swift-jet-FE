@@ -46,7 +46,7 @@ const FieldBooking = () => {
 
   const { aircrafts } = useContext(AircraftsContext);
   const { flights } = useContext(FlightsContext);
-  console.log("flights", flights);
+  
 
   const [airports, setAirports] = useState(data);
   const [depatureDate, setDepatureDate] = useState({
@@ -75,29 +75,10 @@ const FieldBooking = () => {
         depatureTime === ""
       ) {
         setShowModal(false);
-        console.log(
-          "source",
-          source,
-          "destination,",
-          destination,
-          "depatureDate",
-          depatureDate?.startDate,
-          "depatureTime",
-          depatureTime
-        );
         toastMsg("Fill all fields to continue");
       } else {
         setShowModal(true);
-        console.log(
-          "source",
-          source,
-          "destination,",
-          destination,
-          "depatureDate",
-          depatureDate?.startDate,
-          "depatureTime",
-          depatureTime
-        );
+  
       }
     }
     if (tripType === "Round Trip") {

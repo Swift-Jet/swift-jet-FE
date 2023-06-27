@@ -31,9 +31,10 @@ import ScheduledTrip from "./components/admin-page/ScheduledTrip";
 import Addaircraft from "./components/admin-page/Add-aircraft";
 import UseOfTermPage from "./pages/UFT/UseOfTermPage";
 import ConfirmFlight from "./pages/Track-Flight/ConfirmFlight";
-import BlogList from "./components/Blog/SingleBlog";
+import BlogList from "./components/Blog/BlogList";
 import SingleBlog from './components/Blog/SingleBlog';
 import { BrowserRouter as Router, Route } from "react-router-dom";
+import SingleBooking from "./components/single-booking/SingleBooking";
 
 /* How the Import looks on the single project */
 
@@ -74,10 +75,10 @@ const App = () => {
       <Route path="/Contacts" component={Contacts}></Route>
       <Route path="/UseOfTermPage" component={UseOfTermPage}></Route>
       <Route path="/RecentTrips" component={RecentTrips}></Route>
-      <Route path="/RecentTrips" component={RecentTrips}></Route>
       <Route path="/ConfirmFlight" component={ConfirmFlight}></Route>
-      <Route path="/blogDetails/:id" component={SingleBlog}></Route>
       <Route path="/blogList" component={BlogList} ></Route>
+      <Route path="/blogDetails/:id" component={SingleBlog}></Route>
+      <Route path="/single-booking" component={SingleBooking}></Route>
     </Switch>
   );
 };

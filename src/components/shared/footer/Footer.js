@@ -95,7 +95,7 @@ const Footer = () => {
                   <a class="text-white cursor-pointer  text-lg hover:text-white">
                     Company
                   </a>
-                </li>y
+                </li>
                 <li class="mt-3">
                   <a class="text-white cursor-pointer  text-lg hover:text-white">
                     Careers

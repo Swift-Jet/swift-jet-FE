@@ -312,8 +312,8 @@ export default function NavBar() {
                             <a href="/UserProfile" className="text-xs text-black hover:text-white">
                               Profile <Person2Sharp />
                             </a>
-                            <a className="text-xs text-black hover:text-white">
-                              Flights <Flight />{" "}
+                            <a href="/recentTrips" className="text-xs text-black hover:text-white">
+                              Recent Trips <Flight />{" "}
                             </a>
                             <a
                               className="text-xs text-black hover:text-white text-end"

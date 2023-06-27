@@ -30,7 +30,7 @@ const EstimateLayout = () => {
               class="text-rose-900 button-2 mt-3 border-1 item-center border-rose-900   rounded-full outline-none focus:outline-none  ease-linear transition-all duration-150 "
               type="button"
               onClick={() => {
-                history.push(JSON.parse(localStorage.getItem("prevpath")));
+                history.push("/");
                 localStorage.removeItem("prevpath");
               }}
             >
