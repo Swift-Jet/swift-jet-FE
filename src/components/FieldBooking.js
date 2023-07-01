@@ -1227,7 +1227,7 @@ const FieldBooking = () => {
                 {flights?.map((data, i) => (
                   <a
                     href="#"
-                    class="block rounded-lg p-4  m-10 group/item hover:bg-[#eeece18c] sfc transition overflow-hidden h-108"
+                    class="block  p-4  m-10 group/item hover:bg-[#eeece18c] sfc transition max-w-sm rounded-3xl overflow-hidden shadow-lg h-108 border border-rose-900 dark:border-gray-700 rounded-3xl bg-white dark:bg-gray-800 px-8 pt-12 shadow-2xl shadow-gray-600/10 dark:shadow-none sm:px-12 lg:px-8"
                     onClick={() => {
                       history.push(`/EstimatedPage`);
                       localStorage.setItem(
