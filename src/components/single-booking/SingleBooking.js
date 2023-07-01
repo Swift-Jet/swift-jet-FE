@@ -7,9 +7,9 @@ const SingleBooking = () => {
   
   return (
     <Layout>
-      <div class="w-full md:w-1/2 mt-24">
-        <div className="">
-          <div className="flex flex-col p-5 bg-white rounded-xl gap-y-8 display-trip">
+      <div class="flex justify-center items-center mt-24 ">
+        <div className="w-full mt-24 md:w-1/2">
+          <div className="flex flex-col p-5 bg-white shadow-lg rounded-xl gap-y-8 display-trip">
             <div className="flex flex-row justify-between align-center">
               <p>{}</p>
               <button

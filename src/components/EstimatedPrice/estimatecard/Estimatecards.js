@@ -928,18 +928,18 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
         <div>
           {showModal ? (
             <div>
-              <div className="fixed inset-0 z-50 flex items-center justify-center overflow-x-hidden overflow-y-auto outline-none focus:outline-none">
+              <div className="fixed inset-0 z-50 flex items-center justify-center px-6 py-6 overflow-x-hidden overflow-y-auto shadow-md outline-none lg:px-8 focus:outline-none">
                 <div class="">
-                  <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+                  <form class="bg-white shadow-md rounded-xl px-8 pt-6 pb-8 mb-4">
                     <div class="mb-4">
                       <label
-                        class="block text-gray-700 text-xs font-bold mb-2"
+                        class="block text-gray-700 text-xs font-bold mb-2 "
                         for="username"
                       >
                         Add a reachable phone number{" "}
                       </label>
                       <input
-                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline pb-8"
+                        class="relative flex px-4 py-2  rounded-full bg-white dark:bg-gray-900 border dark:dark:border-[#670f29] border-[#670f29] shadow-md md:p-2 lg:pr-3"
                         id="username"
                         type="tel"
                         placeholder="Phone number"
@@ -950,18 +950,17 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
                       <br></br>
                       <br></br>
                       <label
-                        class="block text-gray-700 text-xs font-bold mb-2"
+                        class="block text-gray-700 text-xs font-bold mb-2 flex  "
                         for="username"
                       >
                         Extra Note
                       </label>
-                      <textarea rows="4" name="comment" form="usrform">
-                        Enter text here...</textarea>
+                      <textarea rows="4" name="comment" id="username" className="block w-full px-4 py-2 border border-gray-300 rounded-lg dark:border-[#670f29] border-[#670f29]" placeholder="Enter text here..." />
                     </div>
 
                     <div class="flex items-center justify-between">
                       <button
-                        class="bg-red-500 text-xs hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                        class="px-3 py-1 rounded-full border border-gray-100 text-sm font-medium text-[#670f29] transition duration-300 hover:border-transparent hover:bg-[#670f29] hover:text-white dark:border-gray-700 dark:text-gray-300"
                         type="button"
                         onClick={() => {
                           setShowModal(false);
@@ -970,7 +969,7 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
                         Back
                       </button>
                       <button
-                        class="bg-[#670f29] text-xs hover:bg-[#670f29] text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                        class="px-3 py-1 rounded-full border border-gray-100 text-sm font-medium text-[#670f29] transition duration-300 hover:border-transparent hover:bg-[#670f29] hover:text-white dark:border-gray-700 dark:text-gray-30"
                         type="button"
                         onClick={() => {
                           setShowModal(false);

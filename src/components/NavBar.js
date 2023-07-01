@@ -151,9 +151,9 @@ export default function NavBar() {
                         <div>
                           <div>
                             <li className="bg-white hover:bg-[#ececec] shadow rounded-box">
-                              <a href="Aboutuspage" className="text-[#961054] text-xs">About Us</a>
-                              <a className="text-[#961054] text-xs">Reviews</a>
-                              <a className="text-[#961054] text-xs">Careers</a>
+                              <a href="Aboutuspage" className="text-[#961054] hover:bg-[#670f29] hover:text-white focus:bg-[#670f29] text-xs">About Us </a>
+                              <a className="text-[#961054] hover:bg-[#670f29] hover:text-white focus:bg-[#670f29] text-xs">Reviews</a>
+                              <a className="text-[#961054] hover:bg-[#670f29] hover:text-white focus:bg-[#670f29]text-xs">Careers</a>
                             </li>
                           </div>
                         </div>
@@ -172,16 +172,16 @@ export default function NavBar() {
                       >
                         <div>
                           <div>
-                            <li className="bg-white hover:bg-[#ececec] focus:bg-[#ececec] shadow rounded-box dd-link">
+                            <li className="bg-white hover:bg-[#670f29] focus:bg-[#670f29] shadow rounded-box dd-link">
                               <a href="/Cateringpage"
-                                className="text-[#961054] text-xs dd-link"
-                                onClick={scrollToBottom}
+                                className="text-[#961054] text-xs hover:bg-[#670f29] hover:text-white focus:bg-[#670f29] dd-link"
+                                
                               >
                                 Inflight catering
                               </a>
                               <a href="/Medicalpage"
-                                className="text-[#961054] text-xs dd-link"
-                                onClick={scrollToBottom}
+                                className="text-[#961054] text-xs  hover:bg-[#670f29] hover:text-white focus:bg-[#670f29] dd-link"
+                               
                               >
                                 Medical evac
                               </a>
@@ -204,22 +204,22 @@ export default function NavBar() {
                       >
                         <div>
                           <div>
-                            <li className="bg-white hover:bg-[#ececec] focus:bg-[#ececec] shadow rounded-box">
+                            <li className="bg-white hover:bg-[#670f29] focus:bg-[#670f29] shadow rounded-box ">
                               <a href="/contact"
-                                className="text-[#961054] text-xs"
-                                onClick={scrollToBottom}
+                                className="text-[#961054] text-xs hover:bg-[#670f29] hover:text-white focus:bg-[#670f29]"
+                               
                               >
                                 Call us 
                               </a>
                               <a href="/contact"
-                                className="text-[#961054] text-xs"
-                                onClick={scrollToBottom}
+                                className="text-[#961054] text-xs  hover:bg-[#670f29] hover:text-white focus:bg-[#670f29]"
+                               
                               >
                                 WhatsApp Us 
                               </a>
                               <a href="/contact"
-                                className="text-[#961054] text-xs"
-                                onClick={scrollToBottom}
+                                className="text-[#961054] text-xs hover:bg-[#670f29] hover:text-white focus:bg-[#670f29]"
+                               
                               >
                                 Email Us 
                               </a>
@@ -241,27 +241,27 @@ export default function NavBar() {
                       >
                         <div>
                           <div>
-                            <li className="bg-white hover:bg-[#ececec] focus:bg-[#ececec] shadow rounded-box">
+                            <li className="bg-white hover:bg-[#670f29] focus:bg-[#670f29] shadow rounded-box">
                               <a href="/UseOfTermPage"
-                                className="text-[#961054] text-xs"
+                                className="text-[#961054] text-xs  hover:bg-[#670f29] hover:text-white focus:bg-[#670f29]"
                                
                               >
                                 Terms of use
                               </a>
                               <a href="/UseOfTermPage"
-                                className="text-[#961054] text-xs"
+                                className="text-[#961054] text-xs  hover:bg-[#670f29] hover:text-white focus:bg-[#670f29]]"
                              
                               >
                                 Privacy Policy
                               </a>
                               <a href="/UseOfTermPage" 
-                                className="text-[#961054] text-xs"
+                                className="text-[#961054] text-xs  hover:bg-[#670f29] hover:text-white focus:bg-[#670f29]"
                              
                               >
                                 Press & Media
                               </a>
                               <a href="/faq"
-                                className="text-[#961054] text-xs"
+                                className="text-[#961054] text-xs  hover:bg-[#670f29] hover:text-white focus:bg-[#670f29]"
                                
                               >
                                 FAQ
@@ -308,15 +308,15 @@ export default function NavBar() {
                     >
                       <div>
                         <div>
-                          <li className="bg-white hover:bg-[#ececec] hover:text-white ">
-                            <a href="/UserProfile" className="text-xs text-black hover:text-white">
+                          <li className="bg-white hover:bg-[#670f29] hover:text-white  ">
+                            <a href="/UserProfile" className="text-[#961054] text-xs  hover:bg-[#670f29] hover:text-white focus:bg-[#670f29]">
                               Profile <Person2Sharp />
                             </a>
-                            <a href="/recentTrips" className="text-xs text-black hover:text-white">
+                            <a href="/recentTrips" className="text-[#961054] text-xs  hover:bg-[#670f29] hover:text-white focus:bg-[#670f29]">
                               Recent Trips <Flight />{" "}
                             </a>
                             <a
-                              className="text-xs text-black hover:text-white text-end"
+                              className="text-[#961054] text-xs hover:bg-[#670f29] hover:text-white focus:bg-[#670f29]"
                               onClick={() => {
                                 logout();
                               }}

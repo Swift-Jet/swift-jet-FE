@@ -18,6 +18,7 @@ import "react-datalist-input/dist/styles.css";
 import "react-slideshow-image/dist/styles.css";
 import AddIcon from "@mui/icons-material/Add";
 import FlightTakeoffIcon from "@mui/icons-material/FlightTakeoff";
+import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import SendIcon from "@mui/icons-material/Send";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -628,7 +629,9 @@ const FieldBooking = () => {
                       onClick={() => {}}
                       onChange={(e) => {
                         handleInputChange(e, index);
+                      
                       }}
+                     
                     />
                     
                     {/* <div className="flex gap-4 pt-3">
