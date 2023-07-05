@@ -47,7 +47,10 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
       __v: 0,
     },
   ]);
-
+  useEffect(() => {
+    localStorage.setItem("quotes", JSON.stringify(bannerSuggestion));
+    console.log("here");
+  }, []);
   let booking_payload = {};
   const toastMsg = (message) => toast(message);
   const setQuote = (quote) => {
@@ -109,6 +112,8 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
       });
   };
 
+ 
+
   return (
     <div class=" bg-[#eeece1] mx-auto md:px-8 lg:px-16">
       <ToastContainer />
@@ -123,13 +128,13 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
                   </div>
                   <div class="md:5/12 lg:w-full flex flex-column gap-y-2 m-auto  ">
                     <h2 class="text-sm text-gray-300 md:text-xl dark:text-gray-400 px-12  ">
-                      {bannerSuggestion?.classification}
+                      {bannerSuggestion[0]?.classification}
                     </h2>
                     <p class="text-xs text-rose-900 dark:text-rose-900 font-bold md:text-2xl px-12 ">
-                      {bannerSuggestion?.model}
+                      {bannerSuggestion[0]?.model}
                     </p>
                     <p class="text-gray-400 dark:text-gray-400 px-12">
-                      Model: {bannerSuggestion?.model}
+                      Model: {bannerSuggestion[0]?.model}
                     </p>
                     <div class="mt-2 flex flex-wrap justify-center items-center gap-4">
                       <a
@@ -150,7 +155,7 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
 
                         <div class="m-1 text-gray-400">
                           {" "}
-                          {bannerSuggestion?.no_of_seats}
+                          {bannerSuggestion[0]?.no_of_seats}
                         </div>
                       </a>
 
@@ -172,7 +177,7 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
                         </div>
 
                         <div class=" m-1 text-gray-400">
-                          {bannerSuggestion?.speed}Kts
+                          {bannerSuggestion[0]?.speed}Kts
                         </div>
                       </a>
 
@@ -194,7 +199,7 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
                         </div>
 
                         <div class=" m-1 text-gray-400">
-                          {bannerSuggestion?.range}
+                          {bannerSuggestion[0]?.range}
                         </div>
                       </a>
                     </div>
@@ -861,10 +866,6 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
                   <p className="ml-2 mr-2 font-bold truncate flight-card-text">
                     {item?.model}
                   </p>
-                  {/* <p className="text-xl font-bold text-rose-900">
-                    {" "}
-                    <span>&#8358;</span> 160,000
-                  </p> */}
                   <button
                     type="button"
                     class="quote-btn text-rose-900 hover:text-white border border-rose-900 hover:bg-rose-900 focus:ring-4 focus:outline-none focus:ring-rose-900 font-medium rounded-2xl text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-rose-900 dark:text-rose-900 dark:hover:text-white dark:hover:bg-rose-900 dark:focus:ring-rose-900"
@@ -1030,22 +1031,11 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
                         class="block text-gray-500 text-sm  mb-2 text-[#5C0632]"
                         for="username"
                       >
-                        Your flight booking has been confirmed and your flight
+                        Thank you for choosing Swiftwings for your travel needs. Your flight booking has been confirmed and your flight
                         information sent to your email address.
                       </h5>
                     </div>
-                    <div class="mb-4">
-                      <p
-                        class="block text-gray-400 text-xs mb-2"
-                        for="username"
-                      >
-                        Your itinerary is now set and you're on your way to your
-                        destination. Please make sure to arrive at the airport
-                        in time for check-in and go through security before your
-                        flight. Safe travels! If you need anything, don't
-                        hesitate to ask.
-                      </p>
-                    </div>
+                 
 
                     <div class="w-full flex justify-between ml-auto">
                       <button
@@ -1057,15 +1047,7 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
                       >
                         close
                       </button>
-                      {/* <button
-                        class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline ml-auto"
-                        type="button"
-                        onClick={() => {
-                          setShowSuccessModal(false);
-                        }}
-                      >
-                        Close
-                      </button> */}
+                   
                     </div>
                   </form>
                   <p class="text-center text-gray-500 text-xs">

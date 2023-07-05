@@ -11,12 +11,19 @@ const SingleBooking = () => {
         <div className="w-full mt-24 md:w-1/2">
           <div className="flex flex-col p-5 bg-white shadow-lg rounded-xl gap-y-8 display-trip">
             <div className="flex flex-row justify-between align-center">
-              <p>{}</p>
+             
               <button
                 type="button"
                 class="text-rose-900 hover:text-white border border-rose-900 hover:bg-rose-900 focus:ring-4 focus:outline-none focus:ring-rose-900 font-medium rounded-2xl text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-rose-900 dark:text-rose-900 dark:hover:text-white dark:hover:bg-rose-900 dark:focus:ring-rose-900"
               >
                 {_booking.booking_details.tripType}
+              </button>
+            
+              <button
+                type="button"
+                class="text-rose-900 hover:text-white border border-rose-900 hover:bg-rose-900 focus:ring-4 focus:outline-none focus:ring-rose-900 font-medium rounded-2xl text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-rose-900 dark:text-rose-900 dark:hover:text-white dark:hover:bg-rose-900 dark:focus:ring-rose-900"
+              >
+                {_booking.status}
               </button>
             </div>
             <div class="flex justify-between items-center  text-gray-600">
