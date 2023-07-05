@@ -20,7 +20,7 @@ const RecentTrips = () => {
   useEffect(() => {
     async function fetchData() {
       const { data } = await axios.get(
-        `https://swift-jet-backend.onrender.com/api/v1/booking/all`
+        `http://localhost:8000/api/v1/booking/all`
       );
       let user = JSON.parse(localStorage.getItem("user"));
       const _booking = data?.data.filter((item) => item.user.email === "ojobabajide629@gmail.com" && item.booking_details.tripType != "Shared" )

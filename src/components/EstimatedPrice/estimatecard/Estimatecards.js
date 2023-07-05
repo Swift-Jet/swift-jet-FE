@@ -8,7 +8,6 @@ import "react-toastify/dist/ReactToastify.css";
 import { AircraftsContext } from "../../../context/aircraft-context";
 import AircraftBtn from "../../shared/aircraft-shared-button/AircraftBtn";
 
-
 export default function BasicGrid({ booking_details, aircraft_details }) {
   const history = useHistory();
   const location = useLocation();
@@ -20,39 +19,42 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
   const [showSuccessModal, setShowSuccessModal] = useState(false);
   const [phone_number, setPhoneNumber] = useState("");
   const [loading, setLoading] = useState(false);
-  const [bannerSuggestion, setBannerSuggestion] = useState(...[{
-    _id: "63f124c3cbef5dd91b0a851b",
-    sjac_code: "SJAC-21021",
-    manufacturer: "Turboprop ",
-    model: "Beech BE200 Super King Air",
-    classification: "Mid-size Jets",
-    no_of_seats: "7",
-    speed: "579 ",
-    range: "579 ",
-    luggage_capacity: "59",
-    interior_height: "2.05",
-    interior_width: "1.47",
-    overview_summary:
-      "Midsize jets (also known as mid-sized jets) are the most popular category of private jets and provide a cost-effective option for flights of up to 4 hours, for up to 8 passengers",
-    image_url:
-      "https://res.cloudinary.com/dzv98o7ds/image/upload/v1677872105/switf_jet_dev_staging/f0igixibrze3uj1obofa.jpg",
-    image_url_2:
-      "https://res.cloudinary.com/dzv98o7ds/image/upload/v1677872105/switf_jet_dev_staging/f0igixibrze3uj1obofa.jpg",
-    image_url_3:
-      "https://res.cloudinary.com/dzv98o7ds/image/upload/v1677872105/switf_jet_dev_staging/f0igixibrze3uj1obofa.jpg",
-    image_url_4:
-      "https://res.cloudinary.com/dzv98o7ds/image/upload/v1677872105/switf_jet_dev_staging/f0igixibrze3uj1obofa.jpg",
-    image_url_5:
-      "https://res.cloudinary.com/dzv98o7ds/image/upload/v1677872105/switf_jet_dev_staging/f0igixibrze3uj1obofa.jpg",
-    __v: 0,
-  }]);
-
+  const [bannerSuggestion, setBannerSuggestion] = useState([
+    {
+      _id: "63f124c3cbef5dd91b0a851b",
+      sjac_code: "SJAC-21021",
+      manufacturer: "Turboprop ",
+      model: "Beech BE200 Super King Air",
+      classification: "Mid-size Jets",
+      no_of_seats: "7",
+      speed: "579 ",
+      range: "579 ",
+      luggage_capacity: "59",
+      interior_height: "2.05",
+      interior_width: "1.47",
+      overview_summary:
+        "Midsize jets (also known as mid-sized jets) are the most popular category of private jets and provide a cost-effective option for flights of up to 4 hours, for up to 8 passengers",
+      image_url:
+        "https://res.cloudinary.com/dzv98o7ds/image/upload/v1677872105/switf_jet_dev_staging/f0igixibrze3uj1obofa.jpg",
+      image_url_2:
+        "https://res.cloudinary.com/dzv98o7ds/image/upload/v1677872105/switf_jet_dev_staging/f0igixibrze3uj1obofa.jpg",
+      image_url_3:
+        "https://res.cloudinary.com/dzv98o7ds/image/upload/v1677872105/switf_jet_dev_staging/f0igixibrze3uj1obofa.jpg",
+      image_url_4:
+        "https://res.cloudinary.com/dzv98o7ds/image/upload/v1677872105/switf_jet_dev_staging/f0igixibrze3uj1obofa.jpg",
+      image_url_5:
+        "https://res.cloudinary.com/dzv98o7ds/image/upload/v1677872105/switf_jet_dev_staging/f0igixibrze3uj1obofa.jpg",
+      __v: 0,
+    },
+  ]);
 
   let booking_payload = {};
   const toastMsg = (message) => toast(message);
   const setQuote = (quote) => {
-    bannerSuggestion.push(...quote);
-    setAddQuote(bannerSuggestion);
+    let quoteArr1 = JSON.parse(localStorage.getItem("quotes")) || bannerSuggestion;
+    quoteArr1.push(quote);
+    localStorage.setItem("quotes", JSON.stringify(quoteArr1));
+    setAddQuote(quoteArr1);
   };
   const removeQuote = (quote) => {
     let quoteArr = JSON.parse(localStorage.getItem("quotes"));
@@ -93,7 +95,7 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
   const handleSubmit = () => {
     setLoading(true);
     axios
-      .post("https://swift-jet-backend.onrender.com/api/v1/booking/add", booking_payload)
+      .post("http://localhost:8000/api/v1/booking/add", booking_payload)
       .then((data) => {
         localStorage.removeItem("quotes");
         localStorage.removeItem("bookingDetails");
@@ -137,14 +139,19 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
                         <div class="flex flex-row items-center justify-center">
                           <svg
                             className="mr-3 fill-current svg-icon "
-                            viewBox="0 0 20 20" width="24" height="24"
+                            viewBox="0 0 20 20"
+                            width="24"
+                            height="24"
                           >
                             <path d="M15.573,11.624c0.568-0.478,0.947-1.219,0.947-2.019c0-1.37-1.108-2.569-2.371-2.569s-2.371,1.2-2.371,2.569c0,0.8,0.379,1.542,0.946,2.019c-0.253,0.089-0.496,0.2-0.728,0.332c-0.743-0.898-1.745-1.573-2.891-1.911c0.877-0.61,1.486-1.666,1.486-2.812c0-1.79-1.479-3.359-3.162-3.359S4.269,5.443,4.269,7.233c0,1.146,0.608,2.202,1.486,2.812c-2.454,0.725-4.252,2.998-4.252,5.685c0,0.218,0.178,0.396,0.395,0.396h16.203c0.218,0,0.396-0.178,0.396-0.396C18.497,13.831,17.273,12.216,15.573,11.624 M12.568,9.605c0-0.822,0.689-1.779,1.581-1.779s1.58,0.957,1.58,1.779s-0.688,1.779-1.58,1.779S12.568,10.427,12.568,9.605 M5.06,7.233c0-1.213,1.014-2.569,2.371-2.569c1.358,0,2.371,1.355,2.371,2.569S8.789,9.802,7.431,9.802C6.073,9.802,5.06,8.447,5.06,7.233 M2.309,15.335c0.202-2.649,2.423-4.742,5.122-4.742s4.921,2.093,5.122,4.742H2.309z M13.346,15.335c-0.067-0.997-0.382-1.928-0.882-2.732c0.502-0.271,1.075-0.429,1.686-0.429c1.828,0,3.338,1.385,3.535,3.161H13.346z"></path>
                           </svg>
                           <span class=" text-sm text-gray-400">Passenger</span>
                         </div>
 
-                        <div class="m-1 text-gray-400"> {bannerSuggestion?.no_of_seats}</div>
+                        <div class="m-1 text-gray-400">
+                          {" "}
+                          {bannerSuggestion?.no_of_seats}
+                        </div>
                       </a>
 
                       <a
@@ -154,7 +161,9 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
                         <div class="flex flex-row items-center justify-center">
                           <svg
                             className="mr-3 fill-current "
-                            xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
                             viewBox="0 96 960 960"
                           >
                             <path d="M350 976v-42l80-60V623L80 726v-58l350-206V226q0-21 14.5-35.5T480 176q21 0 35.5 14.5T530 226v236l350 206v58L530 623v251l80 60v42l-130-37-130 37Z" />
@@ -162,7 +171,9 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
                           <span class="  text-sm text-gray-400 "> Speed </span>
                         </div>
 
-                        <div class=" m-1 text-gray-400">{bannerSuggestion?.speed}Kts</div>
+                        <div class=" m-1 text-gray-400">
+                          {bannerSuggestion?.speed}Kts
+                        </div>
                       </a>
 
                       <a
@@ -172,7 +183,9 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
                         <div class="flex flex-row items-center justify-center">
                           <svg
                             className="mr-3 fill-current "
-                            xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
                             viewBox="0 96 960 960"
                           >
                             <path d="M480 976q-84 0-157-31.5T196 859q-54-54-85-127.5T80 574q0-84 31-156.5T196 291q54-54 127-84.5T480 176q84 0 157 30.5T764 291q54 54 85 126.5T880 574q0 84-31 157.5T764 859q-54 54-127 85.5T480 976Zm0-58q35-36 58.5-82.5T577 725H384q14 60 37.5 108t58.5 85Zm-85-12q-25-38-43-82t-30-99H172q38 71 88 111.5T395 906Zm171-1q72-23 129.5-69T788 725H639q-13 54-30.5 98T566 905ZM152 665h159q-3-27-3.5-48.5T307 574q0-25 1-44.5t4-43.5H152q-7 24-9.5 43t-2.5 45q0 26 2.5 46.5T152 665Zm221 0h215q4-31 5-50.5t1-40.5q0-20-1-38.5t-5-49.5H373q-4 31-5 49.5t-1 38.5q0 21 1 40.5t5 50.5Zm275 0h160q7-24 9.5-44.5T820 574q0-26-2.5-45t-9.5-43H649q3 35 4 53.5t1 34.5q0 22-1.5 41.5T648 665Zm-10-239h150q-33-69-90.5-115T565 246q25 37 42.5 80T638 426Zm-254 0h194q-11-53-37-102.5T480 236q-32 27-54 71t-42 119Zm-212 0h151q11-54 28-96.5t43-82.5q-75 19-131 64t-91 115Z" />
@@ -180,7 +193,9 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
                           <span class="  text-sm text-gray-400"> Range </span>
                         </div>
 
-                        <div class=" m-1 text-gray-400">{bannerSuggestion?.range}</div>
+                        <div class=" m-1 text-gray-400">
+                          {bannerSuggestion?.range}
+                        </div>
                       </a>
                     </div>
                     <div class="mt-2 flex flex-wrap justify-center items-center gap-4">
@@ -192,7 +207,9 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
                           <svg
                             className="mr-2 fill-current svg-icon"
                             xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 96 960 960" width="24" height="24"
+                            viewBox="0 96 960 960"
+                            width="24"
+                            height="24"
                           >
                             <path d="M140 896q-26 0-43-17t-17-43V683q37-8 61.5-37.5T166 576q0-40-24.5-70T80 469V316q0-26 17-43t43-17h680q26 0 43 17t17 43v153q-37 7-61.5 37T794 576q0 40 24.5 69.5T880 683v153q0 26-17 43t-43 17H140Zm0-60h680V727q-38-26-62-65t-24-86q0-47 24-86t62-65V316H140v109q39 26 62.5 65t23.5 86q0 47-23.5 86T140 727v109Zm340-63q12 0 21-9t9-21q0-12-9-21t-21-9q-12 0-21 9t-9 21q0 12 9 21t21 9Zm0-167q12 0 21-9t9-21q0-12-9-21t-21-9q-12 0-21 9t-9 21q0 12 9 21t21 9Zm0-167q12 0 21-9t9-21q0-12-9-21t-21-9q-12 0-21 9t-9 21q0 12 9 21t21 9Zm0 137Z" />
                           </svg>
@@ -209,7 +226,9 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
                         <div class="flex flex-row items-center justify-center">
                           <svg
                             className="mr-2 fill-current svg-icon"
-                            xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
                             viewBox="0 96 960 960"
                           >
                             <path d="M480 936 320 776l44-44 86 86V334l-86 86-44-44 160-160 160 160-44 44-86-86v484l86-86 44 44-160 160Z" />
@@ -217,7 +236,7 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
                           <span class="  text-sm text-gray-400 "> Height </span>
                         </div>
 
-                        <div class=" m-1 text-gray-400"> 1.78cm{" "}</div>
+                        <div class=" m-1 text-gray-400"> 1.78cm </div>
                       </a>
 
                       <a
@@ -227,7 +246,9 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
                         <div class="flex flex-row items-center justify-center">
                           <svg
                             className="mr-2 fill-current svg-icon"
-                            xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
                             viewBox="0 96 960 960"
                           >
                             <path d="M281 736 121 576l160-160 43 43-88 87h489l-87-88 42-42 160 160-160 160-42-42 87-88-489 1 87 87-42 42Z" />
@@ -318,11 +339,9 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
                       <button
                         type="button"
                         class="text-white hover:text-white border border-rose-900 bg-rose-900 focus:ring-4 focus:outline-none focus:ring-rose-900 font-medium rounded-2xl text-sm px-5 py-2.5 text-center mr-2 mb-2 ml-2 dark:border-rose-900 dark:text-rose-900 dark:hover:text-white dark:hover:bg-rose-900 dark:focus:ring-rose-900"
-
                         onClick={() => {
-                          setShowModal(true)
+                          setShowModal(true);
                         }}
-
                       >
                         Add Extra Message
                       </button>
@@ -354,7 +373,6 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
                           </div>
                         </div>
                       </button>
-
                     )}
                   </div>
                 </div>
@@ -751,7 +769,7 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
                 <div class="flex justify-between items-center  text-gray-600">
                   <div class="flex items-center">
                     <p className="font-bold">
-                    {booking_details?.source.iata_code}
+                      {booking_details?.source.iata_code}
                       <br />
                       {booking_details?.source.value.name} <br />
                       {booking_details?.source.value.city},{" "}
@@ -769,7 +787,7 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
                   </div>
                   <div class="flex items-center text-center">
                     <p className="font-bold text-end">
-                    {booking_details?.destination.iata_code}
+                      {booking_details?.destination.iata_code}
                       <br />
                       {booking_details?.destination.value.name} <br />
                       {booking_details?.destination.value.city},{" "}
@@ -955,7 +973,13 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
                       >
                         Extra Note
                       </label>
-                      <textarea rows="4" name="comment" id="username" className="block w-full px-4 py-2 border border-gray-300 rounded-lg dark:border-[#670f29] border-[#670f29]" placeholder="Enter text here..." />
+                      <textarea
+                        rows="4"
+                        name="comment"
+                        id="username"
+                        className="block w-full px-4 py-2 border border-gray-300 rounded-lg dark:border-[#670f29] border-[#670f29]"
+                        placeholder="Enter text here..."
+                      />
                     </div>
 
                     <div class="flex items-center justify-between">
@@ -973,7 +997,6 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
                         type="button"
                         onClick={() => {
                           setShowModal(false);
-        
                         }}
                       >
                         Continue
