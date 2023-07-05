@@ -365,7 +365,7 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
 
         {booking_details?.tripType === "One way Trip" ? (
           <div class="w-full md:w-1/2">
-            <div className="">
+            <div className="xl:container px-6 text-gray-600 md:px-12">
               <div className="flex flex-col p-5 bg-white rounded-xl gap-y-8 display-trip md:mt-3">
                 <div className="flex flex-row justify-between align-center">
                   <p>Your Search</p>
@@ -462,7 +462,7 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
 
         {booking_details.tripType === "Round Trip" ? (
           <div class="w-full md:w-1/2">
-            <div className="">
+            <div className="xl:container px-6 text-gray-600 md:px-12">
               <div className="flex flex-col p-5 bg-white rounded-xl gap-y-8 display-trip">
                 <div className="flex flex-row justify-between align-center">
                   <p>Your Search</p>
@@ -636,7 +636,7 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
 
         {booking_details?.tripType === "Multi-city Trip" ? (
           <div class="w-full md:w-1/2 ">
-            <div className="">
+            <div className="xl:container px-6 text-gray-600 md:px-12">
               <div className="flex flex-row justify-between p-5 bg-white align-center rounded-t-xl">
                 <p>Your Search</p>
                 <button
@@ -737,7 +737,7 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
 
         {booking_details?.tripType === "Shared" ? (
           <div class="w-full md:w-1/2">
-            <div className="">
+            <div className="xl:container px-6 text-gray-600 md:px-12">
               <div className="flex flex-col p-5 bg-white rounded-xl gap-y-8 display-trip">
                 <div className="flex flex-row justify-between align-center">
                   <p>Your Search</p>

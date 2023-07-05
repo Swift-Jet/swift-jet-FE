@@ -13,16 +13,8 @@ function Gallery({aircraft_details}) {
     {
       url: "https://media.architecturaldigest.com/photos/60c7d09fe7a72cd8dc8e97ad/16:9/w_2560%2Cc_limit/Amanzz.jpeg",
     },
-    {
-      url: 'https://www.jetflite.fi/uploads/challenger-650-oh-wiw-plane-heroimage-jetflite.jpg',
-    },
-
-    {
-      url: 'https://www.jetflite.fi/uploads/challenger-650-oh-wiw-plane-heroimage-jetflite.jpg',
-    },
-    {
-      url: 'https://www.jetflite.fi/uploads/challenger-650-oh-wiw-plane-heroimage-jetflite.jpg',
-    },
+    
+   
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);

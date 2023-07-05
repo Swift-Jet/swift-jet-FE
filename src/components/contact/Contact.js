@@ -20,9 +20,9 @@ const Contact = () => {
             GET IN TOUCH WITH US
           </h2>
           <p class="text-body-color mb-9 text-base leading-relaxed">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eius
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim adiqua
-            minim veniam quis nostrud exercitation ullamco
+          If you have any question or comments regarding SwiftWingsJet, the portal or job mobility in general, you are welcome to contact our helpdesk.
+          But before doing so, please take a look in the Help & Support section to see if there is not already an answer to your question.
+          Our live services answer in English.
           </p>
           <div class="mb-8 flex w-full max-w-[370px]">
             <div

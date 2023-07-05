@@ -174,13 +174,13 @@ export default function NavBar() {
                           <div>
                             <li className="bg-white hover:bg-[#670f29] focus:bg-[#670f29] shadow rounded-box dd-link">
                               <a href="/Cateringpage"
-                                className="text-[#961054] text-xs hover:bg-[#670f29] hover:text-white focus:bg-[#670f29] dd-link"
+                                className="text-[#961054] text-xs hover:bg-[#670f29] hover:text-white focus:bg-[#670f29"
                                 
                               >
                                 Inflight catering
                               </a>
                               <a href="/Medicalpage"
-                                className="text-[#961054] text-xs  hover:bg-[#670f29] hover:text-white focus:bg-[#670f29] dd-link"
+                                className="text-[#961054] text-xs  hover:bg-[#670f29] hover:text-white focus:bg-[#670f29]"
                                
                               >
                                 Medical evac
