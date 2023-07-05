@@ -46,7 +46,7 @@ const SingleAircraft = ({ match }) => {
   const [summary, setSummary] = useState(
     "The next generation of the highly successful King Air turboprops"
   );
-  const [description, setDescription] = useState(  
+  const [description, setDescription] = useState(
     aircraftTypes0bj[0].description
   );
 
@@ -61,7 +61,7 @@ const SingleAircraft = ({ match }) => {
           <div className="">
             <p className="text-black flex">
               Aircraft /{" "}
-              <p className="px-1" onClick={() => {}}>
+              <p className="px-1" onClick={() => { }}>
                 {link} / {link}
               </p>{" "}
             </p>
@@ -70,91 +70,23 @@ const SingleAircraft = ({ match }) => {
             </p>
             <p className="text-black flex pt-4">{summary}</p>
           </div>
-
-          <div className="pt-4 justify-start flex overflow-x-auto pb-3  ">
-            {aircraftTypes0bj.map((item, i) => (
-              <div>
-                <div>
-                  {" "}
-                  <AircraftBtn
-                    btnText={item.name}
-                    toggleText={() => {
-                      toggleLinkText(item.name, item.description);
-                    }}
-                  />
-                </div>
-              </div>
-            ))}
-          </div>
         </div>
         <div className="columns-2 w-full flex mt-12">
           <div className="">
-            <div className="">
-              <img
-                src={aircraft[0]?.image_url}
-                class="h-full w-full object-cover object-center lg:h-full lg:w-full"
-                alt="main-img"
-              />
-            </div>
-
-            <div class="">
-              <div class="columns-4 w-full mt-12">
-                <div>
-                  <div>
-                    {" "}
-                    <div class="group relative">
-                      <div class="w-full overflow-hidden rounded-md">
-                        <img
-                          src={aircraft[0]?.image_url_2}
-                          alt="Front of men&#039;s Basic Tee in black."
-                          class="h-full w-full object-cover object-center lg:h-full lg:w-full"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                  <div>
-                    <div>
-                      {" "}
-                      <div class="group relative">
-                        <div class="w-full overflow-hidden rounded-md">
-                          <img
-                            src={aircraft[0]?.image_url_3}
-                            alt="Front of men&#039;s Basic Tee in black."
-                            class="h-full w-full object-cover object-center lg:h-full lg:w-full"
-                          />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div>
-                    <div>
-                      {" "}
-                      <div class="group relative">
-                        <div class="w-full overflow-hidden rounded-md">
-                          <img
-                            src={aircraft[0]?.image_url_4}
-                            alt="Front of men&#039;s Basic Tee in black."
-                            class="h-full w-full object-cover object-center lg:h-full lg:w-full"
-                          />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div>
-                    <div>
-                      {" "}
-                      <div class="group relative">
-                        <div class="w-full overflow-hidden rounded-md">
-                          <img
-                            src={aircraft[0]?.image_url_5}
-                            alt="Front of men&#039;s Basic Tee in black."
-                            class="h-full w-full object-cover object-center lg:h-full lg:w-full"
-                          />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+              <div>
+                <img
+                  src={aircraft[0]?.image_url}
+                  className="h-full w-full rounded-3xl object-cover object-center lg:h-full lg:w-full lg:transform lg:hover:scale-110"
+                  alt="Image 1"
+                />
+              </div>
+              <div>
+                <img
+                  src={aircraft[0]?.image_url}
+                  className="h-full w-full rounded-3xl object-cover object-center lg:h-full lg:w-full lg:transform lg:hover:scale-110"
+                  alt="Image 2"
+                />
               </div>
             </div>
             <div>
