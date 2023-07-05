@@ -101,7 +101,7 @@ export default function NavBar() {
                 for="toggle_nav"
                 class="hidden peer-checked:block fixed w-full h-full left-0 top-0 z-10 bg-rose-100 backdrop-filter"
               ></label>
-              <div class="hidden z-40 peer-checked:flex w-11/12  md:mx-0 flex-col justify-end items-center gap-y-8 p-6 rounded-xl bg-white dark:bg-gray-800 md:flex md:w-full  md:gap-y-0 md:gap-x-1 md:divide-x md:p-0  md:flex-row md:bg-transparent lg:w-7/12 mx-lg-none">
+              <div class="hidden z-40 peer-checked:flex w-11/12  md:mx-0 flex-col justify-end items-center gap-y-0 p-6 rounded-xl bg-white dark:bg-gray-800 md:flex md:w-full  md:gap-y-0 md:gap-x-1 md:divide-x md:p-0  md:flex-row md:bg-transparent lg:w-[69.333%] mx-lg-none">
                 <div class="block w-full md:w-max">
                   <ul class="gap-y-6 tracking-wide text-gray-500 dark:text-gray-300 font-medium flex flex-col md:flex-row md:gap-y-0">
                     <li>
@@ -118,8 +118,7 @@ export default function NavBar() {
                     <li>
                       <a href="/aircraft" class="block md:pr-4 group">
                         <div
-                          class="relative group
-                                                            before:absolute before:-bottom-2 md:before:-bottom-3 before:w-full before:h-0.5 before:origin-left before:mt-auto before:rounded-full before:bg-rose-800 before:transition before:scale-x-0 group-hover:before:scale-x-100"
+                          class="relative group before:absolute before:-bottom-2 md:before:-bottom-3 before:w-full before:h-0.5 before:origin-left before:mt-auto before:rounded-full before:bg-rose-800 before:transition before:scale-x-0 group-hover:before:scale-x-100"
                         >
                           <span class="group-hover:text-rose-900 lg:text-xs">
                             Fleet
@@ -130,11 +129,21 @@ export default function NavBar() {
                     <li>
                       <a href="/destination" class="block md:pr-4 group">
                         <div
-                          class="relative group
-                                                            before:absolute before:-bottom-2 md:before:-bottom-3 before:w-full before:h-0.5 before:origin-left before:mt-auto before:rounded-full before:bg-rose-800 before:transition before:scale-x-0 group-hover:before:scale-x-100"
+                          class="relative group before:absolute before:-bottom-2 md:before:-bottom-3 before:w-full before:h-0.5 before:origin-left before:mt-auto before:rounded-full before:bg-rose-800 before:transition before:scale-x-0 group-hover:before:scale-x-100"
                         >
                           <span class="group-hover:text-rose-900 lg:text-xs">
                             Destinations
+                          </span>
+                        </div>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="/destination" class="block md:pr-4 group">
+                        <div
+                          class="relative group before:absolute before:-bottom-2 md:before:-bottom-3 before:w-full before:h-0.5 before:origin-left before:mt-auto before:rounded-full before:bg-rose-800 before:transition before:scale-x-0 group-hover:before:scale-x-100"
+                        >
+                          <span class="group-hover:text-rose-900 lg:text-xs">
+                          Blog
                           </span>
                         </div>
                       </a>
