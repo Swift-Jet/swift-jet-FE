@@ -161,7 +161,7 @@ const FieldBooking = () => {
   const bookingDetails = {
     tripType,
     formData,
- 
+
   };
   const teamData = [
     {
@@ -613,7 +613,7 @@ const FieldBooking = () => {
                       labelText="Leaving On"
                       value={data.depatureDate}
                       id="id-3"
-                      onClick={() => {}}
+                      onClick={() => { }}
                       onChange={(e) => {
                         handleInputChange(e, index);
                       }}
@@ -626,14 +626,14 @@ const FieldBooking = () => {
                       value={data.depatureTime}
                       labelText="Leaving Time"
                       id=""
-                      onClick={() => {}}
+                      onClick={() => { }}
                       onChange={(e) => {
                         handleInputChange(e, index);
-                      
+
                       }}
-                     
+
                     />
-                    
+
                     {/* <div className="flex gap-4 pt-3">
                       <div className="">
                         <label
@@ -853,66 +853,66 @@ const FieldBooking = () => {
                     </div>
                   </div>
                   {showReturnModal ? (
-            <>
-              <div className="fixed inset-0 z-50 flex items-center justify-center overflow-x-hidden overflow-y-auto outline-none focus:outline-none ">
-                <div className="relative w-auto max-w-3xl mx-auto my-6">
-                  {/*content*/}
-                  <div className="relative w-4/5 bg-white border-0 rounded-lg shadow-lg outline-none focus:outline-none passengers-modal">
-                    {/*header*/}
-                    <div className="flex items-start justify-between border-b border-solid rounded-t border-slate-200">
-                      <h3 className="text-md font-semibold text-[#5c0632]">
-                        Return Leg Details
-                      </h3>
+                    <>
+                      <div className="fixed inset-0 z-50 flex items-center justify-center overflow-x-hidden overflow-y-auto outline-none focus:outline-none ">
+                        <div className="relative w-auto max-w-3xl mx-auto my-6">
+                          {/*content*/}
+                          <div className="relative w-4/5 bg-white border-0 rounded-lg shadow-lg outline-none focus:outline-none passengers-modal">
+                            {/*header*/}
+                            <div className="flex items-start justify-between border-b border-solid rounded-t border-slate-200">
+                              <h3 className="text-md font-semibold text-[#5c0632]">
+                                Return Leg Details
+                              </h3>
 
-                      <button
-                        className="float-right p-1 ml-auto text-3xl font-semibold leading-none bg-transparent border-0 outline-none text-red close-modal focus:outline-none"
-                        onClick={() => setShowReturnModal(false)}
-                      >
-                        <span className="text-black bg-[#fcf8f8] h-6 w-6 text-2xl block outline-none focus:outline-none">
-                          ×
-                        </span>
-                      </button>
-                    </div>
-                    {/*body*/}
-              
-                    <AircraftInput
-                      type="date"
-                      placeholder="Please Select Date"
-                      labelText="Returning On"
-                      name={`returningDate`}
-                      value={data.returningDate}
-                      id="id-4"
-                      onClick={() => {}}
-                      onChange={(e) => {
-                        handleInputChange(e, index);
-                      }}
-                      hidden={oneWayTrip}
-                    />
+                              <button
+                                className="float-right p-1 ml-auto text-3xl font-semibold leading-none bg-transparent border-0 outline-none text-red close-modal focus:outline-none"
+                                onClick={() => setShowReturnModal(false)}
+                              >
+                                <span className="text-black bg-[#fcf8f8] h-6 w-6 text-2xl block outline-none focus:outline-none">
+                                  ×
+                                </span>
+                              </button>
+                            </div>
+                            {/*body*/}
 
-                    <AircraftInput
-                      type="time"
-                      placeholder="Time"
-                      name={`returningTime`}
-                      labelText="Returning Time"
-                      value={data.returningTime}
-                      id="id-5"
-                      onClick={() => {}}
-                      onChange={(e) => {
-                        handleInputChange(e, index);
-                      }}
-                      hidden={oneWayTrip}
-                    />
-                    {/*footer*/}
-                  </div>
-                </div>
-              </div>
-              <div className="fixed inset-0 z-40 bg-rose-50 bg-opacity-30 backdrop-blur-200"></div>
-            </>
-          ) : null}
+                            <AircraftInput
+                              type="date"
+                              placeholder="Please Select Date"
+                              labelText="Returning On"
+                              name={`returningDate`}
+                              value={data.returningDate}
+                              id="id-4"
+                              onClick={() => { }}
+                              onChange={(e) => {
+                                handleInputChange(e, index);
+                              }}
+                              hidden={oneWayTrip}
+                            />
+
+                            <AircraftInput
+                              type="time"
+                              placeholder="Time"
+                              name={`returningTime`}
+                              labelText="Returning Time"
+                              value={data.returningTime}
+                              id="id-5"
+                              onClick={() => { }}
+                              onChange={(e) => {
+                                handleInputChange(e, index);
+                              }}
+                              hidden={oneWayTrip}
+                            />
+                            {/*footer*/}
+                          </div>
+                        </div>
+                      </div>
+                      <div className="fixed inset-0 z-40 bg-rose-50 bg-opacity-30 backdrop-blur-200"></div>
+                    </>
+                  ) : null}
                 </div>
               );
             })}
-          
+
             <div className="flex justify-center pb-4 " id="add-fields-multi">
               {addReturnBtn && addReturnBtn === true ? (
                 <button
@@ -1094,7 +1094,7 @@ const FieldBooking = () => {
             </>
           ) : null}
 
-        
+
         </div>
       </div>
       {loading === true ? (
@@ -1203,10 +1203,10 @@ const FieldBooking = () => {
             </h1>
           </div>
           <div class="flex items-center gap-2">
-                <div class="bg-gray-200 border border-gray-200 w-16 h-5 animate-pulse"></div>
-                <span class="bg-tertiary h-1 w-1 rounded animate-pulse"></span>
-                <div class="bg-gray-200 border border-gray-200 w-16 h-5 animate-pulse"></div>
-            </div>
+            <div class="bg-gray-200 border border-gray-200 w-16 h-5 animate-pulse"></div>
+            <span class="bg-tertiary h-1 w-1 rounded animate-pulse"></span>
+            <div class="bg-gray-200 border border-gray-200 w-16 h-5 animate-pulse"></div>
+          </div>
         </div>
       ) : (
         <div className="bg-white w-full text-left font-Aeonik text-rgba(77,77,77,1)" >
@@ -1227,7 +1227,7 @@ const FieldBooking = () => {
                 {flights?.map((data, i) => (
                   <a
                     href="#"
-                    class="block  p-4  m-10 group/item hover:bg-[#eeece18c] sfc transition max-w-sm rounded-3xl overflow-hidden shadow-lg h-108 border border-rose-900 dark:border-gray-700 rounded-3xl bg-white dark:bg-gray-800 px-8 pt-12 shadow-2xl shadow-gray-600/10 dark:shadow-none sm:px-12 lg:px-8"
+                    class="block p-4 m-10 group/item hover:bg-[#eeece18c] sfc transition max-w-sm rounded-3xl overflow-hidden shadow-lg h-108 border border-rose-900 dark:border-gray-700 rounded-3xl bg-white dark:bg-gray-800 px-8 pt-12 shadow-2xl shadow-gray-600/10 dark:shadow-none sm:px-12 lg:px-8"
                     onClick={() => {
                       history.push(`/EstimatedPage`);
                       localStorage.setItem(
@@ -1251,21 +1251,20 @@ const FieldBooking = () => {
                       localStorage.setItem("prevpath", JSON.stringify(location.pathname));
                     }}
                   >
-                    <div className="overflow-hidden rounded-lg">
+                    <div className="overflow-hidden rounded-lg h-56">
                       <img
                         alt="Home"
                         src={data?.aircraft.image_url}
-                        class="h-56 w-full rounded-md object-cover shared-flight-img overflow-hidden transition hover:scale-125"
+                        class="h-full w-full rounded-md object-cover shared-flight-img overflow-hidden transition hover:scale-125"
                         data-aos="fade-up"
                         data-aos-duration="1000"
-
                         data-aos-easing="ease-in-sine"
                       />
                     </div>
                     <div className="mt-2 shared-flight-time">
                       <dl>
                         <div>
-                          <dd class="text-white mt-2 shared-flight-time-date" >
+                          <dd class="text-white mt-2 shared-flight-time-date">
                             Next Flight: {data.created_date.slice(0, 10)} at {data.arrival_time}
                           </dd>
                         </div>
@@ -1275,44 +1274,40 @@ const FieldBooking = () => {
                       <dl>
                         <div>
                           <dt class="sr-only">Address</dt>
-
-                          <dd class="route">
-                            {data?.departure_airport?.value.city}, {data?.departure_airport?.value.country} - {data?.destination_airport?.value.city}, {data?.destination_airport?.value.country} 
+                          <dd class="route truncate">
+                            {data?.departure_airport?.value.city}, {data?.departure_airport?.value.country} -{" "}
+                            {data?.destination_airport?.value.city}, {data?.destination_airport?.value.country}
                           </dd>
                         </div>
                         <div>
                           <dt class="sr-only">Price</dt>
-
-                          <dd class="text-md text-gray-500 cost">$ {data?.inbound_price}</dd>
+                          <dd class="text-md text-gray-500 cost truncate">$ {data?.inbound_price}</dd>
                         </div>
                       </dl>
-
-                      <div class=" mt-3 flex items-center justify-between text-sm">
+                      <div class="mt-3 flex items-center justify-between text-sm">
                         <div class="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2">
                           <div class="mt-1.5 sm:mt-0">
                             <p class="text-gray-500">Passengers</p>
-
-                            <p class="font-bold">9</p>
+                            <p class="font-bold truncate">9</p>
                           </div>
                         </div>
-
                         <div class="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2">
                           <div class="mt-1.5 sm:mt-0">
                             <p class="text-gray-500">Travel Class</p>
-
-                            <p class="font-bold">Standard</p>
+                            <p class="font-bold truncate">Standard</p>
                           </div>
                         </div>
                       </div>
                     </div>
                   </a>
+
                 ))}
               </Slide>
             </div>
           ) : null}
 
         </div>
-      )} 
+      )}
       <div className="bg-[#eeece1] pb-12">
         <div className="w-1/2 ml-auto mr-auto text-center aircraft-display">
           <h3
@@ -1393,17 +1388,17 @@ const FieldBooking = () => {
           >
             Explore All Destinations
           </a>
-        
+
         </div>
         <div>
-          
+
         </div>
-         
+
       </div>
       <div className="mt-5">
-      <Review/>
+        <Review />
       </div>
-     
+
       <ToastContainer />
     </>
   );
