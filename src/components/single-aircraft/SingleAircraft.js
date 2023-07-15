@@ -50,10 +50,7 @@ const SingleAircraft = ({ match }) => {
     aircraftTypes0bj[0].description
   );
 
-  const toggleLinkText = (text, description) => {
-    setLink(text);
-    setDescription(description);
-  };
+
   return (
     <div className="aircraft-details-head mt-24">
       <div className=" aircraft-details-head-inner   mr-auto ml-24 w-3/5">
@@ -62,13 +59,13 @@ const SingleAircraft = ({ match }) => {
             <p className="text-black flex">
               Aircraft /{" "}
               <p className="px-1" onClick={() => { }}>
-                {link} / {link}
+                {aircraft[0]?.manufacturer} 
               </p>{" "}
             </p>
             <p className="text-black ac-name flex text-[36px] pt-4">
-              {name}
+              {aircraft[0]?.model}
             </p>
-            <p className="text-black flex pt-4">{summary}</p>
+         
           </div>
         </div>
         <div className="columns-2 w-full flex mt-12">
@@ -83,7 +80,23 @@ const SingleAircraft = ({ match }) => {
               </div>
               <div>
                 <img
-                  src={aircraft[0]?.image_url}
+                  src={aircraft[0]?.image_url_2}
+                  className="h-full w-full rounded-3xl object-cover object-center lg:h-full lg:w-full lg:transform lg:hover:scale-110"
+                  alt="Image 2"
+                />
+              </div>
+            </div>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 pt-4">
+              <div>
+                <img
+                  src={aircraft[0]?.image_url_3}
+                  className="h-full w-full rounded-3xl object-cover object-center lg:h-full lg:w-full lg:transform lg:hover:scale-110"
+                  alt="Image 1"
+                />
+              </div>
+              <div>
+                <img
+                  src={aircraft[0]?.image_url_4}
                   className="h-full w-full rounded-3xl object-cover object-center lg:h-full lg:w-full lg:transform lg:hover:scale-110"
                   alt="Image 2"
                 />
@@ -137,7 +150,7 @@ const SingleAircraft = ({ match }) => {
                     LUGGAGE CAPACITY
                   </div>
                   <div className="font-semibold">
-                    {aircraft[0]?.luggage_capacity} cu.ft.
+                    {aircraft[0]?.luggage_capacity}
                   </div>
                 </div>
               </div>
@@ -148,12 +161,12 @@ const SingleAircraft = ({ match }) => {
                 </div>
                 <div className="pt-4">
                   <div className="font-normal text-[13px]">SPEED</div>
-                  <div className="font-semibold">{aircraft[0]?.speed} kts</div>
+                  <div className="font-semibold">{aircraft[0]?.speed}</div>
                 </div>
                 <div className="pt-4">
                   <div className="font-normal text-[13px]">INTERIOR HEIGHT</div>
                   <div className="font-semibold">
-                    {aircraft[0]?.interior_height} m
+                    {aircraft[0]?.interior_height} 
                   </div>
                 </div>
               </div>
@@ -172,7 +185,7 @@ const SingleAircraft = ({ match }) => {
                 <div className="pt-4">
                   <div className="font-normal text-[13px]">INTERIOR WIDTH</div>
                   <div className="font-semibold">
-                    {aircraft[0]?.interior_width} m
+                    {aircraft[0]?.interior_width} 
                   </div>
                 </div>
               </div>

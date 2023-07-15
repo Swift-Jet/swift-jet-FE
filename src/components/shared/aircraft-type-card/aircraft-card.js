@@ -12,21 +12,21 @@ const AircraftCard = ({item}) => {
       }}>
         <a href="#">
           <img
-            class=" w-full "
-            // src={item?.image_url}
-            src="https://res.cloudinary.com/dzv98o7ds/image/upload/v1687789858/WhatsApp_Image_2023-06-06_at_14.29.16_bxemwc.jpg"
+            class=" w-full h-64"
+            src={item?.image_url}
+            //src="https://res.cloudinary.com/dzv98o7ds/image/upload/v1687789858/WhatsApp_Image_2023-06-06_at_14.29.16_bxemwc.jpg"
             alt=""
           />
         </a>
 
         <div class="pb-5 pl-5 pr-5">
           <a href="#">
-            <h5 class="mb-2 text-xl py-3 font-bold tracking-tight text-[#4D4D4D] truncate ">
+            <h5 class="mb-2 text-sm py-3 font-bold tracking-tight text-[#4D4D4D] truncate ">
               {item?.manufacturer}
             </h5>
           </a>
           <p class="mb-3 font-normal text-gray-700 dark:text-gray-400 truncate inline-grid w-full justify-center">
-            <p className="flex pt-3 text-sm truncate">
+            <p className="flex pt-3 text-xs ">
               {" "}
               <svg
                 width="21"
@@ -70,7 +70,7 @@ const AircraftCard = ({item}) => {
               Passenger: {item?.no_of_seats}
             </p>
             
-            <p className="flex pt-3 text-sm">
+            <p className="flex pt-3 text-xs">
               {" "}
               <svg
                 width="21"
@@ -111,9 +111,9 @@ const AircraftCard = ({item}) => {
                   stroke="#4D4D4D"
                 />
               </svg>
-              Speed: {item?.speed} km/hr
+              Speed: {item?.speed}
             </p>
-            <p className="flex pt-3 text-sm ">
+            <p className="flex pt-3 text-xs ">
               {" "}
               <svg
                 width="21"
@@ -154,7 +154,7 @@ const AircraftCard = ({item}) => {
                   stroke="#4D4D4D"
                 />
               </svg>
-              Range:   {item?.range}ktx
+              Range:   {item?.range}
             </p>
           </p>
         </div>

@@ -15,7 +15,7 @@ const ConfirmCode = ({match}) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post(`http://localhost:8000/api/v1/user/forgot-password`, data)
+      .post(`https://swift-jet-backend.onrender.com/api/v1/user/forgot-password`, data)
       .then((data) => {
       toast(data?.data?.message)
         e.target.reset();
