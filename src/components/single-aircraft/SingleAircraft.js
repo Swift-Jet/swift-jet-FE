@@ -6,6 +6,7 @@ import AircraftSharedBanner from "../shared/aircraft-shared-banner/AircraftShare
 import AircraftBtn from "../shared/aircraft-shared-button/AircraftBtn";
 import AircraftProperties from "../shared/aircraft-properties/AircraftProperties";
 import { AircraftsContext } from "../../context/aircraft-context";
+import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
 const aircraftTypes0bj = [
   {
     id: 1,
@@ -56,21 +57,23 @@ const SingleAircraft = ({ match }) => {
       <div className=" aircraft-details-head-inner   mr-auto ml-24 w-3/5">
         <div>
           <div className="">
+
             <p className="text-black flex">
-              Aircraft /{" "}
-              <p className="px-1" onClick={() => { }}>
-                {aircraft[0]?.manufacturer} 
-              </p>{" "}
+              <KeyboardBackspaceIcon className="mr-3" />
+              <a href="/aircraft">Aircraft / </a>
+              <span className="px-1" onClick={() => { }}>
+                {aircraft[0]?.manufacturer}
+              </span>
             </p>
             <p className="text-black ac-name flex text-[36px] pt-4">
               {aircraft[0]?.model}
             </p>
-         
+
           </div>
         </div>
         <div className="columns-2 w-full flex mt-12">
           <div className="">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-20">
               <div>
                 <img
                   src={aircraft[0]?.image_url}
@@ -86,7 +89,7 @@ const SingleAircraft = ({ match }) => {
                 />
               </div>
             </div>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 pt-4">
+            <div className="grid grid-cols-1 lg:grid-cols-2  gap-20 mt-10">
               <div>
                 <img
                   src={aircraft[0]?.image_url_3}
@@ -102,7 +105,7 @@ const SingleAircraft = ({ match }) => {
                 />
               </div>
             </div>
-            <div>
+            <div className="mt-10">
               <AircraftProperties
                 icon="https://res.cloudinary.com/dzv98o7ds/image/upload/v1675100480/Vector_o7hscm.png"
                 title="Overview Summary"
@@ -166,7 +169,7 @@ const SingleAircraft = ({ match }) => {
                 <div className="pt-4">
                   <div className="font-normal text-[13px]">INTERIOR HEIGHT</div>
                   <div className="font-semibold">
-                    {aircraft[0]?.interior_height} 
+                    {aircraft[0]?.interior_height}
                   </div>
                 </div>
               </div>
@@ -185,7 +188,7 @@ const SingleAircraft = ({ match }) => {
                 <div className="pt-4">
                   <div className="font-normal text-[13px]">INTERIOR WIDTH</div>
                   <div className="font-semibold">
-                    {aircraft[0]?.interior_width} 
+                    {aircraft[0]?.interior_width}
                   </div>
                 </div>
               </div>

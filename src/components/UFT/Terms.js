@@ -12,7 +12,7 @@ const Terms = () => {
                         <div class=" px-4 mx-auto max-w-screen-xl py-0 lg:px-6">
                             <h2 class="mb-8 text-4xl text-[#5C0632] tracking-tight font-extrabold text-gray-900 dark:text-white">RESOURCES</h2>
                             <Accordion defaultPanel="panel-1">
-                                <AccordionItem toggle="panel-1" className="bg-[#5C0632] text-white">
+                                <AccordionItem toggle="panel-1" className="bg-[#5C0632] text-white" id="#TermsOfUse">
                                     A. Terms of Use
                                 </AccordionItem>
                                 <AccordionPanel  id="panel-1">
@@ -90,12 +90,12 @@ const Terms = () => {
                                     </p>
                                 </div>
                                 </AccordionPanel>
-                                <AccordionItem toggle="panel-2" className="bg-[#5C0632] text-white">
+                                <AccordionItem toggle="panel-2" className="bg-[#5C0632] text-white" id="#PrivacyPolicy">
                                     B. Privacy Policy
                                 </AccordionItem>
                                 <AccordionPanel id="panel-2">
                                 <div className='p-8'>
-                                    <p className="  mb-4" id="#PrivacyPolicy">
+                                    <p className="  mb-4" >
                                         Swift Wings Limited operates swiftwingsjet.com. This page informs you of our policies
                                         regarding the collection, use, and disclosure of personal information we receive from users of the
                                         Website.
@@ -174,12 +174,12 @@ const Terms = () => {
                                     </p>
                                     </div>
                                 </AccordionPanel>
-                                <AccordionItem toggle="panel-3" className="bg-[#5C0632] text-white">
-                                    C. PRESS & MEDIA.
+                                <AccordionItem toggle="panel-3" className="bg-[#5C0632] text-white" id="#Press&Media">
+                                    C. Press & Media
                                 </AccordionItem>
                                 <AccordionPanel id="panel-3">
                                 <div className='p-8'>
-                                    <p className=" mb-4" id="#PrivacyPolicy">
+                                    <p className=" mb-4" >
                                         Welcome to the press and media page of Swift Wings Limited. Our commitment to excellence
                                         and innovation in the private jet charter industry has earned us recognition as one of the leading
                                         providers of luxury air travel in Nigeria. This page serves as a resource for journalists, bloggers,
