@@ -8,7 +8,6 @@ import { SummaryContext } from "../../context/admin-context";
 
 const Fleet = () => {
     const { summary } = useContext(SummaryContext);
-    console.log("summary", summary);
     return (
  
         <div class="container">

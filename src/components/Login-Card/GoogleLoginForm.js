@@ -36,7 +36,6 @@ function GoogleLoginForm() {
           }
         )
         .then((res) => {
-          console.log("google-user", res.data);
           let user = {
             first_name: res.data.family_name,
             last_name: res.data.given_name,

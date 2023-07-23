@@ -10,9 +10,7 @@ const AirportsContextProvider = ({ children }) => {
       const { data } = await axios.get(
         `https://swift-jet-backend.onrender.com/api/v1/airport/all`
       );
-      setAirports(data?.data);
-      console.log("data", data);
-    
+      setAirports(data?.data);  
     }
     fetchData();
    

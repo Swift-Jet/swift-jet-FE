@@ -63,18 +63,15 @@ const AircraftList = () => {
       <div className="aircraft-list-head ">
         <div className="alh-links justify-between flex w-4/5">
           <p className="text-white flex mt-3">
-            Aircraft /{" "}
-            <p className="px-1" onClick={() => {}}>
-              {link}
-            </p>{" "}
+            All Aircraft 
           </p>
           <div className="dropdown dropdown-end dropdown-hover">
-            <label
+            {/* <label
               tabIndex={0}
               className="bg-transparent text-white text-xs m-1 mt-3"
             >
               Filter Aircraft <TuneIcon />
-            </label>
+            </label> */}
             <ul
               tabIndex={0}
               className="dropdown-content menu p-2 shadow rounded-box w-52 bg-white "

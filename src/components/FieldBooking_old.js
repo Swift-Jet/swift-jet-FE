@@ -91,16 +91,6 @@ const FieldBooking = () => {
         returningTime === ""
       ) {
         setShowModal(false);
-        console.log(
-          "source",
-          source,
-          "destination,",
-          destination,
-          "depatureDate",
-          depatureDate?.startDate,
-          "depatureTime",
-          depatureTime
-        );
         toastMsg("Fill all fields to continue");
       } else {
         setShowModal(true);
@@ -114,29 +104,9 @@ const FieldBooking = () => {
         depatureTime === ""
       ) {
         setShowModal(false);
-        console.log(
-          "source",
-          source,
-          "destination,",
-          destination,
-          "depatureDate",
-          depatureDate?.startDate,
-          "depatureTime",
-          depatureTime
-        );
         toastMsg("Fill all fields to continue");
       } else {
         setShowModal(true);
-        console.log(
-          "source",
-          source,
-          "destination,",
-          destination,
-          "depatureDate",
-          depatureDate?.startDate,
-          "depatureTime",
-          depatureTime
-        );
       }
     }
   };

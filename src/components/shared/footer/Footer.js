@@ -9,7 +9,7 @@ const Footer = () => {
   //   pageBottomRef.current.scrollIntoView({ behavior: 'smooth' });
   // };
   return (
-    <div class="flex items-end w-full min-h-screen bg-white font">
+    <div class="flex items-end w-full bg-white font">
       <footer ref={pageBottomRef}  class="w-full text-gray-700 bg-[#5c0632] body-font">
         <div class="container flex flex-col flex-wrap px-5 py-24 mx-auto md:items-center lg:items-start md:flex-row md:flex-no-wrap">
           <div class="flex-shrink-0 w-64 mx-auto text-center md:mx-0 md:text-left">

@@ -7,6 +7,10 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { AircraftsContext } from "../../../context/aircraft-context";
 import AircraftBtn from "../../shared/aircraft-shared-button/AircraftBtn";
+import SingleAircraft from "../../single-aircraft/SingleAircraft";
+import SingleAircraftOverLay from "../../single-aircraft/SingleAircraftOverLay";
+import { CloseSharp } from "@mui/icons-material";
+import "./estimatedcard.css";
 
 export default function BasicGrid({ booking_details, aircraft_details }) {
   const history = useHistory();
@@ -16,45 +20,19 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
   const [addQuote, setAddQuote] = useState([]);
   const [bookingPayload, setBookingPayload] = useState({});
   const [showModal, setShowModal] = useState(false);
+  const [showAircraft, setShowAircraft] = useState(false);
   const [showSuccessModal, setShowSuccessModal] = useState(false);
   const [phone_number, setPhoneNumber] = useState("");
   const [loading, setLoading] = useState(false);
-  const [bannerSuggestion, setBannerSuggestion] = useState([
-    {
-      _id: "63f124c3cbef5dd91b0a851b",
-      sjac_code: "SJAC-21021",
-      manufacturer: "Turboprop ",
-      model: "Beech BE200 Super King Air",
-      classification: "Mid-size Jets",
-      no_of_seats: "7",
-      speed: "579 ",
-      range: "579 ",
-      luggage_capacity: "59",
-      interior_height: "2.05",
-      interior_width: "1.47",
-      overview_summary:
-        "Midsize jets (also known as mid-sized jets) are the most popular category of private jets and provide a cost-effective option for flights of up to 4 hours, for up to 8 passengers",
-      image_url:
-        "https://res.cloudinary.com/dzv98o7ds/image/upload/v1677872105/switf_jet_dev_staging/f0igixibrze3uj1obofa.jpg",
-      image_url_2:
-        "https://res.cloudinary.com/dzv98o7ds/image/upload/v1677872105/switf_jet_dev_staging/f0igixibrze3uj1obofa.jpg",
-      image_url_3:
-        "https://res.cloudinary.com/dzv98o7ds/image/upload/v1677872105/switf_jet_dev_staging/f0igixibrze3uj1obofa.jpg",
-      image_url_4:
-        "https://res.cloudinary.com/dzv98o7ds/image/upload/v1677872105/switf_jet_dev_staging/f0igixibrze3uj1obofa.jpg",
-      image_url_5:
-        "https://res.cloudinary.com/dzv98o7ds/image/upload/v1677872105/switf_jet_dev_staging/f0igixibrze3uj1obofa.jpg",
-      __v: 0,
-    },
-  ]);
+  const [bannerSuggestion, setBannerSuggestion] = useState([]);
   useEffect(() => {
     localStorage.setItem("quotes", JSON.stringify(bannerSuggestion));
-    console.log("here");
   }, []);
   let booking_payload = {};
   const toastMsg = (message) => toast(message);
   const setQuote = (quote) => {
-    let quoteArr1 = JSON.parse(localStorage.getItem("quotes")) || bannerSuggestion;
+    let quoteArr1 =
+      JSON.parse(localStorage.getItem("quotes")) || bannerSuggestion;
     quoteArr1.push(quote);
     localStorage.setItem("quotes", JSON.stringify(quoteArr1));
     setAddQuote(quoteArr1);
@@ -79,21 +57,14 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
     }
   };
   const handleBookingPayload = () => {
-    let user = JSON.parse(localStorage.getItem("user"));
+  
 
-    if (user) {
-      let additional_quote = JSON.parse(localStorage.getItem("quotes"));
-      delete user["token"];
-      booking_payload = {
-        user,
-        status: "New",
-        booking_details,
-        additional_quote,
-      };
-    } else {
-      localStorage.setItem("prevpath", JSON.stringify(location.pathname));
-      history.push("/signInlayout");
-    }
+    booking_payload = {
+      user: JSON.parse(localStorage.getItem("user")),
+      status: "New",
+      booking_details,
+      additional_quote: JSON.parse(localStorage.getItem("quotes")),
+    };
   };
   const handleSubmit = () => {
     setLoading(true);
@@ -101,7 +72,7 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
       .post("https://swift-jet-backend.onrender.com/api/v1/booking/add", booking_payload)
       .then((data) => {
         localStorage.removeItem("quotes");
-        localStorage.removeItem("bookingDetails");
+        // localStorage.removeItem("bookingDetails");
         localStorage.removeItem("default_quote");
         setBookingPayload(data?.data?.data?.booking_number);
         setLoading(false);
@@ -109,283 +80,14 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
       })
       .catch((error) => {
         toastMsg(error?.response?.data?.error);
+        setLoading(false);
       });
   };
-
- 
 
   return (
     <div class=" bg-[#eeece1] mx-auto md:px-8 lg:px-16">
       <ToastContainer />
       <div class="flex flex-col md:flex-row">
-        <div class="w-full md:w-3/5">
-          <div class="">
-            <div class="xl:container px-6 text-gray-600 md:px-12">
-              <div class="bg-white  dark:lg:bg-white lg:p-16 rounded-[1rem] space-y-6 md:flex md:gap-6 justify-start md:space-y-0 lg:items-center">
-                <div>
-                  <div class="md:5/12 lg:w-3/4 m-auto">
-                    <Cardslider aircraft_details={bannerSuggestion} />
-                  </div>
-                  <div class="md:5/12 lg:w-full flex flex-column gap-y-2 m-auto  ">
-                    <h2 class="text-sm text-gray-300 md:text-xl dark:text-gray-400 px-12  ">
-                      {bannerSuggestion[0]?.classification}
-                    </h2>
-                    <p class="text-xs text-rose-900 dark:text-rose-900 font-bold md:text-2xl px-12 ">
-                      {bannerSuggestion[0]?.model}
-                    </p>
-                    <p class="text-gray-400 dark:text-gray-400 px-12">
-                      Model: {bannerSuggestion[0]?.model}
-                    </p>
-                    <div class="mt-2 flex flex-wrap justify-center items-center gap-4">
-                      <a
-                        href="#"
-                        class="flex h-20 w-40 flex-col items-center justify-center rounded-md border border-dashed border-gray-200 transition-colors duration-100 ease-in-out hover:border-gray-400/80"
-                      >
-                        <div class="flex flex-row items-center justify-center">
-                          <svg
-                            className="mr-3 fill-current svg-icon "
-                            viewBox="0 0 20 20"
-                            width="24"
-                            height="24"
-                          >
-                            <path d="M15.573,11.624c0.568-0.478,0.947-1.219,0.947-2.019c0-1.37-1.108-2.569-2.371-2.569s-2.371,1.2-2.371,2.569c0,0.8,0.379,1.542,0.946,2.019c-0.253,0.089-0.496,0.2-0.728,0.332c-0.743-0.898-1.745-1.573-2.891-1.911c0.877-0.61,1.486-1.666,1.486-2.812c0-1.79-1.479-3.359-3.162-3.359S4.269,5.443,4.269,7.233c0,1.146,0.608,2.202,1.486,2.812c-2.454,0.725-4.252,2.998-4.252,5.685c0,0.218,0.178,0.396,0.395,0.396h16.203c0.218,0,0.396-0.178,0.396-0.396C18.497,13.831,17.273,12.216,15.573,11.624 M12.568,9.605c0-0.822,0.689-1.779,1.581-1.779s1.58,0.957,1.58,1.779s-0.688,1.779-1.58,1.779S12.568,10.427,12.568,9.605 M5.06,7.233c0-1.213,1.014-2.569,2.371-2.569c1.358,0,2.371,1.355,2.371,2.569S8.789,9.802,7.431,9.802C6.073,9.802,5.06,8.447,5.06,7.233 M2.309,15.335c0.202-2.649,2.423-4.742,5.122-4.742s4.921,2.093,5.122,4.742H2.309z M13.346,15.335c-0.067-0.997-0.382-1.928-0.882-2.732c0.502-0.271,1.075-0.429,1.686-0.429c1.828,0,3.338,1.385,3.535,3.161H13.346z"></path>
-                          </svg>
-                          <span class=" text-sm text-gray-400">Passenger</span>
-                        </div>
-
-                        <div class="m-1 text-gray-400">
-                          {" "}
-                          {bannerSuggestion[0]?.no_of_seats}
-                        </div>
-                      </a>
-
-                      <a
-                        href="#"
-                        class="flex h-20 w-40 flex-col items-center justify-center rounded-md border border-dashed border-gray-200 transition-colors duration-100 ease-in-out hover:border-gray-400/80"
-                      >
-                        <div class="flex flex-row items-center justify-center">
-                          <svg
-                            className="mr-3 fill-current "
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="24"
-                            height="24"
-                            viewBox="0 96 960 960"
-                          >
-                            <path d="M350 976v-42l80-60V623L80 726v-58l350-206V226q0-21 14.5-35.5T480 176q21 0 35.5 14.5T530 226v236l350 206v58L530 623v251l80 60v42l-130-37-130 37Z" />
-                          </svg>
-                          <span class="  text-sm text-gray-400 "> Speed </span>
-                        </div>
-
-                        <div class=" m-1 text-gray-400">
-                          {bannerSuggestion[0]?.speed}Kts
-                        </div>
-                      </a>
-
-                      <a
-                        href="#"
-                        class="flex h-20 w-40 flex-col items-center justify-center rounded-md border border-dashed border-gray-200 transition-colors duration-100 ease-in-out hover:border-gray-400/80"
-                      >
-                        <div class="flex flex-row items-center justify-center">
-                          <svg
-                            className="mr-3 fill-current "
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="24"
-                            height="24"
-                            viewBox="0 96 960 960"
-                          >
-                            <path d="M480 976q-84 0-157-31.5T196 859q-54-54-85-127.5T80 574q0-84 31-156.5T196 291q54-54 127-84.5T480 176q84 0 157 30.5T764 291q54 54 85 126.5T880 574q0 84-31 157.5T764 859q-54 54-127 85.5T480 976Zm0-58q35-36 58.5-82.5T577 725H384q14 60 37.5 108t58.5 85Zm-85-12q-25-38-43-82t-30-99H172q38 71 88 111.5T395 906Zm171-1q72-23 129.5-69T788 725H639q-13 54-30.5 98T566 905ZM152 665h159q-3-27-3.5-48.5T307 574q0-25 1-44.5t4-43.5H152q-7 24-9.5 43t-2.5 45q0 26 2.5 46.5T152 665Zm221 0h215q4-31 5-50.5t1-40.5q0-20-1-38.5t-5-49.5H373q-4 31-5 49.5t-1 38.5q0 21 1 40.5t5 50.5Zm275 0h160q7-24 9.5-44.5T820 574q0-26-2.5-45t-9.5-43H649q3 35 4 53.5t1 34.5q0 22-1.5 41.5T648 665Zm-10-239h150q-33-69-90.5-115T565 246q25 37 42.5 80T638 426Zm-254 0h194q-11-53-37-102.5T480 236q-32 27-54 71t-42 119Zm-212 0h151q11-54 28-96.5t43-82.5q-75 19-131 64t-91 115Z" />
-                          </svg>
-                          <span class="  text-sm text-gray-400"> Range </span>
-                        </div>
-
-                        <div class=" m-1 text-gray-400">
-                          {bannerSuggestion[0]?.range}
-                        </div>
-                      </a>
-                    </div>
-                    <div class="mt-2 flex flex-wrap justify-center items-center gap-4">
-                      <a
-                        href="#"
-                        class="flex h-20 w-40 flex-col items-center justify-center rounded-md border border-dashed border-gray-200 transition-colors duration-100 ease-in-out hover:border-gray-400/80"
-                      >
-                        <div class="flex flex-row items-center justify-center">
-                          <svg
-                            className="mr-2 fill-current svg-icon"
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 96 960 960"
-                            width="24"
-                            height="24"
-                          >
-                            <path d="M140 896q-26 0-43-17t-17-43V683q37-8 61.5-37.5T166 576q0-40-24.5-70T80 469V316q0-26 17-43t43-17h680q26 0 43 17t17 43v153q-37 7-61.5 37T794 576q0 40 24.5 69.5T880 683v153q0 26-17 43t-43 17H140Zm0-60h680V727q-38-26-62-65t-24-86q0-47 24-86t62-65V316H140v109q39 26 62.5 65t23.5 86q0 47-23.5 86T140 727v109Zm340-63q12 0 21-9t9-21q0-12-9-21t-21-9q-12 0-21 9t-9 21q0 12 9 21t21 9Zm0-167q12 0 21-9t9-21q0-12-9-21t-21-9q-12 0-21 9t-9 21q0 12 9 21t21 9Zm0-167q12 0 21-9t9-21q0-12-9-21t-21-9q-12 0-21 9t-9 21q0 12 9 21t21 9Zm0 137Z" />
-                          </svg>
-                          <span class=" text-sm text-gray-400">Luggage</span>
-                        </div>
-
-                        <div class="m-1 text-gray-400"> 59cu.ft</div>
-                      </a>
-
-                      <a
-                        href="#"
-                        class="flex h-20 w-40 flex-col items-center justify-center rounded-md border border-dashed border-gray-200 transition-colors duration-100 ease-in-out hover:border-gray-400/80"
-                      >
-                        <div class="flex flex-row items-center justify-center">
-                          <svg
-                            className="mr-2 fill-current svg-icon"
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="24"
-                            height="24"
-                            viewBox="0 96 960 960"
-                          >
-                            <path d="M480 936 320 776l44-44 86 86V334l-86 86-44-44 160-160 160 160-44 44-86-86v484l86-86 44 44-160 160Z" />
-                          </svg>
-                          <span class="  text-sm text-gray-400 "> Height </span>
-                        </div>
-
-                        <div class=" m-1 text-gray-400"> 1.78cm </div>
-                      </a>
-
-                      <a
-                        href="#"
-                        class="flex h-20 w-40 flex-col items-center justify-center rounded-md border border-dashed border-gray-200 transition-colors duration-100 ease-in-out hover:border-gray-400/80"
-                      >
-                        <div class="flex flex-row items-center justify-center">
-                          <svg
-                            className="mr-2 fill-current svg-icon"
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="24"
-                            height="24"
-                            viewBox="0 96 960 960"
-                          >
-                            <path d="M281 736 121 576l160-160 43 43-88 87h489l-87-88 42-42 160 160-160 160-42-42 87-88-489 1 87 87-42 42Z" />
-                          </svg>
-                          <span class="  text-sm text-gray-400"> width </span>
-                        </div>
-
-                        <div class=" m-1 text-gray-400">1.4cm</div>
-                      </a>
-                    </div>
-
-                    <p class="text-gray-300 text-xs dark:text-gray-900 mt-3 mr-2 mb-2 ml-2 ">
-                      Midsize jets (also known as mid-sized jets) are the most
-                      popular category of private jets and provide a
-                      cost-effective option for flights of up to 4 hours, for up
-                      to 8 passengers
-                    </p>
-                    <div class="py-2 ">
-                      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 mr-2 mb-2 ml-2 ">
-                        <div class="py-2">
-                          <img src={Frame636} class="" alt="" />
-                        </div>
-                        <div class="py-4">
-                          <p class=" text-sm text-gray-300 dark:text-gray-900">
-                            {bannerSuggestion?.manufacturer}
-                          </p>
-                        </div>
-                        <div class="py-4">
-                          <div class="flex items-center">
-                            <svg
-                              aria-hidden="true"
-                              class="w-5 h-5 text-yellow-400"
-                              fill="currentColor"
-                              viewBox="0 0 20 20"
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
-                              <title>First star</title>
-                              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
-                            </svg>
-                            <svg
-                              aria-hidden="true"
-                              class="w-5 h-5 text-yellow-400"
-                              fill="currentColor"
-                              viewBox="0 0 20 20"
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
-                              <title>Second star</title>
-                              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
-                            </svg>
-                            <svg
-                              aria-hidden="true"
-                              class="w-5 h-5 text-yellow-400"
-                              fill="currentColor"
-                              viewBox="0 0 20 20"
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
-                              <title>Third star</title>
-                              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
-                            </svg>
-                            <svg
-                              aria-hidden="true"
-                              class="w-5 h-5 text-yellow-400"
-                              fill="currentColor"
-                              viewBox="0 0 20 20"
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
-                              <title>Fourth star</title>
-                              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
-                            </svg>
-                            <svg
-                              aria-hidden="true"
-                              class="w-5 h-5 text-gray-300 dark:text-gray-500"
-                              fill="currentColor"
-                              viewBox="0 0 20 20"
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
-                              <title>Fifth star</title>
-                              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
-                            </svg>
-                          </div>
-                        </div>
-                        <div class="py-4">
-                          <h3 class="ml-2 text-sm text-gray-900 dark:text-gray-700">
-                            15 reviews
-                          </h3>
-                        </div>
-                      </div>
-                      <button
-                        type="button"
-                        class="text-white hover:text-white border border-rose-900 bg-rose-900 focus:ring-4 focus:outline-none focus:ring-rose-900 font-medium rounded-2xl text-sm px-5 py-2.5 text-center mr-2 mb-2 ml-2 dark:border-rose-900 dark:text-rose-900 dark:hover:text-white dark:hover:bg-rose-900 dark:focus:ring-rose-900"
-                        onClick={() => {
-                          setShowModal(true);
-                        }}
-                      >
-                        Add Extra Message
-                      </button>
-                    </div>
-                    {loading === false ? (
-                      <button
-                        type="button"
-                        class="text-white hover:text-white border border-rose-900 bg-rose-900 focus:ring-4 focus:outline-none focus:ring-rose-900 font-medium rounded-2xl text-sm px-5 py-2.5 text-center mr-2 mb-2 ml-2 dark:border-rose-900 dark:text-rose-900 dark:hover:text-white dark:hover:bg-rose-900 dark:focus:ring-rose-900"
-                        onClick={() => {
-                          handleBookingPayload();
-                          handleSubmit();
-                        }}
-                      >
-                        Book Now
-                      </button>
-                    ) : (
-                      <button
-                        type="button"
-                        class="text-white hover:text-white border border-rose-900 bg-rose-900 focus:ring-4 focus:outline-none focus:ring-rose-900 font-medium rounded-2xl text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-rose-900 dark:text-rose-900 dark:hover:text-white dark:hover:bg-rose-900 dark:focus:ring-rose-900"
-                      >
-                        <div class="flex items-center justify-center">
-                          <div
-                            class="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
-                            role="status"
-                          >
-                            <span class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">
-                              Loading...
-                            </span>
-                          </div>
-                        </div>
-                      </button>
-                    )}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
         {booking_details?.tripType === "One way Trip" ? (
           <div class="w-full md:w-1/2">
             <div className="xl:container px-6 text-gray-600 md:px-12">
@@ -469,6 +171,34 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
                     </p>
                   </div>
                 </div>
+                {loading === false ? (
+                  <button
+                    type="button"
+                    class="text-white hover:text-white border border-rose-900 bg-rose-900 focus:ring-4 focus:outline-none focus:ring-rose-900 font-medium rounded-2xl text-sm px-5 py-2.5 text-center mr-2 mb-2 ml-2 dark:border-rose-900 dark:text-rose-900 dark:hover:text-white dark:hover:bg-rose-900 dark:focus:ring-rose-900"
+                    onClick={() => {
+                      handleBookingPayload();
+                      handleSubmit();
+                    }}
+                  >
+                    Book Now
+                  </button>
+                ) : (
+                  <button
+                    type="button"
+                    class="text-white hover:text-white border border-rose-900 bg-rose-900 focus:ring-4 focus:outline-none focus:ring-rose-900 font-medium rounded-2xl text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-rose-900 dark:text-rose-900 dark:hover:text-white dark:hover:bg-rose-900 dark:focus:ring-rose-900"
+                  >
+                    <div class="flex items-center justify-center">
+                      <div
+                        class="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
+                        role="status"
+                      >
+                        <span class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">
+                          Loading...
+                        </span>
+                      </div>
+                    </div>
+                  </button>
+                )}
                 <button
                   type="button"
                   class="text-rose-900 hover:text-white border border-rose-900 hover:bg-rose-900 focus:ring-4 focus:outline-none focus:ring-rose-900 font-medium rounded-2xl text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-rose-900 dark:text-rose-900 dark:hover:text-white dark:hover:bg-rose-900 dark:focus:ring-rose-900"
@@ -643,6 +373,34 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
                     </p>
                   </div>
                 </div>
+                {loading === false ? (
+                  <button
+                    type="button"
+                    class="text-white hover:text-white border border-rose-900 bg-rose-900 focus:ring-4 focus:outline-none focus:ring-rose-900 font-medium rounded-2xl text-sm px-5 py-2.5 text-center mr-2 mb-2 ml-2 dark:border-rose-900 dark:text-rose-900 dark:hover:text-white dark:hover:bg-rose-900 dark:focus:ring-rose-900"
+                    onClick={() => {
+                      handleBookingPayload();
+                      handleSubmit();
+                    }}
+                  >
+                    Book Now
+                  </button>
+                ) : (
+                  <button
+                    type="button"
+                    class="text-white hover:text-white border border-rose-900 bg-rose-900 focus:ring-4 focus:outline-none focus:ring-rose-900 font-medium rounded-2xl text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-rose-900 dark:text-rose-900 dark:hover:text-white dark:hover:bg-rose-900 dark:focus:ring-rose-900"
+                  >
+                    <div class="flex items-center justify-center">
+                      <div
+                        class="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
+                        role="status"
+                      >
+                        <span class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">
+                          Loading...
+                        </span>
+                      </div>
+                    </div>
+                  </button>
+                )}
                 <button
                   type="button"
                   class="text-rose-900 hover:text-white border border-rose-900 hover:bg-rose-900 focus:ring-4 focus:outline-none focus:ring-rose-900 font-medium rounded-2xl text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-rose-900 dark:text-rose-900 dark:hover:text-white dark:hover:bg-rose-900 dark:focus:ring-rose-900"
@@ -745,6 +503,34 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
               })}
             </div>
             <div className="flex flex-row justify-between p-5 bg-white align-center rounded-b-xl">
+              {loading === false ? (
+                <button
+                  type="button"
+                  class="text-white hover:text-white border border-rose-900 bg-rose-900 focus:ring-4 focus:outline-none focus:ring-rose-900 font-medium rounded-2xl text-sm px-5 py-2.5 text-center mr-2 mb-2 ml-2 dark:border-rose-900 dark:text-rose-900 dark:hover:text-white dark:hover:bg-rose-900 dark:focus:ring-rose-900"
+                  onClick={() => {
+                    handleBookingPayload();
+                    handleSubmit();
+                  }}
+                >
+                  Book Now
+                </button>
+              ) : (
+                <button
+                  type="button"
+                  class="text-white hover:text-white border border-rose-900 bg-rose-900 focus:ring-4 focus:outline-none focus:ring-rose-900 font-medium rounded-2xl text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-rose-900 dark:text-rose-900 dark:hover:text-white dark:hover:bg-rose-900 dark:focus:ring-rose-900"
+                >
+                  <div class="flex items-center justify-center">
+                    <div
+                      class="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
+                      role="status"
+                    >
+                      <span class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">
+                        Loading...
+                      </span>
+                    </div>
+                  </div>
+                </button>
+              )}
               <button
                 type="button"
                 class="w-100 text-rose-900 hover:text-white border border-rose-900 hover:bg-rose-900 focus:ring-4 focus:outline-none focus:ring-rose-900 font-medium rounded-2xl text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-rose-900 dark:text-rose-900 dark:hover:text-white dark:hover:bg-rose-900 dark:focus:ring-rose-900"
@@ -834,6 +620,34 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
                     </p>
                   </div>
                 </div>
+                {loading === false ? (
+                  <button
+                    type="button"
+                    class="text-white hover:text-white border border-rose-900 bg-rose-900 focus:ring-4 focus:outline-none focus:ring-rose-900 font-medium rounded-2xl text-sm px-5 py-2.5 text-center mr-2 mb-2 ml-2 dark:border-rose-900 dark:text-rose-900 dark:hover:text-white dark:hover:bg-rose-900 dark:focus:ring-rose-900"
+                    onClick={() => {
+                      handleBookingPayload();
+                      handleSubmit();
+                    }}
+                  >
+                    Book Now
+                  </button>
+                ) : (
+                  <button
+                    type="button"
+                    class="text-white hover:text-white border border-rose-900 bg-rose-900 focus:ring-4 focus:outline-none focus:ring-rose-900 font-medium rounded-2xl text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-rose-900 dark:text-rose-900 dark:hover:text-white dark:hover:bg-rose-900 dark:focus:ring-rose-900"
+                  >
+                    <div class="flex items-center justify-center">
+                      <div
+                        class="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
+                        role="status"
+                      >
+                        <span class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">
+                          Loading...
+                        </span>
+                      </div>
+                    </div>
+                  </button>
+                )}
                 <button
                   type="button"
                   class="text-rose-900 hover:text-white border border-rose-900 hover:bg-rose-900 focus:ring-4 focus:outline-none focus:ring-rose-900 font-medium rounded-2xl text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-rose-900 dark:text-rose-900 dark:hover:text-white dark:hover:bg-rose-900 dark:focus:ring-rose-900"
@@ -847,217 +661,254 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
             </div>
           </div>
         ) : null}
-      </div>
-      <div className="other-cards">
-        <h1 className="text-2xl font-normal font-bold text-black">
-          We Also Found Other Flights
-        </h1>
 
-        <div class="w-full md:w-1/2">
-          {aircraft_details.map((item, i) => (
-            <div className="py-4">
-              <div className="flex flex-col bg-white flight-card-content rounded-xl gap-y-8">
-                <div className="flex flex-row justify-between align-center">
-                  <img
-                    src={item?.image_url}
-                    class="rounded-full h-14 w-14"
-                    alt=""
-                  />
-                  <p className="ml-2 mr-2 font-bold truncate flight-card-text">
-                    {item?.model}
-                  </p>
-                  <button
-                    type="button"
-                    class="quote-btn text-rose-900 hover:text-white border border-rose-900 hover:bg-rose-900 focus:ring-4 focus:outline-none focus:ring-rose-900 font-medium rounded-2xl text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-rose-900 dark:text-rose-900 dark:hover:text-white dark:hover:bg-rose-900 dark:focus:ring-rose-900"
-                    onClick={() => {
-                      handleToggleQuote(i, item);
-                      setBannerSuggestion(item);
-                    }}
-                  >
-                    Add Quote
-                  </button>
-                </div>
+        <div class="w-full md:w-3/5 ">
+          <div class="">
+            <div class="xl:container px-6 text-gray-600 md:px-12 overflow-x-hidden overflow-y-auto" style={{"height": "800px"}}>
+              <div class="">
+                <div>
+                  <div class="md:5/12 lg:w-full flex flex-column gap-y-2 m-auto  ">
+                    <div className="">
+                      <h1 className="text-2xl font-normal font-bold text-black">
+                        Available Aircrafts
+                      </h1>
 
-                <div class="flex justify-between items-center  text-gray-600">
-                  <div class="flex items-center">
-                    <p className="text-xs">{item?.classification}</p>
-                  </div>
-                  <div class="flex items-center">
-                    <svg
-                      aria-hidden="true"
-                      class="w-5 h-5 text-yellow-400"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <title>First star</title>
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
-                    </svg>
-                    <svg
-                      aria-hidden="true"
-                      class="w-5 h-5 text-yellow-400"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <title>Second star</title>
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
-                    </svg>
-                    <svg
-                      aria-hidden="true"
-                      class="w-5 h-5 text-yellow-400"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <title>Third star</title>
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
-                    </svg>
-                    <svg
-                      aria-hidden="true"
-                      class="w-5 h-5 text-yellow-400"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <title>Fourth star</title>
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
-                    </svg>
-                    <svg
-                      aria-hidden="true"
-                      class="w-5 h-5 text-gray-300 dark:text-gray-500"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <title>Fifth star</title>
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
-                    </svg>
-                  </div>
-                  <div class="flex items-center">
-                    <p class=" text-sm text-gray-900 dark:text-gray-700">
-                      15 reviews
-                    </p>
+                      <div class="w-full">
+                        {aircraft_details.map((item, i) => (
+                          <div className="py-4">
+                            <div className="flex flex-col bg-white flight-card-content rounded-xl gap-y-8">
+                              <div className="flex flex-row justify-between align-center">
+                                <img
+                                  src={item?.image_url}
+                                  class="rounded-full h-14 w-14"
+                                  alt=""
+                                />
+                                <p className="ml-2 mr-2 font-bold truncate flight-card-text">
+                                  {item?.model}
+                                </p>
+                                <button
+                                  type="button"
+                                  class="quote-btn text-rose-900 hover:text-white border border-rose-900 hover:bg-rose-900 focus:ring-4 focus:outline-none focus:ring-rose-900 font-medium rounded-2xl text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-rose-900 dark:text-rose-900 dark:hover:text-white dark:hover:bg-rose-900 dark:focus:ring-rose-900"
+                                  onClick={() => {
+                                    handleToggleQuote(i, item);
+                                    setBannerSuggestion(item);
+                                  }}
+                                >
+                                  Add Quote
+                                </button>
+                              </div>
+
+                              <div class="flex justify-between items-center  text-gray-600">
+                                <div class="flex items-center">
+                                  <p className="text-xs">
+                                    {item?.classification}
+                                  </p>
+                                </div>
+                                <div class="flex items-center">
+                                  <svg
+                                    aria-hidden="true"
+                                    class="w-5 h-5 text-yellow-400"
+                                    fill="currentColor"
+                                    viewBox="0 0 20 20"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <title>First star</title>
+                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                                  </svg>
+                                  <svg
+                                    aria-hidden="true"
+                                    class="w-5 h-5 text-yellow-400"
+                                    fill="currentColor"
+                                    viewBox="0 0 20 20"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <title>Second star</title>
+                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                                  </svg>
+                                  <svg
+                                    aria-hidden="true"
+                                    class="w-5 h-5 text-yellow-400"
+                                    fill="currentColor"
+                                    viewBox="0 0 20 20"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <title>Third star</title>
+                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                                  </svg>
+                                  <svg
+                                    aria-hidden="true"
+                                    class="w-5 h-5 text-yellow-400"
+                                    fill="currentColor"
+                                    viewBox="0 0 20 20"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <title>Fourth star</title>
+                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                                  </svg>
+                                  <svg
+                                    aria-hidden="true"
+                                    class="w-5 h-5 text-gray-300 dark:text-gray-500"
+                                    fill="currentColor"
+                                    viewBox="0 0 20 20"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <title>Fifth star</title>
+                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                                  </svg>
+                                </div>
+                                <div class="flex items-center">
+                                  <p
+                                    class=" text-sm  cursor-pointer underline text-gray-900 dark:text-gray-700"
+                                    onClick={() => {
+                                      localStorage.setItem(
+                                        "aircract-id",
+                                        JSON.stringify(item._id)
+                                      );
+                                      setShowAircraft(true);
+                                    }}
+                                  >
+                                    view details
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                      <div>
+                        {showModal ? (
+                          <div>
+                            <div className="fixed inset-0 z-50 flex items-center justify-center px-6 py-6 overflow-x-hidden overflow-y-auto shadow-md outline-none lg:px-8 focus:outline-none">
+                              <div class="">
+                                <form class="bg-white shadow-md rounded-xl px-8 pt-6 pb-8 mb-4">
+                                  <div class="mb-4">
+                                    <label
+                                      class="block text-gray-700 text-xs font-bold mb-2 "
+                                      for="username"
+                                    >
+                                      Add a reachable phone number{" "}
+                                    </label>
+                                    <input
+                                      class="relative flex px-4 py-2  rounded-full bg-white dark:bg-gray-900 border dark:dark:border-[#670f29] border-[#670f29] shadow-md md:p-2 lg:pr-3"
+                                      id="username"
+                                      type="tel"
+                                      placeholder="Phone number"
+                                      onChange={(e) => {
+                                        setPhoneNumber(e.target.value);
+                                      }}
+                                    />
+                                    <br></br>
+                                    <br></br>
+                                    <label
+                                      class="block text-gray-700 text-xs font-bold mb-2 flex  "
+                                      for="username"
+                                    >
+                                      Extra Note
+                                    </label>
+                                    <textarea
+                                      rows="4"
+                                      name="comment"
+                                      id="username"
+                                      className="block w-full px-4 py-2 border border-gray-300 rounded-lg dark:border-[#670f29] border-[#670f29]"
+                                      placeholder="Enter text here..."
+                                    />
+                                  </div>
+
+                                  <div class="flex items-center justify-between">
+                                    <button
+                                      class="px-3 py-1 rounded-full border border-gray-100 text-sm font-medium text-[#670f29] transition duration-300 hover:border-transparent hover:bg-[#670f29] hover:text-white dark:border-gray-700 dark:text-gray-300"
+                                      type="button"
+                                      onClick={() => {
+                                        setShowModal(false);
+                                      }}
+                                    >
+                                      Back
+                                    </button>
+                                    <button
+                                      class="px-3 py-1 rounded-full border border-gray-100 text-sm font-medium text-[#670f29] transition duration-300 hover:border-transparent hover:bg-[#670f29] hover:text-white dark:border-gray-700 dark:text-gray-30"
+                                      type="button"
+                                      onClick={() => {
+                                        setShowModal(false);
+                                      }}
+                                    >
+                                      Continue
+                                    </button>
+                                  </div>
+                                </form>
+                           
+                              </div>
+                            </div>
+                            <div className="fixed inset-0 z-40 bg-black opacity-25"></div>
+                          </div>
+                        ) : null}
+                        {showSuccessModal ? (
+                          <div>
+                            <div className="fixed inset-0 z-50 flex items-center justify-center overflow-x-hidden overflow-y-auto text-center outline-none focus:outline-none">
+                              <div class="w-full max-w-xs">
+                                <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+                                  <div class="mb-4">
+                                    <h3
+                                      class="block text-gray-700 text-md font-bold mb-2 text-[#5C0632]"
+                                      for="username"
+                                    >
+                                      Booking Successful - Booking Number :{" "}
+                                      {bookingPayload}
+                                    </h3>
+                                    <br></br>
+                                  </div>
+                                  <div class="mb-4">
+                                    <h5
+                                      class="block text-gray-500 text-sm  mb-2 text-[#5C0632]"
+                                      for="username"
+                                    >
+                                      Thank you for choosing Swiftwings for your
+                                      travel needs. Your flight booking has been
+                                      confirmed and your flight information sent
+                                      to your email address.
+                                    </h5>
+                                  </div>
+
+                                  <div class="w-full flex justify-between ml-auto">
+                                    <button
+                                      type="button"
+                                      class="py-2 px-4 mr-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-[#5C0632] hover:border-[#ffffff] hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 0 dark:text-[#5C0632] dark:border-gray-600 dark:hover:text-white dark:hover:bg-[#5C0632] w-32 ac-button ml-auto"
+                                      onClick={() => {
+                                        setShowSuccessModal(false);
+                                        history.push("/");
+                                      }}
+                                    >
+                                      close
+                                    </button>
+                                  </div>
+                                </form>
+                                <p class="text-center text-gray-500 text-xs">
+                                  &copy;2020 Acme Corp. All rights reserved.
+                                </p>
+                              </div>
+                            </div>
+                            <div className="fixed inset-0 z-40 bg-black opacity-25"></div>
+                          </div>
+                        ) : null}
+                        {showAircraft ? (
+                          <div>
+                            <div className="bg-white mt-12 justify-center overflow-x-hidden overflow-y-auto sm:w-4/5 md: w-3/5 lg:w-1/2 fixed rounded-sm inset-0 z-50 px-6 py-6 pb-8  shadow-md outline-none  focus:outline-none  mr-auto ml-auto">
+                              <CloseSharp
+                                onClick={() => {
+                                  setShowAircraft(false);
+                                }}
+                              />
+                              <SingleAircraftOverLay />
+                            </div>
+                            <div className="fixed inset-0 z-40 bg-black opacity-25"></div>
+                          </div>
+                        ) : null}
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          ))}
-        </div>
-        <div>
-          {showModal ? (
-            <div>
-              <div className="fixed inset-0 z-50 flex items-center justify-center px-6 py-6 overflow-x-hidden overflow-y-auto shadow-md outline-none lg:px-8 focus:outline-none">
-                <div class="">
-                  <form class="bg-white shadow-md rounded-xl px-8 pt-6 pb-8 mb-4">
-                    <div class="mb-4">
-                      <label
-                        class="block text-gray-700 text-xs font-bold mb-2 "
-                        for="username"
-                      >
-                        Add a reachable phone number{" "}
-                      </label>
-                      <input
-                        class="relative flex px-4 py-2  rounded-full bg-white dark:bg-gray-900 border dark:dark:border-[#670f29] border-[#670f29] shadow-md md:p-2 lg:pr-3"
-                        id="username"
-                        type="tel"
-                        placeholder="Phone number"
-                        onChange={(e) => {
-                          setPhoneNumber(e.target.value);
-                        }}
-                      />
-                      <br></br>
-                      <br></br>
-                      <label
-                        class="block text-gray-700 text-xs font-bold mb-2 flex  "
-                        for="username"
-                      >
-                        Extra Note
-                      </label>
-                      <textarea
-                        rows="4"
-                        name="comment"
-                        id="username"
-                        className="block w-full px-4 py-2 border border-gray-300 rounded-lg dark:border-[#670f29] border-[#670f29]"
-                        placeholder="Enter text here..."
-                      />
-                    </div>
-
-                    <div class="flex items-center justify-between">
-                      <button
-                        class="px-3 py-1 rounded-full border border-gray-100 text-sm font-medium text-[#670f29] transition duration-300 hover:border-transparent hover:bg-[#670f29] hover:text-white dark:border-gray-700 dark:text-gray-300"
-                        type="button"
-                        onClick={() => {
-                          setShowModal(false);
-                        }}
-                      >
-                        Back
-                      </button>
-                      <button
-                        class="px-3 py-1 rounded-full border border-gray-100 text-sm font-medium text-[#670f29] transition duration-300 hover:border-transparent hover:bg-[#670f29] hover:text-white dark:border-gray-700 dark:text-gray-30"
-                        type="button"
-                        onClick={() => {
-                          setShowModal(false);
-                        }}
-                      >
-                        Continue
-                      </button>
-                    </div>
-                  </form>
-                  <p class="text-center text-gray-500 text-xs">
-                    &copy;2020 Acme Corp. All rights reserved.
-                  </p>
-                </div>
-              </div>
-              <div className="fixed inset-0 z-40 bg-black opacity-25"></div>
-            </div>
-          ) : null}
-          {showSuccessModal ? (
-            <div>
-              <div className="fixed inset-0 z-50 flex items-center justify-center overflow-x-hidden overflow-y-auto text-center outline-none focus:outline-none">
-                <div class="w-full max-w-xs">
-                  <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
-                    <div class="mb-4">
-                      <h3
-                        class="block text-gray-700 text-md font-bold mb-2 text-[#5C0632]"
-                        for="username"
-                      >
-                        Booking Successful - Booking Number : {bookingPayload}
-                      </h3>
-                      <br></br>
-                    </div>
-                    <div class="mb-4">
-                      <h5
-                        class="block text-gray-500 text-sm  mb-2 text-[#5C0632]"
-                        for="username"
-                      >
-                        Thank you for choosing Swiftwings for your travel needs. Your flight booking has been confirmed and your flight
-                        information sent to your email address.
-                      </h5>
-                    </div>
-                 
-
-                    <div class="w-full flex justify-between ml-auto">
-                      <button
-                        type="button"
-                        class="py-2 px-4 mr-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-[#5C0632] hover:border-[#ffffff] hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 0 dark:text-[#5C0632] dark:border-gray-600 dark:hover:text-white dark:hover:bg-[#5C0632] w-32 ac-button ml-auto"
-                        onClick={() => {
-                          setShowSuccessModal(false);
-                        }}
-                      >
-                        close
-                      </button>
-                   
-                    </div>
-                  </form>
-                  <p class="text-center text-gray-500 text-xs">
-                    &copy;2020 Acme Corp. All rights reserved.
-                  </p>
-                </div>
-              </div>
-              <div className="fixed inset-0 z-40 bg-black opacity-25"></div>
-            </div>
-          ) : null}
+          </div>
         </div>
       </div>
     </div>

@@ -11,7 +11,6 @@ const FlightsContextProvider = ({ children }) => {
         "https://swift-jet-backend.onrender.com/api/v1/flight/all"
       );
       setFlights(data?.data);
-      console.log("data?.data", data?.data);
     }
 
     fetchData();

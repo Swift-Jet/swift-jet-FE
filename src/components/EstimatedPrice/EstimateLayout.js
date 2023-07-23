@@ -10,7 +10,6 @@ import PersonAddAltOutlinedIcon from "@mui/icons-material/PersonAddAltOutlined";
 import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
 const EstimateLayout = () => {
   const booking = JSON.parse(localStorage.getItem("bookingDetails"));
-  console.log("booking", booking);
   const [bookDetails, setBookDetails] = useState(booking);
   const [filteredResults, setFilteredResults] = useState([]);
   const history = useHistory();

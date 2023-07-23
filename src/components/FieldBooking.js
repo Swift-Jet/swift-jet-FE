@@ -363,7 +363,6 @@ const FieldBooking = () => {
     if (formData.length > 1) {
       const newFormData = [...formData];
       newFormData.splice(index, 1);
-      console.log("formData", formData, index);
       setFormData(newFormData);
     }
   };

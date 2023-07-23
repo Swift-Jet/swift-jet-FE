@@ -13,7 +13,7 @@ const EstimateCost = () => {
   const [showModal, setShowModal] = React.useState(true);
   const { aircrafts } = useContext(AircraftsContext);
 
-  console.log("booking", booking);
+
 
   return (
     <div>

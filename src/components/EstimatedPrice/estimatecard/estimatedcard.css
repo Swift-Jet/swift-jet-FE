@@ -1,7 +1,9 @@
-@media screen and (max-width: 1634px) {
-        .first-card-right {
-          display: block !important;
-        }
-      }
+.hello {
+  margin-top: -600px;
+}
 
- 
+/* @media screen and (max-width: 1634px) {
+  .first-card-right {
+    display: block !important;
+  }
+} */

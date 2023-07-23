@@ -1,24 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 import Layout from "../shared/layout/Layout";
+import SingleAircraftOverLay from "../single-aircraft/SingleAircraftOverLay";
+import { CloseSharp } from "@mui/icons-material";
 
 const SingleBooking = () => {
-    let _booking = JSON.parse(localStorage.getItem("single-booking"))
-    let booking = _booking.booking_details.formData[0]
-  
+  const [showAircraft, setShowAircraft] = useState(false);
+  let _booking = JSON.parse(localStorage.getItem("single-booking"));
+
+  let booking = _booking.booking_details.formData[0];
+  let aircrafts = _booking.additional_quote;
+
   return (
     <Layout>
-      <div class="flex justify-center items-center mt-24 ">
-        <div className="w-full mt-24 md:w-1/2">
+      <div class=" justify-center items-center mt-36 ">
+        <div className="w-full mt-24 md:w-1/2 mr-auto ml-auto">
           <div className="flex flex-col p-5 bg-white shadow-lg rounded-xl gap-y-8 display-trip">
             <div className="flex flex-row justify-between align-center">
-             
               <button
                 type="button"
                 class="text-rose-900 hover:text-white border border-rose-900 hover:bg-rose-900 focus:ring-4 focus:outline-none focus:ring-rose-900 font-medium rounded-2xl text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-rose-900 dark:text-rose-900 dark:hover:text-white dark:hover:bg-rose-900 dark:focus:ring-rose-900"
               >
                 {_booking.booking_details.tripType}
               </button>
-            
+
               <button
                 type="button"
                 class="text-rose-900 hover:text-white border border-rose-900 hover:bg-rose-900 focus:ring-4 focus:outline-none focus:ring-rose-900 font-medium rounded-2xl text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-rose-900 dark:text-rose-900 dark:hover:text-white dark:hover:bg-rose-900 dark:focus:ring-rose-900"
@@ -32,8 +36,7 @@ const SingleBooking = () => {
                   {booking?.source.iata_code}
                   <br />
                   {booking?.source.value.name} <br />
-                  {booking?.source.value.city},{" "}
-                  {booking?.source.value.country}
+                  {booking?.source.value.city}, {booking?.source.value.country}
                 </p>
               </div>
               <div class="flex items-center">
@@ -90,14 +93,120 @@ const SingleBooking = () => {
             <button
               type="button"
               class="text-rose-900 hover:text-white border border-rose-900 hover:bg-rose-900 focus:ring-4 focus:outline-none focus:ring-rose-900 font-medium rounded-2xl text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-rose-900 dark:text-rose-900 dark:hover:text-white dark:hover:bg-rose-900 dark:focus:ring-rose-900"
-            //   onClick={() => {
-            //     history.push("/");
-            //   }}
+              //   onClick={() => {
+              //     history.push("/");
+              //   }}
             >
               Search Again
             </button>
           </div>
         </div>
+        <div class="sm:w-full lg:w-1/2 md:w-1/2 mt-12 mr-auto ml-auto">
+          <div className="flex justify-center items-center">
+            <h4>Selected Quotes</h4>
+          </div>
+          {aircrafts.map((item, i) => (
+            <div className="py-4">
+              <div className="flex flex-col bg-white flight-card-content rounded-xl shadow gap-y-8">
+                <div className="flex flex-row justify-between align-center">
+                  <img
+                    src={item?.image_url}
+                    class="rounded-full h-14 w-14"
+                    alt=""
+                  />
+                  <p className="ml-2 mr-2 font-bold truncate flight-card-text">
+                    {item?.model}
+                  </p>
+                </div>
+
+                <div class="flex justify-between items-center  text-gray-600">
+                  <div class="flex items-center">
+                    <p className="text-xs">{item?.classification}</p>
+                  </div>
+                  <div class="flex items-center">
+                    <svg
+                      aria-hidden="true"
+                      class="w-5 h-5 text-yellow-400"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <title>First star</title>
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                    </svg>
+                    <svg
+                      aria-hidden="true"
+                      class="w-5 h-5 text-yellow-400"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <title>Second star</title>
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                    </svg>
+                    <svg
+                      aria-hidden="true"
+                      class="w-5 h-5 text-yellow-400"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <title>Third star</title>
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                    </svg>
+                    <svg
+                      aria-hidden="true"
+                      class="w-5 h-5 text-yellow-400"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <title>Fourth star</title>
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                    </svg>
+                    <svg
+                      aria-hidden="true"
+                      class="w-5 h-5 text-gray-300 dark:text-gray-500"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <title>Fifth star</title>
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                    </svg>
+                  </div>
+                  <div class="flex items-center">
+                    <p
+                      class=" text-sm text-gray-900 dark:text-gray-700 underline cursor-pointer"
+                      onClick={() => {
+                        localStorage.setItem(
+                          "aircract-id",
+                          JSON.stringify(item._id)
+                        );
+                        setShowAircraft(true);
+                      }}
+                    >
+                      view details
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+        {showAircraft ? (
+          <div>
+            <div className="bg-white mt-12 justify-center overflow-x-hidden overflow-y-auto sm:w-4/5 md: w-3/5 lg:w-1/2 fixed rounded-sm inset-0 z-50 px-6 py-6 pb-8  shadow-md outline-none  focus:outline-none  mr-auto ml-auto">
+              <CloseSharp
+                onClick={() => {
+                  setShowAircraft(false);
+                }}
+              />
+              <SingleAircraftOverLay />
+            </div>
+            <div className="fixed inset-0 z-40 bg-black opacity-30"></div>
+          </div>
+        ) : null}
       </div>
     </Layout>
   );

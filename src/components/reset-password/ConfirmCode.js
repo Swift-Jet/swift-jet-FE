@@ -7,7 +7,6 @@ import { toast, ToastContainer } from "react-toastify";
 const ConfirmCode = ({match}) => {
   const [password, setPassword] = useState("");
   const { token } = match.params;
-  console.log("token", token);
   let data = {
     token,
     password,

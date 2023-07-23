@@ -34,7 +34,7 @@ const aircraftTypes0bj = [
       "Propeller Aircraft are the most economical choice for short to mid-range trips. While operating in and out of regional airports with short runways, propeller aircraft can cruise at speeds of 300 knots and non-stop ranges of about 1,500 miles, with an average flight duration of approximately 3 hours.",
   },
 ];
-const SingleAircraft = ({ match }) => {
+const SingleAircraftOverLay = ({ match }) => {
   let { id } = match.params;
   if(!id){
     id = JSON.parse(localStorage.getItem("aircract-id"));
@@ -56,25 +56,17 @@ const SingleAircraft = ({ match }) => {
 
 
   return (
-    <div className="aircraft-details-head mt-24">
-      <div className=" aircraft-details-head-inner   mr-auto ml-24 w-3/5">
+    <div className="p-2">
+      <div className="w-full">
         <div>
           <div className="">
-
-            <a className="text-black flex" href="/aircraft">
-              <KeyboardBackspaceIcon className="mr-3" />
-              <a href="/aircraft">Aircraft / </a>
-              <span className="px-1" onClick={() => { }}>
-                {aircraft[0]?.model}
-              </span>
-            </a>
-            <p className="text-black ac-name flex text-[36px] pt-4">
+            <p className="text-black ac-name flex text-[26px] pb-4">
               {aircraft[0]?.model}
             </p>
 
           </div>
         </div>
-        <div className="columns-2 w-full flex mt-12">
+        <div className="columns-2 w-full flex">
           <div className="">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-20">
               <div>
@@ -206,4 +198,4 @@ const SingleAircraft = ({ match }) => {
   );
 };
 
-export default withRouter(SingleAircraft);
+export default withRouter(SingleAircraftOverLay);

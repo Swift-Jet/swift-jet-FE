@@ -47,7 +47,6 @@ const SignIn = () => {
                     placeholder="Email"
                     class="focus:outline-none block w-full rounded-full placeholder-gray-500 bg-gray-100 dark:bg-gray-100 dark:border-rose-900 pl-12 pr-4 h-12 text-gray-600 transition duration-300 invalid:ring-2 invalid:ring-red-400 focus:ring-2 focus:ring-rose-900"
                     onChange={(e) => {
-                      console.log(e.target.value);
                       setEmail(e.target.value);
                     }}
                   />

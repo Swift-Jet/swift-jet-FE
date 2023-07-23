@@ -5,7 +5,6 @@ import { RxDotFilled } from 'react-icons/rx';
 
 
 function Gallery({aircraft_details}) {
-  console.log("aircraft_details", aircraft_details);
   const slides = [
     {
       url: "https://media.cntraveler.com/photos/581b8e750ee23d7b457512e9/master/w_3989,h_2655,c_limit/private-jet-tarmac-GettyImages-523476302.jpg",
