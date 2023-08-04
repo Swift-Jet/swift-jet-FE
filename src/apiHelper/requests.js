@@ -4,7 +4,7 @@ import axios from "axios";
 export const getToken = () => {
     axios
     .get(
-      `https://swift-jet-backend.onrender.com/api/v1/user/token-provider`
+      `https://swift-jet-backend-staging.onrender.com/api/v1/user/token-provider`
     )
     .then((res) => {
      let token = res?.data?.token

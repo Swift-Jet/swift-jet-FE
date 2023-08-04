@@ -25,6 +25,7 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
   const [phone_number, setPhoneNumber] = useState("");
   const [loading, setLoading] = useState(false);
   const [bannerSuggestion, setBannerSuggestion] = useState([]);
+  
   useEffect(() => {
     localStorage.setItem("quotes", JSON.stringify(bannerSuggestion));
   }, []);
@@ -67,9 +68,10 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
     };
   };
   const handleSubmit = () => {
+    localStorage.setItem("prevpath", JSON.stringify(location.pathname)); 
     setLoading(true);
     axios
-      .post("https://swift-jet-backend.onrender.com/api/v1/booking/add", booking_payload)
+      .post("https://swift-jet-backend-staging.onrender.com/api/v1/booking/add", booking_payload)
       .then((data) => {
         localStorage.removeItem("quotes");
         // localStorage.removeItem("bookingDetails");
@@ -80,6 +82,9 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
       })
       .catch((error) => {
         toastMsg(error?.response?.data?.error);
+        if(error?.response?.data?.error == "User details can not be empty"){
+          history.push("/signInlayout");
+        }
         setLoading(false);
       });
   };
@@ -418,6 +423,7 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
         {booking_details?.tripType === "Multi-city Trip" ? (
           <div class="w-full md:w-1/2 ">
             <div className="xl:container px-6 text-gray-600 md:px-12">
+              <div></div>
               <div className="flex flex-row justify-between p-5 bg-white align-center rounded-t-xl">
                 <p>Your Search</p>
                 <button
@@ -501,12 +507,11 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
                   </div>
                 );
               })}
-            </div>
-            <div className="flex flex-row justify-between p-5 bg-white align-center rounded-b-xl">
+               <div className="bg-white align-center rounded-b-xl p-2">
               {loading === false ? (
                 <button
                   type="button"
-                  class="text-white hover:text-white border border-rose-900 bg-rose-900 focus:ring-4 focus:outline-none focus:ring-rose-900 font-medium rounded-2xl text-sm px-5 py-2.5 text-center mr-2 mb-2 ml-2 dark:border-rose-900 dark:text-rose-900 dark:hover:text-white dark:hover:bg-rose-900 dark:focus:ring-rose-900"
+                  class="w-100 text-white hover:text-white border border-rose-900 bg-rose-900 focus:ring-4 focus:outline-none focus:ring-rose-900 font-medium rounded-2xl text-sm px-5 py-2.5 text-center dark:border-rose-900 dark:text-rose-900 dark:hover:text-white dark:hover:bg-rose-900 dark:focus:ring-rose-900"
                   onClick={() => {
                     handleBookingPayload();
                     handleSubmit();
@@ -517,7 +522,7 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
               ) : (
                 <button
                   type="button"
-                  class="text-white hover:text-white border border-rose-900 bg-rose-900 focus:ring-4 focus:outline-none focus:ring-rose-900 font-medium rounded-2xl text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-rose-900 dark:text-rose-900 dark:hover:text-white dark:hover:bg-rose-900 dark:focus:ring-rose-900"
+                  class="w-100 text-rose-900 hover:text-white border border-rose-900 hover:bg-rose-900 focus:ring-4 focus:outline-none focus:ring-rose-900 font-medium rounded-2xl text-sm text-center dark:border-rose-900 dark:text-rose-900 dark:hover:text-white dark:hover:bg-rose-900 dark:focus:ring-rose-900"
                 >
                   <div class="flex items-center justify-center">
                     <div
@@ -533,7 +538,7 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
               )}
               <button
                 type="button"
-                class="w-100 text-rose-900 hover:text-white border border-rose-900 hover:bg-rose-900 focus:ring-4 focus:outline-none focus:ring-rose-900 font-medium rounded-2xl text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-rose-900 dark:text-rose-900 dark:hover:text-white dark:hover:bg-rose-900 dark:focus:ring-rose-900"
+                class="w-100 mt-2 text-rose-900 hover:text-white border border-rose-900 hover:bg-rose-900 focus:ring-4 focus:outline-none focus:ring-rose-900 font-medium rounded-2xl text-sm px-5 py-2.5 text-center dark:border-rose-900 dark:text-rose-900 dark:hover:text-white dark:hover:bg-rose-900 dark:focus:ring-rose-900"
                 onClick={() => {
                   history.push("/");
                 }}
@@ -541,6 +546,8 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
                 Search Again
               </button>
             </div>
+            </div>
+           
           </div>
         ) : null}
 
@@ -669,7 +676,7 @@ export default function BasicGrid({ booking_details, aircraft_details }) {
                 <div>
                   <div class="md:5/12 lg:w-full flex flex-column gap-y-2 m-auto  ">
                     <div className="">
-                      <h1 className="text-2xl font-normal font-bold text-black">
+                      <h1 className="2xl:text-2xl xl:text-2xl lg:text-2xl md:text-xl sm:text-xl font-bold text-rose-900 pt-8">
                         Available Aircrafts
                       </h1>
 

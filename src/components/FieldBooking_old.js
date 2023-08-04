@@ -64,7 +64,6 @@ const FieldBooking = () => {
     endDate: null,
   });
 
-  const [valueTime, setValueTime] = useState("10:00");
 
   const check = () => {
     if (tripType === "One way Trip") {
@@ -75,7 +74,7 @@ const FieldBooking = () => {
         depatureTime === ""
       ) {
         setShowModal(false);
-        toastMsg("Fill all fields to continue");
+        toast("Fill all fields to continue", {type: "error"});
       } else {
         setShowModal(true);
   
@@ -91,7 +90,7 @@ const FieldBooking = () => {
         returningTime === ""
       ) {
         setShowModal(false);
-        toastMsg("Fill all fields to continue");
+        toast("Fill all fields to continue", {type: "error"});
       } else {
         setShowModal(true);
       }
@@ -104,7 +103,7 @@ const FieldBooking = () => {
         depatureTime === ""
       ) {
         setShowModal(false);
-        toastMsg("Fill all fields to continue");
+        toast("Fill all fields to continue", {type: "error"});
       } else {
         setShowModal(true);
       }
@@ -113,7 +112,6 @@ const FieldBooking = () => {
 
   const handleIncrement = (value, state) => {
     value = value + 1;
-
     state(value);
   };
   const handleDecrement = (value, state) => {
@@ -177,20 +175,6 @@ const FieldBooking = () => {
     returningTime,
   };
 
-  // const searchItems = (searchValue) => {
-  //   setSearchInput(searchValue);
-  //   if (searchInput !== "") {
-  //     filteredData = airports.filter((item) => {
-  //       return Object.values(item)
-  //         .join("")
-  //         .toLowerCase()
-  //         .includes(searchInput.toLowerCase());
-  //     });
-  //     setFilteredResults(filteredData);
-  //   } else {
-  //     setFilteredResults([]);
-  //   }
-  // };
   const options = airports.map((item, i) => ({
     label:
       item.name +

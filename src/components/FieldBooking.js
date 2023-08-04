@@ -163,160 +163,52 @@ const FieldBooking = () => {
     formData,
 
   };
-  const teamData = [
+  const popularDestinations = [
     {
-      img: "https://previews.123rf.com/images/marynag/marynag1708/marynag170800012/83707347-wisconsin-state-capitol-building-national-historic-landmark-madison-wisconsin-usa-square.jpg",
-      name: "London",
-      position: "$4 / Bag",
-      socials: [
-        {
-          color: "light-blue",
-          name: "twitter",
-        },
-        {
-          color: "blue",
-          name: "facebook",
-        },
-        {
-          color: "pink",
-          name: "dribbble",
-        },
-      ],
+      name: "Paris, France",
+      imageLink: "https://www.travelandleisure.com/thmb/jmvOuFx8adaJTqhi6xKub-hFYEc=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/7-paris-social-niche1115-c0245573f1a8440da95ba8bd2fa82d7c.jpg",
+      description: "Paris, the 'City of Light,' is famous for its iconic Eiffel Tower, charming cafes, art museums like the Louvre, and romantic ambiance along the Seine River."
     },
     {
-      img: "https://previews.123rf.com/images/marynag/marynag1708/marynag170800012/83707347-wisconsin-state-capitol-building-national-historic-landmark-madison-wisconsin-usa-square.jpg",
-      name: "New York",
-      position: "$4 / Bag",
-      socials: [
-        {
-          color: "light-blue",
-          name: "twitter",
-        },
-        {
-          color: "blue",
-          name: "facebook",
-        },
-        {
-          color: "pink",
-          name: "dribbble",
-        },
-      ],
+      name: "New York City, USA",
+      imageLink: "https://t3.ftcdn.net/jpg/02/09/70/56/360_F_209705645_b78HGJI1i1mxqLwMYA7z1m3VvCxgxJFO.jpg",
+      description: "New York City, the 'Big Apple,' is a bustling metropolis with renowned landmarks like Times Square, Central Park, Statue of Liberty, and a vibrant arts and culinary scene."
     },
     {
-      img: "https://previews.123rf.com/images/marynag/marynag1708/marynag170800012/83707347-wisconsin-state-capitol-building-national-historic-landmark-madison-wisconsin-usa-square.jpg",
-      name: "Paris",
-      position: "$4 / Bag",
-      socials: [
-        {
-          color: "light-blue",
-          name: "twitter",
-        },
-        {
-          color: "blue",
-          name: "facebook",
-        },
-        {
-          color: "pink",
-          name: "dribbble",
-        },
-      ],
+      name: "Tokyo, Japan",
+      imageLink: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSI0mZe1yumnLY7BwbSYA6L_B-oCrFLfZtqCANGJmgk&s",
+      description: "Tokyo, Japan's capital, is a futuristic city known for its cutting-edge technology, rich culture, bustling street markets, and historic temples."
     },
     {
-      img: "https://previews.123rf.com/images/marynag/marynag1708/marynag170800012/83707347-wisconsin-state-capitol-building-national-historic-landmark-madison-wisconsin-usa-square.jpg",
-      name: "United Kingdom",
-      position: "$4 / Bag",
-      socials: [
-        {
-          color: "light-blue",
-          name: "twitter",
-        },
-        {
-          color: "blue",
-          name: "facebook",
-        },
-        {
-          color: "pink",
-          name: "dribbble",
-        },
-      ],
+      name: "Rome, Italy",
+      imageLink: "https://media.istockphoto.com/id/1388018793/photo/grand-canal-in-venice.jpg?s=612x612&w=0&k=20&c=uDUrctquPNUPzlpNLwTkJIkc1Gig0aUWJknF6FrqxJE=",
+      description: "Rome, the 'Eternal City,' boasts ancient ruins like the Colosseum, stunning architecture, Vatican City, and delectable Italian cuisine."
     },
     {
-      img: "https://previews.123rf.com/images/marynag/marynag1708/marynag170800012/83707347-wisconsin-state-capitol-building-national-historic-landmark-madison-wisconsin-usa-square.jpg",
-      name: "England",
-      position: "$4 / Bag",
-      socials: [
-        {
-          color: "light-blue",
-          name: "twitter",
-        },
-        {
-          color: "blue",
-          name: "facebook",
-        },
-        {
-          color: "pink",
-          name: "dribbble",
-        },
-      ],
+      name: "Barcelona, Spain",
+      imageLink: "https://media.istockphoto.com/id/670888198/photo/view-of-the-sea-from-a-height-pe%C3%B1%C3%ADscola-castell%C3%B3n-spain-beautiful-view-of-the-sea-and-the-bay.jpg?s=612x612&w=0&k=20&c=VHW6qqIbLYIdB9Ajb9m8fDrArjjUPywffgn55zUs3JU=",
+      description: "Barcelona, a vibrant coastal city, offers unique architecture by Gaudi, beautiful beaches, lively street performers, and a rich Catalan culture."
     },
     {
-      img: "https://previews.123rf.com/images/marynag/marynag1708/marynag170800012/83707347-wisconsin-state-capitol-building-national-historic-landmark-madison-wisconsin-usa-square.jpg",
-      name: "Manchester",
-      position: "$4 / Bag",
-      socials: [
-        {
-          color: "light-blue",
-          name: "twitter",
-        },
-        {
-          color: "blue",
-          name: "facebook",
-        },
-        {
-          color: "pink",
-          name: "dribbble",
-        },
-      ],
+      name: "Cape Town, South Africa",
+      imageLink: "https://media.istockphoto.com/id/620737858/photo/cape-town-and-the-12-apostels-from-above.jpg?s=612x612&w=0&k=20&c=WPP0CFtX4y-eHwplbZ1DvPP9bnGjjpz4U4ZZvj8i8Tc=",
+      description: "Cape Town, a picturesque city, is famed for Table Mountain, stunning beaches, diverse wildlife, and a blend of African and European influences."
     },
     {
-      img: "https://previews.123rf.com/images/marynag/marynag1708/marynag170800012/83707347-wisconsin-state-capitol-building-national-historic-landmark-madison-wisconsin-usa-square.jpg",
-      name: "Burginham",
-      position: "$4 / Bag",
-      socials: [
-        {
-          color: "light-blue",
-          name: "twitter",
-        },
-        {
-          color: "blue",
-          name: "facebook",
-        },
-        {
-          color: "pink",
-          name: "dribbble",
-        },
-      ],
+      name: "Sydney, Australia",
+      imageLink: "https://a.cdn-hotels.com/gdcs/production5/d1996/54fdb73f-eee5-4612-a3e7-6fc7ed2f7bee.jpg?impolicy=fcrop&w=800&h=533&q=medium",
+      description: "Sydney, Australia's largest city, charms visitors with the iconic Sydney Opera House, beautiful harbor, Bondi Beach, and a thriving arts scene."
     },
-
     {
-      img: "https://previews.123rf.com/images/marynag/marynag1708/marynag170800012/83707347-wisconsin-state-capitol-building-national-historic-landmark-madison-wisconsin-usa-square.jpg",
-      name: "London",
-      position: "$4 / Bag",
-      socials: [
-        {
-          color: "light-blue",
-          name: "twitter",
-        },
-        {
-          color: "blue",
-          name: "facebook",
-        },
-        {
-          color: "pink",
-          name: "dribbble",
-        },
-      ],
+      name: "Bali, Indonesia",
+      imageLink: "https://media.istockphoto.com/id/653953140/photo/hindu-temple-in-bali.webp?b=1&s=170667a&w=0&k=20&c=-Zo3LO0CI8fbtwkUUH50QJ0wtVjzGj1aCtfRIHDI5uQ=",
+      description: "Bali, the 'Island of the Gods,' offers lush landscapes, ancient temples, stunning rice terraces, and vibrant cultural celebrations."
     },
+    {
+      name: "Dubai, United Arab Emirates",
+      imageLink: "https://media.istockphoto.com/id/467829216/photo/dubai-marina.jpg?s=612x612&w=0&k=20&c=5KNh7wGSoP9i-UJzT-LtUfXgLHKKoBlPAK67R0LHRQY=",
+      description: "Dubai, a city of opulence, boasts futuristic skyscrapers, luxury shopping, desert safaris, and unique attractions like the Palm Jumeirah."
+    }
   ];
 
   const handleIncrement = (value, state) => {
@@ -353,7 +245,7 @@ const FieldBooking = () => {
         newErrors.push(`Leg ${index + 1}: Please fill in all required fields.`);
       }
       setErrors(newErrors);
-      toastMsg(`Leg ${index + 1}: Please fill in all required fields.`);
+      toast(`Leg ${index + 1}: Please fill in all required fields.`, {type:"error", theme: "colored"});
     });
 
     return newErrors.length === 0;
@@ -386,7 +278,7 @@ const FieldBooking = () => {
           data-aos-duration="2000"
           data-aos-easing="ease-out-cubic"
         >
-          We Are The Best Host For The Journey
+          Embark on Unforgettable Journeys with the Ultimate Host
           <h4
             className="text-white text-[17px] pt-8 advert-1 w-1/2"
             data-aos="fade-right"
@@ -394,8 +286,8 @@ const FieldBooking = () => {
             data-aos-offset="300"
             data-aos-easing="ease-in-sine"
           >
-            We provide the best flying experience for you. We help you who want
-            to travel privately to have easy access to private jet.
+            Welcome to a world where every journey is an extraordinary experience!
+            <br></br>We take immense pride in being your ultimate host, dedicated to curating unforgettable adventures and making your travel dreams come true.
           </h4>
         </div>
         <div
@@ -453,7 +345,7 @@ const FieldBooking = () => {
                 setAddReturnBtn(true);
                 localStorage.removeItem("bookingDetails");
               }}
-              class="flex 2xl:py-3 xl:py-3 lg:py-3 md:py-3 sm:py-2 px-4 mr-2 ml-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-[#5C0632] hover:border-[#ffffff] hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 0 dark:text-[#5C0632] dark:border-gray-600 dark:hover:text-white dark:hover:bg-[#5C0632] ac-button"
+              class="flex 2xl:py-3 xl:py-3 lg:py-3 md:py-3 sm:py-2 px-4 mr-2 ml-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-[#5C0632] hover:border-[#ffffff] active:bg-gray-100 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 0 dark:text-[#5C0632] dark:border-gray-600 dark:hover:text-white dark:hover:bg-[#5C0632] ac-button"
               id=""
             >
               <ConnectingAirportsIcon />
@@ -1211,9 +1103,14 @@ const FieldBooking = () => {
         <div className="bg-white w-full text-left font-Aeonik text-rgba(77,77,77,1)" >
           {flights && flights.length > 0 ? (
             <div className="">
-              <h2 className="bg-[#ffffff] text-center text-[2em] pt-24">
-                Empty Legs
+           <div className="lg:w-3/5 md:w-3/5 xl:w-3/5 2xl:w-3/5 ml-auto mr-auto text-center sm:w-4/5">
+           <h2 className="bg-[#ffffff] text-center text-[2em] pt-24">
+                Empty Leg Services: Unbeatable Luxury and Value in Private Aviation
               </h2>
+              <p className="bg-[#ffffff] text-center text-[1em] pt-12">
+                We redefine private aviation with our exclusive Empty Leg Services. Empty Legs are unique opportunities that arise when a private jet returns to its home base without passengers, offering savvy travelers like you luxury travel at reduced rates. Experience opulence without compromise, global access, and flexibility to various destinations. Enjoy the thrill of private jet travel without breaking the bank, making your dreams a reality. We prioritize transparency, keeping you informed of available Empty Legs, and updating our inventory regularly. Seize the moment and elevate your travel experience with our Empty Leg Services. Book your spot today and embark on a journey that redefines luxury travel in an affordable way.
+              </p>
+           </div>
               <Slide
                 slidesToScroll={4}
                 slidesToShow={4}
@@ -1325,9 +1222,7 @@ const FieldBooking = () => {
             data-aos-offset="300"
             data-aos-easing="ease-in-sine"
           >
-            We give you access to a safety & service accredited aircraft fleet
-            for Jet Card and on-demand flights. As an Argus Certified Broker, we
-            work to the highest industry standards of safety and best practice.
+            Looking for a reliable and safe private jet service? Look no further! We offer exclusive access to our top-notch aircraft fleet, meticulously accredited for Jet Card and on-demand flights. As a Certified Broker, we prioritize safety and adhere to the highest industry standards, ensuring a journey that exceeds your expectations.
           </p>
         </div>
         <div
@@ -1354,16 +1249,14 @@ const FieldBooking = () => {
       </div>
       <div className="bg-white">
         <div
-          className="w-1/2 ml-auto mr-auto text-center"
+          className="2xl:w-1/2 xl:w-1/2 lg:w-1/2 md:w-4/5 sm:w-4/5 ml-auto mr-auto text-center"
           data-aos="1000"
           data-aos-duration="2000"
           data-aos-easing="ease-out-cubic"
         >
-          <h3 className=" text-[2em] pt-12">We Fly You Anywhere. Any time</h3>
+          <h3 className=" text-[2em] pt-12">Your Gateway to Seamless Private Flights Worldwide</h3>
           <p className="text-[1em] pt-6">
-            Swift Jets offers private flights between any global airports.
-            Discover your closest private jet airports, see example pricing,
-            destination facts & more.
+            Swift Wings is a premier provider of private flights connecting global airports, offering unmatched convenience and exclusivity for luxury travel. With an extensive network of private jet airports, they provide tailored flights to virtually any destination worldwide. Swift Wings emphasizes seamless travel planning with transparent pricing, destination insights, and a commitment to safety and excellence. Experience the Swift Wings difference by booking your personalized private flight today and embark on a journey that exceeds all expectations.
           </p>
         </div>
 
@@ -1373,9 +1266,9 @@ const FieldBooking = () => {
           data-aos-duration="1000"
           data-aos-easing="ease-in-cubic"
         >
-          {teamData.slice(0, 3).map((data, i) => (
-            <div className="pl-8 pr-8">
-              <Card img={data.img} name={data.name} />
+          {popularDestinations.slice(1, 4).map((data, i) => (
+            <div className="p-4">
+              <Card img={data.imageLink} name={data.name} />
             </div>
           ))}
         </div>

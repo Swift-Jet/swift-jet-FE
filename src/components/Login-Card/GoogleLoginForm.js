@@ -11,7 +11,7 @@ function GoogleLoginForm() {
   const history = useHistory();
   const getToken = () => {
     axios
-      .get(`https://swift-jet-backend.onrender.com/api/v1/user/token-provider`)
+      .get(`https://swift-jet-backend-staging.onrender.com/api/v1/user/token-provider`)
       .then((res) => {
         setToken(res?.data?.token);
       })

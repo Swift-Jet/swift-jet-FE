@@ -35,6 +35,7 @@ import BlogList from "./components/Blog/BlogList";
 import SingleBlog from './components/Blog/SingleBlog';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import SingleBooking from "./components/single-booking/SingleBooking";
+import EmptyLegs from "./components/single-booking/emptyLegs";
 
 /* How the Import looks on the single project */
 
@@ -79,6 +80,7 @@ const App = () => {
       <Route path="/blogList" component={BlogList} ></Route>
       <Route path="/blogDetails/:id" component={SingleBlog}></Route>
       <Route path="/single-booking" component={SingleBooking}></Route>
+      <Route path="/empty-legs" component={EmptyLegs}></Route>
     </Switch>
   );
 };

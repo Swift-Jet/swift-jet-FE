@@ -37,7 +37,7 @@ const EstimateLayout = () => {
             </button>
             <div className="mt-10">
               <div className="">
-                <h1 className="text-2xl font-bold text-rose-900">
+                <h1 className="2xl:text-2xl xl:text-2xl lg:text-2xl md:text-xl sm:text-xl font-bold text-rose-900">
                   Estimated Price For Your Flight
                 </h1>
               </div>

@@ -23,13 +23,13 @@ const RegisterUser = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post(`https://swift-jet-backend.onrender.com/api/v1/user/add`, data)
+      .post(`https://swift-jet-backend-staging.onrender.com/api/v1/user/add`, data)
       .then((data) => {
-        toastMsg(data?.data.message);
+        toast(data?.data.message, {type:"success", theme: "colored"});
         e.target.reset();
       })
       .catch((error) => {
-        toastMsg(error?.response?.data?.error);
+        toast(error?.response?.data?.error, {type:"error", theme: "colored"});
       });
   };
   return (

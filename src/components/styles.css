@@ -123,6 +123,15 @@
   width: 100% !important;
   justify-content: center;
   color: #961054;
+  
+}
+
+.ac-button:focus {
+  width: 100% !important;
+  justify-content: center;
+  color: #fff;
+  background-color: #961054 !important;
+  
 }
 
 input[type="date"]::-webkit-inner-spin-button,

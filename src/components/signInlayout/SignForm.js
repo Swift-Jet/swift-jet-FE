@@ -29,7 +29,7 @@ const SignForm = () => {
     setLoading(true);
     e.preventDefault();
     axios
-      .post(`https://swift-jet-backend.onrender.com/api/v1/user/login`, data)
+      .post(`https://swift-jet-backend-staging.onrender.com/api/v1/user/login`, data)
       .then((data) => {
         localStorage.setItem("user", JSON.stringify(data?.data?.data));
         localStorage.setItem("authenticated", JSON.stringify(true));
@@ -40,7 +40,7 @@ const SignForm = () => {
       })
       .catch((error) => {
         setLoading(false);
-        toastMsg(error?.response?.data?.error);
+        toast(error?.response?.data?.error, {type:"success", theme:"colored"});
       });
   };
   return (

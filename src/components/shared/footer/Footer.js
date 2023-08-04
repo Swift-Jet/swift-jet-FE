@@ -1,20 +1,40 @@
 import { FlightClass, FlightTakeoffOutlined, Send, Mail } from "@mui/icons-material";
-import React, {useRef} from "react";
+import React, { useRef, useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import axios from "axios";
 import "./aircraft-input.css";
+
 
 const Footer = () => {
   const pageBottomRef = useRef(null);
-
-  // const handleButtonClick = () => {
-  //   pageBottomRef.current.scrollIntoView({ behavior: 'smooth' });
-  // };
+  const [email, setEmail] = useState("");
+  const [loading, setLoading] = useState("");
+  const toastMsg = (message) => toast(message);
+  const data = { email }
+  const handleSubmit = (e) => {
+    setLoading(true);
+    e.preventDefault();
+    axios
+      .post(`https://swift-jet-backend-staging.onrender.com/api/v1/subscribe/add`, data)
+      .then((data) => {
+        toast(data.data.message, {type:"success", theme: "colored"});
+        setLoading(false);
+        e.target.reset();
+      })
+      .catch((error) => {
+        setLoading(false);
+        toast(error?.response?.data?.error, {type:"error", theme: "colored"});
+      });
+  };
   return (
+  
     <div class="flex items-end w-full bg-white font">
-      <footer ref={pageBottomRef}  class="w-full text-gray-700 bg-[#5c0632] body-font">
+        <ToastContainer />
+      <footer ref={pageBottomRef} class="w-full text-gray-700 bg-[#5c0632] body-font">
         <div class="container flex flex-col flex-wrap px-5 py-24 mx-auto md:items-center lg:items-start md:flex-row md:flex-no-wrap">
           <div class="flex-shrink-0 w-64 mx-auto text-center md:mx-0 md:text-left">
             <a class="flex items-center justify-center font-medium text-white title-font md:justify-start">
-            
+
             </a>
             <p class="mt-2 text-xl text-white">Book, Fly and Explore!</p>
             <div class="mt-4">
@@ -88,7 +108,7 @@ const Footer = () => {
             <div class="w-full px-4 lg:w-1/4 md:w-1/2">
               <h2 class="mb-3 text-2xl font-medium tracking-widest text-white uppercase title-font">
                 About
-                
+
               </h2>
               <nav class="mb-10 list-none">
                 <li class="mt-3">
@@ -119,7 +139,7 @@ const Footer = () => {
                   </a>
                 </li>
                 <li class="mt-3">
-                  <a  href="/contact" class="text-white cursor-pointer  text-lg hover:text-white">
+                  <a href="/contact" class="text-white cursor-pointer  text-lg hover:text-white">
                     Help Resources
                   </a>
                 </li>
@@ -154,24 +174,24 @@ const Footer = () => {
             </div>
             <div class="w-full px-4 lg:w-1/4 md:w-1/2">
               <h2 class="mb-3 text-2xl font-medium tracking-widest text-white uppercase title-font">
-              
+
                 Contact
-              
+
               </h2>
               <nav class="mb-10 list-none">
                 <li class="mt-3">
-                  <a  href="/contact" class="text-white cursor-pointer  text-lg hover:text-white">
+                  <a href="/contact" class="text-white cursor-pointer  text-lg hover:text-white">
                     Send a Message
                   </a>
                 </li>
                 <li class="mt-3">
-                  <a  href="/contact" class="text-white cursor-pointer  text-lg hover:text-white">
+                  <a href="/contact" class="text-white cursor-pointer  text-lg hover:text-white">
                     Request a Quote
                   </a>
                 </li>
                 <li class="mt-3">
                   <a class="text-white cursor-pointer  text-lg hover:text-white">
-                  info@swiftwings.com or +2348058444378
+                    support@swiftwings.com or +(234)9028 792 910
                   </a>
                 </li>
               </nav>
@@ -179,12 +199,12 @@ const Footer = () => {
           </div>
         </div>
 
-  
+
 
         <footer class="bg-secondary-100 text-center dark:bg-secondary-600">
           <div class="px-6 pt-6">
             <form action="">
-              <div class="gird-cols-1 grid items-center justify-center gap-4 md:grid-cols-3">
+              <div class="gird-cols-1 grid items-center gap-4 md:grid-cols-3">
                 <div class="md:mb-6 md:ml-auto">
                   <p class="text-white">
                     <strong>Sign up for our newsletter</strong>
@@ -192,32 +212,36 @@ const Footer = () => {
                 </div>
 
                 <div class="mb-6">
-              <input
-                type="email"
-                placeholder="Email"
-                class="text-body-color text-xs border-[f0f0f0] focus:border-[#961054] w-full contact-input rounded border p-2.5 text-base outline-none focus-visible:shadow-none"
-              />
-            </div>
+                  <input
+                    type="email"
+                    placeholder="Email"
+                    onChange={(e) => {
+                      setEmail(e.target.value)
+                    }}
+                    class="text-body-color text-xs border-[f0f0f0] focus:border-[#961054] w-full contact-input rounded border p-2.5 text-base outline-none focus-visible:shadow-none"
+                  />
+                </div>
 
                 <div class="mb-6 md:mr-auto">
-                <button
-                type="submit"
-                class="bg-[#fff]  w-full rounded border px-4 py-1.5 text-[#961054] transition hover:bg-opacity-90"
-              >
-                Subscribe < Mail className='ml-2'/>
-              </button>
+                  <button
+                    type="submit"
+                    onClick={handleSubmit}
+                    class="bg-[#fff]  w-full rounded border px-4 py-1.5 text-[#961054] transition hover:bg-opacity-90"
+                  >
+                    Subscribe < Mail className='ml-2' />
+                  </button>
                 </div>
               </div>
             </form>
           </div>
 
           <div class="bg-gray-300">
-          <div class="container px-5 py-4 mx-auto">
-            <p class="text-sm text-gray-700 capitalize xl:text-center">
-              © 2023 All rights reserved{" "}
-            </p>
+            <div class="container px-5 py-4 mx-auto">
+              <p class="text-sm text-gray-700 capitalize xl:text-center">
+                © 2023 All rights reserved{" "}
+              </p>
+            </div>
           </div>
-        </div>
         </footer>
       </footer>
     </div>

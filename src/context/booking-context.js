@@ -9,7 +9,7 @@ const BookingsContextProvider = ({ children }) => {
   useEffect(() => {
     async function fetchData() {
       const { data } = await axios.get(
-        `https://swift-jet-backend.onrender.com/api/v1/booking/all`
+        `https://swift-jet-backend-staging.onrender.com/api/v1/booking/all`
       );
       setBookings(data?.data);
     }

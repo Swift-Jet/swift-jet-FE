@@ -62,9 +62,9 @@ const AircraftList = () => {
     <div>
       <div className="aircraft-list-head ">
         <div className="alh-links justify-between flex w-4/5">
-          <p className="text-white flex mt-3">
+          {/* <p className="text-white flex mt-3 ">
             All Aircraft 
-          </p>
+          </p> */}
           <div className="dropdown dropdown-end dropdown-hover">
             {/* <label
               tabIndex={0}
@@ -90,12 +90,9 @@ const AircraftList = () => {
         </div>
       </div>
       <div className="bg-white">
-        <div className="mt-24  ml-auto mr-auto w-4/5">
-          <h2 className="pb-3 text-[#5C0632] text-[2rem] text-bold alh-title">
-            {link}
-          </h2>
-          <p className="alh-desc-stn 2xl:w-1/2 xl:w-1/2 lg:w-1/2 md:w-1/2 sm:w-full">
-            {description}
+        <div className="mt-16  ml-auto mr-auto w-4/5">
+          <p className="alh-desc-stn 2xl:w-3/5 xl:w-3/5 lg:w-3/5 md:w-3/5 sm:w-full">
+          Welcome to Swift Wings, where you'll find an exceptional fleet of state-of-the-art aircraft tailored to exceed all your jet service demands. Experience uncompromising elegance, versatility, and seamless connectivity with our diverse and modern jets, designed to elevate your flying experience. Your safety is our top priority, with rigorous maintenance and experienced pilots ensuring efficient and secure flights. We take pride in customizing your journey with personalized amenities and schedules. Choose from eco-friendly options, and enjoy global access to any destination. Trust our reliable reputation, and indulge in the luxury of choice as you book your personalized jet service. Contact us now to unlock a world of luxury and convenience, creating memories that last a lifetime.
           </p>
         </div>
         <div className="mt-24 grid grid-cols-1 gap-12 gap-x-24 md:grid-cols-2 xl:grid-cols-3 ml-auto mr-auto w-4/5">

@@ -85,8 +85,8 @@ const Terms = () => {
                                     </p>
                                     <p>
                                         If you have any questions or comments about these Terms of Use, please contact us at
-                                        info@swiftjetscs.org.
-                                        Last updated: 24th April, 2023.
+                                        Support@swiftwingsjet.com.
+                                      
                                     </p>
                                 </div>
                                 </AccordionPanel>
@@ -170,7 +170,7 @@ const Terms = () => {
                                     <h1>VIII. Contact Us</h1>
                                     <p className="mb-4">
 
-                                        If you have any questions about this Privacy Policy, please contact us at info@swiftjetscs.org
+                                        If you have any questions about this Privacy Policy, please contact us at support@swiftwingsjet.com
                                     </p>
                                     </div>
                                 </AccordionPanel>
@@ -224,8 +224,14 @@ const Terms = () => {
 
                                     <p className='mb-4'>
                                     Follow us on our social media channels to stay up-to-date on our latest news and updates:
-                                        ● Twitter: @SwiftWings_Jets
-                                        ● Instagram: @Swift_jetcharterservice
+                                    <br></br>
+                                    <br></br>
+                                        ● Twitter: @swiftwingsjets
+                                        <br></br>
+                                        <br></br>
+                                        ● Instagram:@swiftwingsjets
+                                        <br></br>
+                                        <br></br>
                                         Thank you for your interest in Swift Wings Limited. We look forward to working with you
                                     </p>
                                     </div>

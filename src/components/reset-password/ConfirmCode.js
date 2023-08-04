@@ -14,14 +14,14 @@ const ConfirmCode = ({match}) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post(`https://swift-jet-backend.onrender.com/api/v1/user/forgot-password`, data)
+      .post(`https://swift-jet-backend-staging.onrender.com/api/v1/user/forgot-password`, data)
       .then((data) => {
-      toast(data?.data?.message)
+      toast(data?.data?.message, {type:"success", theme: "colored"})
         e.target.reset();
         setPassword("")
       })
       .catch((error) => {
-        toast(error?.response?.data?.error)
+        toast(error?.response?.data?.error, {type:"error", theme: "colored"})
       });
   };
   return (

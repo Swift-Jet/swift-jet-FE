@@ -8,7 +8,7 @@ const SummaryContextProvider = ({ children }) => {
   useEffect(() => {
     async function fetchData() {
       const { data } = await axios.get(
-        `https://swift-jet-backend.onrender.com/api/v1/admin/summary`
+        `https://swift-jet-backend-staging.onrender.com/api/v1/admin/summary`
       );
       setSummary(data?.data);
     }
